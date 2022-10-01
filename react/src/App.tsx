@@ -2,11 +2,15 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 import { GenericTextInput } from "./components/inputs"
+import { GenericTextArea } from "./components/inputs"
 
 
 function App() {
   return (
-    <GenericTextInput/>
+    <div>
+      <GenericTextInput/>
+      <GenericTextArea/>
+    </div>
   )
 }
 
