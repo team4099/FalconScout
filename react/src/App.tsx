@@ -1,13 +1,16 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
-import { GenericTextInput } from "./components/inputs"
+import { DropdownTextInput, GenericTextInput } from "./components/inputs"
 
 
 function App() {
-  return (
-    <GenericTextInput/>
-  )
+	return (
+		<div>
+			<GenericTextInput/>
+			<DropdownTextInput/>
+		</div>
+	)
 }
 
 export default App
