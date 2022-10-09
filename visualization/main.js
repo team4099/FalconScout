@@ -1,24 +1,9 @@
 import ApexCharts from 'apexcharts'
 import { BarGraph } from './components/BarGraph';
+import { CalculatedStats } from './data_processing/CalculatedStats';
 
-const data = await fetch('iri_data.json').then(response => response.json())
-
-function getAvrDriverRating(team){
-  try {
-    var values = 0
-    var total = 0
-
-    for (const x of data[team]) { 
-      total += x["Driver Rating"]; 
-      values += 1
-    }
-	
-	  return (total/values).toFixed(2)
-  }
-  catch {
-    return 0
-  }
-}
+var data = await fetch('iri_data.json').then(response => response.json())
+var stats = new CalculatedStats(data)
 
 var driverRating = new BarGraph(
   "visBox",
@@ -28,7 +13,7 @@ var driverRating = new BarGraph(
     }
   },
   {
-    formula: getAvrDriverRating,
+    formula: function(team) {return stats.getAvrDriverRating(team)},
     selectedOptions: [4099, 118, 180],
     allOptions: [33, 2056, 4499, 2468, 4099, 118, 180]
   }
