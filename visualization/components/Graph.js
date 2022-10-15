@@ -5,6 +5,8 @@ class Graph {
         this.id = id
         this.state = state
 
+        console.log(state)
+
         this.graph = new ApexCharts(
             document.querySelector("#" + id),
             this.state
