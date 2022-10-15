@@ -3,9 +3,10 @@ import { BarGraph } from './components/BarGraph';
 import { LineGraph } from './components/LineGraph';
 import { ScatterGraph } from './components/ScatterGraph';
 import { PieGraph } from './components/PieGraph';
-import { CalculatedStats } from './data_processing/CalculatedStats';
+import { CalculatedStats } from './data/CalculatedStats';
+import { Selections, Queries } from './data/Constants';
 
-var data = await fetch('iri_data.json').then(response => response.json())
+var data = await fetch('data/iri_data.json').then(response => response.json())
 var stats = new CalculatedStats(data)
 
 var driverRating = new BarGraph(
@@ -18,7 +19,7 @@ var driverRating = new BarGraph(
   {
     formula: function(team) {return stats.getAvrDriverRating(team)},
     selectedOptions: [4099, 118, 180],
-    allOptions: [33, 2056, 4499, 2468, 4099, 118, 180, 340]
+    allOptions: Selections.TEAMS
   }
 )
 
@@ -26,9 +27,9 @@ var shooterOverTime = new LineGraph(
   "lineBox",
   {},
   {
-    formula: function(team) {return stats.getScoreData(team, "Teleop Upper Hub")},
+    formula: function(team) {return stats.getScoreData(team, Queries.TELEOP_UPPER_HUB)},
     selectedOption: 2056,
-    allOptions: [33, 2056, 4499, 2468, 4099, 118, 180, 340]
+    allOptions: Selections.TEAMS
   }
 )
 
@@ -36,10 +37,10 @@ var goodShooters = new ScatterGraph(
   "scatterBox",
   {},
   {
-    formulaX: function(team) {return stats.getScoreData(team, "Teleop Upper Hub")},
-    formulaY: function(team) {return stats.getScoreData(team, "Auto Upper Hub")},
+    formulaX: function(team) {return stats.getScoreData(team, Queries.TELEOP_UPPER_HUB)},
+    formulaY: function(team) {return stats.getScoreData(team, Queries.AUTO_UPPER_HUB)},
     selectedOptions: [4099, 2056],
-    allOptions: [33, 2056, 4499, 2468, 4099, 118, 180, 340]
+    allOptions: Selections.TEAMS
   }
 )
 
@@ -47,8 +48,8 @@ var gameContribution = new PieGraph(
   "pieBox",
   {},
   {
-    formula: function(match) {return stats.getMatchAllianceData(match, "Teleop Upper Hub", "Red")},
+    formula: function(match) {return stats.getMatchAllianceData(match, Queries.TELEOP_UPPER_HUB, Selections.RED)},
     selectedOption: "qm1",
-    allOptions: ["qm1", "qm2", "qm3", "qm4"]
+    allOptions: Selections.MATCHES
   }
 )

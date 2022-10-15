@@ -98,8 +98,6 @@ class ScatterGraph {
         this.generateData()
 
         this.graph.state.series = this.generatedData
-
-        console.log(this.xAxis, this.yAxis)
     }
 }
 
