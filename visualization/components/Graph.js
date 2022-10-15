@@ -1,34 +1,38 @@
 import ApexCharts from 'apexcharts'
 
 class Graph {
-    constructor(id, chartOptions, plotOptions, seriesOptions) {
+    constructor(id, state) {
         this.id = id
-        this.options = {
-            chart: chartOptions,
-            plotOptions: plotOptions,
-            series: seriesOptions
-        }
-        this.graph =  new ApexCharts(
+        this.state = state
+
+        this.graph = new ApexCharts(
             document.querySelector("#" + id),
-            this.options
+            this.state
         );
 
-        this.graph.render();
+        this.graph.render()
+
+        this.oldState = {
+            keys: [],
+            values: []
+        }
+
+        self = this
+        this.anonCheck = function () {self.checkChange()}
+
+        setInterval(this.anonCheck, 100)
     }
 
-    set chart(chartOptions){
-        this.options.chart = chartOptions
-        this.graph.updateOptions(this.options)
-    }
+    checkChange() {
+        var stateKeys = Object.keys(this.state);
+        var stateValues = Object.values(this.state);
 
-    set plotOptions(plotOptions){
-        this.options.plotOptions = plotOptions
-        this.graph.updateOptions(this.options)
-    }
+        if (!( JSON.stringify(this.oldState.keys) == JSON.stringify(stateKeys) && JSON.stringify(this.oldState.values) == JSON.stringify(stateValues))){
+            this.graph.updateOptions(this.state)
+        }
 
-    set series(seriesOptions){
-        this.options.series = seriesOptions
-        this.graph.updateOptions(this.options)
+        this.oldState.keys = Object.keys(this.state)
+        this.oldState.values = Object.values(this.state)
     }
 
 

@@ -1,6 +1,6 @@
 import { Graph } from "./Graph"
 
-class BarGraph {
+class LineGraph {
     constructor(id, plotOptions, dataOptions) {
         this.uuid = Math.random().toString(36).substr(2, 9)
 
@@ -17,8 +17,8 @@ class BarGraph {
 
         this.formula = dataOptions.formula
 
-        this.selectedColumnOptions = dataOptions.selectedOptions
-        this.allColumnOptions = dataOptions.allOptions
+        this.selectedOption = dataOptions.selectedOption
+        this.allOptions = dataOptions.allOptions
 
         this.generateData()
 
@@ -26,46 +26,41 @@ class BarGraph {
             id,
             {
                 chart: {
-                    type: 'bar',
+                    type: 'line',
                     zoom: {
-                        enabled: true
+                        enabled: false
                     }
                 },
                 plotOptions: plotOptions,
                 series: [{
-                    data: this.seriesOptions
-                }]
+                    name: this.selectedOption.toString(),
+                    data: this.yAxis
+                }],
+                xaxis: {
+                    categories: this.xAxis,
+                }
             }
         )
 
     }
 
     generateData() {
-        this.seriesOptions = []
-
-        for (const selected of this.selectedColumnOptions) {
-            this.seriesOptions.push(
-                {
-                    x: selected.toString(),
-                    y: this.formula(selected)
-                }
-            )
-        }
+        [this.xAxis, this.yAxis] = this.formula(this.selectedOption)
     }
 
     setupEdit() {
-        var formString = ``
+        var formString = `<fieldset class="space-y-6">`
 
         var self = this
         document.getElementById("getEditedData").addEventListener("click", function () {
             self.pushEdit()
         })
 
-        for (const i of this.allColumnOptions) {
-            if (this.selectedColumnOptions.includes(i)) {
+        for (const i of this.allOptions) {
+            if (this.selectedOption == i) {
                 formString += `
                 <div class="flex items-center">
-                    <input checked id="${i}" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+                    <input checked id="${i}" type="radio" value="" name="team" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
                     <label id="for="${i}" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">${i}</label>
                 </div>
                 `
@@ -73,32 +68,38 @@ class BarGraph {
             else {
                 formString += `
                 <div class="flex items-center">
-                    <input id="${i}" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+                    <input id="${i}" type="radio" value="" name="team" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
                     <label for="${i}" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">${i}</label>
                 </div>
                 `
             }
         }
 
+        formString += `</fieldset>`
+
         document.getElementById("editableFormContainer").innerHTML = formString
 
     }
 
     pushEdit() {
-        this.selectedColumnOptions = []
-        for (const i of this.allColumnOptions) {
+        this.selectedOption = 0
+        for (const i of this.allOptions) {
             if (document.getElementById(i.toString()).checked) {
-                this.selectedColumnOptions.push(i)
+                this.selectedOption = i
             }
         }
 
         this.generateData()
 
         this.graph.state.series = [{
-            data: this.seriesOptions
-        }]
+                name: this.selectedOption.toString(),
+                data: this.yAxis
+            }
+        ]
+
+        console.log(this.xAxis, this.yAxis)
     }
 }
 
 
-export { BarGraph }
+export { LineGraph }

@@ -9,7 +9,7 @@ class CalculatedStats {
             var total = 0
         
             for (const x of this.data[team]) { 
-                total += x["Driver Rating"]; 
+                total += x["Defense Rating"]; 
                 values += 1
             }
     
@@ -18,6 +18,24 @@ class CalculatedStats {
         catch (e) {
             console.log(e)
             return 0
+        }
+    }
+
+    getScoreData(team, stat){
+        try {
+            var match = []
+            var scored = []
+        
+            for (const x of this.data[team]) { 
+                match.push(x["Match Key"])
+                scored.push(x[stat])
+            }
+    
+            return [match, scored]
+        }
+        catch (e) {
+            console.log(e)
+            return [[0], [0]]
         }
     }
 }
