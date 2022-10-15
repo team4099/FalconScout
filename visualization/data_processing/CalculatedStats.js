@@ -38,6 +38,29 @@ class CalculatedStats {
             return [[0], [0]]
         }
     }
+
+    getMatchAllianceData(match, stat, alliance){
+        try {
+            var teams = []
+            var scored = []
+        
+            for (const x of Object.values(this.data)) { 
+                for (const l of x){
+                    if (l["Match Key"] == match && l["Alliance"] == alliance){
+                        teams.push(l["Team Number"].toString())
+                        scored.push(l[stat])
+                        break
+                    }
+                }
+            }
+    
+            return [teams, scored]
+        }
+        catch (e) {
+            console.log(e)
+            return [[0], [0]]
+        }
+    }
 }
 
 export { CalculatedStats }

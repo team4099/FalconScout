@@ -2,6 +2,7 @@ import ApexCharts from 'apexcharts'
 import { BarGraph } from './components/BarGraph';
 import { LineGraph } from './components/LineGraph';
 import { ScatterGraph } from './components/ScatterGraph';
+import { PieGraph } from './components/PieGraph';
 import { CalculatedStats } from './data_processing/CalculatedStats';
 
 var data = await fetch('iri_data.json').then(response => response.json())
@@ -39,5 +40,15 @@ var goodShooters = new ScatterGraph(
     formulaY: function(team) {return stats.getScoreData(team, "Auto Upper Hub")},
     selectedOptions: [4099, 2056],
     allOptions: [33, 2056, 4499, 2468, 4099, 118, 180, 340]
+  }
+)
+
+var gameContribution = new PieGraph(
+  "pieBox",
+  {},
+  {
+    formula: function(match) {return stats.getMatchAllianceData(match, "Teleop Upper Hub", "Red")},
+    selectedOption: "qm1",
+    allOptions: ["qm1", "qm2", "qm3", "qm4"]
   }
 )
