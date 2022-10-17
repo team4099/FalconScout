@@ -47,6 +47,7 @@ class PieGraph {
         var formString = `<fieldset class="space-y-6">`
 
         var self = this
+        
         document.getElementById("getEditedData").addEventListener("click", function () {
             self.pushEdit()
         })
@@ -89,7 +90,7 @@ class PieGraph {
         this.graph.state.series = this.series
         this.graph.state.labels = this.labels
 
-        console.log(this.series, this.labels)
+        this.graph.update()
     }
 }
 

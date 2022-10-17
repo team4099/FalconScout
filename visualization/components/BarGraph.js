@@ -97,6 +97,9 @@ class BarGraph {
         this.graph.state.series = [{
             data: this.seriesOptions
         }]
+
+        this.graph.update()
+
     }
 }
 

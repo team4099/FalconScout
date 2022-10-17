@@ -98,6 +98,8 @@ class ScatterGraph {
         this.generateData()
 
         this.graph.state.series = this.generatedData
+
+        this.graph.update()
     }
 }
 

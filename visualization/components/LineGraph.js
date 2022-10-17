@@ -97,7 +97,7 @@ class LineGraph {
             }
         ]
 
-        console.log(this.xAxis, this.yAxis)
+        this.graph.update()
     }
 }
 
