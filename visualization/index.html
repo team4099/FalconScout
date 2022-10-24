@@ -3,20 +3,37 @@
 
 <head>
 	<meta charset="UTF-8" />
-	<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+	<link rel="icon" type="image/svg+xml" href="/logo.svg" />
 	<link rel="stylesheet" href="style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<script src="https://cdn.tailwindcss.com"></script>
 	<link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
 
-	<title>Vite App</title>
+	<title>FalconVis</title>
 </head>
 
 <body>
-	<div id="barBox" style="width: 400px; height: 400px;"></div>
-	<div id="lineBox" style="width: 400px; height: 400px;"></div>
-	<div id="scatterBox" style="width: 400px; height: 400px;"></div>
-	<div id="pieBox" style="width: 400px; height: 400px;"></div>
+	<div class="w-full h-16 border-b-2 mb-4 pl-8 pt-4">
+		<a href="/" class="flex items-center">
+			<img src="/logo.svg" class="mr-3 h-6 sm:h-9" alt="4099 Falcon Logo">
+			<span class="self-center text-2xl font-semibold whitespace-nowrap text-black">FalconVis</span>
+		</a>
+	</div>
+
+	<div class="flex flex-wrap gap-4 px-4 mx-auto mb-10" id="graphContainer">
+		<div id="plt1" class="p-4 border-[1.5px] border-gray-200 rounded-lg" style="width: 400px;"></div>
+		<div id="plt2" class="p-4 border-[1.5px] border-gray-200 rounded-lg" style="width: 400px;"></div>
+		<div id="plt3" class="p-4 border-[1.5px] border-gray-200 rounded-lg" style="width: 400px;"></div>
+		<div id="plt4" class="p-4 border-[1.5px] border-gray-200 rounded-lg" style="width: 400px;"></div>
+		<div id="plt5" class="p-4 border-[1.5px] border-gray-200 rounded-lg" style="width: 400px;"></div>
+		<div id="plt6" class="p-4 border-[1.5px] border-gray-200 rounded-lg" style="width: 400px;"></div>
+		<div id="plt7" class="p-4 border-[1.5px] border-gray-200 rounded-lg" style="width: 400px;"></div>
+		<div id="plt8" class="p-4 border-[1.5px] border-gray-200 rounded-lg" style="width: 400px;"></div>
+		<div id="plt9" class="p-4 border-[1.5px] border-gray-200 rounded-lg" style="width: 400px;"></div>
+		<div id="plt10" class="p-4 border-[1.5px] border-gray-200 rounded-lg" style="width: 400px;"></div>
+		<div id="plt11" class="p-4 border-[1.5px] border-gray-200 rounded-lg" style="width: 400px;"></div>
+		<div id="plt12" class="p-4 border-[1.5px] border-gray-200 rounded-lg" style="width: 400px;"></div>
+	</div>
 
 	<!-- Modal toggle -->
 	<button id="fakeToggle"

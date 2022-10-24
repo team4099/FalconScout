@@ -5,8 +5,6 @@ class Graph {
         this.id = id
         this.state = state
 
-        console.log(state)
-
         this.graph = new ApexCharts(
             document.querySelector("#" + id),
             this.state
@@ -28,7 +26,6 @@ class Graph {
     checkChange() {
         var stateKeys = Object.keys(this.state);
         var stateValues = Object.values(this.state);
-        console.log(JSON.stringify(this.oldState.values) == JSON.stringify(stateValues))
 
         if (!( JSON.stringify(this.oldState.keys) == JSON.stringify(stateKeys) && JSON.stringify(this.oldState.values) == JSON.stringify(stateValues))){
             this.graph.updateOptions(this.state)

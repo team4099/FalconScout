@@ -16,7 +16,6 @@ class CalculatedStats {
             return (total/values).toFixed(2)
         }
         catch (e) {
-            console.log(e)
             return 0
         }
     }
@@ -34,7 +33,6 @@ class CalculatedStats {
             return [match, scored]
         }
         catch (e) {
-            console.log(e)
             return [[0], [0]]
         }
     }
@@ -57,7 +55,6 @@ class CalculatedStats {
             return [teams, scored]
         }
         catch (e) {
-            console.log(e)
             return [[0], [0]]
         }
     }

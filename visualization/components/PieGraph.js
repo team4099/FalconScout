@@ -1,7 +1,7 @@
 import { Graph } from "./Graph"
 
 class PieGraph {
-    constructor(id, plotOptions, dataOptions) {
+    constructor(id, title, plotOptions, dataOptions) {
         this.uuid = Math.random().toString(36).substr(2, 9)
 
         this.container = document.getElementById(id)
@@ -33,7 +33,11 @@ class PieGraph {
                 },
                 plotOptions: plotOptions,
                 series: this.series,
-                labels: this.labels
+                labels: this.labels,
+                title: {
+                    text: title,
+                    align: 'left'
+                },
             }
         )
 
@@ -56,16 +60,16 @@ class PieGraph {
             if (this.selectedOption == i) {
                 formString += `
                 <div class="flex items-center">
-                    <input checked id="${i}" type="radio" value="" name="team" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
-                    <label id="for="${i}" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">${i}</label>
+                    <input checked id="${i}${uuid}" type="radio" value="" name="team" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+                    <label id="for="${i}${uuid}" class="ml-2 text-sm font-medium text-gray-300">${i}</label>
                 </div>
                 `
             }
             else {
                 formString += `
                 <div class="flex items-center">
-                    <input id="${i}" type="radio" value="" name="team" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
-                    <label for="${i}" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">${i}</label>
+                    <input id="${i}${uuid}" type="radio" value="" name="team" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+                    <label for="${i}${uuid}" class="ml-2 text-sm font-medium text-gray-300">${i}</label>
                 </div>
                 `
             }
@@ -80,7 +84,7 @@ class PieGraph {
     pushEdit() {
         this.selectedOption = 0
         for (const i of this.allOptions) {
-            if (document.getElementById(i.toString()).checked) {
+            if (document.getElementById(i.toString()+this.uuid.toString()).checked) {
                 this.selectedOption = i
             }
         }
