@@ -5,13 +5,16 @@ import { ScatterGraph } from './components/ScatterGraph';
 import { PieGraph } from './components/PieGraph';
 import { CalculatedStats } from './data/CalculatedStats';
 import { Selections, Queries } from './data/Constants';
+import { Modal } from './components/Modal';
 
 //var data = await fetch('data/iri_data.json').then(response => response.json())
 
 (async () => {
-  var data = await fetch('https://raw.githubusercontent.com/team4099/FalconScout/visualizations/visualization/data/iri_data.json').then(res => res.json())
+  var data = await fetch('data/iri_data.json').then(res => res.json())
 
   var stats = new CalculatedStats(data)
+
+  var modal = new Modal("editModal", "fakeToggle", "getEditedData", "editableFormContainer")
 
   var driverRating = new BarGraph(
     "plt1",
@@ -25,7 +28,8 @@ import { Selections, Queries } from './data/Constants';
       formula: function(team) {return stats.getAvrDriverRating(team)},
       selectedOptions: [4099, 118, 180],
       allOptions: Selections.TEAMS
-    }
+    },
+    modal
   )
 
   var shooterOverTime = new LineGraph(
@@ -36,7 +40,8 @@ import { Selections, Queries } from './data/Constants';
       formula: function(team) {return stats.getScoreData(team, Queries.TELEOP_UPPER_HUB)},
       selectedOption: 2056,
       allOptions: Selections.TEAMS
-    }
+    },
+    modal
   )
 
   var goodShooters = new ScatterGraph(
@@ -48,7 +53,8 @@ import { Selections, Queries } from './data/Constants';
       formulaY: function(team) {return stats.getScoreData(team, Queries.AUTO_UPPER_HUB)},
       selectedOptions: [4099, 2056],
       allOptions: Selections.TEAMS
-    }
+    },
+    modal
   )
 
   var gameContribution = new PieGraph(
@@ -59,7 +65,8 @@ import { Selections, Queries } from './data/Constants';
       formula: function(match) {return stats.getMatchAllianceData(match, Queries.TELEOP_UPPER_HUB, Selections.RED)},
       selectedOption: "qm1",
       allOptions: Selections.MATCHES
-    }
+    },
+    modal
   )
 
   var driverRating = new BarGraph(
@@ -74,7 +81,8 @@ import { Selections, Queries } from './data/Constants';
       formula: function(team) {return stats.getAvrDriverRating(team)},
       selectedOptions: [4099, 118, 180],
       allOptions: Selections.TEAMS
-    }
+    },
+    modal
   )
 
   var shooterOverTime = new LineGraph(
@@ -85,7 +93,8 @@ import { Selections, Queries } from './data/Constants';
       formula: function(team) {return stats.getScoreData(team, Queries.TELEOP_UPPER_HUB)},
       selectedOption: 2056,
       allOptions: Selections.TEAMS
-    }
+    },
+    modal
   )
 
   var goodShooters = new ScatterGraph(
@@ -97,7 +106,8 @@ import { Selections, Queries } from './data/Constants';
       formulaY: function(team) {return stats.getScoreData(team, Queries.AUTO_UPPER_HUB)},
       selectedOptions: [4099, 2056],
       allOptions: Selections.TEAMS
-    }
+    },
+    modal
   )
 
   var LContribution = new PieGraph(
@@ -108,7 +118,8 @@ import { Selections, Queries } from './data/Constants';
       formula: function(match) {return stats.getMatchAllianceData(match, Queries.TELEOP_UPPER_HUB, Selections.RED)},
       selectedOption: "qm1",
       allOptions: Selections.MATCHES
-    }
+    },
+    modal
   )
 
   var plt9 = new BarGraph(
@@ -123,7 +134,8 @@ import { Selections, Queries } from './data/Constants';
       formula: function(team) {return stats.getAvrDriverRating(team)},
       selectedOptions: [4099, 118, 180],
       allOptions: Selections.TEAMS
-    }
+    },
+    modal
   )
 
   var plt10 = new LineGraph(
@@ -134,7 +146,8 @@ import { Selections, Queries } from './data/Constants';
       formula: function(team) {return stats.getScoreData(team, Queries.TELEOP_UPPER_HUB)},
       selectedOption: 2056,
       allOptions: Selections.TEAMS
-    }
+    },
+    modal
   )
 
   var plt11 = new ScatterGraph(
@@ -146,7 +159,8 @@ import { Selections, Queries } from './data/Constants';
       formulaY: function(team) {return stats.getScoreData(team, Queries.AUTO_UPPER_HUB)},
       selectedOptions: [4099, 2056],
       allOptions: Selections.TEAMS
-    }
+    },
+    modal
   )
 
   var plt12 = new PieGraph(
@@ -157,6 +171,7 @@ import { Selections, Queries } from './data/Constants';
       formula: function(match) {return stats.getMatchAllianceData(match, Queries.TELEOP_UPPER_HUB, Selections.RED)},
       selectedOption: "qm1",
       allOptions: Selections.MATCHES
-    }
+    },
+    modal
   )
   })();

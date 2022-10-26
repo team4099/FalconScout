@@ -1,8 +1,10 @@
 import { Graph } from "./Graph"
 
 class PieGraph {
-    constructor(id, title, plotOptions, dataOptions) {
+    constructor(id, title, plotOptions, dataOptions, modal) {
         this.uuid = Math.random().toString(36).substr(2, 9)
+
+        this.modal = modal
 
         this.container = document.getElementById(id)
         this.container.setAttribute("type", "button")
@@ -51,8 +53,7 @@ class PieGraph {
         var formString = `<fieldset class="space-y-6">`
 
         var self = this
-        
-        document.getElementById("getEditedData").addEventListener("click", function () {
+        this.modal.setCallBackClose(function () {
             self.pushEdit()
         })
 
@@ -60,16 +61,16 @@ class PieGraph {
             if (this.selectedOption == i) {
                 formString += `
                 <div class="flex items-center">
-                    <input checked id="${i}${uuid}" type="radio" value="" name="team" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
-                    <label id="for="${i}${uuid}" class="ml-2 text-sm font-medium text-gray-300">${i}</label>
+                    <input checked id="${i}${this.uuid}" type="radio" value="" name="team" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+                    <label id="for="${i}${this.uuid}" class="ml-2 text-sm font-medium text-gray-300">${i}</label>
                 </div>
                 `
             }
             else {
                 formString += `
                 <div class="flex items-center">
-                    <input id="${i}${uuid}" type="radio" value="" name="team" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
-                    <label for="${i}${uuid}" class="ml-2 text-sm font-medium text-gray-300">${i}</label>
+                    <input id="${i}${this.uuid}" type="radio" value="" name="team" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+                    <label for="${i}${this.uuid}" class="ml-2 text-sm font-medium text-gray-300">${i}</label>
                 </div>
                 `
             }
@@ -77,14 +78,13 @@ class PieGraph {
 
         formString += `</fieldset>`
 
-        document.getElementById("editableFormContainer").innerHTML = formString
-
+        this.modal.formHTML = formString
     }
 
     pushEdit() {
         this.selectedOption = 0
         for (const i of this.allOptions) {
-            if (document.getElementById(i.toString()+this.uuid.toString()).checked) {
+            if (document.getElementById(i.toString() + this.uuid.toString()).checked) {
                 this.selectedOption = i
             }
         }
