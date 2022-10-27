@@ -31,6 +31,9 @@ class LineGraph {
                     type: 'line',
                     zoom: {
                         enabled: false
+                    },
+                    animations: {
+                        enabled: false
                     }
                 },
                 plotOptions: plotOptions,

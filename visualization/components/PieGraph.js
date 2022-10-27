@@ -31,6 +31,9 @@ class PieGraph {
                     type: 'pie',
                     zoom: {
                         enabled: false
+                    },
+                    animations: {
+                        enabled: false
                     }
                 },
                 plotOptions: plotOptions,

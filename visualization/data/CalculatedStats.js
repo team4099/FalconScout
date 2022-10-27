@@ -3,20 +3,27 @@ class CalculatedStats {
         this.data = data
     }
 
-    getAvrDriverRating(team){
+    getFalconRank(team){
+        return 2;
+    }
+
+    getAvrStat(team, attribute){
         try {
             var values = 0
-            var total = 0
+            var count = 0
         
             for (const x of this.data[team]) { 
-                total += x["Defense Rating"]; 
-                values += 1
+                values += x[attribute]
+                count += 1
             }
-    
-            return (total/values).toFixed(2)
+
+            console.log((values/count).toFixed(2))
+
+            return (values/count).toFixed(2)
         }
         catch (e) {
-            return 0
+            console.log(e)
+            return (0).toFixed(2)
         }
     }
 

@@ -33,6 +33,9 @@ class ScatterGraph {
                     zoom: {
                         type: 'xy',
                         enabled: false
+                    },
+                    animations: {
+                        enabled: false
                     }
                 },
                 plotOptions: plotOptions,

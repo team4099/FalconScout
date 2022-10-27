@@ -31,6 +31,9 @@ class BarGraph {
                     type: 'bar',
                     zoom: {
                         enabled: true
+                    },
+                    animations: {
+                        enabled: false
                     }
                 },
                 plotOptions: plotOptions,

@@ -21,11 +21,11 @@ import { Modal } from './components/Modal';
     "Avr Driver Rating by Team",
     {
       bar: {
-        horizontal: false
+        horizontal: true
       }
     },
     {
-      formula: function(team) {return stats.getAvrDriverRating(team)},
+      formula: function(team) {return stats.getAvrStat(team, Queries.DRIVER_RATING)},
       selectedOptions: [4099, 118, 180],
       allOptions: Selections.TEAMS
     },
@@ -78,7 +78,7 @@ import { Modal } from './components/Modal';
       }
     },
     {
-      formula: function(team) {return stats.getAvrDriverRating(team)},
+      formula: function(team) {return stats.getAvrStat(team, Queries.DRIVER_RATING)},
       selectedOptions: [4099, 118, 180],
       allOptions: Selections.TEAMS
     },
@@ -131,7 +131,7 @@ import { Modal } from './components/Modal';
       }
     },
     {
-      formula: function(team) {return stats.getAvrDriverRating(team)},
+      formula: function(team) {return stats.getAvrStat(team, Queries.DRIVER_RATING)},
       selectedOptions: [4099, 118, 180],
       allOptions: Selections.TEAMS
     },
