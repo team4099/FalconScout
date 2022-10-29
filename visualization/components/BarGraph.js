@@ -1,7 +1,7 @@
 import { Graph } from "./Graph"
 
 class BarGraph {
-    constructor(id, title, plotOptions, dataOptions, modal) {
+    constructor(id, title, plotOptions, dataOptions, modal, editable = true) {
         this.uuid = Math.random().toString(36).substr(2, 9)
 
         this.modal = modal
@@ -11,10 +11,12 @@ class BarGraph {
         this.container.setAttribute("data-modal-toggle", this.uuid)
 
         var self = this
-        this.container.addEventListener("click", function () {
-            self.setupEdit()
-            document.getElementById('fakeToggle').click()
-        })
+        if (editable) {
+            this.container.addEventListener("click", function () {
+                self.setupEdit()
+                document.getElementById('fakeToggle').click()
+            })
+        }
 
 
         this.formula = dataOptions.formula
