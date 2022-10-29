@@ -7,13 +7,13 @@ class CalculatedStats {
         return 2;
     }
 
-    getAvrStat(team, attribute){
+    getAvrStat(team, stat){
         try {
             var values = 0
             var count = 0
         
             for (const x of this.data[team]) { 
-                values += x[attribute]
+                values += x[stat]
                 count += 1
             }
 
