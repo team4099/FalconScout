@@ -29,7 +29,8 @@ import { Modal } from './components/Modal';
       selectedOptions: [4099, 118, 180],
       allOptions: Selections.TEAMS
     },
-    modal
+    modal,
+    false 
   )
 
   var shooterOverTime = new LineGraph(
