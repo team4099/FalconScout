@@ -6,11 +6,12 @@ Z_THRESHOLD = 1.96
 
 
 class ErrorType(Enum):
-    """Enum class for the different error types that can occur with data validation."""
-    DEBUG = "green",
-    INFO = "white",
-    WARNING = "bold_yellow",
-    ERROR = "bold_red",
+    """Enum class for the different error types that can occur with the data validation."""
+
+    DEBUG = ("green",)
+    INFO = ("white",)
+    WARNING = ("bold_yellow",)
+    ERROR = ("bold_red",)
     CRITICAL = "bold_purple"
 
 
@@ -49,5 +50,7 @@ def valid_match_key(key: str) -> bool:
     :return: Boolean representing whether or not a match key is valid.
     """
     # Check if match key is valid via regex
-    match_key_format = re.compile(r"(qm[1-9][0-9]{0,3})|(qf[1-4]m[1-3])|(sf[1-2]m[1-3])|(f[1]m[1-3])")
+    match_key_format = re.compile(
+        r"(qm[1-9][0-9]{0,3})|(qf[1-4]m[1-3])|(sf[1-2]m[1-3])|(f[1]m[1-3])"
+    )
     return bool(re.fullmatch(match_key_format, key))
