@@ -2,7 +2,6 @@ import json
 
 import falcon_alliance
 import yaml
-
 from utils import ErrorType, valid_match_key
 
 
@@ -14,7 +13,7 @@ class BaseDataValidation:
     """
 
     def __init__(self, path_to_config: str = "config.yaml"):
-        # Basic, common attributes
+        # Basic attributes
         self.tba_match_data = {}
         self.errors = []
         self.match_schedule = {}
@@ -31,7 +30,10 @@ class BaseDataValidation:
 
         # Retrieves match schedule
         try:
-            with open(self.config.get("path_to_match_schedule") or "../data/match_schedule.json") as file:
+            with open(
+                self.config.get("path_to_match_schedule")
+                or "../data/match_schedule.json"
+            ) as file:
                 self.match_schedule = json.load(file)
         except FileNotFoundError:  # We want to ignore if it doesn't exist because get_match_schedule() will create it.
             pass
@@ -47,7 +49,10 @@ class BaseDataValidation:
 
     def check_submission_with_match_schedule(self, submission: dict) -> None:
         """
-        Includes all checks relating match key and team number for a single submission, checks key format and ensures it exist in schedule, checks team number against schedule, and checks for correct DriverStation when scouting.
+        Includes all checks relating match key and team number for a single submission.
+        Checks key format and ensures it exist in schedule.
+        Checks team number against schedule.
+        Checks for correct DriverStation when scouting.
 
         :param submission: Representing a single submission in dictionary format.
         :return: None
@@ -57,18 +62,25 @@ class BaseDataValidation:
 
         # Check if match key format is valid.
         if not valid_match_key(match_key):
-            self.add_error(f"In {submission['match_key']}, {submission['team_number']} INVALID MATCH KEY")
+            self.add_error(
+                f"In {submission['match_key']}, {submission['team_number']} INVALID MATCH KEY"
+            )
             return
 
         # Check if match key exists in schedule.
         if full_match_key not in self.match_schedule.keys():
-            self.add_error(f"In {submission['match_key']}, {submission['team_number']} MATCH KEY NOT FOUND in schedule")
+            self.add_error(
+                f"In {submission['match_key']}, {submission['team_number']} MATCH KEY NOT FOUND in schedule"
+            )
             return
 
         # Check if the robot was in the match.
         team_number = submission["team_number"]
         alliance = submission["alliance"]
-        if f"frc{team_number}" not in self.match_schedule[full_match_key][alliance.lower()]:
+        if (
+            f"frc{team_number}"
+            not in self.match_schedule[full_match_key][alliance.lower()]
+        ):
             self.add_error(
                 f"frc{int(team_number)} was NOT IN MATCH {submission['match_key']}, on the {alliance} alliance"
             )
@@ -76,7 +88,10 @@ class BaseDataValidation:
             # check for correct driver station
             scouted_driver_station = submission["driver_station"]
             scheduled_driver_station = (
-                self.match_schedule[full_match_key][alliance.lower()].index(f"frc{team_number}") + 1
+                self.match_schedule[full_match_key][alliance.lower()].index(
+                    f"frc{team_number}"
+                )
+                + 1
             )
             if scouted_driver_station != scheduled_driver_station:
                 self.add_error(
@@ -91,7 +106,7 @@ class BaseDataValidation:
 
         :param submission: Representing a single submission in dictionary format.
         :return: None
-        """
+        """  # noqa
         defense_pct = submission["defense_pct"]
         defense_rating = submission["defense_rating"]
         counter_pct = submission["counter_defense_pct"]
@@ -105,7 +120,9 @@ class BaseDataValidation:
 
         # Check for missing defense rating.
         if defense_rating == 0 and defense_pct != 0:
-            self.add_error(f"In {submission['match_key']}, {submission['team_number']} MISSING DEFENSE RATING")
+            self.add_error(
+                f"In {submission['match_key']}, {submission['team_number']} MISSING DEFENSE RATING"
+            )
 
         # Check for 0% counter defense pct but given rating.
         if counter_pct == 0 and counter_rating != 0:
@@ -126,7 +143,9 @@ class BaseDataValidation:
                 f"In {submission['match_key']}, {submission['team_number']} DEFENSE AND COUNTER DEFENSE PCT TOO HIGH"
             )
 
-    def add_error(self, error_message: str, error_type: ErrorType = ErrorType.ERROR) -> None:
+    def add_error(
+        self, error_message: str, error_type: ErrorType = ErrorType.ERROR
+    ) -> None:
         """
         Adds an error to the dictionary containing all errors raised with data validation.
 
@@ -149,18 +168,22 @@ class BaseDataValidation:
     def get_match_schedule(self):
         """Retrieves match schedule if match schedule wasn't already passed in."""
         with self.api_client:
-            self._run_tba_checks = self._event_key not in self.api_client.status().down_events
+            self._run_tba_checks = (
+                self._event_key not in self.api_client.status().down_events
+            )
 
             # Sets match schedule and tba_match_data attributes, with tba_match_data being raw data.
             if self._run_tba_checks:
-                match_schedule = falcon_alliance.Event(self._event_key).matches(simple=True)
+                match_schedule = falcon_alliance.Event(self._event_key).matches(
+                    simple=True
+                )
 
                 for match in match_schedule:
                     self.tba_match_data[match.key] = match
 
                     self.match_schedule[match.key] = {
                         "red": match.alliances["red"].team_keys,
-                        "blue": match.alliances["blue"].team_keys
+                        "blue": match.alliances["blue"].team_keys,
                     }
 
         # Writes match schedule to the corresponding JSON
