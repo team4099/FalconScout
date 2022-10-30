@@ -1,6 +1,7 @@
 autopep8==1.7.0
 cfgv==3.3.1
 distlib==0.3.6
+falcon_alliance==0.4.2
 filelock==3.8.0
 flake8==5.0.4
 identify==2.5.5
