@@ -1,9 +1,11 @@
 import collections
 import json
+import statistics
 
 import falcon_alliance
+import numpy as np
 import yaml
-from utils import ErrorType, valid_match_key
+from utils import *
 
 
 class BaseDataValidation:
@@ -23,17 +25,16 @@ class BaseDataValidation:
         with open(path_to_config) as file:
             self.config = yaml.safe_load(file)
 
-        self.path_to_output_file = self.config.get("path_to_output") or "errors.json"
-        self.path_to_data_file = (
-            self.config.get("path_to_data")
-            or f"../data/{self.config['year']}{self.config['event_code']}_match_data.json"
+        self.path_to_output_file = self.config.get("path_to_output", "errors.json")
+        self.path_to_data_file = self.config.get(
+            "path_to_data",
+            f"../data/{self.config['year']}{self.config['event_code']}_match_data.json",
         )
 
         # Retrieves match schedule
         try:
             with open(
-                self.config.get("path_to_match_schedule")
-                or "../data/match_schedule.json"
+                self.config.get("path_to_match_schedule", "../data/match_schedule.json")
             ) as file:
                 self.match_schedule = json.load(file)
         except FileNotFoundError:  # We want to ignore if it doesn't exist because get_match_schedule() will create it.
@@ -45,8 +46,10 @@ class BaseDataValidation:
         )
 
         self._event_key = str(self.config["year"]) + self.config["event_code"]
-        self._run_tba_checks = self.config.get("run_tba_checks")
-        self.get_match_schedule()
+        self._run_tba_checks = self.config.get("run_tba_checks", True)
+
+        if self._run_tba_checks:
+            self.get_match_schedule()
 
     def check_submission_with_match_schedule(self, submission: dict) -> None:
         """
@@ -83,7 +86,7 @@ class BaseDataValidation:
             not in self.match_schedule[full_match_key][alliance.lower()]
         ):
             self.add_error(
-                f"frc{int(team_number)} was NOT IN MATCH {submission['match_key']}, on the {alliance} alliance"
+                f"frc{team_number} was NOT IN MATCH {submission['match_key']}, on the {alliance} alliance"
             )
         else:
             # check for correct driver station
@@ -210,9 +213,7 @@ class BaseDataValidation:
 
             # Sets match schedule and tba_match_data attributes, with tba_match_data being raw data.
             if self._run_tba_checks:
-                match_schedule = falcon_alliance.Event(self._event_key).matches(
-                    simple=True
-                )
+                match_schedule = falcon_alliance.Event(self._event_key).matches()
 
                 for match in match_schedule:
                     self.tba_match_data[match.key] = match

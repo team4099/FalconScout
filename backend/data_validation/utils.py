@@ -24,7 +24,7 @@ def z_score_outlier(value: int, mean: float, std: float) -> bool:
     :param std: The standard deviation of a team's dataset.
     :return: A boolean representing whether or not the datapoint of a team is an outlier within the team's dataset.
     """
-    return abs(value - mean) / std > Z_THRESHOLD
+    return (abs(value - mean) / std) if std != 0 else 0 > Z_THRESHOLD
 
 
 def iqr_outlier(value: int, q1: int, q3: int) -> bool:
