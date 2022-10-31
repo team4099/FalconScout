@@ -1,3 +1,4 @@
+import collections
 import json
 
 import falcon_alliance
@@ -22,7 +23,7 @@ class BaseDataValidation:
         with open(path_to_config) as file:
             self.config = yaml.safe_load(file)
 
-        self.path_to_output_file = self.config.get("path_to_output") or "output.json"
+        self.path_to_output_file = self.config.get("path_to_output") or "errors.json"
         self.path_to_data_file = (
             self.config.get("path_to_data")
             or f"../data/{self.config['year']}{self.config['event_code']}_match_data.json"
@@ -143,6 +144,41 @@ class BaseDataValidation:
                 f"In {submission['match_key']}, {submission['team_number']} DEFENSE AND COUNTER DEFENSE PCT TOO HIGH"
             )
 
+    # Ensure teams were scouted/not double scouted
+    def check_team_numbers_for_each_match(self, scouting_data: list) -> bool:
+        """
+        Flags any unscouted teams for any match and teams that were double scouted for any match.
+        :param scouting_data: List of submissions, each submission being a dictionary containing scouting data.
+        :return:
+        """
+        teams_scouted_by_match = collections.defaultdict(
+            lambda: collections.defaultdict(int)
+        )
+
+        for submission in scouting_data:
+            if submission["team_number"]:
+                teams_scouted_by_match[submission["match_key"]][
+                    submission["team_number"]
+                ] += 1
+
+        for match_key, teams_scouted in teams_scouted_by_match.items():
+            full_match_key = f"{self._event_key}_{match_key}"
+
+            for team_number, times_scouted in teams_scouted.items():
+                if times_scouted > 1:
+                    self.add_error(
+                        f"In {match_key}, frc{team_number} was SCOUTED TWICE"
+                    )
+
+            if full_match_key in self.match_schedule.keys():
+                teams = (
+                    self.match_schedule[full_match_key]["red"]
+                    + self.match_schedule[full_match_key]["blue"]
+                )
+                for team in teams:
+                    if int(team.replace("frc", "")) not in teams_scouted.keys():
+                        self.add_error(f"In {match_key}, {team} was NOT SCOUTED")
+
     def add_error(
         self, error_message: str, error_type: ErrorType = ErrorType.ERROR
     ) -> None:
@@ -163,7 +199,7 @@ class BaseDataValidation:
         :return: None
         """
         with open(self.path_to_output_file, "w") as file:
-            json.dump(self.errors, file)
+            json.dump(self.errors, file, indent=4)
 
     def get_match_schedule(self):
         """Retrieves match schedule if match schedule wasn't already passed in."""
