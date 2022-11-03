@@ -1,11 +1,10 @@
-import collections
-import json
-import statistics
+from json import dump, load
 
 import falcon_alliance
-import numpy as np
+import pandas as pd
 import yaml
-from utils import *
+from pandas import isna, notna
+from utils import ErrorType
 
 
 class BaseDataValidation:
@@ -36,7 +35,7 @@ class BaseDataValidation:
             with open(
                 self.config.get("path_to_match_schedule", "../data/match_schedule.json")
             ) as file:
-                self.match_schedule = json.load(file)
+                self.match_schedule = load(file)
         except FileNotFoundError:  # We want to ignore if it doesn't exist because get_match_schedule() will create it.
             pass
 
@@ -51,140 +50,69 @@ class BaseDataValidation:
         if self._run_tba_checks:
             self.get_match_schedule()
 
-    def check_submission_with_match_schedule(self, submission: dict) -> None:
-        """
-        Includes all checks relating match key and team number for a single submission.
-        Checks key format and ensures it exist in schedule.
-        Checks team number against schedule.
-        Checks for correct DriverStation when scouting.
-
-        :param submission: Representing a single submission in dictionary format.
-        :return: None
-        """
-        match_key = str(submission["match_key"]).strip().lower()
-        full_match_key = f"{self._event_key}_{match_key}"
-
-        # Check if match key format is valid.
-        if not valid_match_key(match_key):
-            self.add_error(
-                f"In {submission['match_key']}, {submission['team_number']} INVALID MATCH KEY"
-            )
-            return
-
-        # Check if match key exists in schedule.
-        if full_match_key not in self.match_schedule.keys():
-            self.add_error(
-                f"In {submission['match_key']}, {submission['team_number']} MATCH KEY NOT FOUND in schedule"
-            )
-            return
-
-        # Check if the robot was in the match.
-        team_number = submission["team_number"]
-        alliance = submission["alliance"]
-        if (
-            f"frc{team_number}"
-            not in self.match_schedule[full_match_key][alliance.lower()]
-        ):
-            self.add_error(
-                f"frc{team_number} was NOT IN MATCH {submission['match_key']}, on the {alliance} alliance"
-            )
-        else:
-            # check for correct driver station
-            scouted_driver_station = submission["driver_station"]
-            scheduled_driver_station = (
-                self.match_schedule[full_match_key][alliance.lower()].index(
-                    f"frc{team_number}"
-                )
-                + 1
-            )
-            if scouted_driver_station != scheduled_driver_station:
-                self.add_error(
-                    f"In {submission['match_key']}, frc{team_number} INCONSISTENT DRIVER STATION with schedule"
-                )
-
-    def check_for_invalid_defense_data(self, submission: dict) -> None:
+    def check_for_invalid_defense_data(
+        self,
+        match_key: str,
+        team_number: int,
+        defense_pct: float,
+        defense_rating: float,
+        counter_defense_pct: float,
+        counter_defense_rating: float,
+    ) -> None:
         """
         Checks if scouter gave defense or counter defense rating but stated that the robot didn't play defense/counter defense.
         Checks if scouter stated that robot played defense or counter defense but didn't give a corresponding rating.
         Checks if total defense played + counter defense played > 100% hence impossible.
 
-        :param submission: Representing a single submission in dictionary format.
+        :param match_key: Key of match that was scouted.
+        :param team_number: Number of team that was scouted (eg 4099).
+        :param defense_pct: Decimal representing how much the scouted team played defense out of 1 (eg 0.75)
+        :param defense_rating: Representing how well the scouted team played defense on a scale of 1 to 5.
+        :param counter_defense_pct: Decimal representing how much the scouted team played counter defense out of 1 (eg 0.75)
+        :param counter_defense_rating: Representing how well the scouted team played counter defense on a scale of 1 to 5.
         :return: None
         """  # noqa
-        defense_pct = submission["defense_pct"]
-        defense_rating = submission["defense_rating"]
-        counter_pct = submission["counter_defense_pct"]
-        counter_rating = submission["counter_defense_rating"]
-
         # Check for 0% defense pct but given rating.
-        if defense_pct == 0 and defense_rating != 0:
+        if notna(defense_rating) and isna(defense_pct):
             self.add_error(
-                f"In {submission['match_key']}, {submission['team_number']} rated for defense but NO DEFENSE PCT"
+                f"In {match_key}, {team_number} rated for defense but NO DEFENSE PCT",
+                error_type=ErrorType.MISSING_DATA,
             )
 
         # Check for missing defense rating.
-        if defense_rating == 0 and defense_pct != 0:
+        if isna(defense_rating) and notna(defense_rating):
             self.add_error(
-                f"In {submission['match_key']}, {submission['team_number']} MISSING DEFENSE RATING"
+                f"In {match_key}, {team_number} MISSING DEFENSE RATING",
+                error_type=ErrorType.MISSING_DATA,
             )
 
         # Check for 0% counter defense pct but given rating.
-        if counter_pct == 0 and counter_rating != 0:
+        if notna(counter_defense_rating) and isna(counter_defense_pct):
             self.add_error(
-                f"In {submission['match_key']}, {submission['team_number']} "
-                f"rated for counter defense but NO COUNTER DEFENSE PCT"
+                f"In {match_key}, {team_number} "
+                f"rated for counter defense but NO COUNTER DEFENSE PCT",
+                error_type=ErrorType.MISSING_DATA,
             )
 
         # Check for missing counter defense rating.
-        if counter_rating == 0 and counter_pct != 0:
+        if notna(counter_defense_pct) and isna(counter_defense_rating):
             self.add_error(
-                f"In {submission['match_key']}, {submission['team_number']} MISSING COUNTER DEFENSE RATING"
+                f"In {match_key}, {team_number} MISSING COUNTER DEFENSE RATING",
+                error_type=ErrorType.MISSING_DATA,
             )
 
         # Inconsistent defense + counter defense pct.
-        if (defense_pct + counter_pct) > 1:
+        if (
+            notna(defense_pct)
+            and notna(counter_defense_pct)
+            and (defense_pct + counter_defense_pct) > 1
+        ):
             self.add_error(
-                f"In {submission['match_key']}, {submission['team_number']} DEFENSE AND COUNTER DEFENSE PCT TOO HIGH"
+                f"In {match_key}, {team_number} DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
+                error_type=ErrorType.INCORRECT_DATA,
             )
 
-    # Ensure teams were scouted/not double scouted
-    def check_team_numbers_for_each_match(self, scouting_data: list) -> bool:
-        """
-        Flags any unscouted teams for any match and teams that were double scouted for any match.
-        :param scouting_data: List of submissions, each submission being a dictionary containing scouting data.
-        :return:
-        """
-        teams_scouted_by_match = collections.defaultdict(
-            lambda: collections.defaultdict(int)
-        )
-
-        for submission in scouting_data:
-            if submission["team_number"]:
-                teams_scouted_by_match[submission["match_key"]][
-                    submission["team_number"]
-                ] += 1
-
-        for match_key, teams_scouted in teams_scouted_by_match.items():
-            full_match_key = f"{self._event_key}_{match_key}"
-
-            for team_number, times_scouted in teams_scouted.items():
-                if times_scouted > 1:
-                    self.add_error(
-                        f"In {match_key}, frc{team_number} was SCOUTED TWICE"
-                    )
-
-            if full_match_key in self.match_schedule.keys():
-                teams = (
-                    self.match_schedule[full_match_key]["red"]
-                    + self.match_schedule[full_match_key]["blue"]
-                )
-                for team in teams:
-                    if int(team.replace("frc", "")) not in teams_scouted.keys():
-                        self.add_error(f"In {match_key}, {team} was NOT SCOUTED")
-
-    def add_error(
-        self, error_message: str, error_type: ErrorType = ErrorType.ERROR
-    ) -> None:
+    def add_error(self, error_message: str, error_type: ErrorType) -> None:
         """
         Adds an error to the dictionary containing all errors raised with data validation.
 
@@ -192,7 +120,12 @@ class BaseDataValidation:
         :param error_message: Message containing information about the error.
         :return:
         """
-        self.errors.append({"error_type": error_type._name_, "message": error_message})
+        self.errors.append(
+            {
+                "error_type": error_type._name_.replace("_", " "),
+                "message": error_message,
+            }
+        )
 
     def output_errors(self) -> None:
         """
@@ -202,7 +135,7 @@ class BaseDataValidation:
         :return: None
         """
         with open(self.path_to_output_file, "w") as file:
-            json.dump(self.errors, file, indent=4)
+            dump(self.errors, file, indent=4)
 
     def get_match_schedule(self):
         """Retrieves match schedule if match schedule wasn't already passed in."""
@@ -225,4 +158,4 @@ class BaseDataValidation:
 
         # Writes match schedule to the corresponding JSON
         with open("../data/match_schedule.json", "w") as file:
-            json.dump(self.match_schedule, file, indent=4)
+            dump(self.match_schedule, file, indent=4)

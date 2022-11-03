@@ -52,7 +52,14 @@ class DataValidation2022(BaseDataValidation):
         self.check_for_auto_shots_but_no_taxi(submission)
         self.check_for_missing_shooting_zones(submission)
         self.check_for_invalid_climb_data(submission)
-        self.check_for_invalid_defense_data(submission)
+        self.check_for_invalid_defense_data(
+            match_key=submission["match_key"],
+            team_number=submission["team_number"],
+            defense_pct=submission["defense_pct"],
+            counter_defense_pct=submission["counter_defense_pct"],
+            defense_rating=submission["defense_rating"],
+            counter_defense_rating=submission["counter_defense_rating"],
+        )
 
         # TBA-related checks
         if self._run_tba_checks:
