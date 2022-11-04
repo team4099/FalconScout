@@ -1,6 +1,8 @@
 import json
+from typing import Hashable
 
 from base_data_val import BaseDataValidation
+from pandas import DataFrame, Series
 from utils import ErrorType
 
 
@@ -8,16 +10,28 @@ class DataValidation2022(BaseDataValidation):
     def __init__(self, path_to_config: str = "config.yaml"):
         super().__init__(path_to_config)
 
-    def validate_data(self) -> None:
-        """Runs all checks for validating data from 2022's game (Rapid React)."""
-        with open(self.path_to_data_file) as file:
-            scouting_data = sorted(json.load(file), key=lambda data: data["match_key"])
+    def validate_data(self, scouting_data: list = None) -> None:
+        """
+        Runs all checks for validating data from 2022's game (Rapid React).
+
+        :param scouting_data: Optional parameter containing scouting data mostly for testing purposes.
+        :return:
+        """
+        # Loads in scouting data if not passed in.
+        if scouting_data is None:
+            with open(self.path_to_data_file) as file:
+                scouting_data = sorted(
+                    json.load(file), key=lambda data: data["match_key"]
+                )
+
+        # Converts JSON to DataFrame
+        scouting_data = DataFrame.from_dict(scouting_data)
 
         # TODO: Add check to make sure that teams aren't double scouted or have been scouted (check Notion doc.)
         ...
 
         # Validates individual submissions
-        for submission in scouting_data:
+        for row_number, submission in scouting_data.iterrows():
             if not submission["team_number"]:
                 self.add_error(
                     f"NO TEAM NUMBER for match {submission['match_key']}",
@@ -33,11 +47,11 @@ class DataValidation2022(BaseDataValidation):
 
         self.output_errors()
 
-    def validate_submission(self, submission: dict) -> None:
+    def validate_submission(self, submission: Series) -> None:
         """
         Runs all checks validating a single submission from 2022's game (Rapid React).
 
-        :param submission: Dictionary containing data scouted.
+        :param submission: Series object containing a single submission of scouting data.
         :return:
         """
         # TODO: Add check to validate match schedule (see Notion doc for more information.)

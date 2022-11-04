@@ -1,10 +1,7 @@
 from json import dump, load
-from typing import Union
 
 import falcon_alliance
-import pandas as pd
 import yaml
-from numpy import nan
 from pandas import isna, notna
 from utils import ErrorType
 
@@ -56,10 +53,10 @@ class BaseDataValidation:
         self,
         match_key: str,
         team_number: int,
-        defense_pct: Union[float, nan],
-        defense_rating: Union[float, nan],
-        counter_defense_pct: Union[float, nan],
-        counter_defense_rating: Union[float, nan],
+        defense_pct: float,
+        defense_rating: float,
+        counter_defense_pct: float,
+        counter_defense_rating: float,
     ) -> None:
         """
         Checks if scouter gave defense or counter defense rating but stated that the robot didn't play defense/counter defense.
