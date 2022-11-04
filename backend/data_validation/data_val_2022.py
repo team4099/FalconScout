@@ -31,7 +31,7 @@ class DataValidation2022(BaseDataValidation):
         ...
 
         # Validates individual submissions
-        for row_number, submission in scouting_data.iterrows():
+        for _, submission in scouting_data.iterrows():
             if not submission["team_number"]:
                 self.add_error(
                     f"NO TEAM NUMBER for match {submission['match_key']}",
