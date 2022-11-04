@@ -1,7 +1,6 @@
 from json import load
 
 from data_val_2022 import DataValidation2022
-from pytest import fixture
 
 
 def example_scouting_data(
