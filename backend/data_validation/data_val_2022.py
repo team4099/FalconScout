@@ -1,27 +1,22 @@
-import collections
 import json
-from operator import itemgetter
 
 from base_data_val import BaseDataValidation
-from utils import *
+from utils import ErrorType
 
 
 class DataValidation2022(BaseDataValidation):
     def __init__(self, path_to_config: str = "config.yaml"):
         super().__init__(path_to_config)
 
-        self.shooting_difference_auto = self.config.get("auto_shooting_difference", 5)
-        self.shooting_difference_teleop = self.config.get(
-            "teleop_shooting_difference", 10
-        )
-
     def validate_data(self) -> None:
         """Runs all checks for validating data from 2022's game (Rapid React)."""
         with open(self.path_to_data_file) as file:
             scouting_data = sorted(json.load(file), key=lambda data: data["match_key"])
 
-        self.check_team_numbers_for_each_match(scouting_data)
+        # TODO: Add check to make sure that teams aren't double scouted or have been scouted (check Notion doc.)
+        ...
 
+        # Validates individual submissions
         for submission in scouting_data:
             if not submission["team_number"]:
                 self.add_error(
@@ -32,8 +27,9 @@ class DataValidation2022(BaseDataValidation):
 
             self.validate_submission(submission)
 
+        # TODO: Add check relying on TBA to cross-check shooting totals with TBA's reported shooting totals.
         if self._run_tba_checks:
-            self.check_shooting_total_with_tba(scouting_data)
+            ...
 
         self.output_errors()
 
