@@ -1,7 +1,4 @@
-interface ButtonSetup {
-	text: string;
-	route: string;
-}
+import {ButtonSetup} from "./interface"
 
 function DarkButton(props: ButtonSetup) {
 
