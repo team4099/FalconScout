@@ -6,3 +6,6 @@ export {DropdownTextInput}
 
 import GenericTextArea from "./GenericTextArea";
 export {GenericTextArea}
+
+import SliderInput from "./SliderInput";
+export {SliderInput}
