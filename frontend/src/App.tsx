@@ -3,9 +3,7 @@ import reactLogo from './assets/react.svg'
 import './App.css'
 import { DropdownTextInput, GenericTextInput } from "./components/inputs"
 import { GenericTextArea } from "./components/inputs"
-import { DarkButtonSmall } from "./components/buttons"
-import { DarkButtonMedium } from "./components/buttons"
-import { DarkButtonLarge} from "./components/buttons"
+import { DarkButton } from "./components/buttons"
 
 
 function App() {
@@ -17,9 +15,7 @@ function App() {
         <GenericTextArea/>
       </div>
       <div>
-        <DarkButtonSmall/>
-        <DarkButtonMedium/>
-        <DarkButtonLarge/>
+        <DarkButton text="Submit" route="todo"/>
       </div>
     </div>
   )
