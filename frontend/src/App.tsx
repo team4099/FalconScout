@@ -11,11 +11,14 @@ function App() {
   return (
     <div>
       <div>
-        <GenericTextInput/>
+        <GenericTextInput text="Username" placeholder={["pranav"]}/>
         <DropdownTextInput text="Match" options={["qm", "qf", "sf", "f"]} placeholder={["10"]} route="todo"/>
-        <GenericTextArea/>
+        <GenericTextArea text="Username" placeholder={["pranav"]}/>
         <IncrementNumberInput text="Teleop Upper Scored"/>
         <SliderInput text="Driver Rating" options={["0", "10"]}/>
+      </div>
+      <div>
+        
       </div>
       <div>
         <DarkButton text="Submit" route="todo"/>

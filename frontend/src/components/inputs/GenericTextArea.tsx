@@ -6,7 +6,7 @@ function GenericTextArea(props: ComponentSetup) {
     
 		<div className="mx-3 my-3">
 			<label className="block mb-2 text-sm text-gray-[#344054]">{props.text}</label>
-			<textarea id="message" className="block p-4 w-full h-40 text text-[#000000] rounded-lg border border-color-[#D0D5DD] focus:outline-none" placeholder="Your message..."></textarea>
+			<textarea id="message" className="block py-2 px-3 w-full h-40 text text-[#000000] rounded-lg border border-color-[#D0D5DD] focus:outline-none" placeholder={props.placeholder?.[0]}></textarea>
 		</div>
 
   	)
