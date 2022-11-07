@@ -1,6 +1,6 @@
-import {ButtonSetup} from "./interface"
+import {ComponentSetup} from "../interface"
 
-function DarkButton(props: ButtonSetup) {
+function DarkButton(props: ComponentSetup) {
 
     return (
     

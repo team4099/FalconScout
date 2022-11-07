@@ -2,7 +2,7 @@ function GenericTextInput() {
 
     return (
     
-		<div className="mx-3">
+		<div className="mx-3 my-3">
 			<label className="block text-[#344054] text-sm mb-2">
 				Your message
 			</label>

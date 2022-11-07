@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
-import { DropdownTextInput, GenericTextInput } from "./components/inputs"
+import { DropdownTextInput, GenericTextInput, SliderInput } from "./components/inputs"
 import { GenericTextArea } from "./components/inputs"
 import { DarkButton } from "./components/buttons"
+import IncrementNumberInput from './components/inputs/IncrementNumberInput'
 
 
 function App() {
@@ -11,8 +12,10 @@ function App() {
     <div>
       <div>
         <GenericTextInput/>
-        <DropdownTextInput/>
+        <DropdownTextInput text="Match" options={["qm", "qf", "sf", "f"]} placeholder={["10"]} route="todo"/>
         <GenericTextArea/>
+        <IncrementNumberInput text="Teleop Upper Scored"/>
+        <SliderInput text="Driver Rating" options={["0", "10"]}/>
       </div>
       <div>
         <DarkButton text="Submit" route="todo"/>
