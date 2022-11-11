@@ -4,35 +4,35 @@ from data_val_2022 import DataValidation2022
 
 
 def example_scouting_data(
-    scout_id: str = "falcon",
-    match_key: str = "qm1",
-    team_number: int = 4099,
-    alliance: str = "Red",
-    driver_station: int = 1,
-    preloaded_cargo: int = 0,
-    auto_lower_hub: int = 1,
-    auto_upper_hub: int = 1,
-    auto_misses: int = 1,
-    taxied: int = 1,
-    auto_shooting_zones: str = "Elsewhere",
-    teleop_lower_hub: int = 1,
-    teleop_upper_hub: int = 1,
-    teleop_misses: int = 1,
-    teleop_shooting_zones: str = "Elsewhere",
-    attempted_low: int = 0,
-    attempted_mid: int = 1,
-    attempted_high: int = 1,
-    attempted_traversal: int = 1,
-    climb_time: float = 15.0,
-    final_climb_type: str = "Traversal",
-    defense_pct: float = 1.0,
-    defense_rating: int = 5,
-    counter_defense_pct: int = 0,
-    counter_defense_rating: int = 0,
-    driver_rating: int = 5,
-    auto_notes: str = "",
-    teleop_notes: str = "",
-    misc_notes: str = "",
+        scout_id: str = "falcon",
+        match_key: str = "qm1",
+        team_number: int = 4099,
+        alliance: str = "Red",
+        driver_station: int = 1,
+        preloaded_cargo: int = 0,
+        auto_lower_hub: int = 1,
+        auto_upper_hub: int = 1,
+        auto_misses: int = 1,
+        taxied: int = 1,
+        auto_shooting_zones: str = "Elsewhere",
+        teleop_lower_hub: int = 1,
+        teleop_upper_hub: int = 1,
+        teleop_misses: int = 1,
+        teleop_shooting_zones: str = "Elsewhere",
+        attempted_low: int = 0,
+        attempted_mid: int = 1,
+        attempted_high: int = 1,
+        attempted_traversal: int = 1,
+        climb_time: float = 15.0,
+        final_climb_type: str = "Traversal",
+        defense_pct: float = 1.0,
+        defense_rating: int = 5,
+        counter_defense_pct: int = 0,
+        counter_defense_rating: int = 0,
+        driver_rating: int = 5,
+        auto_notes: str = "",
+        teleop_notes: str = "",
+        misc_notes: str = "",
 ) -> dict:
     """
     Represents example scouting data. Customizable via parameters.
@@ -119,7 +119,42 @@ def test_missing_shooting_zones():
     # Ensures that the length of the errors JSON is 2 (total number of errors that should've been raised).
     # Ensures that the errors are both flagged as 'MISSING DATA'
     assert (
-        len(errors) == 2
-        and errors[0]["error_type"] == "MISSING DATA"
-        and errors[1]["error_type"] == "MISSING DATA"
+            len(errors) == 2
+            and errors[0]["error_type"] == "MISSING DATA"
+            and errors[1]["error_type"] == "MISSING DATA"
+    )
+
+
+def test_auto_great_than_6():
+    """Tests the `check_for_missing_shooting_zones` function to ensure errors are written into the JSON."""
+    data_validator = DataValidation2022()
+
+    # Takes fixture of example scouting data and changes the shooting zones.
+    scouting_data_with_auto_high_lower = example_scouting_data(
+        auto_lower_hub=7, auto_upper_hub=0, auto_misses=0
+    )
+    scouting_data_with_auto_high_upper = example_scouting_data(
+        auto_lower_hub=0, auto_upper_hub=7, auto_misses=0
+    )
+    scouting_data_with_auto_high_miss = example_scouting_data(
+        auto_lower_hub=0, auto_upper_hub=0, auto_misses=7
+    )
+    scouting_data_with_auto_high_total = example_scouting_data(
+        auto_lower_hub=3, auto_upper_hub=2, auto_misses=2
+    )
+
+    # Runs the validation of data to ensure errors are put into the corresponding JSON.
+    data_validator.validate_data(scouting_data=[scouting_data_with_auto_high_lower, scouting_data_with_auto_high_upper, scouting_data_with_auto_high_miss, scouting_data_with_auto_high_total])
+
+    with open("errors.json") as file:
+        errors = load(file)
+
+    # Ensures that the length of the errors JSON is 1 (total number of errors that should've been raised).
+    # Ensures that the errors are both flagged as 'INCORRECT DATA'
+    assert (
+            len(errors) == 4
+            and errors[0]["error_type"] == "INCORRECT DATA"
+            and errors[1]["error_type"] == "INCORRECT DATA"
+            and errors[2]["error_type"] == "INCORRECT DATA"
+            and errors[3]["error_type"] == "INCORRECT DATA"
     )
