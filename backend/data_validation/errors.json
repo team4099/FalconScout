@@ -1,6 +1,6 @@
 [
     {
-        "error_type": "MISSING DATA",
-        "message": "In qm1, 4099 rated for defense but NO DEFENSE PCT"
+        "error_type": "INCORRECT DATA",
+        "message": "In qm1, 4099 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH"
     }
 ]

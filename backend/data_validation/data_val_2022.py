@@ -202,7 +202,7 @@ class DataValidation2022(BaseDataValidation):
         :param counter_defense_rating: Representing how well the scouted team played counter defense on a scale of 1 to 5.
         :return: None
         """  # noqa
-        # Check for 0% defense pct but given rating.
+        # Check for missing defense pct.
         if notna(defense_rating) and isna(defense_pct):
             self.add_error(
                 f"In {match_key}, {team_number} rated for defense but NO DEFENSE PCT",
@@ -210,7 +210,7 @@ class DataValidation2022(BaseDataValidation):
             )
 
         # Check for missing defense rating.
-        if isna(defense_rating) and notna(defense_rating):
+        if isna(defense_rating) and notna(defense_pct):
             self.add_error(
                 f"In {match_key}, {team_number} MISSING DEFENSE RATING",
                 error_type=ErrorType.MISSING_DATA,
