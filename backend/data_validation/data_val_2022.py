@@ -80,7 +80,15 @@ class DataValidation2022(BaseDataValidation):
         )
 
         # TODO: Add TBA-related checks (see Notion docs for which checks to add.)
-        ...
+        if self._run_tba_checks:
+            self.check_submission_with_tba(
+                match_key=submission["match_key"],
+                team_number=submission["team_number"],
+                alliance=submission["alliance"],
+                driver_station=submission["driver_station"],
+                taxied=submission["taxied"],
+                final_climb_type=submission["final_climb_type"],
+            )
 
     def check_for_missing_shooting_zones(
         self,

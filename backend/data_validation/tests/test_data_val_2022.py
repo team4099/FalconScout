@@ -104,6 +104,7 @@ def example_scouting_data(
 def test_missing_shooting_zones():
     """Tests the `check_for_missing_shooting_zones` function to ensure errors are written into the JSON."""
     data_validator = DataValidation2022()
+    data_validator._run_tba_checks = False
 
     # Takes fixture of example scouting data and changes the shooting zones.
     scouting_data_without_shooting_zones = example_scouting_data(
@@ -123,3 +124,25 @@ def test_missing_shooting_zones():
         and errors[0]["error_type"] == "MISSING DATA"
         and errors[1]["error_type"] == "MISSING DATA"
     )
+
+
+def test_incorrect_taxi_state():
+    """Tests the `check_submission_with_tba` function to ensure errors are written w/ an incorrect taxi state."""
+    data_validator = DataValidation2022()
+    data_validator.tba_match_data = {
+        "2022iri_qm1": {
+            "score_breakdown": {
+                "red": {"taxiRobot1": "No", "endgameRobot1": "Traversal"}
+            }
+        }
+    }
+
+    # Runs the validation of data to ensure errors are put into the corresponding JSON.
+    data_validator.validate_data(scouting_data=[example_scouting_data()])
+
+    with open("errors.json") as file:
+        errors = load(file)
+
+    # Ensures that the length of the errors JSON is 2 (total number of errors that should've been raised).
+    # Ensures that the errors are both flagged as 'MISSING DATA'
+    assert len(errors) == 1 and errors[0]["error_type"] == "INCORRECT DATA"
