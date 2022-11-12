@@ -2,6 +2,7 @@ import json
 from typing import List
 
 from base_data_val import BaseDataValidation
+from numpy import percentile
 from pandas import DataFrame, Series, read_json
 from utils import Constants, ErrorType
 
@@ -156,15 +157,34 @@ class DataValidation2022(BaseDataValidation):
                 map(
                     lambda team_datum: (
                         team_datum[0],
-                        team_datum[1] * Constants.RapidReact.AUTO_LOWER_HUB_POINT_VALUE,
-                        team_datum[2] * Constants.RapidReact.AUTO_UPPER_HUB_POINT_VALUE,
-                        team_datum[3] * Constants.RapidReact.AUTO_TAXI_POINT_VALUE,
+                        team_datum[1] * Constants.RapidReact.AUTO_LOWER_HUB_POINT_VALUE
+                        + team_datum[2]
+                        * Constants.RapidReact.AUTO_UPPER_HUB_POINT_VALUE
+                        + team_datum[3] * Constants.RapidReact.AUTO_TAXI_POINT_VALUE,
                     ),
                     auto_cargo_match_team_data,
                 )
             )
 
-            print(auto_points_match_team_data)
+            min_IQR_threshold = percentile(
+                [val[1] for val in auto_points_match_team_data], 25
+            )
+            max_IQR_threshold = percentile(
+                [val[1] for val in auto_points_match_team_data], 75
+            )
+
+            outliers = list(
+                filter(
+                    lambda match_data: match_data[1] < min_IQR_threshold,
+                    auto_points_match_team_data,
+                )
+            ) + list(
+                filter(
+                    lambda match_data: match_data[1] > max_IQR_threshold,
+                    auto_points_match_team_data,
+                )
+            )
+            print(outliers)
 
 
 DataValidation2022().check_for_statistical_outliers()
