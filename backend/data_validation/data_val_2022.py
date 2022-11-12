@@ -1,8 +1,7 @@
 import json
-from typing import Hashable
 
 from base_data_val import BaseDataValidation
-from pandas import DataFrame, Series
+from pandas import DataFrame, Series, isna, notna
 from utils import ErrorType
 
 
@@ -126,3 +125,49 @@ class DataValidation2022(BaseDataValidation):
                 f"In {match_key}, {team_number} MISSING TELEOP SHOOTING ZONES",
                 error_type=ErrorType.MISSING_DATA,
             )
+
+    def check_submission_with_tba(
+        self,
+        match_key: str,
+        team_number: int,
+        alliance: str,
+        driver_station: int,
+        taxied: float,
+        final_climb_type: str,
+    ) -> None:
+
+        """
+        Validates taxi state and final climb status for scouted robot with TBA data.
+
+        :param match_key: Key of match that was scouted.
+        :param team_number: Number of team that was scouted (eg 4099).
+        :param alliance: Either "Red" or "Blue"; represents the alliance the scouted team was on.
+        :param driver_station: Number representing which order in the alliance a team is (eg 1 for Red 1)
+        :param taxied: Represents whether a team taxied or not during Autonomous.
+        :param final_climb_type: Represents the rung the scouted team got to in endgame, if any.
+        :return: None
+        """
+
+        submission_key = match_key.strip().lower()
+        full_match_key = f"{self._event_key}_{submission_key}"
+        score_info = self.tba_match_data[full_match_key]["score_breakdown"]
+
+        if score_info:
+            tba_taxi = score_info[alliance.lower()][f"taxiRobot{driver_station}"]
+            tba_climb = score_info[alliance.lower()][f"endgameRobot{driver_station}"]
+
+            # check for inconsistent taxi
+            if (tba_taxi == "No" and (notna(taxied) or taxied)) or (
+                tba_taxi == "Yes" and (isna(taxied) or not taxied)
+            ):
+                self.add_error(
+                    f"In {match_key}, {team_number} INCORRECT TAXI according to TBA",
+                    error_type=ErrorType.INCORRECT_DATA,
+                )
+
+            # check for inconsistent climb type
+            if tba_climb != final_climb_type.replace("No Climb", "None"):
+                self.add_error(
+                    f"In {match_key}, {team_number} INCORRECT ClIMB TYPE according to TBA, should be {tba_climb}",
+                    error_type=ErrorType.INCORRECT_DATA,
+                )
