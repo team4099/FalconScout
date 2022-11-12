@@ -3,7 +3,7 @@ from typing import List
 
 from base_data_val import BaseDataValidation
 from pandas import DataFrame, Series, read_json
-from utils import ErrorType
+from utils import Constants, ErrorType
 
 
 class DataValidation2022(BaseDataValidation):
@@ -133,19 +133,14 @@ class DataValidation2022(BaseDataValidation):
         teleop_check: bool = True,
         endgame_check: bool = True,
     ) -> None:
-        # Converting match data in JSON format into Pandas Dataframe
-        df = read_json(self.path_to_data_file)
+        self.check_for_auto_outliers()
 
-        # List of all teams
-        teams = list(set(df["team_number"]))
-        self.check_for_auto_outliers(teams, df)
-        ...
-
-    def check_for_auto_outliers(self, teams: List[int], df) -> None:
+    def check_for_auto_outliers(self) -> None:
         """
         Check and mark any statistical outliers across all teams' auto data.
-
-        :param teams: List of teams
-        :param df: Event match data as a Pandas Dataframe
         """
-        ...
+        # for team in self.teams:
+        #     team_data_entries = self.df.loc[self.df['team_number'] == team]
+
+
+# DataValidation2022().check_for_statistical_outliers()
