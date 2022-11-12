@@ -25,10 +25,10 @@ def example_scouting_data(
     attempted_traversal: int = 1,
     climb_time: float = 15.0,
     final_climb_type: str = "Traversal",
-    defense_pct: float = 1.0,
-    defense_rating: int = 5,
-    counter_defense_pct: int = 0,
-    counter_defense_rating: int = 0,
+    defense_pct: float = 0.5,
+    defense_rating: float = 5.0,
+    counter_defense_pct: float = 0.5,
+    counter_defense_rating: float = 5.0,
     driver_rating: int = 5,
     auto_notes: str = "",
     teleop_notes: str = "",
@@ -137,14 +137,11 @@ def test_incorrect_taxi_state():
         }
     }
 
-    # Runs the validation of data to ensure errors are put into the corresponding JSON.
     data_validator.validate_data(scouting_data=[example_scouting_data()])
 
     with open("errors.json") as file:
         errors = load(file)
 
-    # Ensures that the length of the errors JSON is 2 (total number of errors that should've been raised).
-    # Ensures that the errors are both flagged as 'MISSING DATA'
     assert len(errors) == 1 and errors[0]["error_type"] == "INCORRECT DATA"
 
 
@@ -157,12 +154,96 @@ def test_incorrect_climb():
         }
     }
 
-    # Runs the validation of data to ensure errors are put into the corresponding JSON.
     data_validator.validate_data(scouting_data=[example_scouting_data()])
 
     with open("errors.json") as file:
         errors = load(file)
 
-    # Ensures that the length of the errors JSON is 2 (total number of errors that should've been raised).
-    # Ensures that the errors are both flagged as 'MISSING DATA'
+    assert len(errors) == 1 and errors[0]["error_type"] == "INCORRECT DATA"
+
+
+def test_defense_rating_but_no_defense_pct():
+    """Tests `check_for_invalid_defense_data` to ensure errors are written w/ given defense rating but no defense %"""
+    data_validator = DataValidation2022()
+    data_validator._run_tba_checks = False
+
+    scouting_data_with_no_defense_pct = example_scouting_data(defense_pct=float("nan"))
+
+    data_validator.validate_data(scouting_data=[scouting_data_with_no_defense_pct])
+
+    with open("errors.json") as file:
+        errors = load(file)
+
+    assert len(errors) == 1 and errors[0]["error_type"] == "MISSING DATA"
+
+
+def test_defense_pct_but_no_defense_rating():
+    """Tests `check_for_invalid_defense_data` to ensure errors are written w/ given defense % but no defense rating"""
+    data_validator = DataValidation2022()
+    data_validator._run_tba_checks = False
+
+    scouting_data_with_no_defense_rating = example_scouting_data(
+        defense_rating=float("nan")
+    )
+
+    data_validator.validate_data(scouting_data=[scouting_data_with_no_defense_rating])
+
+    with open("errors.json") as file:
+        errors = load(file)
+
+    assert len(errors) == 1 and errors[0]["error_type"] == "MISSING DATA"
+
+
+def test_counter_defense_rating_but_no_counter_defense_pct():
+    """Tests `check_for_invalid_defense_data` w/ given counter defense rating but no counter defense %"""
+    data_validator = DataValidation2022()
+    data_validator._run_tba_checks = False
+
+    scouting_data_with_no_counter_defense_pct = example_scouting_data(
+        counter_defense_pct=float("nan")
+    )
+
+    data_validator.validate_data(
+        scouting_data=[scouting_data_with_no_counter_defense_pct]
+    )
+
+    with open("errors.json") as file:
+        errors = load(file)
+
+    assert len(errors) == 1 and errors[0]["error_type"] == "MISSING DATA"
+
+
+def test_counter_defense_pct_but_no_counter_defense_rating():
+    """Tests `check_for_invalid_defense_data` w/ given counter defense % but no counter defense rating"""
+    data_validator = DataValidation2022()
+    data_validator._run_tba_checks = False
+
+    scouting_data_with_no_counter_defense_pct = example_scouting_data(
+        counter_defense_rating=float("nan")
+    )
+
+    data_validator.validate_data(
+        scouting_data=[scouting_data_with_no_counter_defense_pct]
+    )
+
+    with open("errors.json") as file:
+        errors = load(file)
+
+    assert len(errors) == 1 and errors[0]["error_type"] == "MISSING DATA"
+
+
+def test_incorrect_defense_and_counter_defense_pct():
+    """Tests `check_for_invalid_defense_data` w/ defense % + counter defense % being over 1."""
+    data_validator = DataValidation2022()
+    data_validator._run_tba_checks = False
+
+    scouting_data_with_incorrect_pcts = example_scouting_data(
+        defense_pct=1.0, counter_defense_pct=1.0
+    )
+
+    data_validator.validate_data(scouting_data=[scouting_data_with_incorrect_pcts])
+
+    with open("errors.json") as file:
+        errors = load(file)
+
     assert len(errors) == 1 and errors[0]["error_type"] == "INCORRECT DATA"

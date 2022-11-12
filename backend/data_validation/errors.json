@@ -1,6 +1,6 @@
 [
     {
-        "error_type": "INCORRECT DATA",
-        "message": "In qm1, 4099 INCORRECT ClIMB TYPE according to TBA, should be Mid"
+        "error_type": "MISSING DATA",
+        "message": "In qm1, 4099 rated for defense but NO DEFENSE PCT"
     }
 ]

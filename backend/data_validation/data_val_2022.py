@@ -179,3 +179,65 @@ class DataValidation2022(BaseDataValidation):
                     f"In {match_key}, {team_number} INCORRECT ClIMB TYPE according to TBA, should be {tba_climb}",
                     error_type=ErrorType.INCORRECT_DATA,
                 )
+
+    def check_for_invalid_defense_data(
+        self,
+        match_key: str,
+        team_number: int,
+        defense_pct: float,
+        defense_rating: float,
+        counter_defense_pct: float,
+        counter_defense_rating: float,
+    ) -> None:
+        """
+        Checks if scouter gave defense or counter defense rating but stated that the robot didn't play defense/counter defense.
+        Checks if scouter stated that robot played defense or counter defense but didn't give a corresponding rating.
+        Checks if total defense played + counter defense played > 100% hence impossible.
+
+        :param match_key: Key of match that was scouted.
+        :param team_number: Number of team that was scouted (eg 4099).
+        :param defense_pct: Decimal representing how much the scouted team played defense out of 1 (eg 0.75)
+        :param defense_rating: Representing how well the scouted team played defense on a scale of 1 to 5.
+        :param counter_defense_pct: Decimal representing how much the scouted team played counter defense out of 1 (eg 0.75)
+        :param counter_defense_rating: Representing how well the scouted team played counter defense on a scale of 1 to 5.
+        :return: None
+        """  # noqa
+        # Check for 0% defense pct but given rating.
+        if notna(defense_rating) and isna(defense_pct):
+            self.add_error(
+                f"In {match_key}, {team_number} rated for defense but NO DEFENSE PCT",
+                error_type=ErrorType.MISSING_DATA,
+            )
+
+        # Check for missing defense rating.
+        if isna(defense_rating) and notna(defense_rating):
+            self.add_error(
+                f"In {match_key}, {team_number} MISSING DEFENSE RATING",
+                error_type=ErrorType.MISSING_DATA,
+            )
+
+        # Check for 0% counter defense pct but given rating.
+        if notna(counter_defense_rating) and isna(counter_defense_pct):
+            self.add_error(
+                f"In {match_key}, {team_number} "
+                f"rated for counter defense but NO COUNTER DEFENSE PCT",
+                error_type=ErrorType.MISSING_DATA,
+            )
+
+        # Check for missing counter defense rating.
+        if notna(counter_defense_pct) and isna(counter_defense_rating):
+            self.add_error(
+                f"In {match_key}, {team_number} MISSING COUNTER DEFENSE RATING",
+                error_type=ErrorType.MISSING_DATA,
+            )
+
+        # Inconsistent defense + counter defense pct.
+        if (
+            notna(defense_pct)
+            and notna(counter_defense_pct)
+            and (defense_pct + counter_defense_pct) > 1
+        ):
+            self.add_error(
+                f"In {match_key}, {team_number} DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
+                error_type=ErrorType.INCORRECT_DATA,
+            )
