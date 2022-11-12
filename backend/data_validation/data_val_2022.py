@@ -134,11 +134,22 @@ class DataValidation2022(BaseDataValidation):
         teleop_check: bool = True,
         endgame_check: bool = True,
     ) -> None:
+        """
+        Checking for statistical outliers in the 2022 Rapid React game.
+
+        :param auto_check: Runs outlier checks specifically and strictly against the autonomous portion of the game.
+        :param teleop_check: Runs outlier checks specifically and strictly against the teloperated portion of the game.
+        :param endgame_check: Runs outlier checks specifically and strictly against the endgame portion of the game.
+
+        :return:
+        """
         self.check_for_auto_outliers()
 
     def check_for_auto_outliers(self) -> None:
         """
         Check and mark any statistical outliers across all teams' auto data.
+
+        :return:
         """
         for team in self.teams:
             team_data_entries = self.df.loc[self.df["team_number"] == team]

@@ -1,10 +1,11 @@
+from abc import abstractmethod
 from itertools import chain
 from json import dump, load
 from typing import List
 
 import falcon_alliance
 import yaml
-from pandas import isna, notna, read_json
+from pandas import DataFrame, isna, notna, read_json
 from utils import ErrorType
 
 
@@ -181,3 +182,13 @@ class BaseDataValidation:
         all_teams = list(map(lambda x: int(x[3:]), all_team_identifiers))
 
         return all_teams
+
+    @abstractmethod
+    def check_for_statistical_outliers(self) -> None:
+        """
+        Check and mark any statistical outliers across all teams' auto data.
+        Outliers are identified by the IQR method https://online.stat.psu.edu/stat200/lesson/3/3.2
+        Data points below Q1 and above Q3 are logged as possible errors. Point differentials are reported
+        separately across different parts of the game (i.e. autonomous, teleoperated, endgame).
+        """
+        pass
