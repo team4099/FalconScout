@@ -5,6 +5,7 @@ import { DropdownTextInput, GenericTextInput, SliderInput } from "./components/i
 import { GenericTextArea } from "./components/inputs"
 import { DarkButton } from "./components/buttons"
 import IncrementNumberInput from './components/inputs/IncrementNumberInput'
+import GenericDropdown from './components/selects/GenericDropdown'
 
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
         <SliderInput text="Driver Rating" options={["0", "10"]}/>
       </div>
       <div>
-        
+        <GenericDropdown text="Zones" options={["tarmac", "fender", "hangar", "terminal"]}/>
       </div>
       <div>
         <DarkButton text="Submit" route="todo"/>
