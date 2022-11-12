@@ -139,8 +139,32 @@ class DataValidation2022(BaseDataValidation):
         """
         Check and mark any statistical outliers across all teams' auto data.
         """
-        # for team in self.teams:
-        #     team_data_entries = self.df.loc[self.df['team_number'] == team]
+        for team in self.teams:
+            print(team)
+            team_data_entries = self.df.loc[self.df["team_number"] == team]
+
+            auto_cargo_match_team_data = list(
+                zip(
+                    team_data_entries["match_key"],
+                    team_data_entries["auto_lower_hub"],
+                    team_data_entries["auto_upper_hub"],
+                    team_data_entries["taxied"],
+                )
+            )
+
+            auto_points_match_team_data = list(
+                map(
+                    lambda team_datum: (
+                        team_datum[0],
+                        team_datum[1] * Constants.RapidReact.AUTO_LOWER_HUB_POINT_VALUE,
+                        team_datum[2] * Constants.RapidReact.AUTO_UPPER_HUB_POINT_VALUE,
+                        team_datum[3] * Constants.RapidReact.AUTO_TAXI_POINT_VALUE,
+                    ),
+                    auto_cargo_match_team_data,
+                )
+            )
+
+            print(auto_points_match_team_data)
 
 
-# DataValidation2022().check_for_statistical_outliers()
+DataValidation2022().check_for_statistical_outliers()
