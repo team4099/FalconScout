@@ -1,0 +1,10 @@
+[
+    {
+        "error_type": "MISSING DATA",
+        "message": "In qm1, 4099 MISSING AUTO SHOOTING ZONES"
+    },
+    {
+        "error_type": "MISSING DATA",
+        "message": "In qm1, 4099 MISSING TELEOP SHOOTING ZONES"
+    }
+]

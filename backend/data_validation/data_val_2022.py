@@ -1,8 +1,8 @@
 import json
-from typing import Hashable
+from typing import List
 
 from base_data_val import BaseDataValidation
-from pandas import DataFrame, Series
+from pandas import DataFrame, Series, read_json
 from utils import ErrorType
 
 
@@ -126,3 +126,26 @@ class DataValidation2022(BaseDataValidation):
                 f"In {match_key}, {team_number} MISSING TELEOP SHOOTING ZONES",
                 error_type=ErrorType.MISSING_DATA,
             )
+
+    def check_for_statistical_outliers(
+        self,
+        auto_check: bool = True,
+        teleop_check: bool = True,
+        endgame_check: bool = True,
+    ) -> None:
+        # Converting match data in JSON format into Pandas Dataframe
+        df = read_json(self.path_to_data_file)
+
+        # List of all teams
+        teams = list(set(df["team_number"]))
+        self.check_for_auto_outliers(teams, df)
+        ...
+
+    def check_for_auto_outliers(self, teams: List[int], df) -> None:
+        """
+        Check and mark any statistical outliers across all teams' auto data.
+
+        :param teams: List of teams
+        :param df: Event match data as a Pandas Dataframe
+        """
+        ...
