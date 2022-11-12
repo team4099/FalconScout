@@ -146,3 +146,23 @@ def test_incorrect_taxi_state():
     # Ensures that the length of the errors JSON is 2 (total number of errors that should've been raised).
     # Ensures that the errors are both flagged as 'MISSING DATA'
     assert len(errors) == 1 and errors[0]["error_type"] == "INCORRECT DATA"
+
+
+def test_incorrect_climb():
+    """Tests the `check_submission_with_tba` function to ensure errors are written w/ an incorrect climb status."""
+    data_validator = DataValidation2022()
+    data_validator.tba_match_data = {
+        "2022iri_qm1": {
+            "score_breakdown": {"red": {"taxiRobot1": "Yes", "endgameRobot1": "Mid"}}
+        }
+    }
+
+    # Runs the validation of data to ensure errors are put into the corresponding JSON.
+    data_validator.validate_data(scouting_data=[example_scouting_data()])
+
+    with open("errors.json") as file:
+        errors = load(file)
+
+    # Ensures that the length of the errors JSON is 2 (total number of errors that should've been raised).
+    # Ensures that the errors are both flagged as 'MISSING DATA'
+    assert len(errors) == 1 and errors[0]["error_type"] == "INCORRECT DATA"
