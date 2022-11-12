@@ -141,7 +141,6 @@ class DataValidation2022(BaseDataValidation):
         Check and mark any statistical outliers across all teams' auto data.
         """
         for team in self.teams:
-            print(team)
             team_data_entries = self.df.loc[self.df["team_number"] == team]
 
             auto_cargo_match_team_data = list(
@@ -167,24 +166,35 @@ class DataValidation2022(BaseDataValidation):
             )
 
             min_IQR_threshold = percentile(
-                [val[1] for val in auto_points_match_team_data], 25
+                [datum[1] for datum in auto_points_match_team_data], 25
             )
             max_IQR_threshold = percentile(
-                [val[1] for val in auto_points_match_team_data], 75
+                [datum[1] for datum in auto_points_match_team_data], 75
             )
 
-            outliers = list(
+            min_outliers = list(
                 filter(
                     lambda match_data: match_data[1] < min_IQR_threshold,
                     auto_points_match_team_data,
                 )
-            ) + list(
+            )
+            max_outliers = list(
                 filter(
                     lambda match_data: match_data[1] > max_IQR_threshold,
                     auto_points_match_team_data,
                 )
             )
-            print(outliers)
 
+            for outlier in min_outliers:
+                # Logging all min outliers as info
+                self.add_error(
+                    f"In {outlier[0]}, frc{team} HAD AN AUTONOMOUS SCORE OUTLIER (<Q1) OF {outlier[1]} POINTS",
+                    ErrorType.INFO,
+                )
 
-DataValidation2022().check_for_statistical_outliers()
+            for outlier in max_outliers:
+                # Logging all max outliers as info
+                self.add_error(
+                    f"In {outlier[0]}, frc{team} HAD AN AUTONOMOUS SCORE OUTLIER (>Q3) {outlier[1]} POINTS",
+                    ErrorType.INFO,
+                )

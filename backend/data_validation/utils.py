@@ -8,10 +8,12 @@ from pandas import isna
 class ErrorType(Enum):
     """Enum class for the different error types that can occur with the data validation."""
 
-    RESCOUT_MATCH = 0
-    INCORRECT_DATA = 1
-    MISSING_DATA = 2
-    CRITICAL = 3
+    DEBUG = 0
+    INFO = 1
+    INCORRECT_DATA = 2
+    MISSING_DATA = 3
+    CRITICAL = 4
+    RESCOUT_MATCH = 5
 
 
 @dataclass
