@@ -123,3 +123,23 @@ def test_missing_shooting_zones():
         and errors[0]["error_type"] == "MISSING DATA"
         and errors[1]["error_type"] == "MISSING DATA"
     )
+
+
+def test_auto_two_plus_cargo_when_taxied():
+    """Tests the `check_for_auto_cargo_when_taxi` function to ensure errors are written into the JSON."""
+    data_validator = DataValidation2022()
+
+    # Takes fixture of example scouting data and changes the shooting zones.
+    scouting_data_without_shooting_zones = example_scouting_data(
+        auto_upper_hub=2, auto_misses=1
+    )
+
+    # Runs the validation of data to ensure errors are put into the corresponding JSON.
+    data_validator.validate_data(scouting_data=[scouting_data_without_shooting_zones])
+
+    with open("errors.json") as file:
+        errors = load(file)
+
+    # Ensures that the length of the errors JSON is 1 (total number of errors that should've been raised).
+    # Ensures that the errors are both flagged as 'INCORRECT_DATA'
+    assert len(errors) == 1 and errors[0]["error_type"] == "INCORRECT DATA"
