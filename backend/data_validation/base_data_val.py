@@ -9,7 +9,7 @@ from pandas import isna, notna
 from utils import ErrorType
 
 
-class BaseDataValidation(ABC):
+class BaseDataValidation:
     """
     Base class that validates the data passed in.
 
