@@ -1,5 +1,4 @@
 import re
-from dataclasses import dataclass
 from enum import Enum
 
 from pandas import isna
@@ -14,18 +13,6 @@ class ErrorType(Enum):
     MISSING_DATA = 3
     CRITICAL = 4
     RESCOUT_MATCH = 5
-
-
-@dataclass
-class Constants:
-    @dataclass
-    class RapidReact:
-        AUTO_TAXI_POINT_VALUE = 2
-        AUTO_UPPER_HUB_POINT_VALUE = 4
-        AUTO_LOWER_HUB_POINT_VALUE = 2
-
-        TELEOP_UPPER_HUB_POINT_VALUE = 2
-        TELEOP_LOWER_HUB_POINT_VALUE = 1
 
 
 def valid_match_key(key: str) -> bool:

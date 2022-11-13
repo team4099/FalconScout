@@ -1,10 +1,10 @@
 import json
-from typing import List
 
 from base_data_val import BaseDataValidation
+from config.constants import RapidReact
+from config.utils import ErrorType
 from numpy import percentile
-from pandas import DataFrame, Series, read_json
-from utils import Constants, ErrorType
+from pandas import DataFrame, Series
 
 
 class DataValidation2022(BaseDataValidation):
@@ -167,10 +167,9 @@ class DataValidation2022(BaseDataValidation):
                 map(
                     lambda team_datum: (
                         team_datum[0],
-                        team_datum[1] * Constants.RapidReact.AUTO_LOWER_HUB_POINT_VALUE
-                        + team_datum[2]
-                        * Constants.RapidReact.AUTO_UPPER_HUB_POINT_VALUE
-                        + team_datum[3] * Constants.RapidReact.AUTO_TAXI_POINT_VALUE,
+                        team_datum[1] * RapidReact.AUTO_LOWER_HUB_POINT_VALUE
+                        + team_datum[2] * RapidReact.AUTO_UPPER_HUB_POINT_VALUE
+                        + team_datum[3] * RapidReact.AUTO_TAXI_POINT_VALUE,
                     ),
                     auto_cargo_match_team_data,
                 )

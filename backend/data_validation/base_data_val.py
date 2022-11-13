@@ -5,8 +5,9 @@ from typing import List
 
 import falcon_alliance
 import yaml
-from pandas import DataFrame, isna, notna, read_json
-from utils import ErrorType
+from pandas import isna, notna, read_json
+
+from backend.data_validation.config.utils import ErrorType
 
 
 class BaseDataValidation:
