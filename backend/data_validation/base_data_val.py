@@ -1,4 +1,7 @@
+from abc import ABC, abstractmethod
 from json import dump, load
+from pandas import DataFrame, Series
+
 
 import falcon_alliance
 import yaml
@@ -6,7 +9,7 @@ from pandas import isna, notna
 from utils import ErrorType
 
 
-class BaseDataValidation:
+class BaseDataValidation(ABC):
     """
     Base class that validates the data passed in.
 
@@ -49,7 +52,14 @@ class BaseDataValidation:
                 self.get_match_schedule_tba()
             else: 
                 self.get_match_schedule_file()
-
+    
+    @abstractmethod
+    def validate_data(self, scouting_data: list = None) -> None:
+        pass
+    
+    @abstractmethod
+    def validate_submission(self, submission: Series) -> None:
+        pass
 
     def check_team_info_with_match_schedule(
         self,
