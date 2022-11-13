@@ -46,8 +46,46 @@ class BaseDataValidation:
         self._event_key = str(self.config["year"]) + self.config["event_code"]
         self._run_tba_checks = self.config.get("run_tba_checks", True)
 
-        if self._run_tba_checks:
-            self.get_match_schedule()
+        self.get_match_schedule()
+
+    def check_team_info_with_match_schedule(
+        self,
+        match_key: str,
+        team_number: int,
+        alliance: str,
+        driver_station: int
+    ) -> None :
+        """
+        Checks if the team scouted was in the match on given alliance
+        Checks if the team driverstation doesn't correspond to team scouted
+
+        :param match_key: Key of match that was scouted.
+        :param team_number: Number of team that was scouted (eg 4099).
+        :param alliance: string either "Red' or 'Blue' of which alliance was scouted
+        :param driver_station: int representing which driver station(1-3) was  scouted.
+        """
+        match_schedule_key = self._event_key + "_" + match_key
+        teams_on_alliance = self.match_schedule[match_schedule_key][alliance]
+        teams_on_alliance = list(map(
+            lambda team: int(team.lstrip("frc")),
+            teams_on_alliance
+        ))
+
+        print(teams_on_alliance)
+
+        if team_number not in teams_on_alliance:
+            self.add_error(
+                f"In {match_key}, {team_number} was NOT IN MATCH on the {alliance} alliance",
+                error_type=ErrorType.INCORRECT_DATA,
+            )
+
+        elif (team_number) != teams_on_alliance[driver_station-1]:
+            self.add_error(
+                f"In {match_key}, {team_number} INCONSISTENT DRIVER STATION with schedule",
+                error_type=ErrorType.INCORRECT_DATA,
+            )
+
+
 
     def check_for_invalid_defense_data(
         self,
@@ -149,12 +187,13 @@ class BaseDataValidation:
 
                 for match in match_schedule:
                     self.tba_match_data[match.key] = match
-
                     self.match_schedule[match.key] = {
-                        "red": match.alliances["red"].team_keys,
-                        "blue": match.alliances["blue"].team_keys,
+                        "Red": match.alliances["red"].team_keys,
+                        "Blue": match.alliances["blue"].team_keys,
                     }
 
         # Writes match schedule to the corresponding JSON
         with open("../data/match_schedule.json", "w") as file:
             dump(self.match_schedule, file, indent=4)
+
+    

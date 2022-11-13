@@ -1,4 +1,5 @@
 import json
+from lib2to3.pgen2 import driver
 from typing import Hashable
 
 from base_data_val import BaseDataValidation
@@ -78,6 +79,13 @@ class DataValidation2022(BaseDataValidation):
             counter_defense_pct=submission["counter_defense_pct"],
             defense_rating=submission["defense_rating"],
             counter_defense_rating=submission["counter_defense_rating"],
+        )
+
+        self.check_team_info_with_match_schedule(
+            match_key=submission["match_key"],
+            team_number=submission["team_number"],
+            alliance=submission["alliance"],
+            driver_station= submission["driver_station"]
         )
 
         # TODO: Add TBA-related checks (see Notion docs for which checks to add.)

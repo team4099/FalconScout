@@ -6,7 +6,7 @@ from data_val_2022 import DataValidation2022
 def example_scouting_data(
     scout_id: str = "falcon",
     match_key: str = "qm1",
-    team_number: int = 4099,
+    team_number: int = 3538,
     alliance: str = "Red",
     driver_station: int = 1,
     preloaded_cargo: int = 0,
@@ -122,4 +122,48 @@ def test_missing_shooting_zones():
         len(errors) == 2
         and errors[0]["error_type"] == "MISSING DATA"
         and errors[1]["error_type"] == "MISSING DATA"
+    )
+
+def test_incorrect_team_number():
+    """Tests the `check_team_info_with_match_schedule` function to ensure 'NOT IN MATCH'errors are written into the JSON."""
+    data_validator = DataValidation2022()
+
+    # Takes fixture of example scouting data and changes the shooting zones.
+    scouting_data_with_wrong_team_number = example_scouting_data(
+        team_number=1
+    )
+
+    # Runs the validation of data to ensure errors are put into the corresponding JSON.
+    data_validator.validate_data(scouting_data=[scouting_data_with_wrong_team_number])
+
+    with open("errors.json") as file:
+        errors = load(file)
+
+    # Ensures that the length of the errors JSON is 2 (total number of errors that should've been raised).
+    # Ensures that the errors are both flagged as 'MISSING DATA'
+    assert (
+        len(errors) == 1
+        and errors[0]["error_type"] == "INCORRECT DATA"
+    )
+
+def test_incorrect_driver_station():
+    """Tests the `check_team_info_with_match_schedule` function to ensure 'INCOSISTENT DRIVER STATION'errors are written into the JSON."""
+    data_validator = DataValidation2022()
+
+    # Takes fixture of example scouting data and changes the shooting zones.
+    scouting_data_with_wrong_driver_station = example_scouting_data(
+        match_key="qm1", team_number="2614", alliance="Blue", driver_station=2
+    )
+
+    # Runs the validation of data to ensure errors are put into the corresponding JSON.
+    data_validator.validate_data(scouting_data=[scouting_data_with_wrong_driver_station])
+
+    with open("errors.json") as file:
+        errors = load(file)
+
+    # Ensures that the length of the errors JSON is 2 (total number of errors that should've been raised).
+    # Ensures that the errors are both flagged as 'MISSING DATA'
+    assert (
+        len(errors) == 1
+        and errors[0]["error_type"] == "INCORRECT DATA"
     )
