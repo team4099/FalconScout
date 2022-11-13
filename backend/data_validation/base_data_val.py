@@ -9,7 +9,7 @@ from pandas import isna, notna
 from utils import ErrorType
 
 
-class BaseDataValidation:
+class BaseDataValidation(ABC):
     """
     Base class that validates the data passed in.
 
@@ -54,11 +54,14 @@ class BaseDataValidation:
                 self.get_match_schedule_file()
     
     @abstractmethod
-    def validate_data(self, scouting_data: list = None) -> None:
+    def validate_data(self) -> None:
+        """
+        Runs all checks validating a single submission from 2022's game (Rapid React).
+        """
         pass
     
     @abstractmethod
-    def validate_submission(self, submission: Series) -> None:
+    def validate_submission(self) -> None:
         pass
 
     def check_team_info_with_match_schedule(
