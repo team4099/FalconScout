@@ -1,6 +1,98 @@
 [
     {
         "error_type": "INCORRECT DATA",
-        "message": "In qm1, 2614 was NOT IN MATCH on the Blue alliance"
+        "message": "In qm1, 2614 was NOT IN MATCH on the Red alliance"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "message": "In qm1, 1987 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "message": "In qm1, 4143 was NOT IN MATCH on the Blue alliance"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "message": "In qm10, 325 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "message": "In qm14, 2075 was NOT IN MATCH on the Red alliance"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "message": "In qm15, 240 was NOT IN MATCH on the Red alliance"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "message": "In qm16, 5010 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "message": "In qm21, 67 was NOT IN MATCH on the Blue alliance"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "message": "In qm21, 1024 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "message": "In qm21, 384 was NOT IN MATCH on the Red alliance"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "message": "In qm22, 4099 was NOT IN MATCH on the Blue alliance"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "message": "In qm22, 1706 was NOT IN MATCH on the Blue alliance"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "message": "In qm23, 234 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH"
+    },
+    {
+        "error_type": "MISSING DATA",
+        "message": "In qm23, 2538 MISSING TELEOP SHOOTING ZONES"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "message": "In qm23, 2538 was NOT IN MATCH on the Blue alliance"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "message": "In qm28, 2056 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "message": "In qm29, 180 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "message": "In qm3, 195 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "message": "In qm31, 62 was NOT IN MATCH on the Red alliance"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "message": "In qm32, 3176 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "message": "In qm36, 4099 was NOT IN MATCH on the Red alliance"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "message": "In qm42, 4099 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "message": "In qm49, 3536 was NOT IN MATCH on the Red alliance"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "message": "In qm9, 4099 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH"
     }
 ]

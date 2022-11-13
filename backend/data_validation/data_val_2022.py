@@ -43,7 +43,7 @@ class DataValidation2022(BaseDataValidation):
             self.validate_submission(submission)
 
         # TODO: Add check relying on TBA to cross-check shooting totals with TBA's reported shooting totals.
-        if self._run_tba_checks:
+        if self._run_with_tba:
             ...
 
         self.output_errors()
