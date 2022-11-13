@@ -131,7 +131,7 @@ def test_auto_two_plus_cargo_when_taxied():
 
     # Takes fixture of example scouting data and changes the shooting zones.
     scouting_data_without_shooting_zones = example_scouting_data(
-        auto_upper_hub=2, auto_misses=1
+        auto_upper_hub=2, auto_misses=1, taxied=0
     )
 
     # Runs the validation of data to ensure errors are put into the corresponding JSON.

@@ -159,7 +159,7 @@ class DataValidation2022(BaseDataValidation):
         :return:
         """
         # Check if 2 or more balls were shot in auto and still taxied
-        if (auto_upper_hub + auto_lower_hub + auto_misses) >= 2 and taxi:
+        if (auto_upper_hub + auto_lower_hub + auto_misses) >= 2 and not (taxi):
             self.add_error(
                 f"In {match_key}, frc{team_number} SHOT 2 OR MORE BALLS WITHOUT TAXING",
                 error_type=ErrorType.INCORRECT_DATA
