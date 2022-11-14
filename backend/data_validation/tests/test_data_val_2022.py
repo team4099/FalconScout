@@ -127,7 +127,7 @@ def test_missing_shooting_zones():
 
 def test_incorrect_team_number():
     """
-    Tests the `check_team_info_with_match_schedule` function to ensure 'NOT IN MATCH'errors are written into the 
+    Tests the `check_team_info_with_match_schedule` function to ensure 'NOT IN MATCH'errors are written into the
     JSON.
     """
     data_validator = DataValidation2022()
@@ -153,7 +153,7 @@ def test_incorrect_team_number():
 
 def test_incorrect_driver_station():
     """
-    Tests the `check_team_info_with_match_schedule` function to ensure 'INCOSISTENT DRIVER STATION'errors are 
+    Tests the `check_team_info_with_match_schedule` function to ensure 'INCOSISTENT DRIVER STATION'errors are
     written into the JSON.
     """
     data_validator = DataValidation2022()

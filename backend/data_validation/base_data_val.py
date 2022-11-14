@@ -39,18 +39,18 @@ class BaseDataValidation:
         self.api_client = falcon_alliance.ApiClient(
             api_key="6lcmneN5bBDYpC47FolBxp2RZa4AbQCVpmKMSKw9x9btKt7da5yMzVamJYk0XDBm"  # for testing purposes
         )
-        
+
         with self.api_client:
             # make sure tba isn't down
             self._run_with_tba = (
                 self._event_key not in self.api_client.status().down_events
             )
-        
+
             if self._run_with_tba:
                 self.get_match_schedule_tba()
-            else: 
+            else:
                 self.get_match_schedule_file()
-    
+
     def check_team_info_with_match_schedule(
         self,
         match_key: str,
@@ -128,7 +128,7 @@ class BaseDataValidation:
                 f"In {match_key}, {team_number} "
                 f"rated for counter defense but NO COUNTER DEFENSE PCT",
                 error_type=ErrorType.MISSING_DATA,
-            )
+                )
 
         # Check for missing counter defense rating.
         if notna(counter_defense_pct) and isna(counter_defense_rating):
@@ -179,7 +179,7 @@ class BaseDataValidation:
 
         :return: None
         """
-        
+
         # Sets match schedule and tba_match_data attributes, with tba_match_data being raw data.
         match_schedule = falcon_alliance.Event(self._event_key).matches()
 
@@ -189,14 +189,14 @@ class BaseDataValidation:
                 "Red": match.alliances["red"].team_keys,
                 "Blue": match.alliances["blue"].team_keys,
             }
-    
+
     def get_match_schedule_file(self) -> None:
         """
         Retrieves match_schedule from data/match_schedule.json unless different file was set in conifg
 
         :return: None
         """
-        
+
         try:
             with open(
                 self.config.get("path_to_match_schedule", "../data/match_schedule.json")
@@ -208,5 +208,3 @@ class BaseDataValidation:
         # Writes match schedule to the corresponding JSON
         with open("../data/match_schedule.json", "w") as file:
             dump(self.match_schedule, file, indent=4)
-
-    
