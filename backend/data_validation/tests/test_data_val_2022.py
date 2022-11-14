@@ -133,9 +133,7 @@ def test_incorrect_team_number():
     data_validator = DataValidation2022()
 
     # Takes fixture of example scouting data and changes the shooting zones.
-    scouting_data_with_wrong_team_number = example_scouting_data(
-        team_number=1
-    )
+    scouting_data_with_wrong_team_number = example_scouting_data(team_number=1)
 
     # Runs the validation of data to ensure errors are put into the corresponding JSON.
     data_validator.validate_data(scouting_data=[scouting_data_with_wrong_team_number])
@@ -145,10 +143,7 @@ def test_incorrect_team_number():
 
     # Ensures that the length of the errors JSON is 2 (total number of errors that should've been raised).
     # Ensures that the errors are both flagged as 'MISSING DATA'
-    assert (
-        len(errors) == 1
-        and errors[0]["error_type"] == "INCORRECT DATA"
-    )
+    assert len(errors) == 1 and errors[0]["error_type"] == "INCORRECT DATA"
 
 
 def test_incorrect_driver_station():
@@ -164,14 +159,13 @@ def test_incorrect_driver_station():
     )
 
     # Runs the validation of data to ensure errors are put into the corresponding JSON.
-    data_validator.validate_data(scouting_data=[scouting_data_with_wrong_driver_station])
+    data_validator.validate_data(
+        scouting_data=[scouting_data_with_wrong_driver_station]
+    )
 
     with open("errors.json") as file:
         errors = load(file)
 
     # Ensures that the length of the errors JSON is 2 (total number of errors that should've been raised).
     # Ensures that the errors are both flagged as 'MISSING DATA'
-    assert (
-        len(errors) == 1
-        and errors[0]["error_type"] == "INCORRECT DATA"
-    )
+    assert len(errors) == 1 and errors[0]["error_type"] == "INCORRECT DATA"

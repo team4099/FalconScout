@@ -85,7 +85,7 @@ class DataValidation2022(BaseDataValidation):
             match_key=submission["match_key"],
             team_number=submission["team_number"],
             alliance=submission["alliance"],
-            driver_station=submission["driver_station"]
+            driver_station=submission["driver_station"],
         )
 
         # TODO: Add TBA-related checks (see Notion docs for which checks to add.)

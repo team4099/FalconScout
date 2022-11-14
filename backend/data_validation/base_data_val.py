@@ -77,7 +77,7 @@ class BaseDataValidation(ABC):
         match_key: str,
         team_number: int,
         alliance: str,
-        driver_station: int
+        driver_station: int,
     ) -> None:
         """
         Checks if the team scouted was in the match on given alliance
@@ -90,10 +90,9 @@ class BaseDataValidation(ABC):
         """
         match_schedule_key = self._event_key + "_" + match_key
         teams_on_alliance = self.match_schedule[match_schedule_key][alliance]
-        teams_on_alliance = list(map(
-            lambda team: int(team.lstrip("frc")),
-            teams_on_alliance
-        ))
+        teams_on_alliance = list(
+            map(lambda team: int(team.lstrip("frc")), teams_on_alliance)
+        )
 
         if team_number not in teams_on_alliance:
             self.add_error(
@@ -101,7 +100,7 @@ class BaseDataValidation(ABC):
                 error_type=ErrorType.INCORRECT_DATA,
             )
 
-        elif (team_number) != teams_on_alliance[driver_station-1]:
+        elif (team_number) != teams_on_alliance[driver_station - 1]:
             self.add_error(
                 f"In {match_key}, {team_number} INCONSISTENT DRIVER STATION with schedule",
                 error_type=ErrorType.INCORRECT_DATA,
@@ -149,7 +148,7 @@ class BaseDataValidation(ABC):
                 f"In {match_key}, {team_number} "
                 f"rated for counter defense but NO COUNTER DEFENSE PCT",
                 error_type=ErrorType.MISSING_DATA,
-                )
+            )
 
         # Check for missing counter defense rating.
         if notna(counter_defense_pct) and isna(counter_defense_rating):
