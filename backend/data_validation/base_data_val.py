@@ -1,3 +1,4 @@
+from abc import ABC, abstractmethod
 from json import dump, load
 from pandas import DataFrame, Series
 
@@ -8,7 +9,7 @@ from pandas import isna, notna
 from utils import ErrorType
 
 
-class BaseDataValidation:
+class BaseDataValidation(ABC):
     """
     Base class that validates the data passed in.
 
@@ -50,6 +51,26 @@ class BaseDataValidation:
                 self.get_match_schedule_tba()
             else:
                 self.get_match_schedule_file()
+
+    @abstractmethod
+    def validate_data(self, scouting_data: list = None) -> None:
+        """
+        Runs all checks validating a single submission from 2022's game (Rapid React).
+
+        :param scouting_data: Optional parameter containing scouting data mostly for testing purposes.
+        :return:
+        """
+        pass
+
+    @abstractmethod
+    def validate_submission(self, submission: Series) -> None:
+        """
+        Runs all checks validating a single submission.
+
+        :param submission: Series object containing a single submission of scouting data.
+        :return:
+        """
+        pass
 
     def check_team_info_with_match_schedule(
         self,
