@@ -1,4 +1,3 @@
-from abc import ABC, abstractmethod
 from json import dump, load
 from pandas import DataFrame, Series
 
@@ -52,17 +51,6 @@ class BaseDataValidation:
             else: 
                 self.get_match_schedule_file()
     
-    @abstractmethod
-    def validate_data(self, scouting_data: list = None) -> None:
-        """
-        Runs all checks validating a single submission from 2022's game (Rapid React).
-        """
-        pass
-    
-    @abstractmethod
-    def validate_submission(self, submission: Series) -> None:
-        pass
-
     def check_team_info_with_match_schedule(
         self,
         match_key: str,
