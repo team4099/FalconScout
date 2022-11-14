@@ -124,8 +124,12 @@ def test_missing_shooting_zones():
         and errors[1]["error_type"] == "MISSING DATA"
     )
 
+
 def test_incorrect_team_number():
-    """Tests the `check_team_info_with_match_schedule` function to ensure 'NOT IN MATCH'errors are written into the JSON."""
+    """
+    Tests the `check_team_info_with_match_schedule` function to ensure 'NOT IN MATCH'errors are written into the 
+    JSON.
+    """
     data_validator = DataValidation2022()
 
     # Takes fixture of example scouting data and changes the shooting zones.
@@ -146,8 +150,12 @@ def test_incorrect_team_number():
         and errors[0]["error_type"] == "INCORRECT DATA"
     )
 
+
 def test_incorrect_driver_station():
-    """Tests the `check_team_info_with_match_schedule` function to ensure 'INCOSISTENT DRIVER STATION'errors are written into the JSON."""
+    """
+    Tests the `check_team_info_with_match_schedule` function to ensure 'INCOSISTENT DRIVER STATION'errors are 
+    written into the JSON.
+    """
     data_validator = DataValidation2022()
 
     # Takes fixture of example scouting data and changes the shooting zones.
