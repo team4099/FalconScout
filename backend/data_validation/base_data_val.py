@@ -9,7 +9,7 @@ from pandas import isna, notna
 from utils import ErrorType
 
 
-class BaseDataValidation(ABC):
+class BaseDataValidation:
     """
     Base class that validates the data passed in.
 
@@ -33,7 +33,7 @@ class BaseDataValidation(ABC):
         )
 
         self._event_key = str(self.config["year"]) + self.config["event_code"]
-        #determines both if were using tba for match shedule and whether we're running tba checks
+        # determines both if were using tba for match shedule and whether we're running tba checks
         self._run_with_tba = self.config.get("run_with_tba", True)
 
         # Setting up FalconAlliance (our connection to TBA) and retrieving match schedule
@@ -41,11 +41,10 @@ class BaseDataValidation(ABC):
             api_key="6lcmneN5bBDYpC47FolBxp2RZa4AbQCVpmKMSKw9x9btKt7da5yMzVamJYk0XDBm"  # for testing purposes
         )
         
-        
         with self.api_client:
-            #make sure tba isn't down
+            # make sure tba isn't down
             self._run_with_tba = (
-            self._event_key not in self.api_client.status().down_events
+                self._event_key not in self.api_client.status().down_events
             )
         
             if self._run_with_tba:
@@ -54,14 +53,14 @@ class BaseDataValidation(ABC):
                 self.get_match_schedule_file()
     
     @abstractmethod
-    def validate_data(self) -> None:
+    def validate_data(self, scouting_data: list = None) -> None:
         """
         Runs all checks validating a single submission from 2022's game (Rapid React).
         """
         pass
     
     @abstractmethod
-    def validate_submission(self) -> None:
+    def validate_submission(self, submission: Series) -> None:
         pass
 
     def check_team_info_with_match_schedule(
@@ -70,7 +69,7 @@ class BaseDataValidation(ABC):
         team_number: int,
         alliance: str,
         driver_station: int
-    ) -> None :
+    ) -> None:
         """
         Checks if the team scouted was in the match on given alliance
         Checks if the team driverstation doesn't correspond to team scouted
@@ -87,7 +86,6 @@ class BaseDataValidation(ABC):
             teams_on_alliance
         ))
 
-
         if team_number not in teams_on_alliance:
             self.add_error(
                 f"In {match_key}, {team_number} was NOT IN MATCH on the {alliance} alliance",
@@ -99,8 +97,6 @@ class BaseDataValidation(ABC):
                 f"In {match_key}, {team_number} INCONSISTENT DRIVER STATION with schedule",
                 error_type=ErrorType.INCORRECT_DATA,
             )
-
-
 
     def check_for_invalid_defense_data(
         self,
@@ -220,7 +216,6 @@ class BaseDataValidation(ABC):
                 self.match_schedule = load(file)
         except FileNotFoundError:  # We want to ignore if it doesn't exist because get_match_schedule() will create it.
             pass
-       
 
         # Writes match schedule to the corresponding JSON
         with open("../data/match_schedule.json", "w") as file:
