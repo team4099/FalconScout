@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import './App.css'
 import { DropdownTextInput, GenericTextInput, SliderInput, GenericTextArea, IncrementNumberInput } from "./components/inputs"
 import { DarkButton } from "./components/buttons"
-import { GenericDropdown, GenericMultiDropdown } from './components/selects'
+import { GenericDropdown, GenericMultiDropdown, GenericToggle } from './components/selects'
 
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
       <div>
         <GenericDropdown text="Zones" options={["tarmac", "fender", "hangar", "terminal"]}/>
         <GenericMultiDropdown text="Zones" options={["tarmac", "fender", "hangar", "terminal"]}/>
+        <GenericToggle text="Taxied"/>
       </div>
       <div>
         <DarkButton text="Submit" route="todo"/>
