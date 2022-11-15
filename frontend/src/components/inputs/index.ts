@@ -9,3 +9,6 @@ export {GenericTextArea}
 
 import SliderInput from "./SliderInput";
 export {SliderInput}
+
+import IncrementNumberInput from "./IncrementNumberInput";
+export {IncrementNumberInput}
