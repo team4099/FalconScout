@@ -1,11 +1,9 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
-import { DropdownTextInput, GenericTextInput, SliderInput } from "./components/inputs"
-import { GenericTextArea } from "./components/inputs"
+import { DropdownTextInput, GenericTextInput, SliderInput, GenericTextArea, IncrementNumberInput } from "./components/inputs"
 import { DarkButton } from "./components/buttons"
-import IncrementNumberInput from './components/inputs/IncrementNumberInput'
-import GenericDropdown from './components/selects/GenericDropdown'
+import { GenericDropdown, GenericMultiDropdown } from './components/selects'
 
 
 function App() {
@@ -20,6 +18,7 @@ function App() {
       </div>
       <div>
         <GenericDropdown text="Zones" options={["tarmac", "fender", "hangar", "terminal"]}/>
+        <GenericMultiDropdown text="Zones" options={["tarmac", "fender", "hangar", "terminal"]}/>
       </div>
       <div>
         <DarkButton text="Submit" route="todo"/>
