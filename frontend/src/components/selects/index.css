@@ -60,3 +60,8 @@
   .slider.round:before {
     border-radius: 50%;
   }
+
+.radio {
+  border: 2px solid #ff0000;
+  transform: scale(1.40);
+}
