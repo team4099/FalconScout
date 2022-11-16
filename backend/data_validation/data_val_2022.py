@@ -203,21 +203,27 @@ class DataValidation2022(BaseDataValidation):
         :return: None
         """  # noqa
         # Check for missing defense pct.
-        if notna(defense_rating) and isna(defense_pct):
+        if (notna(defense_rating) and isna(defense_pct)) or (
+            defense_rating and not defense_pct
+        ):
             self.add_error(
                 f"In {match_key}, {team_number} rated for defense but NO DEFENSE PCT",
                 error_type=ErrorType.MISSING_DATA,
             )
 
         # Check for missing defense rating.
-        if isna(defense_rating) and notna(defense_pct):
+        if (isna(defense_rating) and notna(defense_pct)) or (
+            defense_pct and not defense_rating
+        ):
             self.add_error(
                 f"In {match_key}, {team_number} MISSING DEFENSE RATING",
                 error_type=ErrorType.MISSING_DATA,
             )
 
         # Check for 0% counter defense pct but given rating.
-        if notna(counter_defense_rating) and isna(counter_defense_pct):
+        if (notna(counter_defense_rating) and isna(counter_defense_pct)) or (
+            counter_defense_rating and not counter_defense_pct
+        ):
             self.add_error(
                 f"In {match_key}, {team_number} "
                 f"rated for counter defense but NO COUNTER DEFENSE PCT",
@@ -225,7 +231,9 @@ class DataValidation2022(BaseDataValidation):
             )
 
         # Check for missing counter defense rating.
-        if notna(counter_defense_pct) and isna(counter_defense_rating):
+        if (notna(counter_defense_pct) and isna(counter_defense_rating)) or (
+            counter_defense_pct and not counter_defense_rating
+        ):
             self.add_error(
                 f"In {match_key}, {team_number} MISSING COUNTER DEFENSE RATING",
                 error_type=ErrorType.MISSING_DATA,

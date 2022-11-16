@@ -187,3 +187,6 @@ cython_debug/
 
 #VSCode
 .vscode/
+
+# Prevent errors from being pushed to GitHub when running tests.
+backend/data_validation/errors.json

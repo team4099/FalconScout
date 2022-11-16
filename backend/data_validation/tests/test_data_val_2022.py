@@ -137,7 +137,9 @@ def test_incorrect_taxi_state():
         }
     }
 
-    data_validator.validate_data(scouting_data=[example_scouting_data()])
+    scouting_datum = example_scouting_data()
+
+    data_validator.validate_data(scouting_data=[scouting_datum])
 
     with open("errors.json") as file:
         errors = load(file)
@@ -154,7 +156,9 @@ def test_incorrect_climb():
         }
     }
 
-    data_validator.validate_data(scouting_data=[example_scouting_data()])
+    scouting_datum = example_scouting_data()
+
+    data_validator.validate_data(scouting_data=[scouting_datum])
 
     with open("errors.json") as file:
         errors = load(file)
