@@ -1,0 +1,165 @@
+[
+    {
+        "name": "Page1",
+        "components": [
+            {
+                "type": "GenericHeaderOne",
+                "text": "Pit Scouting"
+            },
+            {
+                "type": "GenericTextInput",
+                "text": "Scout Name",
+                "placeholder": [
+                    "Pranav"
+                ]
+            },
+            {
+                "type": "GenericTextInput",
+                "text": "Team Name",
+                "placeholder": [
+                    "The Falcons"
+                ]
+            },
+            {
+                "type": "GenericTextInput",
+                "text": "Team Number",
+                "placeholder": [
+                    "4099"
+                ]
+            },
+            {
+                "type": "Spacing"
+            },
+            {
+                "type": "GenericHeaderTwo",
+                "text": "Controls"
+            },
+            {
+                "type": "GenericTextInput",
+                "text": "How many backup batteries",
+                "placeholder": [
+                    "4"
+                ]
+            },
+            {
+                "type": "GenericCheckboxSelect",
+                "text": "Autos",
+                "options": [
+                    "1 ball",
+                    "2 ball",
+                    "3 ball",
+                    "4 ball",
+                    "5 ball",
+                    "6 ball",
+                    "1 ball steal",
+                    "2 ball stall",
+                    "gremlin auto",
+                    "counter auto"
+                ]
+            },
+            {
+                "type": "GenericCheckboxSelect",
+                "text": "Language",
+                "options": [
+                    "C++",
+                    "Java",
+                    "Labview",
+                    "Kotlin",
+                    "Python"
+                ]
+            },
+            {
+                "type": "Spacing"
+            },
+            {
+                "type": "GenericHeaderTwo",
+                "text": "Mech"
+            },
+            {
+                "type": "GenericRadioSelect",
+                "text": "Drivetrain",
+                "options": [
+                    "swerve",
+                    "tank",
+                    "rhino",
+                    "mecanum",
+                    "omni"
+                ]
+            },
+            {
+                "type": "GenericCheckboxSelect",
+                "text": "Intake Method",
+                "options": [
+                    "single intake from ground",
+                    "double intake from ground",
+                    "terminal intake"
+                ]
+            },
+            {
+                "type": "GenericCheckboxSelect",
+                "text": "Max Cargo Storage",
+                "options": [
+                    "1",
+                    "2",
+                    "3"
+                ]
+            },
+            {
+                "type": "Spacing"
+            },
+            {
+                "type": "GenericHeaderTwo",
+                "text": "Strategy"
+            },
+            {
+                "type": "GenericCheckboxSelect",
+                "text": "Which hub",
+                "options": [
+                    "Upper Hub",
+                    "Lower Hub"
+                ]
+            },
+            {
+                "type": "GenericCheckboxSelect",
+                "text": "Shooting zones",
+                "options": [
+                    "tarmac",
+                    "fender",
+                    "terminal",
+                    "launchpad",
+                    "elsewhere"
+                ]
+            },
+            {
+                "type": "GenericRadioSelect",
+                "text": "Max Climb level",
+                "options": [
+                    "low",
+                    "mid",
+                    "high",
+                    "traversal",
+                    "no climb"
+                ]
+            },
+            {
+                "type": "SliderInput",
+                "text": "Climb time",
+                "options": [
+                    "0",
+                    "15"
+                ]
+            },
+            {
+                "type": "GenericTextArea",
+                "text": "Other notes",
+                "placeholder": [
+                    "4099 robot bad"
+                ]
+            },
+            {
+                "type": "DarkButton",
+                "text": "Submit"
+            }
+        ]
+    }
+]
