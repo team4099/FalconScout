@@ -9,7 +9,7 @@ function SliderInput(props: ComponentSetup) {
                 <label className="block mb-2 text-sm text-gray-[#344054] float-left inline">
                     {props.options?.[0]}
                 </label>
-                <label className="block mb-2 text-sm text-gray-[#344054] float-right inline">
+                <label className="block mb-2 text-sm text-gray-[#344054] float-right text-right inline">
                     {props.options?.[1]}
                 </label>
             </div>
