@@ -4,3 +4,7 @@ export interface ComponentSetup {
     options?: Array<string>;
     placeholder?: Array<string>;
 }
+
+export interface PageSetup {
+    config?: object // TODO: find the proper type
+}
