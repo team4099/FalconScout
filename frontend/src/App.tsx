@@ -4,15 +4,20 @@ import './App.css'
 import { DropdownTextInput, GenericTextInput, SliderInput, GenericTextArea, IncrementNumberInput } from "./components/inputs"
 import { DarkButton } from "./components/buttons"
 import { GenericDropdown, GenericMultiDropdown, GenericToggle, GenericRadioSelect, GenericCheckboxSelect } from './components/selects'
-import { GenericHeaderOne, GenericHeaderTwo } from './components/text'
-
+import { GenericHeaderOne, GenericHeaderTwo } from './components/texts'
+import { Page } from "./components/pages"
+import structure from "./config/structure.json"
 
 
 function App() {
+  
   return (
+    <Page config={structure[0]}/>
+    /*
     <div>
       <div>
         <GenericHeaderOne text="Header One"/>
+        <Test.test text="Header One"/>
         <GenericHeaderTwo text="Header Two"/>
       </div>
       <div>
@@ -33,6 +38,8 @@ function App() {
         <DarkButton text="Submit" route="todo"/>
       </div>
     </div>
+    */
+    
   )
 }
 
