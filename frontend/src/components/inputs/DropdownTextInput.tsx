@@ -14,7 +14,7 @@ function DropdownTextInput(props: ComponentSetup) {
                     ))}
                 </select>
 
-                <input className="text-black pl-4 focus:outline-none inline flex-grow w-full" placeholder={props.placeholder[0]}>
+                <input className="text-black pl-4 focus:outline-none inline flex-grow w-full" placeholder={props.placeholder?.[0]}>
                 </input>
             </div>
         </div>
