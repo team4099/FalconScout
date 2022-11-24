@@ -157,6 +157,6 @@ class DataValidation2022(BaseDataValidation):
         balls_shot_in_auto = auto_lower_hub + auto_upper_hub + auto_misses
         if balls_shot_in_auto > 6:
             self.add_error(
-                f"In {match_key}, {team_number} INCORRECT AUTO SHOT COUNT",
-                error_type=ErrorType.INCORRECT_DATA,
+                f"In {match_key}, {team_number} UNLIKELY AUTO SHOT COUNT",
+                error_type=ErrorType.WARNING,
             )
