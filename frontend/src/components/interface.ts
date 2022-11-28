@@ -3,8 +3,11 @@ export interface ComponentSetup {
     route?: string;
     options?: Array<string>;
     placeholder?: Array<string>;
+    getValue?: any;
+    setValue?: any;
+    id?: any;
 }
 
 export interface PageSetup {
-    config?: object // TODO: find the proper type
+    config?: any // TODO: find the proper type
 }

@@ -1,44 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
-import { DropdownTextInput, GenericTextInput, SliderInput, GenericTextArea, IncrementNumberInput } from "./components/inputs"
-import { DarkButton } from "./components/buttons"
-import { GenericDropdown, GenericMultiDropdown, GenericToggle, GenericRadioSelect, GenericCheckboxSelect } from './components/selects'
-import { GenericHeaderOne, GenericHeaderTwo } from './components/texts'
-import { Page } from "./components/pages"
+import { Routes, Route } from 'react-router-dom';
+import { Page, ParentPage } from "./components/pages"
 import structure from "./config/structure.json"
+import React from 'react';
 
 
 function App() {
-  
   return (
-    <Page config={structure[0]}/>
-    /*
-    <div>
-      <div>
-        <GenericHeaderOne text="Header One"/>
-        <Test.test text="Header One"/>
-        <GenericHeaderTwo text="Header Two"/>
-      </div>
-      <div>
-        <GenericTextInput text="Username" placeholder={["pranav"]}/>
-        <DropdownTextInput text="Match" options={["qm", "qf", "sf", "f"]} placeholder={["10"]} route="todo"/>
-        <GenericTextArea text="Username" placeholder={["pranav"]}/>
-        <IncrementNumberInput text="Teleop Upper Scored"/>
-        <SliderInput text="Driver Rating" options={["0", "10"]}/>
-      </div>
-      <div>
-        <GenericDropdown text="Zones" options={["tarmac", "fender", "hangar", "terminal"]}/>
-        <GenericMultiDropdown text="Zones" options={["tarmac", "fender", "hangar", "terminal"]}/>
-        <GenericToggle text="Taxied"/>
-        <GenericRadioSelect text="Zones" options={["tarmac", "fender", "hangar", "terminal"]}/>
-        <GenericCheckboxSelect text="Zones" options={["tarmac", "fender", "hangar", "terminal"]}/>
-      </div>
-      <div>
-        <DarkButton text="Submit" route="todo"/>
-      </div>
-    </div>
-    */
+    <Routes>
+      <Route path='/' element={<ParentPage pageSetup={structure}/>}></Route>
+      {
+        structure.map((page) => {
+            return (
+              <Route path={'/'+page.name} element={<Page config={page}/>}></Route>
+            )
+        })
+      }
+    </Routes>
+    
     
   )
 }

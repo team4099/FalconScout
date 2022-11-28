@@ -1,45 +1,52 @@
 [
     {
-        "name": "Page1",
+        "name": "Pit Scouting",
+        "description": "Gather qualitative data on robots in pits.",
         "components": [
             {
                 "type": "GenericHeaderOne",
-                "text": "Pit Scouting"
+                "text": "Pit Scouting",
+                "id": "titleheader"
             },
             {
                 "type": "GenericTextInput",
                 "text": "Scout Name",
                 "placeholder": [
                     "Pranav"
-                ]
+                ],
+                "id": "scoutid"
             },
             {
                 "type": "GenericTextInput",
                 "text": "Team Name",
                 "placeholder": [
                     "The Falcons"
-                ]
+                ],
+                "id": "teamname"
             },
             {
                 "type": "GenericTextInput",
                 "text": "Team Number",
                 "placeholder": [
                     "4099"
-                ]
+                ],
+                "id": "teamnumber"
             },
             {
                 "type": "Spacing"
             },
             {
                 "type": "GenericHeaderTwo",
-                "text": "Controls"
+                "text": "Controls",
+                "id": "controlsheader"
             },
             {
                 "type": "GenericTextInput",
                 "text": "How many backup batteries",
                 "placeholder": [
                     "4"
-                ]
+                ],
+                "id": "batterycount"
             },
             {
                 "type": "GenericCheckboxSelect",
@@ -55,10 +62,11 @@
                     "2 ball stall",
                     "gremlin auto",
                     "counter auto"
-                ]
+                ],
+                "id": "autoselect"
             },
             {
-                "type": "GenericCheckboxSelect",
+                "type": "GenericRadioSelect",
                 "text": "Language",
                 "options": [
                     "C++",
@@ -66,14 +74,16 @@
                     "Labview",
                     "Kotlin",
                     "Python"
-                ]
+                ],
+                "id": "languageselect"
             },
             {
                 "type": "Spacing"
             },
             {
                 "type": "GenericHeaderTwo",
-                "text": "Mech"
+                "text": "Mech",
+                "id": "mechheader"
             },
             {
                 "type": "GenericRadioSelect",
@@ -84,16 +94,18 @@
                     "rhino",
                     "mecanum",
                     "omni"
-                ]
+                ],
+                "id": "drivetrainselect"
             },
             {
-                "type": "GenericCheckboxSelect",
+                "type": "GenericRadioSelect",
                 "text": "Intake Method",
                 "options": [
                     "single intake from ground",
                     "double intake from ground",
                     "terminal intake"
-                ]
+                ],
+                "id": "intakeselect"
             },
             {
                 "type": "GenericCheckboxSelect",
@@ -102,14 +114,16 @@
                     "1",
                     "2",
                     "3"
-                ]
+                ],
+                "id": "cargoselect"
             },
             {
                 "type": "Spacing"
             },
             {
                 "type": "GenericHeaderTwo",
-                "text": "Strategy"
+                "text": "Strategy",
+                "id": "strategyheader"
             },
             {
                 "type": "GenericCheckboxSelect",
@@ -117,7 +131,8 @@
                 "options": [
                     "Upper Hub",
                     "Lower Hub"
-                ]
+                ],
+                "id": "hubselect"
             },
             {
                 "type": "GenericCheckboxSelect",
@@ -128,7 +143,8 @@
                     "terminal",
                     "launchpad",
                     "elsewhere"
-                ]
+                ],
+                "id": "zoneselect"
             },
             {
                 "type": "GenericRadioSelect",
@@ -139,7 +155,8 @@
                     "high",
                     "traversal",
                     "no climb"
-                ]
+                ],
+                "id": "climbselect"
             },
             {
                 "type": "SliderInput",
@@ -147,18 +164,58 @@
                 "options": [
                     "0",
                     "15"
-                ]
+                ],
+                "id": "climbtime"
             },
             {
                 "type": "GenericTextArea",
                 "text": "Other notes",
                 "placeholder": [
                     "4099 robot bad"
-                ]
+                ],
+                "id": "robotnotes"
             },
             {
                 "type": "DarkButton",
-                "text": "Submit"
+                "text": "Submit",
+                "id": "result"
+            }
+        ],
+        "export": {
+            "order": ["scoutid", "teamname", "robotnotes"],
+            "delimeter": ";"
+
+        }
+    },
+    {
+        "name": "Match Scouting",
+        "description": "Gather data on robots during matches. Data used for quantitative metrics in alliance selection.",
+        "components": [
+            {
+                "type": "GenericHeaderOne",
+                "text": "Match Scouting",
+                "id": "titleheader"
+            },
+            {
+                "type": "GenericTextInput",
+                "text": "Scout Name",
+                "placeholder": [
+                    "Pranav"
+                ],
+                "id": "scoutid"
+            },
+            {
+                "type": "GenericTextInput",
+                "text": "Team Number",
+                "placeholder": [
+                    "4099"
+                ],
+                "id": "teamnumber"
+            },
+            {
+                "type": "DarkButton",
+                "text": "Submit",
+                "id": "result"
             }
         ]
     }

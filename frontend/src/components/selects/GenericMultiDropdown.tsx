@@ -1,6 +1,10 @@
+import React from "react"
 import { ComponentSetup } from "../interface"
 
 function GenericMultiDropdown(props: ComponentSetup) {
+
+	//is this even working tbh
+
 
     return (
 		<div className="mx-3 my-3">

@@ -1,9 +1,17 @@
+import React from "react"
 import { useState } from "react";
 import { ComponentSetup } from "../interface";
 
 function IncrementNumberInput(props: ComponentSetup) {
 
     const [counter, setCounter] = useState(0)
+
+    const updateStateText = (value) => {
+		//console.log(props.getValue)
+		var state = props.getValue
+		state[props.id] = value
+		props.setValue(state)
+	}
 
     return (
         <div className="mx-3 my-3">
@@ -14,7 +22,7 @@ function IncrementNumberInput(props: ComponentSetup) {
                 <button
                     type="button"
                     className="w-1/3 text-white h-full text-3xl rounded-l-xl float-left bg-[#cc2936]"
-                    onClick={function () {if (counter > 0) {setCounter(counter-1)}}}
+                    onClick={function () {if (counter > 0) {setCounter(counter-1)}; updateStateText(counter)}}
                 >
                     -
                 </button>
