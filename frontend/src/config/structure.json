@@ -218,5 +218,185 @@
                 "id": "result"
             }
         ]
+    },
+    {
+        "name": "2018 Scouting Page",
+        "description": "Collect general data for each match",
+        "components": [
+            {
+                "type": "GenericHeaderOne",
+                "text": "2018 Scouting Page"
+            },
+            {
+                "type": "GenericTextInput",
+                "text": "Scout Name",
+                "placeholder": [
+                    "pranav"
+                ],
+                "id": "scoutid"
+            },
+            {
+                "type": "DropdownTextInput",
+                "text": "Match Key",
+                "id": "matchkey",
+                "options": ["qm", "qf", "sf", "f"],
+                "placeholder": ["match id"]
+            },
+            {
+                "type": "GenericRadioSelect",
+                "text": "Alliance",
+                "id": "alliance",
+                "options": ["red", "blue"]
+            },
+            {
+                "type": "GenericTextInput",
+                "text": "Team Number",
+                "placeholder": [
+                    "4099"
+                ],
+                "id": "teamnumber"
+            },
+            {
+                "type": "GenericHeaderTwo",
+                "text": "Auto"
+            },
+            {
+                "type": "GenericToggle",
+                "text": "Preloaded Cargo?",
+                "id": "preloadedcargo"
+            },
+            {   
+                "type": "GenericToggle",
+                "text": "Line Crossed?",
+                "id": "linecrossed"
+            },
+            {
+                "type": "IncrementNumberInput",
+                "text": "Switch Blocks",
+                "id": "switchauto",
+                "placeholder": ["0"]
+            },
+            {
+                "type": "IncrementNumberInput",
+                "text": "Scale Blocks",
+                "id": "scaleauto",
+                "placeholder": ["0"]
+            },
+            {
+                "type": "GenericTextArea",
+                "text": "Auto Notes",
+                "placeholder": ["Notes"],
+                "id": "autonotes"
+
+            },
+            {
+                "type": "GenericHeaderTwo",
+                "text": "Tele Ops"
+            },
+            {
+                "type": "IncrementNumberInput",
+                "text": "Switch Blocks",
+                "id": "switchteleop",
+                "placeholder": ["0"]
+            },
+            {
+                "type": "IncrementNumberInput",
+                "text": "Opposing Alliance Switch Blocks",
+                "id": "oppswitch",
+                "placeholder": ["0"]
+            },
+            {
+                "type": "IncrementNumberInput",
+                "text": "Exchange Port",
+                "id": "exchangeportteleop",
+                "placeholder": ["0"]
+            },
+            {
+                "type": "GenericHeaderTwo",
+                "text": "Endgame"
+            },
+            {
+                "type": "GenericRadioSelect",
+                "text": "Attemped Climb",
+                "id": "attempedClimb",
+                "options": ["none", "park","carried", "climb"]
+            },
+            {
+                "type": "GenericRadioSelect",
+                "text": "Final Climb",
+                "id": "finalClimb",
+                "options": ["none", "park", "levitate", "carried", "climb"]
+            },
+            {
+                "type": "GenericToggle",
+                "text": "Carried another Robot?",
+                "id": "carryanotherrobot"
+            },
+            {
+                "type": "GenericTextArea",
+                "text": "Endgame Notes",
+                "placeholder": ["Notes"],
+                "id": "endgamenotes"
+            },
+            {
+                "type": "GenericHeaderTwo",
+                "text": "Misc.",
+                "id": "mischeader"
+            },
+            {
+                "type": "SliderInput",
+                "text": "Driver Rating",
+                "options": [
+                    "0",
+                    "5"
+                ],
+                "id": "driverrating"
+            },
+            {
+                "type": "SliderInput",
+                "text": "Defense Time",
+                "options": [
+                    "0",
+                    "5"
+                ],
+                "id": "defensetime"
+            },
+            {
+                "type": "SliderInput",
+                "text": "Defense Rating",
+                "options": [
+                    "0",
+                    "5"
+                ],
+                "id": "defenserating"
+            },
+            {
+                "type": "SliderInput",
+                "text": "Counter Defense Time",
+                "options": [
+                    "0",
+                    "5"
+                ],
+                "id": "counterdefensetime"
+            },
+            {
+                "type": "SliderInput",
+                "text": "Counter Defense Rating",
+                "options": [
+                    "0",
+                    "5"
+                ],
+                "id": "counterdefenserating"
+            },
+            {
+                "type": "DarkButton",
+                "text": "Submit",
+                "id": "result"
+            }
+        ],
+        "export": {
+            "order": ["scoutid", "alliance"],
+            "delimeter": ";"
+        }
     }
 ]
