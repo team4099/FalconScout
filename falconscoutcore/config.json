@@ -1,0 +1,8 @@
+{
+    "data": "data.json",
+    "delimeter": ";",
+    "data_labels": ["name", "id"],
+    "table_config": {
+        "line_identity": "name"
+    }
+}

@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="md:flex md:flex-row gap-4 px-12 max-w-[1200px] mx-auto">
+	<div class="basis-1/2 mb-8">
+		<h1 class="text-3xl font-semibold mb-6">
+		  Camera
+		</h1>
+		<div
+			id="qrReader"
+			class="container overflow-hidden rounded-xl md:w-5/6 drop-shadow-sm mb-4"
+		></div>
+		<div class='w-full md:w-5/6 pb-3 mb-3 border-b-2 border-black gap-4 flex'>
+		</div>
+		<h1 class="text-3xl font-semibold mb-6">
+		  Scan
+		</h1>
+		<div class="">
+			<div class="overflow-x-auto relative rounded-lg md:w-5/6 w-full">
+				<table class="w-full text-sm text-left text-black">
+					<thead class="text-md text-black bg-gray-200">
+						<tr class="flex">
+							<th scope="col" class="py-3 px-6 basis-1/4">
+								Scout
+							</th>
+							<th scope="col" class="py-3 px-6">
+								Data
+							</th>
+						</tr>
+					</thead>
+					<tbody id=''>
+						{% for i in range(3) %}
+							<tr class="bg-slate-50 border-b flex">
+								<th scope="row" class="basis-1/4 py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+									{{ i }}
+								</th>
+								<td class="py-4 px-6 overflow-x-auto">
+									<h1 class="overflow-x-scroll w-full">
+										{{ i }}
+									</h1>
+								</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+		<p id="codeoutput"></p>
+	</div>
+
+	<div class="basis-1/2">
+		<h1 class="text-3xl font-semibold mb-6">
+			Error Logs
+		</h1>
+		<div>
+			{% for i in range(3) %}
+				<div class='w-full h-44 rounded-xl bg-white border-2 border-gray-200 shadow-sm mb-4'>
+					<div class="h-[122px] bg-white rounded-t-xl">
+						<h1 class="text-2xl font-semibold pt-4 px-4 w-full">
+							Auto Teleop Shots > 6: <span class="text-[#ff4a4a]">8</span>
+						</h1>
+						<h2 class="text-md font-regular px-4 pt-2 w-full">
+							Match 6: Pranav
+						</h2>
+						<h2 class="text-md font-regular px-4 pb-2 w-full">
+							Robot: 4099
+						</h2>
+					</div>
+					<div class="h-[47.5px] flex gap-2 pl-4">
+						<button class="bg-black rounded-lg h-10 px-4  text-white font-bold drop-shadow-sm">
+							8
+						</button>
+						<button class="bg-black rounded-lg h-10 px-4 text-white font-bold drop-shadow-sm">
+							6
+						</button>
+						<button class="bg-black rounded-lg h-10 px-4 text-white font-bold drop-shadow-sm">
+							NaN
+						</button>
+						<button class="bg-black rounded-lg h-10 px-4 text-white font-bold drop-shadow-sm">
+							<input class='bg-black text-white w-16' placeholder='Custom'></input>
+						</button>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+
+<script>
+
+	function onScanSuccess(decodedText, decodedResult) {
+		var server_data = { "scan_text": decodedText };
+
+        $.ajax({
+            type: "POST",
+            url: "/process_scan",
+            data: JSON.stringify(server_data),
+            contentType: "application/json",
+            dataType: 'json',
+            success: function (result) {
+                console.log("valid")
+            }
+        });
+	}
+
+	function onScanFailure(error) {
+		// handle scan failure, usually better to ignore and keep scanning.
+		// for example:
+		//console.warn(`Code scan error = ${error}`);
+	}
+
+	let html5QrcodeScanner = new Html5QrcodeScanner(
+		"qrReader",
+		{ fps: 10},
+		/* verbose= */ false
+	);
+	html5QrcodeScanner.render(onScanSuccess, onScanFailure);
+</script>
+
+{% endblock content %}
