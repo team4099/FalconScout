@@ -1,8 +1,12 @@
+from pandas import DataFrame, Series
+from numpy import percentile
+from config.utils import ErrorType
+from config.constants import RapidReact
+from utils import ErrorType
+from pandas import DataFrame, Series, isna, notna
 import json
 
 from base_data_val import BaseDataValidation
-from pandas import DataFrame, Series, isna, notna
-from utils import ErrorType
 
 
 class DataValidation2022(BaseDataValidation):
@@ -143,7 +147,6 @@ class DataValidation2022(BaseDataValidation):
         taxied: float,
         final_climb_type: str,
     ) -> None:
-
         """
         Validates taxi state and final climb status for scouted robot with TBA data.
 
@@ -249,3 +252,84 @@ class DataValidation2022(BaseDataValidation):
                 f"In {match_key}, {team_number} DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
                 error_type=ErrorType.INCORRECT_DATA,
             )
+
+    def check_for_statistical_outliers(
+        self,
+        auto_check: bool = True,
+        teleop_check: bool = True,
+        endgame_check: bool = True,
+    ) -> None:
+        """
+        Checking for statistical outliers in the 2022 Rapid React game.
+
+        :param auto_check: Runs outlier checks specifically and strictly against the autonomous portion of the game.
+        :param teleop_check: Runs outlier checks specifically and strictly against the teloperated portion of the game.
+        :param endgame_check: Runs outlier checks specifically and strictly against the endgame portion of the game.
+
+        :return:
+        """
+        self.check_for_auto_outliers()
+
+    def check_for_auto_outliers(self) -> None:
+        """
+        Check and mark any statistical outliers across all teams' auto data.
+
+        :return:
+        """
+        for team in self.teams:
+            team_data_entries = self.df.loc[self.df["team_number"] == team]
+
+            auto_cargo_match_team_data = list(
+                zip(
+                    team_data_entries["match_key"],
+                    team_data_entries["auto_lower_hub"],
+                    team_data_entries["auto_upper_hub"],
+                    team_data_entries["taxied"],
+                )
+            )
+
+            auto_points_match_team_data = list(
+                map(
+                    lambda team_datum: (
+                        team_datum[0],
+                        team_datum[1] * RapidReact.AUTO_LOWER_HUB_POINT_VALUE
+                        + team_datum[2] * RapidReact.AUTO_UPPER_HUB_POINT_VALUE
+                        + team_datum[3] * RapidReact.AUTO_TAXI_POINT_VALUE,
+                    ),
+                    auto_cargo_match_team_data,
+                )
+            )
+
+            min_IQR_threshold = percentile(
+                [datum[1] for datum in auto_points_match_team_data], 25
+            )
+            max_IQR_threshold = percentile(
+                [datum[1] for datum in auto_points_match_team_data], 75
+            )
+
+            min_outliers = list(
+                filter(
+                    lambda match_data: match_data[1] < min_IQR_threshold,
+                    auto_points_match_team_data,
+                )
+            )
+            max_outliers = list(
+                filter(
+                    lambda match_data: match_data[1] > max_IQR_threshold,
+                    auto_points_match_team_data,
+                )
+            )
+
+            for outlier in min_outliers:
+                # Logging all min outliers as info
+                self.add_error(
+                    f"In {outlier[0]}, frc{team} HAD AN AUTONOMOUS SCORE OUTLIER (<Q1) OF {outlier[1]} POINTS",
+                    ErrorType.INFO,
+                )
+
+            for outlier in max_outliers:
+                # Logging all max outliers as info
+                self.add_error(
+                    f"In {outlier[0]}, frc{team} HAD AN AUTONOMOUS SCORE OUTLIER (>Q3) {outlier[1]} POINTS",
+                    ErrorType.INFO,
+                )
