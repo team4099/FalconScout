@@ -1,9 +1,13 @@
+from abc import abstractmethod
+from itertools import chain
 from json import dump, load
+from typing import List
 
 import falcon_alliance
 import yaml
-from pandas import isna, notna
-from utils import ErrorType
+from pandas import isna, notna, read_json
+
+from backend.data_validation.config.utils import ErrorType
 
 
 class BaseDataValidation:
@@ -28,6 +32,7 @@ class BaseDataValidation:
             "path_to_data",
             f"../data/{self.config['year']}{self.config['event_code']}_match_data.json",
         )
+        self.df = read_json(self.path_to_data_file)
 
         # Retrieves match schedule
         try:
@@ -48,6 +53,8 @@ class BaseDataValidation:
 
         if self._run_tba_checks:
             self.get_match_schedule()
+
+        self.teams = self.get_teams()
 
     def check_for_invalid_defense_data(
         self,
@@ -158,3 +165,31 @@ class BaseDataValidation:
         # Writes match schedule to the corresponding JSON
         with open("../data/match_schedule.json", "w") as file:
             dump(self.match_schedule, file, indent=4)
+
+    def get_teams(self) -> List[int]:
+        """
+        Gets list of all teams from match schedule
+
+        :return List of all team numbers
+        """
+
+        schedule_df = read_json("../data/match_schedule.json")
+
+        # Retrieve all alliances across all matches
+        all_alliances = schedule_df.loc["red"] + schedule_df.loc["blue"]
+
+        # Flatten alliance lists into one large list (with no repeating teams) and strip "frc"
+        all_team_identifiers = list(set(chain(*all_alliances)))
+        all_teams = list(map(lambda x: int(x[3:]), all_team_identifiers))
+
+        return all_teams
+
+    @abstractmethod
+    def check_for_statistical_outliers(self) -> None:
+        """
+        Check and mark any statistical outliers across all teams' auto data.
+        Outliers are identified by the IQR method https://online.stat.psu.edu/stat200/lesson/3/3.2
+        Data points below Q1 and above Q3 are logged as possible errors. Point differentials are reported
+        separately across different parts of the game (i.e. autonomous, teleoperated, endgame).
+        """
+        pass
