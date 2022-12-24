@@ -25,10 +25,10 @@ def example_scouting_data(
     attempted_traversal: int = 1,
     climb_time: float = 15.0,
     final_climb_type: str = "Traversal",
-    defense_pct: float = 1.0,
-    defense_rating: int = 5,
-    counter_defense_pct: int = 0,
-    counter_defense_rating: int = 0,
+    defense_pct: float = 0.5,
+    defense_rating: float = 5.0,
+    counter_defense_pct: float = 0.5,
+    counter_defense_rating: float = 5.0,
     driver_rating: int = 5,
     auto_notes: str = "",
     teleop_notes: str = "",
@@ -104,6 +104,7 @@ def example_scouting_data(
 def test_missing_shooting_zones():
     """Tests the `check_for_missing_shooting_zones` function to ensure errors are written into the JSON."""
     data_validator = DataValidation2022()
+    data_validator._run_tba_checks = False
 
     # Takes fixture of example scouting data and changes the shooting zones.
     scouting_data_without_shooting_zones = example_scouting_data(
@@ -124,6 +125,110 @@ def test_missing_shooting_zones():
             and errors[1]["error_type"] == "MISSING DATA"
     )
 
+
+def test_incorrect_taxi_state():
+    """Tests the `check_submission_with_tba` function to ensure errors are written w/ an incorrect taxi state."""
+    data_validator = DataValidation2022()
+    data_validator.tba_match_data = {
+        "2022iri_qm1": {
+            "score_breakdown": {
+                "red": {"taxiRobot1": "No", "endgameRobot1": "Traversal"}
+            }
+        }
+    }
+
+    scouting_datum = example_scouting_data()
+
+    data_validator.validate_data(scouting_data=[scouting_datum])
+
+    with open("errors.json") as file:
+        errors = load(file)
+
+    assert len(errors) == 1 and errors[0]["error_type"] == "INCORRECT DATA"
+
+
+def test_incorrect_climb():
+    """Tests the `check_submission_with_tba` function to ensure errors are written w/ an incorrect climb status."""
+    data_validator = DataValidation2022()
+    data_validator.tba_match_data = {
+        "2022iri_qm1": {
+            "score_breakdown": {"red": {"taxiRobot1": "Yes", "endgameRobot1": "Mid"}}
+        }
+    }
+
+    scouting_datum = example_scouting_data()
+
+    data_validator.validate_data(scouting_data=[scouting_datum])
+
+    with open("errors.json") as file:
+        errors = load(file)
+
+    assert len(errors) == 1 and errors[0]["error_type"] == "INCORRECT DATA"
+
+
+def test_defense_rating_but_no_defense_pct():
+    """Tests `check_for_invalid_defense_data` to ensure errors are written w/ given defense rating but no defense %"""
+    data_validator = DataValidation2022()
+    data_validator._run_tba_checks = False
+
+    scouting_data_with_no_defense_pct = example_scouting_data(defense_pct=float("nan"))
+
+    data_validator.validate_data(scouting_data=[scouting_data_with_no_defense_pct])
+
+    with open("errors.json") as file:
+        errors = load(file)
+
+    assert len(errors) == 1 and errors[0]["error_type"] == "MISSING DATA"
+
+
+def test_defense_pct_but_no_defense_rating():
+    """Tests `check_for_invalid_defense_data` to ensure errors are written w/ given defense % but no defense rating"""
+    data_validator = DataValidation2022()
+    data_validator._run_tba_checks = False
+
+    scouting_data_with_no_defense_rating = example_scouting_data(
+        defense_rating=float("nan")
+    )
+
+    data_validator.validate_data(scouting_data=[scouting_data_with_no_defense_rating])
+
+    with open("errors.json") as file:
+        errors = load(file)
+
+    assert len(errors) == 1 and errors[0]["error_type"] == "MISSING DATA"
+
+
+def test_counter_defense_rating_but_no_counter_defense_pct():
+    """Tests `check_for_invalid_defense_data` w/ given counter defense rating but no counter defense %"""
+    data_validator = DataValidation2022()
+    data_validator._run_tba_checks = False
+
+    scouting_data_with_no_counter_defense_pct = example_scouting_data(
+        counter_defense_pct=float("nan")
+    )
+
+    data_validator.validate_data(
+        scouting_data=[scouting_data_with_no_counter_defense_pct]
+    )
+
+    with open("errors.json") as file:
+        errors = load(file)
+
+    assert len(errors) == 1 and errors[0]["error_type"] == "MISSING DATA"
+
+
+def test_counter_defense_pct_but_no_counter_defense_rating():
+    """Tests `check_for_invalid_defense_data` w/ given counter defense % but no counter defense rating"""
+    data_validator = DataValidation2022()
+    data_validator._run_tba_checks = False
+
+    scouting_data_with_no_counter_defense_pct = example_scouting_data(
+        counter_defense_rating=float("nan")
+    )
+
+    data_validator.validate_data(
+        scouting_data=[scouting_data_with_no_counter_defense_pct]
+    )
 
 def test_auto_great_than_6():
     """Tests the `check_for_missing_shooting_zones` function to ensure errors are written into the JSON."""
@@ -149,6 +254,20 @@ def test_auto_great_than_6():
     with open("errors.json") as file:
         errors = load(file)
 
+    assert len(errors) == 1 and errors[0]["error_type"] == "MISSING DATA"
+
+
+def test_incorrect_defense_and_counter_defense_pct():
+    """Tests `check_for_invalid_defense_data` w/ defense % + counter defense % being over 1."""
+    data_validator = DataValidation2022()
+    data_validator._run_tba_checks = False
+
+    scouting_data_with_incorrect_pcts = example_scouting_data(
+        defense_pct=1.0, counter_defense_pct=1.0
+    )
+
+    data_validator.validate_data(scouting_data=[scouting_data_with_incorrect_pcts])
+=======
     # Ensures that the length of the errors JSON is 1 (total number of errors that should've been raised).
     # Ensures that the errors are both flagged as 'WARNING'
     assert (

@@ -53,6 +53,8 @@ class BaseDataValidation:
         if self._run_tba_checks:
             self.get_match_schedule()
 
+<<<<<<< HEAD
+=======
         self.teams = self.get_teams()
 
     def check_for_invalid_defense_data(
@@ -117,6 +119,7 @@ class BaseDataValidation:
                 error_type=ErrorType.INCORRECT_DATA,
             )
 
+>>>>>>> setup-dataval
     def add_error(self, error_message: str, error_type: ErrorType) -> None:
         """
         Adds an error to the dictionary containing all errors raised with data validation.
