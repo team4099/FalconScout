@@ -1,8 +1,12 @@
 {
     "data": "data.json",
     "delimeter": ";",
-    "data_labels": ["name", "id"],
+    "data_config": {
+        "data_labels": ["name", "team_number", "notes"],
+        "data_header": "team_number"
+    },
     "table_config": {
-        "line_identity": "name"
-    }
+        "line_id": "name"
+    },
+    "repo": "AlphaPranav9102/storage"
 }
