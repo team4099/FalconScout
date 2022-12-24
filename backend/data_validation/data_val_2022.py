@@ -81,6 +81,13 @@ class DataValidation2022(BaseDataValidation):
             counter_defense_rating=submission["counter_defense_rating"],
         )
 
+        self.check_for_auto_great_than_6(
+            match_key=submission["match_key"],
+            team_number=submission["team_number"],
+            auto_lower_hub=submission["auto_lower_hub"],
+            auto_upper_hub=submission["auto_upper_hub"],
+            auto_misses=submission["auto_misses"],
+        )
         self.check_for_auto_cargo_when_taxi(
             match_key=submission["match_key"],
             team_number=submission["team_number"],
@@ -247,3 +254,29 @@ class DataValidation2022(BaseDataValidation):
                     f"In {outlier[0]}, frc{team} HAD AN AUTONOMOUS SCORE OUTLIER (>Q3) {outlier[1]} POINTS",
                     ErrorType.INFO,
                 )
+
+    def check_for_auto_great_than_6(
+        self,
+        match_key: str,
+        team_number: int,
+        auto_lower_hub: int,
+        auto_upper_hub: int,
+        auto_misses: int,
+    ) -> None:
+        """
+        Checks if robot shot balls in autonomous and scouter states robot shot more than 6 cargo.
+
+        :param match_key: Key of match that was scouted.
+        :param team_number: Number of team that was scouted (eg 4099).
+        :param auto_lower_hub: Number of balls shot into the lower hub during Autonomous.
+        :param auto_upper_hub: Number of balls shot into the upper hub during Autonomous.
+        :param auto_misses: Number of balls missed when shooting during Autonomous.
+        :return:
+        """
+        # Checks auto ball shot count
+        balls_shot_in_auto = auto_lower_hub + auto_upper_hub + auto_misses
+        if balls_shot_in_auto > 6:
+            self.add_error(
+                f"In {match_key}, {team_number} UNLIKELY AUTO SHOT COUNT",
+                error_type=ErrorType.WARNING,
+            )

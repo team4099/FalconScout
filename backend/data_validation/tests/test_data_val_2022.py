@@ -119,9 +119,44 @@ def test_missing_shooting_zones():
     # Ensures that the length of the errors JSON is 2 (total number of errors that should've been raised).
     # Ensures that the errors are both flagged as 'MISSING DATA'
     assert (
-        len(errors) == 2
-        and errors[0]["error_type"] == "MISSING DATA"
-        and errors[1]["error_type"] == "MISSING DATA"
+            len(errors) == 2
+            and errors[0]["error_type"] == "MISSING DATA"
+            and errors[1]["error_type"] == "MISSING DATA"
+    )
+
+
+def test_auto_great_than_6():
+    """Tests the `check_for_missing_shooting_zones` function to ensure errors are written into the JSON."""
+    data_validator = DataValidation2022()
+
+    # Takes fixture of example scouting data and changes the shooting zones.
+    scouting_data_with_auto_high_lower = example_scouting_data(
+        auto_lower_hub=7, auto_upper_hub=0, auto_misses=0
+    )
+    scouting_data_with_auto_high_upper = example_scouting_data(
+        auto_lower_hub=0, auto_upper_hub=7, auto_misses=0
+    )
+    scouting_data_with_auto_high_miss = example_scouting_data(
+        auto_lower_hub=0, auto_upper_hub=0, auto_misses=7
+    )
+    scouting_data_with_auto_high_total = example_scouting_data(
+        auto_lower_hub=3, auto_upper_hub=2, auto_misses=2
+    )
+
+    # Runs the validation of data to ensure errors are put into the corresponding JSON.
+    data_validator.validate_data(scouting_data=[scouting_data_with_auto_high_lower, scouting_data_with_auto_high_upper, scouting_data_with_auto_high_miss, scouting_data_with_auto_high_total])
+
+    with open("errors.json") as file:
+        errors = load(file)
+
+    # Ensures that the length of the errors JSON is 1 (total number of errors that should've been raised).
+    # Ensures that the errors are both flagged as 'WARNING'
+    assert (
+            len(errors) == 4
+            and errors[0]["error_type"] == "WARNING"
+            and errors[1]["error_type"] == "WARNING"
+            and errors[2]["error_type"] == "WARNING"
+            and errors[3]["error_type"] == "WARNING"
     )
 
 
