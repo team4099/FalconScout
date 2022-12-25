@@ -90,9 +90,7 @@ class BaseDataValidation(ABC):
         """
         match_schedule_key = self._event_key + "_" + match_key
         teams_on_alliance = self.match_schedule[match_schedule_key][alliance]
-        teams_on_alliance = list(
-            map(lambda team: int(team.lstrip("frc")), teams_on_alliance)
-        )
+        teams_on_alliance = [int(team.lstrip("frc")) for team in teams_on_alliance]
 
         if team_number not in teams_on_alliance:
             self.add_error(
