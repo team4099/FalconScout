@@ -95,7 +95,7 @@ class BaseDataValidation(ABC):
         if team_number not in teams_on_alliance:
             self.add_error(
                 f"In {match_key}, {team_number} was NOT IN MATCH on the {alliance} alliance",
-                error_type=ErrorType.INCORRECT_DATA,
+                error_type=ErrorType.MISSING_DATA,
             )
 
         elif (team_number) != teams_on_alliance[driver_station - 1]:
