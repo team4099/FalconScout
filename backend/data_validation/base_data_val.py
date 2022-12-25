@@ -33,7 +33,7 @@ class BaseDataValidation(ABC):
         )
 
         self._event_key = str(self.config["year"]) + self.config["event_code"]
-        # determines both if were using tba for match shedule and whether we're running tba checks
+        # Determines both if were using tba for match shedule and whether we're running tba checks
         self._run_with_tba = self.config.get("run_with_tba", True)
 
         # Setting up FalconAlliance (our connection to TBA) and retrieving match schedule
