@@ -1,12 +1,10 @@
-from pandas import DataFrame, Series
-from numpy import percentile
-from config.utils import ErrorType
-from config.constants import RapidReact
-from utils import ErrorType
-from pandas import DataFrame, Series, isna, notna
 import json
 
 from base_data_val import BaseDataValidation
+from config.constants import RapidReact
+from config.utils import ErrorType
+from numpy import percentile
+from pandas import DataFrame, Series, isna, notna
 
 
 class DataValidation2022(BaseDataValidation):
@@ -30,8 +28,7 @@ class DataValidation2022(BaseDataValidation):
         # Converts JSON to DataFrame
         scouting_data = DataFrame.from_dict(scouting_data)
 
-        # TODO: Add check to make sure that teams aren't double scouted or have been scouted (check Notion doc.)
-        ...
+        self.check_team_numbers_for_each_match(scouting_data)
 
         # Validates individual submissions
         for _, submission in scouting_data.iterrows():
@@ -267,6 +264,7 @@ class DataValidation2022(BaseDataValidation):
             self.add_error(
                 f"In {match_key}, {team_number} DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
                 error_type=ErrorType.INCORRECT_DATA,
+            )
 
     def check_for_auto_cargo_when_taxi(
         self,

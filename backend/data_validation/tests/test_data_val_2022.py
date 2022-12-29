@@ -117,12 +117,39 @@ def test_missing_shooting_zones():
     with open("errors.json") as file:
         errors = load(file)
 
-    # Ensures that the length of the errors JSON is 2 (total number of errors that should've been raised).
-    # Ensures that the errors are both flagged as 'MISSING DATA'
+    filtered_errors = [
+        error for error in errors if "NOT SCOUTED" not in error["message"]
+    ]
     assert (
-            len(errors) == 2
-            and errors[0]["error_type"] == "MISSING DATA"
-            and errors[1]["error_type"] == "MISSING DATA"
+        len(filtered_errors) == 2
+        and filtered_errors[0]["error_type"] == "MISSING DATA"
+        and filtered_errors[1]["error_type"] == "MISSING DATA"
+    )
+
+
+def test_double_scouted():
+    """Tests the `check_team_numbers_for_each_match` function to ensure errors are written into the JSON."""
+    data_validator = DataValidation2022()
+
+    extra_scouting_data = [
+        example_scouting_data(alliance="Red", team_number=3538),
+        example_scouting_data(alliance="Red", team_number=1987),
+        example_scouting_data(alliance="Red", team_number=1339),
+        example_scouting_data(alliance="Red", team_number=1339),
+        example_scouting_data(alliance="Blue", team_number=2614),
+        example_scouting_data(alliance="Blue", team_number=3357),
+        example_scouting_data(alliance="Blue", team_number=2359),
+    ]
+
+    data_validator.validate_data(scouting_data=extra_scouting_data)
+
+    with open("errors.json") as file:
+        errors = load(file)
+
+    assert (
+        len(errors) == 2
+        and errors[0]["error_type"] == "MISSING DATA"
+        and errors[1]["error_type"] == "MISSING DATA"
     )
 
 
@@ -140,6 +167,26 @@ def test_incorrect_taxi_state():
     scouting_datum = example_scouting_data()
 
     data_validator.validate_data(scouting_data=[scouting_datum])
+
+    with open("errors.json") as file:
+        errors = load(file)
+
+    assert len(errors) == 1 and errors[0]["error_type"] == "INCORRECT DATA"
+
+
+def test_missing_teams():
+    """Tests the `check_team_numbers_for_each_match` function to ensure errors are written into the JSON."""
+    data_validator = DataValidation2022()
+
+    extra_scouting_data = [
+        example_scouting_data(alliance="Red", team_number=3538),
+        example_scouting_data(alliance="Red", team_number=1987),
+        example_scouting_data(alliance="Blue", team_number=2614),
+        example_scouting_data(alliance="Blue", team_number=3357),
+        example_scouting_data(alliance="Blue", team_number=2359),
+    ]
+
+    data_validator.validate_data(scouting_data=extra_scouting_data)
 
     with open("errors.json") as file:
         errors = load(file)
@@ -230,6 +277,7 @@ def test_counter_defense_pct_but_no_counter_defense_rating():
         scouting_data=[scouting_data_with_no_counter_defense_pct]
     )
 
+
 def test_auto_great_than_6():
     """Tests the `check_for_missing_shooting_zones` function to ensure errors are written into the JSON."""
     data_validator = DataValidation2022()
@@ -249,7 +297,14 @@ def test_auto_great_than_6():
     )
 
     # Runs the validation of data to ensure errors are put into the corresponding JSON.
-    data_validator.validate_data(scouting_data=[scouting_data_with_auto_high_lower, scouting_data_with_auto_high_upper, scouting_data_with_auto_high_miss, scouting_data_with_auto_high_total])
+    data_validator.validate_data(
+        scouting_data=[
+            scouting_data_with_auto_high_lower,
+            scouting_data_with_auto_high_upper,
+            scouting_data_with_auto_high_miss,
+            scouting_data_with_auto_high_total,
+        ]
+    )
 
     with open("errors.json") as file:
         errors = load(file)
@@ -267,15 +322,18 @@ def test_incorrect_defense_and_counter_defense_pct():
     )
 
     data_validator.validate_data(scouting_data=[scouting_data_with_incorrect_pcts])
-=======
+
+    with open("errors.json") as file:
+        errors = load(file)
+
     # Ensures that the length of the errors JSON is 1 (total number of errors that should've been raised).
     # Ensures that the errors are both flagged as 'WARNING'
     assert (
-            len(errors) == 4
-            and errors[0]["error_type"] == "WARNING"
-            and errors[1]["error_type"] == "WARNING"
-            and errors[2]["error_type"] == "WARNING"
-            and errors[3]["error_type"] == "WARNING"
+        len(errors) == 4
+        and errors[0]["error_type"] == "WARNING"
+        and errors[1]["error_type"] == "WARNING"
+        and errors[2]["error_type"] == "WARNING"
+        and errors[3]["error_type"] == "WARNING"
     )
 
 

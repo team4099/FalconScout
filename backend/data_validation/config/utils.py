@@ -11,9 +11,10 @@ class ErrorType(Enum):
     INFO = 1
     WARNING = 2
     INCORRECT_DATA = 3
-    MISSING_DATA = 4
-    CRITICAL = 5
-    RESCOUT_MATCH = 6
+    EXTRA_DATA = 4
+    MISSING_DATA = 5
+    CRITICAL = 6
+    RESCOUT_MATCH = 7
 
 
 def valid_match_key(key: str) -> bool:
