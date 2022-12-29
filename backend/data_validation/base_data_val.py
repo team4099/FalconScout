@@ -1,12 +1,16 @@
 from abc import ABC, abstractmethod
 from json import dump, load
 from pandas import DataFrame, Series
-
+from collections import defaultdict
+from itertools import chain
+from json import dump, load
+from typing import List
 
 import falcon_alliance
+import pandas as pd
 import yaml
-from pandas import isna, notna
-from utils import ErrorType
+from config.utils import ErrorType
+from pandas import isna, notna, read_json
 
 
 class BaseDataValidation(ABC):
@@ -31,6 +35,7 @@ class BaseDataValidation(ABC):
             "path_to_data",
             f"../data/{self.config['year']}{self.config['event_code']}_match_data.json",
         )
+        self.df = read_json(self.path_to_data_file)
 
         self._event_key = str(self.config["year"]) + self.config["event_code"]
         # Determines both if were using tba for match shedule and whether we're running tba checks
@@ -104,6 +109,8 @@ class BaseDataValidation(ABC):
                 error_type=ErrorType.INCORRECT_DATA,
             )
 
+        self.teams = self.get_teams()
+
     def check_for_invalid_defense_data(
         self,
         match_key: str,
@@ -166,6 +173,49 @@ class BaseDataValidation(ABC):
                 error_type=ErrorType.INCORRECT_DATA,
             )
 
+    def check_team_numbers_for_each_match(self, scouting_data: pd.DataFrame) -> None:
+        """
+        Checks if a team was scouted/not double scouted.
+
+        :param scouting_data: List containing data from each scout.
+        :return: None
+        """  # noqa
+        data_by_match_key = defaultdict(lambda: defaultdict(list))
+
+        for _, submission in scouting_data.iterrows():
+            if notna(submission["match_key"]):
+                data_by_match_key[submission["match_key"].strip().lower()][
+                    submission["alliance"].lower()
+                ].append(submission)
+
+        for match_key, match_data in data_by_match_key.items():
+            for alliance in ("red", "blue"):
+                teams = self.match_schedule[f"{self._event_key}_{match_key}"][alliance]
+                team_numbers = [
+                    submission["team_number"] for submission in match_data[alliance]
+                ]
+
+                if len(match_data[alliance]) > 3:
+                    for double_scouted in set(
+                        [team for team in team_numbers if team_numbers.count(team) > 1]
+                    ):
+                        self.add_error(
+                            f"In {match_key}, frc{double_scouted} was DOUBLE SCOUTED",
+                            ErrorType.EXTRA_DATA,
+                        )
+                elif len(match_data[alliance]) < 3:
+                    team_numbers = [
+                        f"frc{submission['team_number']}"
+                        for submission in match_data[alliance]
+                    ]
+
+                    for team in teams:
+                        if team not in team_numbers:
+                            self.add_error(
+                                f"In {match_key}, {team} was NOT SCOUTED",
+                                ErrorType.MISSING_DATA,
+                            )
+
     def add_error(self, error_message: str, error_type: ErrorType) -> None:
         """
         Adds an error to the dictionary containing all errors raised with data validation.
@@ -226,3 +276,31 @@ class BaseDataValidation(ABC):
         # Writes match schedule to the corresponding JSON
         with open("../data/match_schedule.json", "w") as file:
             dump(self.match_schedule, file, indent=4)
+
+    def get_teams(self) -> List[int]:
+        """
+        Gets list of all teams from match schedule
+
+        :return List of all team numbers
+        """
+
+        schedule_df = read_json("../data/match_schedule.json")
+
+        # Retrieve all alliances across all matches
+        all_alliances = schedule_df.loc["red"] + schedule_df.loc["blue"]
+
+        # Flatten alliance lists into one large list (with no repeating teams) and strip "frc"
+        all_team_identifiers = list(set(chain(*all_alliances)))
+        all_teams = list(map(lambda x: int(x[3:]), all_team_identifiers))
+
+        return all_teams
+
+    @abstractmethod
+    def check_for_statistical_outliers(self) -> None:
+        """
+        Check and mark any statistical outliers across all teams' auto data.
+        Outliers are identified by the IQR method https://online.stat.psu.edu/stat200/lesson/3/3.2
+        Data points below Q1 and above Q3 are logged as possible errors. Point differentials are reported
+        separately across different parts of the game (i.e. autonomous, teleoperated, endgame).
+        """
+        pass
