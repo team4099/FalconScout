@@ -1,0 +1,38 @@
+[
+    {
+        "error_type": "MISSING DATA",
+        "message": "In qm1, frc3538 was NOT SCOUTED"
+    },
+    {
+        "error_type": "MISSING DATA",
+        "message": "In qm1, frc1987 was NOT SCOUTED"
+    },
+    {
+        "error_type": "MISSING DATA",
+        "message": "In qm1, frc1339 was NOT SCOUTED"
+    },
+    {
+        "error_type": "MISSING DATA",
+        "message": "In qm1, frc2614 was NOT SCOUTED"
+    },
+    {
+        "error_type": "MISSING DATA",
+        "message": "In qm1, frc3357 was NOT SCOUTED"
+    },
+    {
+        "error_type": "MISSING DATA",
+        "message": "In qm1, frc2539 was NOT SCOUTED"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "message": "In qm1, frc4099 SHOT 2 OR MORE BALLS WITHOUT TAXING"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "message": "In qm1, 4099 INCORRECT TAXI according to TBA"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "message": "In qm1, 4099 INCORRECT ClIMB TYPE according to TBA, should be None"
+    }
+]
