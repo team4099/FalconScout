@@ -27,8 +27,7 @@ class DataValidation2022(BaseDataValidation):
         # Converts JSON to DataFrame
         scouting_data = DataFrame.from_dict(scouting_data)
 
-        # TODO: Add check to make sure that teams aren't double scouted or have been scouted (check Notion doc.)
-        ...
+        self.check_team_numbers_for_each_match(scouting_data)
 
         # Validates individual submissions
         for _, submission in scouting_data.iterrows():

@@ -1,6 +1,8 @@
+from collections import defaultdict
 from json import dump, load
 
 import falcon_alliance
+import pandas as pd
 import yaml
 from pandas import isna, notna
 from utils import ErrorType
@@ -110,6 +112,49 @@ class BaseDataValidation:
                 f"In {match_key}, {team_number} DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
                 error_type=ErrorType.INCORRECT_DATA,
             )
+
+    def check_team_numbers_for_each_match(self, scouting_data: pd.DataFrame) -> None:
+        """
+        Checks if a team was scouted/not double scouted.
+
+        :param scouting_data: List containing data from each scout.
+        :return: None
+        """  # noqa
+        data_by_match_key = defaultdict(lambda: defaultdict(list))
+
+        for _, submission in scouting_data.iterrows():
+            if notna(submission["match_key"]):
+                data_by_match_key[submission["match_key"].strip().lower()][
+                    submission["alliance"].lower()
+                ].append(submission)
+
+        for match_key, match_data in data_by_match_key.items():
+            for alliance in ("red", "blue"):
+                teams = self.match_schedule[f"{self._event_key}_{match_key}"][alliance]
+                team_numbers = [
+                    submission["team_number"] for submission in match_data[alliance]
+                ]
+
+                if len(match_data[alliance]) > 3:
+                    for double_scouted in set(
+                        [team for team in team_numbers if team_numbers.count(team) > 1]
+                    ):
+                        self.add_error(
+                            f"In {match_key}, frc{double_scouted} was DOUBLE SCOUTED",
+                            ErrorType.EXTRA_DATA,
+                        )
+                elif len(match_data[alliance]) < 3:
+                    team_numbers = [
+                        f"frc{submission['team_number']}"
+                        for submission in match_data[alliance]
+                    ]
+
+                    for team in teams:
+                        if team not in team_numbers:
+                            self.add_error(
+                                f"In {match_key}, {team} was NOT SCOUTED",
+                                ErrorType.MISSING_DATA,
+                            )
 
     def add_error(self, error_message: str, error_type: ErrorType) -> None:
         """
