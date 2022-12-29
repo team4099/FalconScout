@@ -1,4 +1,6 @@
 import json
+from lib2to3.pgen2 import driver
+from typing import Hashable
 
 from base_data_val import BaseDataValidation
 from config.constants import RapidReact
@@ -42,7 +44,7 @@ class DataValidation2022(BaseDataValidation):
             self.validate_submission(submission)
 
         # TODO: Add check relying on TBA to cross-check shooting totals with TBA's reported shooting totals.
-        if self._run_tba_checks:
+        if self._run_with_tba:
             ...
 
         self.output_errors()
@@ -80,6 +82,11 @@ class DataValidation2022(BaseDataValidation):
             counter_defense_rating=submission["counter_defense_rating"],
         )
 
+        self.check_team_info_with_match_schedule(
+            match_key=submission["match_key"],
+            team_number=submission["team_number"],
+            alliance=submission["alliance"],
+            driver_station=submission["driver_station"],
         self.check_for_auto_great_than_6(
             match_key=submission["match_key"],
             team_number=submission["team_number"],
@@ -93,7 +100,7 @@ class DataValidation2022(BaseDataValidation):
             auto_lower_hub=submission["auto_lower_hub"],
             auto_upper_hub=submission["auto_upper_hub"],
             auto_misses=submission["auto_misses"],
-            taxi=submission["taxied"],
+            taxi=submission["taxied"]
         )
 
         # TODO: Add TBA-related checks (see Notion docs for which checks to add.)

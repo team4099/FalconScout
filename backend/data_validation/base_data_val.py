@@ -1,4 +1,6 @@
-from abc import abstractmethod
+from abc import ABC, abstractmethod
+from json import dump, load
+from pandas import DataFrame, Series
 from collections import defaultdict
 from itertools import chain
 from json import dump, load
@@ -11,7 +13,7 @@ from config.utils import ErrorType
 from pandas import isna, notna, read_json
 
 
-class BaseDataValidation:
+class BaseDataValidation(ABC):
     """
     Base class that validates the data passed in.
 
@@ -35,25 +37,77 @@ class BaseDataValidation:
         )
         self.df = read_json(self.path_to_data_file)
 
-        # Retrieves match schedule
-        try:
-            with open(
-                self.config.get("path_to_match_schedule", "../data/match_schedule.json")
-            ) as file:
-                self.match_schedule = load(file)
-        except FileNotFoundError:  # We want to ignore if it doesn't exist because get_match_schedule() will create it.
-            pass
+        self._event_key = str(self.config["year"]) + self.config["event_code"]
+        # Determines both if were using tba for match shedule and whether we're running tba checks
+        self._run_with_tba = self.config.get("run_with_tba", True)
 
-        # Setting up FalconAlliance (our connection to TBA) and retrieving match schedule if it doesn't exist
+        # Setting up FalconAlliance (our connection to TBA) and retrieving match schedule
         self.api_client = falcon_alliance.ApiClient(
             api_key="6lcmneN5bBDYpC47FolBxp2RZa4AbQCVpmKMSKw9x9btKt7da5yMzVamJYk0XDBm"  # for testing purposes
         )
 
-        self._event_key = str(self.config["year"]) + self.config["event_code"]
-        self._run_tba_checks = self.config.get("run_tba_checks", True)
+        with self.api_client:
+            # make sure tba isn't down
+            self._run_with_tba = (
+                self._event_key not in self.api_client.status().down_events
+            )
 
-        if self._run_tba_checks:
-            self.get_match_schedule()
+            if self._run_with_tba:
+                self.get_match_schedule_tba()
+            else:
+                self.get_match_schedule_file()
+
+    @abstractmethod
+    def validate_data(self, scouting_data: list = None) -> None:
+        """
+        Runs all checks validating a single submission from 2022's game (Rapid React).
+
+        :param scouting_data: Optional parameter containing scouting data mostly for testing purposes.
+        :return:
+        """
+        pass
+
+    @abstractmethod
+    def validate_submission(self, submission: Series) -> None:
+        """
+        Runs all checks validating a single submission.
+
+        :param submission: Series object containing a single submission of scouting data.
+        :return:
+        """
+        pass
+
+    def check_team_info_with_match_schedule(
+        self,
+        match_key: str,
+        team_number: int,
+        alliance: str,
+        driver_station: int,
+    ) -> None:
+        """
+        Checks if the team scouted was in the match on given alliance
+        Checks if the team driverstation doesn't correspond to team scouted
+
+        :param match_key: Key of match that was scouted.
+        :param team_number: Number of team that was scouted (eg 4099).
+        :param alliance: string either "Red' or 'Blue' of which alliance was scouted
+        :param driver_station: int representing which driver station(1-3) was  scouted.
+        """
+        match_schedule_key = self._event_key + "_" + match_key
+        teams_on_alliance = self.match_schedule[match_schedule_key][alliance]
+        teams_on_alliance = [int(team.lstrip("frc")) for team in teams_on_alliance]
+
+        if team_number not in teams_on_alliance:
+            self.add_error(
+                f"In {match_key}, {team_number} was NOT IN MATCH on the {alliance} alliance",
+                error_type=ErrorType.MISSING_DATA,
+            )
+
+        elif (team_number) != teams_on_alliance[driver_station - 1]:
+            self.add_error(
+                f"In {match_key}, {team_number} INCONSISTENT DRIVER STATION with schedule",
+                error_type=ErrorType.INCORRECT_DATA,
+            )
 
         self.teams = self.get_teams()
 
@@ -187,24 +241,37 @@ class BaseDataValidation:
         with open(self.path_to_output_file, "w") as file:
             dump(self.errors, file, indent=4)
 
-    def get_match_schedule(self):
-        """Retrieves match schedule if match schedule wasn't already passed in."""
-        with self.api_client:
-            self._run_tba_checks = (
-                self._event_key not in self.api_client.status().down_events
-            )
+    def get_match_schedule_tba(self) -> None:
+        """
+        Retrieves match schedule from tba
 
-            # Sets match schedule and tba_match_data attributes, with tba_match_data being raw data.
-            if self._run_tba_checks:
-                match_schedule = falcon_alliance.Event(self._event_key).matches()
+        :return: None
+        """
 
-                for match in match_schedule:
-                    self.tba_match_data[match.key] = match
+        # Sets match schedule and tba_match_data attributes, with tba_match_data being raw data.
+        match_schedule = falcon_alliance.Event(self._event_key).matches()
 
-                    self.match_schedule[match.key] = {
-                        "red": match.alliances["red"].team_keys,
-                        "blue": match.alliances["blue"].team_keys,
-                    }
+        for match in match_schedule:
+            self.tba_match_data[match.key] = match
+            self.match_schedule[match.key] = {
+                "Red": match.alliances["red"].team_keys,
+                "Blue": match.alliances["blue"].team_keys,
+            }
+
+    def get_match_schedule_file(self) -> None:
+        """
+        Retrieves match_schedule from data/match_schedule.json unless different file was set in conifg
+
+        :return: None
+        """
+
+        try:
+            with open(
+                self.config.get("path_to_match_schedule", "../data/match_schedule.json")
+            ) as file:
+                self.match_schedule = load(file)
+        except FileNotFoundError:  # We want to ignore if it doesn't exist because get_match_schedule() will create it.
+            pass
 
         # Writes match schedule to the corresponding JSON
         with open("../data/match_schedule.json", "w") as file:
