@@ -3,8 +3,8 @@
     "data_config": {
         "data_labels": ["name", "team_number", "notes"],
         "data_header": "team_number",
-        "json_file": "data/data.json",
-        "csv_file": "data/data.csv"
+        "json_file": "data/2022iri_match_data.json",
+        "csv_file": "data/2022iri_match_data.csv"
     },
     "table_config": {
         "line_id": "name"
