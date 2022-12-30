@@ -12,7 +12,7 @@ function App() {
       {
         structure.map((page) => {
             return (
-              <Route path={'/'+page.name} element={<Page config={page}/>}></Route>
+              <Route path={'/'+page.name.replaceAll(/\s/g,'')} element={<Page config={page}/>}></Route>
             )
         })
       }
