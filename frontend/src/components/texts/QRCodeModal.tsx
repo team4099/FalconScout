@@ -14,11 +14,11 @@ export function QRCodeModal(props: ComponentSetup){
                         <QRCode
                             size={256}
                             style={{ height: "auto", maxWidth: "200px", width: "200px" }}
-                            value={props.getValue["export"]}
+                            value={props.getValue["export"].text}
                             viewBox={`0 0 256 256`}
                             className="h-[200px] w-[200px] mx-auto mb-4"
                         />
-                        <p className="text-lg">{props.getValue["export"]}</p>
+                        <p className="text-lg">{props.getValue["export"].text.replaceAll(props.getValue["export"].delimeter, "|")}</p>
                     </div>
                 )
             }
