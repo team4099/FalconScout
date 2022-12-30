@@ -4,12 +4,12 @@ import "./index.css"
 
 function GenericRadioSelect(props: ComponentSetup) {
 
-    const updateStateSelections = (event) => {
+    const updateStateSelections = (event: any) => {
 		//console.log(props.getValue)
 		var state = props.getValue
 
         var value = ""
-        const checks = document.getElementsByClassName("radio " + props.id);
+        const checks = document.getElementsByClassName("radio " + props.id) as HTMLCollectionOf<HTMLInputElement>;
         for (const check of checks) {
             if (check.checked) {
               value = check.value

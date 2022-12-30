@@ -4,12 +4,12 @@ import "./index.css"
 
 function GenericCheckboxSelect(props: ComponentSetup) {
 
-    const updateStateSelections = (event) => {
+    const updateStateSelections = (event: any) => {
 		//console.log(props.getValue)
 		var state = props.getValue
 
         var values = Array()
-        const checks = document.getElementsByClassName("radio " + props.id);
+        const checks = document.getElementsByClassName("radio " + props.id) as HTMLCollectionOf<HTMLInputElement>;
         for (const check of checks) {
             if (check.checked) {
               values.push(check.value)

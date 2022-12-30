@@ -3,7 +3,7 @@ import { ComponentSetup } from "../interface"
 
 function GenericDropdown(props: ComponentSetup) {
 
-	const updateStateSelections = (event) => {
+	const updateStateSelections = (event: any) => {
 		//console.log(props.getValue)
 		var state = props.getValue
 

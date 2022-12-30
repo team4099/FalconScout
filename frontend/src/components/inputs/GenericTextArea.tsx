@@ -3,7 +3,7 @@ import { ComponentSetup } from "../interface"
 
 function GenericTextArea(props: ComponentSetup){
 
-    const updateStateText = (event) => {
+    const updateStateText = (event: any) => {
 		//console.log(props.getValue)
 		var state = props.getValue
 		state[props.id] = event.target.value

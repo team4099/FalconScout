@@ -4,7 +4,7 @@ import "./index.css"
 
 function GenericToggle(props: ComponentSetup) {
 
-	const updateState = (event) => {
+	const updateState = (event: any) => {
 		//console.log(props.getValue)
 		var state = props.getValue
 		state[props.id] = event.target.checked
