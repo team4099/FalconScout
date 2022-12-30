@@ -9,19 +9,22 @@ import os
 from dotenv import load_dotenv
 from github import Github
 from datetime import datetime
+import uuid
+from csv import writer
 
 g = Github(os.getenv("GITHUB_KEY"))
 
 with open("config.json", "r") as json_file:
     config = json.load(json_file)
 
-DATA_FILE = config["data"]
+DATA_JSON_FILE = config["data_config"]["json_file"]
+DATA_CSV_FILE = config["data_config"]["csv_file"]
 
 app = Flask(__name__)
 
 @app.route("/")
 def home():
-    with open(DATA_FILE,'r') as file:
+    with open(DATA_JSON_FILE,'r') as file:
         file_data = json.load(file)
 
     tableData = []
@@ -61,17 +64,23 @@ def process_scan():
             
             data_map = dict(zip(config["data_config"]["data_labels"], split_scan))
             data_map["scanRaw"] = scan_info["scan_text"]
+            data_map["uuid"] = str(uuid.uuid4())
 
-            with open(DATA_FILE,'r+') as file:
+            with open(DATA_JSON_FILE,'r+') as file:
                 file_data = dict(json.load(file))
                 print(file_data)
                 if (data_map[config["data_config"]["data_header"]] in file_data.keys()):
                     file_data[data_map[config["data_config"]["data_header"]]].append(data_map)
                 else:
-                    file_data[data_map[config["data_config"]["data_header"]]] = [data_map]
+                    file_data[data_map[config["data_config"]["data_header"]]] = []
                     file_data[data_map[config["data_config"]["data_header"]]].append(data_map)
                 file.seek(0)
                 json.dump(file_data, file, indent = 4)
+
+            with open(DATA_CSV_FILE, "a") as file:
+                writer_file = writer(file)
+                writer_file.writerow(data_map.values())
+                file.close()
 
             return jsonify({
                 "action_code": "200",
@@ -93,11 +102,11 @@ def process_scan():
 def sync_github():
     if request.method == "POST":
         try:
-            with open(DATA_FILE,'r+') as file:
+            with open(DATA_JSON_FILE,'r+') as file:
                 file_data = json.load(file)
 
             repo = g.get_repo(config["repo"])
-            contents = repo.get_contents(DATA_FILE)
+            contents = repo.get_contents(DATA_JSON_FILE)
             repo.update_file(contents.path, f'updated data @ {datetime.now().strftime("%m/%d/%Y, %H:%M:%S")}', str(file_data), contents.sha)
             return jsonify({
                 "action_code": "200",
