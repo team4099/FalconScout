@@ -3,6 +3,12 @@ An all-in-one tool for building scouting apps for FRC
 
 
 ## Backend
+- [Quick Start](/docs/QUICK_START.md)
+- [Full Installation Guide](/docs/FULL_INSTALLATION_GUIDE.md)
+- [Data Pipeline Explination](/docs/DATA_PIPIELINE_EXPLINATION.md)
+- [Configuring Datavalidation](/docs/CONFIGURING_DATAVALIDATION.md)
+- [Example Forms](/docs/EXAMPLE_FORMS.md)
+
 ### Installing dependencies
 - Create virtual env.
     ```sh
