@@ -1,5 +1,5 @@
-# chief2
-Team 4099's scouting system to ingest match data and generate visualizations for the FRC 2021-2022 Rapid React competition.
+# FalconScout
+Team 4099's scouting system to generate, ingest, and visualize match data for competition.
 
 # Installation
 
