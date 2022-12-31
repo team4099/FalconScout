@@ -9,7 +9,7 @@ from typing import List
 import falcon_alliance
 import pandas as pd
 import yaml
-from config.utils import ErrorType
+from data_validation.config.utils import ErrorType
 from pandas import isna, notna, read_json
 
 
@@ -30,10 +30,10 @@ class BaseDataValidation(ABC):
         with open(path_to_config) as file:
             self.config = yaml.safe_load(file)
 
-        self.path_to_output_file = self.config.get("path_to_output", "errors.json")
+        self.path_to_output_file = self.config.get("path_to_output", "data/errors.json")
         self.path_to_data_file = self.config.get(
             "path_to_data",
-            f"../data/{self.config['year']}{self.config['event_code']}_match_data.json",
+            f"data/{self.config['year']}{self.config['event_code']}_match_data.json",
         )
         self.df = read_json(self.path_to_data_file)
 
@@ -100,13 +100,17 @@ class BaseDataValidation(ABC):
         if team_number not in teams_on_alliance:
             self.add_error(
                 f"In {match_key}, {team_number} was NOT IN MATCH on the {alliance} alliance",
-                error_type=ErrorType.MISSING_DATA,
+                ErrorType.MISSING_DATA,
+                match_key,
+                team_number
             )
 
         elif (team_number) != teams_on_alliance[driver_station - 1]:
             self.add_error(
                 f"In {match_key}, {team_number} INCONSISTENT DRIVER STATION with schedule",
-                error_type=ErrorType.INCORRECT_DATA,
+                ErrorType.INCORRECT_DATA,
+                match_key,
+                team_number
             )
 
         self.teams = self.get_teams()
@@ -137,14 +141,18 @@ class BaseDataValidation(ABC):
         if notna(defense_rating) and isna(defense_pct):
             self.add_error(
                 f"In {match_key}, {team_number} rated for defense but NO DEFENSE PCT",
-                error_type=ErrorType.MISSING_DATA,
+                ErrorType.MISSING_DATA,
+                match_key,
+                team_number
             )
 
         # Check for missing defense rating.
         if isna(defense_rating) and notna(defense_rating):
             self.add_error(
                 f"In {match_key}, {team_number} MISSING DEFENSE RATING",
-                error_type=ErrorType.MISSING_DATA,
+                ErrorType.MISSING_DATA,
+                match_key,
+                team_number
             )
 
         # Check for 0% counter defense pct but given rating.
@@ -152,14 +160,18 @@ class BaseDataValidation(ABC):
             self.add_error(
                 f"In {match_key}, {team_number} "
                 f"rated for counter defense but NO COUNTER DEFENSE PCT",
-                error_type=ErrorType.MISSING_DATA,
+                ErrorType.MISSING_DATA,
+                match_key,
+                team_number
             )
 
         # Check for missing counter defense rating.
         if notna(counter_defense_pct) and isna(counter_defense_rating):
             self.add_error(
                 f"In {match_key}, {team_number} MISSING COUNTER DEFENSE RATING",
-                error_type=ErrorType.MISSING_DATA,
+                ErrorType.MISSING_DATA,
+                match_key,
+                team_number
             )
 
         # Inconsistent defense + counter defense pct.
@@ -170,7 +182,9 @@ class BaseDataValidation(ABC):
         ):
             self.add_error(
                 f"In {match_key}, {team_number} DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-                error_type=ErrorType.INCORRECT_DATA,
+                ErrorType.INCORRECT_DATA,
+                match_key,
+                team_number
             )
 
     def check_team_numbers_for_each_match(self, scouting_data: pd.DataFrame) -> None:
@@ -202,6 +216,8 @@ class BaseDataValidation(ABC):
                         self.add_error(
                             f"In {match_key}, frc{double_scouted} was DOUBLE SCOUTED",
                             ErrorType.EXTRA_DATA,
+                            match_key,
+                            double_scouted
                         )
                 elif len(match_data[alliance]) < 3:
                     team_numbers = [
@@ -214,9 +230,11 @@ class BaseDataValidation(ABC):
                             self.add_error(
                                 f"In {match_key}, {team} was NOT SCOUTED",
                                 ErrorType.MISSING_DATA,
+                                match_key,
+                                team
                             )
 
-    def add_error(self, error_message: str, error_type: ErrorType) -> None:
+    def add_error(self, error_message: str, error_type: ErrorType, match_key: str, team_id: int, scout_id: str = "N/A") -> None:
         """
         Adds an error to the dictionary containing all errors raised with data validation.
 
@@ -228,6 +246,9 @@ class BaseDataValidation(ABC):
             {
                 "error_type": error_type._name_.replace("_", " "),
                 "message": error_message,
+                "match": match_key,
+                "scout_id": scout_id,
+                "team_id": team_id
             }
         )
 
@@ -254,8 +275,8 @@ class BaseDataValidation(ABC):
         for match in match_schedule:
             self.tba_match_data[match.key] = match
             self.match_schedule[match.key] = {
-                "Red": match.alliances["red"].team_keys,
-                "Blue": match.alliances["blue"].team_keys,
+                "red": match.alliances["red"].team_keys,
+                "blue": match.alliances["blue"].team_keys,
             }
 
     def get_match_schedule_file(self) -> None:
@@ -267,14 +288,14 @@ class BaseDataValidation(ABC):
 
         try:
             with open(
-                self.config.get("path_to_match_schedule", "../data/match_schedule.json")
+                self.config.get("path_to_match_schedule", "data/match_schedule.json")
             ) as file:
                 self.match_schedule = load(file)
         except FileNotFoundError:  # We want to ignore if it doesn't exist because get_match_schedule() will create it.
             pass
 
         # Writes match schedule to the corresponding JSON
-        with open("../data/match_schedule.json", "w") as file:
+        with open("data/match_schedule.json", "w") as file:
             dump(self.match_schedule, file, indent=4)
 
     def get_teams(self) -> List[int]:
@@ -284,7 +305,7 @@ class BaseDataValidation(ABC):
         :return List of all team numbers
         """
 
-        schedule_df = read_json("../data/match_schedule.json")
+        schedule_df = read_json("data/match_schedule.json")
 
         # Retrieve all alliances across all matches
         all_alliances = schedule_df.loc["red"] + schedule_df.loc["blue"]

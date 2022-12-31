@@ -7,7 +7,7 @@ def example_scouting_data(
     scout_id: str = "falcon",
     match_key: str = "qm1",
     team_number: int = 3538,
-    alliance: str = "Red",
+    alliance: str = "red",
     driver_station: int = 1,
     preloaded_cargo: int = 0,
     auto_lower_hub: int = 1,
@@ -104,7 +104,7 @@ def example_scouting_data(
 def test_missing_shooting_zones():
     """Tests the `check_for_missing_shooting_zones` function to ensure errors are written into the JSON."""
     data_validator = DataValidation2022()
-    data_validator._run_tba_checks = False
+    data_validator._run_with_tba = False
 
     # Takes fixture of example scouting data and changes the shooting zones.
     scouting_data_without_shooting_zones = example_scouting_data(
@@ -238,6 +238,7 @@ def test_incorrect_driver_station():
     # Takes fixture of example scouting data and changes the shooting zones.
     scouting_data_with_wrong_driver_station = example_scouting_data(
         match_key="qm1", team_number="2614", alliance="Blue", driver_station=2
+    )
 
     assert len(errors) == 1 and errors[0]["error_type"] == "INCORRECT DATA"
 
@@ -245,7 +246,7 @@ def test_incorrect_driver_station():
 def test_defense_rating_but_no_defense_pct():
     """Tests `check_for_invalid_defense_data` to ensure errors are written w/ given defense rating but no defense %"""
     data_validator = DataValidation2022()
-    data_validator._run_tba_checks = False
+    data_validator._run_with_tba = False
 
     scouting_data_with_no_defense_pct = example_scouting_data(defense_pct=float("nan"))
 
@@ -260,7 +261,7 @@ def test_defense_rating_but_no_defense_pct():
 def test_defense_pct_but_no_defense_rating():
     """Tests `check_for_invalid_defense_data` to ensure errors are written w/ given defense % but no defense rating"""
     data_validator = DataValidation2022()
-    data_validator._run_tba_checks = False
+    data_validator._run_with_tba = False
 
     scouting_data_with_no_defense_rating = example_scouting_data(
         defense_rating=float("nan")
@@ -277,7 +278,7 @@ def test_defense_pct_but_no_defense_rating():
 def test_counter_defense_rating_but_no_counter_defense_pct():
     """Tests `check_for_invalid_defense_data` w/ given counter defense rating but no counter defense %"""
     data_validator = DataValidation2022()
-    data_validator._run_tba_checks = False
+    data_validator._run_with_tba = False
 
     scouting_data_with_no_counter_defense_pct = example_scouting_data(
         counter_defense_pct=float("nan")
@@ -296,7 +297,7 @@ def test_counter_defense_rating_but_no_counter_defense_pct():
 def test_counter_defense_pct_but_no_counter_defense_rating():
     """Tests `check_for_invalid_defense_data` w/ given counter defense % but no counter defense rating"""
     data_validator = DataValidation2022()
-    data_validator._run_tba_checks = False
+    data_validator._run_with_tba = False
 
     scouting_data_with_no_counter_defense_pct = example_scouting_data(
         counter_defense_rating=float("nan")
@@ -347,7 +348,7 @@ def test_auto_great_than_6():
 def test_incorrect_defense_and_counter_defense_pct():
     """Tests `check_for_invalid_defense_data` w/ defense % + counter defense % being over 1."""
     data_validator = DataValidation2022()
-    data_validator._run_tba_checks = False
+    data_validator._run_with_tba = False
 
     scouting_data_with_incorrect_pcts = example_scouting_data(
         defense_pct=1.0, counter_defense_pct=1.0
