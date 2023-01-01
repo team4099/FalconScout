@@ -1,18 +1,14 @@
-from flask import (
-    Flask, 
-    render_template,
-    jsonify,
-    request
-)
 import json
 import os
-from dotenv import load_dotenv
-from github import Github
-from datetime import datetime
 import uuid
-from csv import writer, reader
+from csv import reader, writer
+from datetime import datetime
+
 import yaml
 from data_validation.data_val_2022 import DataValidation2022
+from dotenv import load_dotenv
+from flask import Flask, jsonify, render_template, request
+from github import Github
 
 g = Github(os.getenv("GITHUB_KEY"))
 
@@ -30,9 +26,10 @@ with open(path_to_config) as file:
 
 app = Flask(__name__)
 
+
 @app.route("/")
 def home():
-    with open(DATA_JSON_FILE,'r') as file:
+    with open(DATA_JSON_FILE, "r") as file:
         file_data = json.load(file)
 
     data_validator.validate_data(file_data)
@@ -43,13 +40,10 @@ def home():
     for row in file_data:
         scanRawData.append(row["scanRaw"])
         tableData.append(
-            {
-                "id": row[config["table_config"]["line_id"]],
-                "scanRaw": row["scanRaw"]
-            }
+            {"id": row[config["table_config"]["line_id"]], "scanRaw": row["scanRaw"]}
         )
 
-    with open("data/errors.json",'r') as file:
+    with open("data/errors.json", "r") as file:
         errorData = json.load(file)
 
     print(errorData[-20:])
@@ -59,8 +53,9 @@ def home():
         title="FalconScoutCore",
         scanRawData=scanRawData,
         tableData=tableData[:30],
-        errorData=errorData[-20:]
+        errorData=errorData[-20:],
     )
+
 
 @app.route("/process_scan", methods=["POST"])
 def process_scan():
@@ -79,20 +74,19 @@ def process_scan():
             print(split_scan)
             if len(split_scan) != len(config["data_config"]["data_labels"]):
                 # 110: Data points in scan are too short and do not fit data label list size
-                return jsonify({
-                    "action_code": "200",
-                    "result": ["110", "scan too short"]
-                })
-            
+                return jsonify(
+                    {"action_code": "200", "result": ["110", "scan too short"]}
+                )
+
             data_map = dict(zip(config["data_config"]["data_labels"], split_scan))
             data_map["scanRaw"] = scan_info["scan_text"]
             data_map["uuid"] = str(uuid.uuid4())
 
-            with open(DATA_JSON_FILE,'r+') as file:
+            with open(DATA_JSON_FILE, "r+") as file:
                 file_data = json.load(file)
                 file_data.append(data_map)
                 file.seek(0)
-                json.dump(file_data, file, indent = 4)
+                json.dump(file_data, file, indent=4)
 
             with open(DATA_CSV_FILE, "a") as file:
                 writer_file = writer(file)
@@ -101,74 +95,96 @@ def process_scan():
 
             data_validator.validate_data(scouting_data=[data_map])
 
-            return jsonify({
-                "action_code": "200",
-                "result": ["100", "scan read well"],
-                "scanInfo": {
-                    "id": data_map[config["table_config"]["line_id"]],
-                    "scanRaw": scan_info
+            return jsonify(
+                {
+                    "action_code": "200",
+                    "result": ["100", "scan read well"],
+                    "scanInfo": {
+                        "id": data_map[config["table_config"]["line_id"]],
+                        "scanRaw": scan_info,
+                    },
                 }
-            })
+            )
 
         except FileExistsError as e:
             print(e)
-            return jsonify({
-                "action_code": "200",
-                "result": ["120", "python error: " + str(e)[:20]],
-            })
+            return jsonify(
+                {
+                    "action_code": "200",
+                    "result": ["120", "python error: " + str(e)[:20]],
+                }
+            )
+
 
 @app.route("/sync_github", methods=["POST"])
 def sync_github():
     if request.method == "POST":
         try:
-            with open(DATA_JSON_FILE,'r+') as file:
+            with open(DATA_JSON_FILE, "r+") as file:
                 file_json_data = json.load(file)
 
             file_csv_data = ""
             with open(DATA_CSV_FILE) as file:
-                print('reading')
+                print("reading")
                 csv_reader = reader(file)
                 for line in csv_reader:
                     file_csv_data += ",".join(line) + "\n"
 
-
             repo = g.get_repo(config["repo_config"]["repo"])
             contents = repo.get_contents(config["repo_config"]["update_json"])
-            repo.update_file(contents.path, f'updated data @ {datetime.now().strftime("%m/%d/%Y, %H:%M:%S")}', str(file_json_data), contents.sha)
+            repo.update_file(
+                contents.path,
+                f'updated data @ {datetime.now().strftime("%m/%d/%Y, %H:%M:%S")}',
+                str(file_json_data),
+                contents.sha,
+            )
 
             contents = repo.get_contents(config["repo_config"]["update_csv"])
-            repo.update_file(contents.path, f'updated data @ {datetime.now().strftime("%m/%d/%Y, %H:%M:%S")}', str(file_csv_data), contents.sha)
+            repo.update_file(
+                contents.path,
+                f'updated data @ {datetime.now().strftime("%m/%d/%Y, %H:%M:%S")}',
+                str(file_csv_data),
+                contents.sha,
+            )
 
-            return jsonify({
-                "action_code": "200",
-                "result": ["100", "Github push was valid"],
-            })
+            return jsonify(
+                {
+                    "action_code": "200",
+                    "result": ["100", "Github push was valid"],
+                }
+            )
         except TypeError as e:
             print(e, "test")
-            return jsonify({
-                "action_code": "200",
-                "result": ["110", "python error: " + str(e)[:20]],
-                
-            })
-        
+            return jsonify(
+                {
+                    "action_code": "200",
+                    "result": ["110", "python error: " + str(e)[:20]],
+                }
+            )
+
+
 @app.route("/get_errors", methods=["POST"])
 def get_errors():
     if request.method == "POST":
         try:
-            with open("data/errors.json",'r') as file:
+            with open("data/errors.json", "r") as file:
                 file_data = json.load(file)
-            return jsonify({
-                "action_code": "200",
-                "result": ["100", "Sent errors success"],
-                "errors": file_data[-20:]
-            })
+            return jsonify(
+                {
+                    "action_code": "200",
+                    "result": ["100", "Sent errors success"],
+                    "errors": file_data[-20:],
+                }
+            )
         except Exception as e:
             print(e, "test")
-            return jsonify({
-                "action_code": "200",
-                "result": ["110", "python error: " + str(e)[:20]],
-                
-            })
+            return jsonify(
+                {
+                    "action_code": "200",
+                    "result": ["110", "python error: " + str(e)[:20]],
+                }
+            )
+
 
 if __name__ == "__main__":
-  app.run(debug=True, host="0.0.0.0")
+    app.run(debug=True, host="0.0.0.0", port=4099)
