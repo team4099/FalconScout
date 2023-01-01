@@ -23,26 +23,22 @@
 			<div class="overflow-x-auto overflow-y-scroll relative rounded-lg md:w-5/6 w-full h-[600px]">
 				<table class="w-full text-sm text-left text-black">
 					<thead class="text-md text-black bg-gray-200">
-						<tr class="flex">
-							<th scope="col" class="py-3 px-6 basis-1/4">
-								Scout
-							</th>
-							<th scope="col" class="py-3 px-6">
-								Data
-							</th>
+						<tr class="row">
+							{% for header in tableHeaderData %}
+								<th scope="col" class="py-3 px-6">
+									{{ header }}
+								</th>
+							{% endfor %}
 						</tr>
 					</thead>
 					<tbody id='scanTable'>
 						{% for i in tableData %}
-							<tr class="bg-slate-50 border-b flex">
-								<th scope="row" class="basis-1/4 py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-									{{ i.id }}
-								</th>
-								<td class="py-4 px-6 overflow-x-auto">
-									<h1 class="overflow-x-scroll w-full">
-										{{ i.scanRaw }}
-									</h1>
-								</td>
+							<tr class="bg-slate-50 border-b row">
+								{% for header in tableHeaderData %}
+									<td scope="row" class="py-3 px-6 overflow-x-auto">
+										{{ i[header] }}
+									</td>
+								{% endfor %}
 							</tr>
 						{% endfor %}
 					</tbody>
@@ -59,8 +55,8 @@
 		</h1>
 		<div id="errorArea">
 			{% for i in errorData %}
-				<div class='w-full h-44 rounded-xl bg-white border-2 border-gray-200 shadow-sm mb-4'>
-					<div class="h-[122px] bg-white rounded-t-xl">
+				<div class='rounded-xl bg-white border-2 border-gray-200 shadow-sm mb-4'>
+					<div class="bg-white rounded-xl">
 						<h1 class="text-2xl font-semibold pt-4 px-4 w-full">
 							{{ i["message"] }}
 						</h1>
@@ -99,6 +95,7 @@
 <script>
 
 	var scanned = JSON.parse(`{{ scanRawData | tojson }}`)
+	var tableHeader = JSON.parse(`{{ tableHeaderData | tojson }}`)
 
 	var codeCount = 0
 	var statusContainer = document.getElementById("statusContainer")
@@ -128,8 +125,8 @@
 						for (const error of result.errors){
 
 							errorArea.innerHTML += `
-							<div class='w-full h-44 rounded-xl bg-white border-2 border-gray-200 shadow-sm mb-4'>
-								<div class="h-[122px] bg-white rounded-t-xl">
+							<div class='w-full rounded-xl bg-white border-2 border-gray-200 shadow-sm mb-4'>
+								<div class="bg-white rounded-xl">
 									<h1 class="text-2xl font-semibold pt-4 px-4 w-full">
 										${ error.message }
 									</h1>
@@ -243,18 +240,16 @@
 					console.log(result)
 
 					if (result.result[0] == "100"){
-						document.getElementById("scanTable").innerHTML += `
-						<tr class="bg-slate-50 border-b flex">
-							<th scope="row" class="basis-1/4 py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-								${result.scanInfo.id}
-							</th>
-							<td class="py-4 px-6 overflow-x-auto">
-								<h1 class="overflow-x-scroll w-full">
-									${decodedText}
-								</h1>
+						var newRow = `<tr class="bg-slate-50 border-b row">`
+						for (const header of tableHeader){
+							newRow += `
+							<td scope="row" class="py-3 px-6 overflow-x-auto">
+								${ result.scanInfo[header] }
 							</td>
-						</tr>
-						`
+							`
+						}
+						newRow += "</tr>"
+						document.getElementById("scanTable").innerHTML = newRow + document.getElementById("scanTable").innerHTML
 
 						statusContainer.innerHTML += `
 							<div id="status${codeCount}" class="flex p-4 mb-4 bg-green-100 rounded-lg dark:bg-green-200" role="alert">

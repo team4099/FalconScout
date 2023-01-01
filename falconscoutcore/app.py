@@ -39,9 +39,6 @@ def home():
 
     for row in file_data:
         scanRawData.append(row["scanRaw"])
-        tableData.append(
-            {"id": row[config["table_config"]["line_id"]], "scanRaw": row["scanRaw"]}
-        )
 
     with open("data/errors.json", "r") as file:
         errorData = json.load(file)
@@ -52,7 +49,8 @@ def home():
         "home.html",
         title="FalconScoutCore",
         scanRawData=scanRawData,
-        tableData=tableData[:30],
+        tableData=file_data[::-1],
+        tableHeaderData=config["data_config"]["data_labels"],
         errorData=errorData[-20:],
     )
 
@@ -99,10 +97,7 @@ def process_scan():
                 {
                     "action_code": "200",
                     "result": ["100", "scan read well"],
-                    "scanInfo": {
-                        "id": data_map[config["table_config"]["line_id"]],
-                        "scanRaw": scan_info,
-                    },
+                    "scanInfo": data_map
                 }
             )
 
