@@ -3,8 +3,8 @@ An all-in-one tool for building scouting apps for FRC
 
 
 ## Backend
+- [Tool Setup Guide](/docs/TOOL_SETUP_GUIDE.md)
 - [Quick Start](/docs/QUICK_START.md)
-- [Full Installation Guide](/docs/FULL_INSTALLATION_GUIDE.md)
 - [Data Pipeline Explination](/docs/DATA_PIPIELINE_EXPLINATION.md)
 - [Configuring Datavalidation](/docs/CONFIGURING_DATAVALIDATION.md)
 - [Example Forms](/docs/EXAMPLE_FORMS.md)

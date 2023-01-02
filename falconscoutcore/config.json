@@ -1,6 +1,6 @@
 {
-    "delimeter": ",",
     "data_config": {
+        "delimeter": ",",
         "data_labels": [
             "scout_id",
             "match_key",
@@ -34,9 +34,6 @@
         ],
         "json_file": "./data/2022iri_match_data.json",
         "csv_file": "./data/2022iri_match_data.csv"
-    },
-    "table_config": {
-        "line_id": "scout_id"
     },
     "repo_config": {
         "repo": "AlphaPranav9102/storage",

@@ -5,7 +5,6 @@ Datavalidation is a system which scans scouting data as its collected and flags 
 
 ## Configuring Validation
 
-
 To configure datavalidation you only need to edit a couple fields in the `config.yaml` file. This file cand be found under `/backend/data_validation` directory.
 
 Example:

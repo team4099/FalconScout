@@ -1,4 +1,4 @@
-# FalconScout Tool Installation Guide
+# FalconScout Tool Setup Guide
 Team 4099's scouting system to generate, ingest, and visualize match data for competition.
 
 # Installation

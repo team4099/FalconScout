@@ -73,7 +73,7 @@ class DataValidation2022(BaseDataValidation):
                 teleop_misses=submission[self.config["teleop_misses"]],
                 teleop_shooting_zones=submission[self.config["teleop_shooting_zones"]],
             )
-        except FileNotFoundError as e:
+        except Exception as e:
             print(e)
 
         try:
@@ -85,7 +85,7 @@ class DataValidation2022(BaseDataValidation):
                 defense_rating=submission[self.config["defense_rating"]],
                 counter_defense_rating=submission[self.config["counter_defense_rating"]],
             )
-        except FileNotFoundError as e:
+        except Exception as e:
             print(e)
 
         try:
@@ -95,7 +95,7 @@ class DataValidation2022(BaseDataValidation):
                 alliance=submission[self.config["alliance"]],
                 driver_station=submission[self.config["driver_station"]],
             )
-        except FileNotFoundError as e:
+        except Exception as e:
             print(e)
         
         try:
@@ -106,7 +106,7 @@ class DataValidation2022(BaseDataValidation):
                 auto_upper_hub=submission[self.config["auto_upper_hub"]],
                 auto_misses=submission[self.config["auto_misses"]],
             )
-        except FileNotFoundError as e:
+        except Exception as e:
             print(e)
 
         try:
@@ -118,7 +118,7 @@ class DataValidation2022(BaseDataValidation):
                 auto_misses=submission[self.config["auto_misses"]],
                 taxi=submission[self.config["taxied"]]
             )
-        except FileNotFoundError as e:
+        except Exception as e:
             print(e)
 
         # TODO: Add TBA-related checks (see Notion docs for which checks to add.)
@@ -132,7 +132,7 @@ class DataValidation2022(BaseDataValidation):
                     taxied=submission[self.config["taxied"]],
                     final_climb_type=submission[self.config["final_climb_type"]],
                 )
-            except FileNotFoundError as e:
+            except Exception as e:
                 print(e)
 
     def check_for_missing_shooting_zones(

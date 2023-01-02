@@ -60,7 +60,7 @@ def process_scan():
     if request.method == "POST":
         try:
             scan_info = request.get_json()
-            split_scan = scan_info["scan_text"].split(config["delimeter"])
+            split_scan = scan_info["scan_text"].split(config["data_config"]["delimeter"])
             for i in range(len(split_scan)):
                 try:
                     try:
@@ -87,8 +87,10 @@ def process_scan():
                 json.dump(file_data, file, indent=4)
 
             with open(DATA_CSV_FILE, "a") as file:
+                new_data_map = data_map
+                new_data_map.pop("scanRaw")
                 writer_file = writer(file)
-                writer_file.writerow(data_map.values())
+                writer_file.writerow(new_data_map.values())
                 file.close()
 
             data_validator.validate_data(scouting_data=[data_map])
