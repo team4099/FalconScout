@@ -183,7 +183,7 @@
         ],
         "export": {
             "order": ["scoutid", "teamname", "robotnotes"],
-            "delimeter": ";"
+            "delimiter": ";"
 
         }
     },
@@ -219,7 +219,7 @@
             }
         ],
         "export": {
-            "delimeter": ";"
+            "delimiter": ";"
 
         }
     },
@@ -400,7 +400,7 @@
         ],
         "export": {
             "order": ["scoutid", "alliance"],
-            "delimeter": ";"
+            "delimiter": ";"
         }
     },
     {
@@ -551,7 +551,7 @@
                 "IncrementNumberInput",
                 "SliderInput"
             ],
-            "delimeter": "  "
+            "delimiter": "  "
 
         }
     }
