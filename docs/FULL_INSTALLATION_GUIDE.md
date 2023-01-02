@@ -1,4 +1,4 @@
-# FalconScout
+# FalconScout Tool Installation Guide
 Team 4099's scouting system to generate, ingest, and visualize match data for competition.
 
 # Installation
@@ -139,32 +139,12 @@ Clone this repo using this command
 git clone https://github.com/team4099/Scouting-2022.git
 ```
 
-# Zbar
-If you are on MacOS (or Linux) then you will need to install zbar. If you have a Windows machine then you can skip this step.
+# Javascript Installation
+This is very long to do so [here](https://github.com/npm/cli) is info on how to install npm and the bundled version of node. 
 
-If you followed the instructions to install Homebrew, then you should be able to run this command without any errors. If you haven't installed homebrew already then scroll up and follow the homebrew installation instructions above.
-
-To intstall zbar, all you have to do is run the following command:
-
-```bash
-brew install zbar
-```
-
-# Opening and running everything
-
-Open the repository in PyCharm (File -> Open -> <the Git produced folder for the repo>)
-
-## Running
-
-To run the backend:
-```
-cd backend
-pip install -r requirements.txt
-python main.py
-```
-If the above commands don't work:
-```
-cd backend
-pip3 install -r requirements.txt
-python3 main.py
-```
+# Conclusion
+Once you can verify that you have installed the following, move onto the [Quick Start](./QUICK_START.md)
+ - Python
+ - Node / Npm
+ - Git
+ - IDE (PyCharm, VSCode)
