@@ -60,7 +60,7 @@ def process_scan():
     if request.method == "POST":
         try:
             scan_info = request.get_json()
-            split_scan = scan_info["scan_text"].split(config["data_config"]["delimeter"])
+            split_scan = scan_info["scan_text"].split(config["data_config"]["delimiter"])
             for i in range(len(split_scan)):
                 try:
                     try:

@@ -39,7 +39,7 @@ export function Page(props: PageSetup){
 
     componentSetup["export"] = {
         text: "",
-        delimeter: props?.config?.export.delimeter
+        delimiter: props?.config?.export.delimiter
     }
 
     const [pageComponents, setPageComponents] = useState(componentSetup)
@@ -51,7 +51,7 @@ export function Page(props: PageSetup){
             for (var i = 0; i < props?.config?.export.order.length; i++){
                 order += pageComponents[props?.config?.export.order[i]]
                 if (i != props?.config?.export.order.length - 1){
-                    order += props?.config?.export.delimeter
+                    order += props?.config?.export.delimiter
                 }
             }
             componentSetup["export"].text = order

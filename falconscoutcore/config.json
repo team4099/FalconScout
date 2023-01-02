@@ -1,6 +1,6 @@
 {
     "data_config": {
-        "delimeter": ",",
+        "delimiter": ",",
         "data_labels": [
             "scout_id",
             "match_key",

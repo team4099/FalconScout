@@ -23,19 +23,9 @@ event_code: "iri"
 Additionally, a json file must exist in the `backend/data` directory in the format `{year}{event_code}_match_data.json` where {year} and {event_code} are replaced by the values specified in the `config.yaml` file.
 
 ### Optional Configuration Fields
-
- - `path_to_output`
-    - specifies the file path where data errors will be written
-    - default: `errors.json`
- -  `path_to_data`
-    - specifies the file path where data errors
-    - default: `{year}{event_code}_match_data.json`
  - `run_with_tba`
     - determines whether match schedule will be retrieved from tba or from file, also determines if checks based on TBA data will run
     - default: `true`
- - `path_to_match_schedule`
-    - specifies the file path containing the match schedule, used to retrieve match schedule if `run_with_tba` is `false`
-    - default: `../data/match_schedule.json`
 
 ### Match Schedule Configuration
 A couple of the checks in the datavalidation software rely having access to an accurate match schedule. These checks are important since they ensure that the data collected corresponds to the correct team number. 
