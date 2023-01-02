@@ -1,0 +1,31 @@
+# core setup features
+year: 2022
+event_code: "iri"
+run_with_tba: True
+
+# required translation
+match_key: "match_key"
+team_number: "team_number"
+
+# optional parameters - if it is needed for a data check and is
+# not listed, the check will not run
+
+# Rapid React 2022: hyper-specific parameters
+auto_lower_hub: "auto_lower_hub"
+auto_upper_hub: "auto_upper_hub"
+auto_misses: "auto_misses"
+auto_shooting_zones: "auto_shooting_zones"
+teleop_lower_hub: "teleop_lower_hub"
+teleop_upper_hub: "teleop_upper_hub"
+teleop_misses: "teleop_misses"
+teleop_shooting_zones: "teleop_shooting_zones"
+taxied: "taxied"
+final_climb_type: "final_climb_type"
+
+# general game parameters
+alliance: "alliance"
+driver_station: "driver_station"
+defense_pct: "defense_pct"
+counter_defense_pct: "counter_defense_pct"
+defense_rating: "defense_rating"
+counter_defense_rating: "counter_defense_rating"

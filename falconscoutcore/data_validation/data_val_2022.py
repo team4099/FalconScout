@@ -2,9 +2,9 @@ import json
 from lib2to3.pgen2 import driver
 from typing import Hashable
 
-from base_data_val import BaseDataValidation
-from config.constants import RapidReact
-from config.utils import ErrorType
+from data_validation.base_data_val import BaseDataValidation
+from data_validation.config.constants import RapidReact
+from data_validation.config.utils import ErrorType
 from numpy import percentile
 from pandas import DataFrame, Series, isna, notna
 
@@ -24,7 +24,7 @@ class DataValidation2022(BaseDataValidation):
         if scouting_data is None:
             with open(self.path_to_data_file) as file:
                 scouting_data = sorted(
-                    json.load(file), key=lambda data: data["match_key"]
+                    json.load(file), key=lambda data: data[self.config["match_key"]]
                 )
 
         # Converts JSON to DataFrame
@@ -34,9 +34,9 @@ class DataValidation2022(BaseDataValidation):
 
         # Validates individual submissions
         for _, submission in scouting_data.iterrows():
-            if not submission["team_number"]:
+            if not submission[self.config["team_number"]]:
                 self.add_error(
-                    f"NO TEAM NUMBER for match {submission['match_key']}",
+                    f"NO TEAM NUMBER for match {submission[self.config['match_key']]}",
                     error_type=ErrorType.CRITICAL,
                 )
                 continue
@@ -60,59 +60,80 @@ class DataValidation2022(BaseDataValidation):
         ...
 
         # TODO: Add more data-specific checks (see Notion doc for which checks to add.)
-        self.check_for_missing_shooting_zones(
-            match_key=submission["match_key"],
-            team_number=submission["team_number"],
-            auto_lower_hub=submission["auto_lower_hub"],
-            auto_upper_hub=submission["auto_upper_hub"],
-            auto_misses=submission["auto_misses"],
-            auto_shooting_zones=submission["auto_shooting_zones"],
-            teleop_lower_hub=submission["teleop_lower_hub"],
-            teleop_upper_hub=submission["teleop_upper_hub"],
-            teleop_misses=submission["teleop_misses"],
-            teleop_shooting_zones=submission["teleop_shooting_zones"],
-        )
+        try:
+            self.check_for_missing_shooting_zones(
+                match_key=submission[self.config["match_key"]],
+                team_number=submission[self.config["team_number"]],
+                auto_lower_hub=submission[self.config["auto_lower_hub"]],
+                auto_upper_hub=submission[self.config["auto_upper_hub"]],
+                auto_misses=submission[self.config["auto_misses"]],
+                auto_shooting_zones=submission[self.config["auto_shooting_zones"]],
+                teleop_lower_hub=submission[self.config["teleop_lower_hub"]],
+                teleop_upper_hub=submission[self.config["teleop_upper_hub"]],
+                teleop_misses=submission[self.config["teleop_misses"]],
+                teleop_shooting_zones=submission[self.config["teleop_shooting_zones"]],
+            )
+        except FileNotFoundError as e:
+            print(e)
 
-        self.check_for_invalid_defense_data(
-            match_key=submission["match_key"],
-            team_number=submission["team_number"],
-            defense_pct=submission["defense_pct"],
-            counter_defense_pct=submission["counter_defense_pct"],
-            defense_rating=submission["defense_rating"],
-            counter_defense_rating=submission["counter_defense_rating"],
-        )
+        try:
+            self.check_for_invalid_defense_data(
+                match_key=submission[self.config["match_key"]],
+                team_number=submission[self.config["team_number"]],
+                defense_pct=submission[self.config["defense_pct"]],
+                counter_defense_pct=submission[self.config["counter_defense_pct"]],
+                defense_rating=submission[self.config["defense_rating"]],
+                counter_defense_rating=submission[self.config["counter_defense_rating"]],
+            )
+        except FileNotFoundError as e:
+            print(e)
 
-        self.check_team_info_with_match_schedule(
-            match_key=submission["match_key"],
-            team_number=submission["team_number"],
-            alliance=submission["alliance"],
-            driver_station=submission["driver_station"],
-        self.check_for_auto_great_than_6(
-            match_key=submission["match_key"],
-            team_number=submission["team_number"],
-            auto_lower_hub=submission["auto_lower_hub"],
-            auto_upper_hub=submission["auto_upper_hub"],
-            auto_misses=submission["auto_misses"],
-        )
-        self.check_for_auto_cargo_when_taxi(
-            match_key=submission["match_key"],
-            team_number=submission["team_number"],
-            auto_lower_hub=submission["auto_lower_hub"],
-            auto_upper_hub=submission["auto_upper_hub"],
-            auto_misses=submission["auto_misses"],
-            taxi=submission["taxied"]
-        )
+        try:
+            self.check_team_info_with_match_schedule(
+                match_key=submission[self.config["match_key"]],
+                team_number=submission[self.config["team_number"]],
+                alliance=submission[self.config["alliance"]],
+                driver_station=submission[self.config["driver_station"]],
+            )
+        except FileNotFoundError as e:
+            print(e)
+        
+        try:
+            self.check_for_auto_great_than_6(
+                match_key=submission[self.config["match_key"]],
+                team_number=submission[self.config["team_number"]],
+                auto_lower_hub=submission[self.config["auto_lower_hub"]],
+                auto_upper_hub=submission[self.config["auto_upper_hub"]],
+                auto_misses=submission[self.config["auto_misses"]],
+            )
+        except FileNotFoundError as e:
+            print(e)
+
+        try:
+            self.check_for_auto_cargo_when_taxi(
+                match_key=submission[self.config["match_key"]],
+                team_number=submission[self.config["team_number"]],
+                auto_lower_hub=submission[self.config["auto_lower_hub"]],
+                auto_upper_hub=submission[self.config["auto_upper_hub"]],
+                auto_misses=submission[self.config["auto_misses"]],
+                taxi=submission[self.config["taxied"]]
+            )
+        except FileNotFoundError as e:
+            print(e)
 
         # TODO: Add TBA-related checks (see Notion docs for which checks to add.)
-        if self._run_tba_checks:
-            self.check_submission_with_tba(
-                match_key=submission["match_key"],
-                team_number=submission["team_number"],
-                alliance=submission["alliance"],
-                driver_station=submission["driver_station"],
-                taxied=submission["taxied"],
-                final_climb_type=submission["final_climb_type"],
-            )
+        if self._run_with_tba:
+            try:
+                self.check_submission_with_tba(
+                    match_key=submission[self.config["match_key"]],
+                    team_number=submission[self.config["team_number"]],
+                    alliance=submission[self.config["alliance"]],
+                    driver_station=submission[self.config["driver_station"]],
+                    taxied=submission[self.config["taxied"]],
+                    final_climb_type=submission[self.config["final_climb_type"]],
+                )
+            except FileNotFoundError as e:
+                print(e)
 
     def check_for_missing_shooting_zones(
         self,
@@ -147,7 +168,9 @@ class DataValidation2022(BaseDataValidation):
         if balls_shot_in_auto and not auto_shooting_zones:
             self.add_error(
                 f"In {match_key}, {team_number} MISSING AUTO SHOOTING ZONES",
-                error_type=ErrorType.MISSING_DATA,
+                ErrorType.MISSING_DATA,
+                match_key,
+                team_number
             )
 
         # Checks teleop shooting zones
@@ -155,7 +178,9 @@ class DataValidation2022(BaseDataValidation):
         if balls_shot_in_teleop and not teleop_shooting_zones:
             self.add_error(
                 f"In {match_key}, {team_number} MISSING TELEOP SHOOTING ZONES",
-                error_type=ErrorType.MISSING_DATA,
+                ErrorType.MISSING_DATA,
+                match_key,
+                team_number
             )
 
     def check_submission_with_tba(
@@ -193,14 +218,18 @@ class DataValidation2022(BaseDataValidation):
             ):
                 self.add_error(
                     f"In {match_key}, {team_number} INCORRECT TAXI according to TBA",
-                    error_type=ErrorType.INCORRECT_DATA,
+                    ErrorType.INCORRECT_DATA,
+                    match_key,
+                    team_number
                 )
 
             # check for inconsistent climb type
             if tba_climb != final_climb_type.replace("No Climb", "None"):
                 self.add_error(
                     f"In {match_key}, {team_number} INCORRECT ClIMB TYPE according to TBA, should be {tba_climb}",
-                    error_type=ErrorType.INCORRECT_DATA,
+                    ErrorType.INCORRECT_DATA,
+                    match_key,
+                    team_number
                 )
 
     def check_for_invalid_defense_data(
@@ -231,7 +260,9 @@ class DataValidation2022(BaseDataValidation):
         ):
             self.add_error(
                 f"In {match_key}, {team_number} rated for defense but NO DEFENSE PCT",
-                error_type=ErrorType.MISSING_DATA,
+                ErrorType.MISSING_DATA,
+                match_key,
+                team_number
             )
 
         # Check for missing defense rating.
@@ -240,7 +271,9 @@ class DataValidation2022(BaseDataValidation):
         ):
             self.add_error(
                 f"In {match_key}, {team_number} MISSING DEFENSE RATING",
-                error_type=ErrorType.MISSING_DATA,
+                ErrorType.MISSING_DATA,
+                match_key,
+                team_number
             )
 
         # Check for 0% counter defense pct but given rating.
@@ -250,7 +283,9 @@ class DataValidation2022(BaseDataValidation):
             self.add_error(
                 f"In {match_key}, {team_number} "
                 f"rated for counter defense but NO COUNTER DEFENSE PCT",
-                error_type=ErrorType.MISSING_DATA,
+                ErrorType.MISSING_DATA,
+                match_key,
+                team_number
             )
 
         # Check for missing counter defense rating.
@@ -259,7 +294,9 @@ class DataValidation2022(BaseDataValidation):
         ):
             self.add_error(
                 f"In {match_key}, {team_number} MISSING COUNTER DEFENSE RATING",
-                error_type=ErrorType.MISSING_DATA,
+                ErrorType.MISSING_DATA,
+                match_key,
+                team_number
             )
 
         # Inconsistent defense + counter defense pct.
@@ -270,7 +307,9 @@ class DataValidation2022(BaseDataValidation):
         ):
             self.add_error(
                 f"In {match_key}, {team_number} DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-                error_type=ErrorType.INCORRECT_DATA,
+                ErrorType.INCORRECT_DATA,
+                match_key,
+                team_number
             )
 
     def check_for_auto_cargo_when_taxi(
@@ -298,7 +337,9 @@ class DataValidation2022(BaseDataValidation):
         if (auto_upper_hub + auto_lower_hub + auto_misses) >= 2 and not (taxi):
             self.add_error(
                 f"In {match_key}, frc{team_number} SHOT 2 OR MORE BALLS WITHOUT TAXING",
-                error_type=ErrorType.INCORRECT_DATA
+                ErrorType.INCORRECT_DATA,
+                match_key,
+                team_number
                 # Marked as incorrect although it is technically possible.
                 # Most times it will not be possible
             )
@@ -375,6 +416,8 @@ class DataValidation2022(BaseDataValidation):
                 self.add_error(
                     f"In {outlier[0]}, frc{team} HAD AN AUTONOMOUS SCORE OUTLIER (<Q1) OF {outlier[1]} POINTS",
                     ErrorType.INFO,
+                    outlier[0],
+                    team
                 )
 
             for outlier in max_outliers:
@@ -382,6 +425,8 @@ class DataValidation2022(BaseDataValidation):
                 self.add_error(
                     f"In {outlier[0]}, frc{team} HAD AN AUTONOMOUS SCORE OUTLIER (>Q3) {outlier[1]} POINTS",
                     ErrorType.INFO,
+                    outlier[0],
+                    team
                 )
 
     def check_for_auto_great_than_6(
@@ -407,5 +452,7 @@ class DataValidation2022(BaseDataValidation):
         if balls_shot_in_auto > 6:
             self.add_error(
                 f"In {match_key}, {team_number} UNLIKELY AUTO SHOT COUNT",
-                error_type=ErrorType.WARNING,
+                ErrorType.WARNING,
+                match_key,
+                team_number
             )

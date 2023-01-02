@@ -1,0 +1,302 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div id="statusContainer" class="container h-10 w-full px-4 md:w-2/3 mx-auto absolute top-0 left-1/2 transform -translate-x-1/2 translate-y-1/2">
+</div>
+
+<div class="md:flex md:flex-row gap-4 px-12 max-w-[1200px] mx-auto">
+	<div class="basis-1/2 mb-8">
+		<h1 class="text-3xl font-semibold mb-6">
+		  Camera
+		</h1>
+		<div
+			id="qrReader"
+			class="container overflow-hidden rounded-xl md:w-5/6 drop-shadow-sm mb-4"
+		></div>
+		<div class='w-full md:w-5/6 pb-3 mb-3 border-b-2 border-black gap-4 flex'>
+		</div>
+		<h1 class="text-3xl font-semibold mb-6">
+		  Scan
+		</h1>
+		<div class="max-w-[600px]">
+			<div class="overflow-x-auto overflow-y-scroll relative rounded-lg md:w-5/6 w-full h-[600px]">
+				<table class="w-full text-sm text-left text-black">
+					<thead class="text-md text-black bg-gray-200">
+						<tr class="row">
+							{% for header in tableHeaderData %}
+								<th scope="col" class="py-3 px-6">
+									{{ header }}
+								</th>
+							{% endfor %}
+						</tr>
+					</thead>
+					<tbody id='scanTable'>
+						{% for i in tableData %}
+							<tr class="bg-slate-50 border-b row">
+								{% for header in tableHeaderData %}
+									<td scope="row" class="py-3 px-6 overflow-x-auto">
+										{{ i[header] }}
+									</td>
+								{% endfor %}
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+		<p id="codeoutput"></p>
+	</div>
+
+	<div class="basis-1/2">
+		<h1 class="text-3xl font-semibold mb-6">
+			Critical Error Logs
+		</h1>
+		<div id="errorArea">
+			{% for i in errorData %}
+				<div class='rounded-xl bg-white border-2 border-gray-200 shadow-sm mb-4'>
+					<div class="bg-white rounded-xl">
+						<h1 class="text-2xl font-semibold pt-4 px-4 w-full">
+							{{ i["message"] }}
+						</h1>
+						<h2 class="text-md font-regular px-4 pt-2 w-full">
+							<b>Match:</b> {{ i["match"] }}, <b>Scout:</b> {{ i["scout_id"] }}
+						</h2>
+						<h2 class="text-md font-regular px-4 w-full">
+							<b>Robot/Team:</b> {{ i["team_id"] }}
+						</h2>
+						<h2 class="text-md font-regular px-4 pb-2 w-full">
+							<b>Error Type:</b> {{ i["error_type"] }}
+						</h2>
+					</div>
+					<!--
+					<div class="h-[47.5px] flex gap-2 pl-4">
+						<button class="bg-black rounded-lg h-10 px-4  text-white font-bold drop-shadow-sm">
+							8
+						</button>
+						<button class="bg-black rounded-lg h-10 px-4 text-white font-bold drop-shadow-sm">
+							6
+						</button>
+						<button class="bg-black rounded-lg h-10 px-4 text-white font-bold drop-shadow-sm">
+							NaN
+						</button>
+						<button class="bg-black rounded-lg h-10 px-4 text-white font-bold drop-shadow-sm">
+							<input class='bg-black text-white w-16' placeholder='Custom'></input>
+						</button>
+					</div>
+					-->
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+
+<script>
+
+	var scanned = JSON.parse(`{{ scanRawData | tojson }}`)
+	var tableHeader = JSON.parse(`{{ tableHeaderData | tojson }}`)
+
+	var codeCount = 0
+	var statusContainer = document.getElementById("statusContainer")
+
+	function setStatusTimeout(id){
+		setTimeout(
+			function () {
+				new Dismiss(document.getElementById(`status${id}`), options).hide();
+			}, 
+			2500
+		)
+		codeCount += 1
+	}
+
+	function getErrors(){
+		$.ajax({
+				type: "POST",
+				url: "/get_errors",
+				data: {},
+				contentType: "application/json",
+				dataType: 'json',
+				success: function (result) {
+					if (result.result[0] == "100"){
+						var errorArea = document.getElementById("errorArea")
+						errorArea.innerHTML = ""
+						console.log(result.errors)
+						for (const error of result.errors){
+
+							errorArea.innerHTML += `
+							<div class='w-full rounded-xl bg-white border-2 border-gray-200 shadow-sm mb-4'>
+								<div class="bg-white rounded-xl">
+									<h1 class="text-2xl font-semibold pt-4 px-4 w-full">
+										${ error.message }
+									</h1>
+									<h2 class="text-md font-regular px-4 pt-2 w-full">
+										<b>Match:</b> ${ error.match }, <b>Scout:</b> ${ error.scout_id }
+									</h2>
+									<h2 class="text-md font-regular px-4 w-full">
+										<b>Robot/Team:</b> ${ error.team_id }
+									</h2>
+									<h2 class="text-md font-regular px-4 pb-2 w-full">
+										<b>Error Type:</b> ${ error.error_type }
+									</h2>
+								</div>
+							</div>
+							`
+						}
+					}
+					else {
+						statusContainer.innerHTML += `
+							<div id="status${codeCount}" class="flex p-4 mb-4 bg-red-100 rounded-lg dark:bg-red-200" role="alert">
+								<svg aria-hidden="true" class="flex-shrink-0 w-5 h-5 text-red-700 dark:text-red-800" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+								<span class="sr-only">Error</span>
+								<div class="ml-3 text-sm font-medium text-red-700 dark:text-red-800">
+									Error: ${result.result[0]} | ${result.result[1]}
+								</div>
+								<button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-red-100 text-red-500 rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 hover:bg-red-200 inline-flex h-8 w-8 dark:bg-red-200 dark:text-red-600 dark:hover:bg-red-300" data-dismiss-target="#alert-2" aria-label="Close">
+									<span class="sr-only">Close</span>
+									<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+								</button>
+							</div>
+						`
+
+						setStatusTimeout(codeCount)
+					}
+				}
+		})
+	}
+
+	function syncGithub(){
+		console.log("test")
+		$.ajax({
+				type: "POST",
+				url: "/sync_github",
+				data: {},
+				contentType: "application/json",
+				dataType: 'json',
+				success: function (result) {
+					if (result.result[0] == "100"){
+						statusContainer.innerHTML += `
+							<div id="status${codeCount}" class="flex p-4 mb-4 bg-green-100 rounded-lg dark:bg-green-200" role="alert">
+								<svg aria-hidden="true" class="flex-shrink-0 w-5 h-5 text-green-700 dark:text-green-800" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+								<span class="sr-only">Success</span>
+								<div class="ml-3 text-sm font-medium text-green-700 dark:text-green-800">
+									Success: ${result.result[1]}
+								</div>
+							</div>
+						`
+
+						setStatusTimeout(codeCount)
+					}
+					else {
+						statusContainer.innerHTML += `
+							<div id="status${codeCount}" class="flex p-4 mb-4 bg-red-100 rounded-lg dark:bg-red-200" role="alert">
+								<svg aria-hidden="true" class="flex-shrink-0 w-5 h-5 text-red-700 dark:text-red-800" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+								<span class="sr-only">Error</span>
+								<div class="ml-3 text-sm font-medium text-red-700 dark:text-red-800">
+									Error: ${result.result[0]} | ${result.result[1]}
+								</div>
+							</div>
+						`
+
+						setStatusTimeout(codeCount)
+					}
+				}
+			});
+	}
+
+	const options = {
+		triggerEl: document.getElementById('triggerElement'),
+		transition: 'transition-opacity',
+		duration: 300,
+		timing: 'ease-out',
+
+		// callback functions
+		onHide: (context, targetEl) => {
+			console.log('element has been dismissed')
+			console.log(targetEl)
+		}
+	};
+
+	var errorList = []
+	var runningScan = false
+
+	function onScanSuccess(decodedText, decodedResult) {
+		if (runningScan){
+			console.log("yoo")
+			return 1
+		}
+		var server_data = { "scan_text": decodedText };
+		runningScan = true
+
+		if (!scanned.includes(decodedText)){
+			scanned.push(decodedText)
+			$.ajax({
+				type: "POST",
+				url: "/process_scan",
+				data: JSON.stringify(server_data),
+				contentType: "application/json",
+				dataType: 'json',
+				success: function (result) {
+					console.log(result)
+
+					if (result.result[0] == "100"){
+						var newRow = `<tr class="bg-slate-50 border-b row">`
+						for (const header of tableHeader){
+							newRow += `
+							<td scope="row" class="py-3 px-6 overflow-x-auto">
+								${ result.scanInfo[header] }
+							</td>
+							`
+						}
+						newRow += "</tr>"
+						document.getElementById("scanTable").innerHTML = newRow + document.getElementById("scanTable").innerHTML
+
+						statusContainer.innerHTML += `
+							<div id="status${codeCount}" class="flex p-4 mb-4 bg-green-100 rounded-lg dark:bg-green-200" role="alert">
+								<svg aria-hidden="true" class="flex-shrink-0 w-5 h-5 text-green-700 dark:text-green-800" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+								<span class="sr-only">Success</span>
+								<div class="ml-3 text-sm font-medium text-green-700 dark:text-green-800">
+									Successful scan added to DB
+								</div>
+							</div>
+						`
+
+						setStatusTimeout(codeCount)
+
+						getErrors()
+						
+					}
+					else {
+						statusContainer.innerHTML += `
+							<div id="status${codeCount}" class="flex p-4 mb-4 bg-red-100 rounded-lg dark:bg-red-200" role="alert">
+								<svg aria-hidden="true" class="flex-shrink-0 w-5 h-5 text-red-700 dark:text-red-800" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+								<span class="sr-only">Error</span>
+								<div class="ml-3 text-sm font-medium text-red-700 dark:text-red-800">
+									Error: ${result.result[0]} | ${result.result[1]}
+								</div>
+							</div>
+						`
+
+						setStatusTimeout(codeCount)
+					}
+				}
+			});
+		}
+		runningScan = false
+	}
+
+	function onScanFailure(error) {
+		// handle scan failure, usually better to ignore and keep scanning.
+		// for example:
+		//console.warn(`Code scan error = ${error}`);
+	}
+
+	let html5QrcodeScanner = new Html5QrcodeScanner(
+		"qrReader",
+		{ fps: 10},
+		/* verbose= */ false
+	);
+	html5QrcodeScanner.render(onScanSuccess, onScanFailure);
+</script>
+
+{% endblock content %}
