@@ -87,7 +87,7 @@ Open a command prompt window and run the following commands. If a command uses <
 
 ```
 cd <YOUR_COPIED_FILE_PATH>
-git clone https://github.com/team4099/Scouting-2022.git
+git clone https://github.com/team4099/falconscout.git
 ```
 
 ## Mac OS
@@ -127,7 +127,7 @@ Open a command prompt window and run the following commands. If a command uses <
 
 ```
 cd <YOUR_COPIED_FILE_PATH>
-git clone https://github.com/team4099/Scouting-2022.git
+git clone https://github.com/team4099/falconscout.git
 ```
 
 ## Linux
@@ -136,7 +136,7 @@ If you're maining Linux, you'll probably already know how to install git onto yo
 Clone this repo using this command
 
 ```
-git clone https://github.com/team4099/Scouting-2022.git
+git clone https://github.com/team4099/falconscout.git
 ```
 
 # Javascript Installation
