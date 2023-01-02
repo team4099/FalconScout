@@ -19,9 +19,18 @@ cd FalconScout/falconscoutcore
 ```
 
 Set up a virtual environment by typing the following commands. *Note:* that the following applies if you have Python 3.10 installed. If you don't visit the [Python Downloads Page](https://www.python.org/downloads/) and download Python 3.10. If you would like to use another version of Python, run the same command with the version replaced.
+
+**Macos**
+
 ```
 python3.10 -m venv venv
 source venv/bin/activate
+```
+
+**Windows**
+```
+python -m venv venv
+.\venv\Scripts\activate
 ```
 
 Now, install the dependencies.
@@ -29,11 +38,11 @@ Now, install the dependencies.
 pip install -r requirements.txt
 ```
 
-Now, setup your `.env` file. So in the falconscoutcore folder, create a file called `.env`.
+Now, setup your `.env` file. So in the falconscoutcore folder, rename the file called `.env.example` to `.env`.
 
-Inside the file add the following and get your token [here](https://github.com/settings/tokens).
+Inside the file add the token from [here](https://github.com/settings/tokens) to the spot where it says `<YOUR_KEY_HERE>`
 ```
-GITHUB_KEY=YOUR KEY HERE
+GITHUB_KEY=<YOUR_KEY_HERE>
 ```
 
 Simply run the app by doing
@@ -146,7 +155,7 @@ Run the app to verify you have everything setup
 npm run dev
 ```
 
-Build the app to deploy to netlify or github pages
+Build the app to deploy to [netlify](https://app.netlify.com/drop). Running this command will generate a `dist` folder.
 ```
 npm run dist
 ```

@@ -3,7 +3,7 @@ FalconScout is a powerful all in one low-code tool for scouting in FRC. The syst
 1. ScoutingApp is a no-code form generation tool which can build PWA forms which generate a qrcode of data. This is then scanned on the FalconScoutCore system.
 2. FalconScoutCore is a low-code app for scanning qrcodes, recording data, running data validation, and posting data to GitHub. 
     - Core contains a Data Validation tool which provides general and year specific tests on data you could collect. This system protects against common errors like scouting matches multiple times.
-3. Posted data can be easily integrated into tools like **Tableau** or **Excel/Google Sheets** or [FalconVis](www.github.com/Team4099/FalconVis.git), 4099's low-code, online, data visualization tool or other 
+3. Posted data can be easily integrated into tools like **Tableau** or **Excel/Google Sheets** or [FalconVis](www.github.com/Team4099/FalconVis.git), 4099's low-code, online, data visualization tool.
 
 ![ui_visual](/docs/ui_visual.png)
 
