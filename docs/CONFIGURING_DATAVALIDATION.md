@@ -1,11 +1,11 @@
 # DataValidation 📔
 
-Datavalidation is a system which scans scouting data as its collected and flags possible data entry errors. The scouting admin is then alerted to these possible errors. This system is written in `python` and is run after scouting data for each match is collected.
+DataValidation is a system which scans scouting data as its collected and flags possible data entry errors. The scouting admin is then alerted to these errors. This system is written in `python` and is run after scouting data for each match is collected.
 
 
 ## Configuring Validation
 
-To configure datavalidation you only need to edit a couple fields in the `config.yaml` file. This file cand be found under `/backend/data_validation` directory.
+To configure DataValidation you only need to edit a couple fields in the `config.yaml` file. This file cand be found under `/backend/data_validation` directory.
 
 Example:
 ```
@@ -24,20 +24,20 @@ Additionally, a json file must exist in the `backend/data` directory in the form
 
 ### Optional Configuration Fields
  - `run_with_tba`
-    - determines whether match schedule will be retrieved from tba or from file, also determines if checks based on TBA data will run
+    - determines whether the match schedule will be retrieved from tba or from a file, also determines if checks based on TBA data will run
     - default: `true`
 
 ### Match Schedule Configuration
-A couple of the checks in the datavalidation software rely having access to an accurate match schedule. These checks are important since they ensure that the data collected corresponds to the correct team number. 
+A couple of the checks in the DataValidation software rely on having access to an accurate match schedule. These checks are important since they ensure that the data collected corresponds to the correct team number. 
 
 By default the software will attempt to retrieve the match schedule using TBA's api. However, at smaller competitions its possible that TBA may not have a copy of match schedule ready in time for the competition. In that case the scouting admin is able to edit a copy of the match schedule by hand.
 
-To do this the `run_with_tba` configuration field must be specified as `false` in the `config.yaml` file. The `../data/match_schedule.json` file, which currently contains the match schedule from `2022iri`, can then be edited.
+To do this the `run_with_tba` configuration field must be specified as `false` in the `config.yaml` file. The `../data/match_schedule.json` file, which currently contains the match schedule from `2022iri` as an exampel, can then be edited.
 
 ### Making DataValidation Optional
  
 ## Code Structure 
-Datavalidation uses inheritance to provide teams with some level of base functionality and allow them to add their own data checks
+DataValidation uses inheritance to provide teams with some level of pre-built validation functionality while also allowing them to add their own data checks
 - `BaseDataValidation` Class
     - At the heart of the DataValidation software is a class called `BaseDataValidation`. This class contains basic checks which are essential to validating data from any scouting app(i.e. match schedule checks, defense checks).
     - It also includes two important abstract methods `validate_data` and `validate_submission`, these two methods must be implimented in any child class and are where other checks are called from.
@@ -51,7 +51,7 @@ Datavalidation uses inheritance to provide teams with some level of base functio
     - Contains checks on data for a  specific years game
     - `validate_data` method
         - takes in all scouting data
-        - runs checks with require data from multiple matches(i.e. statistical outliers)
+        - runs checks which require data from multiple matches(i.e. statistical outliers)
         - runs `validate_submission` on each data submission
     - `validate_submission` method
         - takes in a single submission as parameter, a submission refers to the set of data collected by one scout during one match
@@ -95,8 +95,8 @@ Datavalidation uses inheritance to provide teams with some level of base functio
                 error_type=ErrorType.WARNING,
             )
         ```
- - Lastly to run the check the function must be called in either `validate_submission` or `validate_data` and pass in the required data arguments
- - Example data check function call
+ - Lastly, to run the check the function must be called in either `validate_submission` or `validate_data` with the required data values passed in as arguments
+ - Example function call
     ```
     def validate_submission(self, submission: Series) -> None:
         self.check_for_auto_great_than_6(
