@@ -5,7 +5,10 @@ Datavalidation is a system which scans scouting data as its collected and flags 
 
 ## Configuring Validation
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> ad270ae754499a6d6f3851281544b0c7474bb4be
 To configure datavalidation you only need to edit a couple fields in the `config.yaml` file. This file cand be found under `/backend/data_validation` directory.
 
 Example:
@@ -24,6 +27,7 @@ event_code: "iri"
 Additionally, a json file must exist in the `backend/data` directory in the format `{year}{event_code}_match_data.json` where {year} and {event_code} are replaced by the values specified in the `config.yaml` file.
 
 ### Optional Configuration Fields
+<<<<<<< HEAD
 
  - `path_to_output`
     - specifies the file path where data errors will be written
@@ -37,6 +41,11 @@ Additionally, a json file must exist in the `backend/data` directory in the form
  - `path_to_match_schedule`
     - specifies the file path containing the match schedule, used to retrieve match schedule if `run_with_tba` is `false`
     - default: `../data/match_schedule.json`
+=======
+ - `run_with_tba`
+    - determines whether match schedule will be retrieved from tba or from file, also determines if checks based on TBA data will run
+    - default: `true`
+>>>>>>> ad270ae754499a6d6f3851281544b0c7474bb4be
 
 ### Match Schedule Configuration
 A couple of the checks in the datavalidation software rely having access to an accurate match schedule. These checks are important since they ensure that the data collected corresponds to the correct team number. 
