@@ -33,7 +33,8 @@
             "misc_notes"
         ],
         "json_file": "./data/2022iri_match_data.json",
-        "csv_file": "./data/2022iri_match_data.csv"
+        "csv_file": "./data/2022iri_match_data.csv",
+        "error_json": "./data/errors.json"
     },
     "repo_config": {
         "repo": "AlphaPranav9102/storage",

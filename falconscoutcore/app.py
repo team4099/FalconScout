@@ -17,6 +17,7 @@ with open("config.json", "r") as json_file:
 
 DATA_JSON_FILE = config["data_config"]["json_file"]
 DATA_CSV_FILE = config["data_config"]["csv_file"]
+ERROR_JSON = config["data_config"]["error_json"]
 
 validation_by_year = {2022: DataValidation2022}
 path_to_config = "config.yaml"
@@ -40,7 +41,7 @@ def home():
     for row in file_data:
         scanRawData.append(row["scanRaw"])
 
-    with open("data/errors.json", "r") as file:
+    with open(ERROR_JSON, "r") as file:
         errorData = json.load(file)
 
     print(errorData[-20:])
@@ -164,7 +165,7 @@ def sync_github():
 def get_errors():
     if request.method == "POST":
         try:
-            with open("data/errors.json", "r") as file:
+            with open(ERROR_JSON, "r") as file:
                 file_data = json.load(file)
             return jsonify(
                 {
