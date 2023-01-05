@@ -2,6 +2,7 @@
 year: 2022
 event_code: "iri"
 run_with_tba: True
+tba_api_key: "6lcmneN5bBDYpC47FolBxp2RZa4AbQCVpmKMSKw9x9btKt7da5yMzVamJYk0XDBm"
 
 # required translation
 match_key: "match_key"
