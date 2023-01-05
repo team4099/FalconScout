@@ -1,6 +1,4 @@
 from abc import ABC, abstractmethod
-from json import dump, load
-from pandas import DataFrame, Series
 from collections import defaultdict
 from itertools import chain
 from json import dump, load
@@ -10,7 +8,7 @@ import falcon_alliance
 import pandas as pd
 import yaml
 from data_validation.config.utils import ErrorType
-from pandas import isna, notna, read_json
+from pandas import DataFrame, Series, isna, notna, read_json
 
 
 class BaseDataValidation(ABC):
@@ -30,21 +28,18 @@ class BaseDataValidation(ABC):
         with open(path_to_config) as file:
             self.config = yaml.safe_load(file)
 
-        self.path_to_output_file = self.config.get("path_to_output", "data/errors.json")
-        self.path_to_data_file = self.config.get(
-            "path_to_data",
-            f"data/{self.config['year']}{self.config['event_code']}_match_data.json",
-        )
+        with open("config.json") as file:
+            self.path_to_data_file = load(file)["data_config"]["json_file"]
+
+        self.path_to_output_file = "data/errors.json"
         self.df = read_json(self.path_to_data_file)
 
         self._event_key = str(self.config["year"]) + self.config["event_code"]
-        # Determines both if were using tba for match shedule and whether we're running tba checks
+        # Determines both if were using tba for match schedule and whether we're running tba checks
         self._run_with_tba = self.config.get("run_with_tba", True)
 
         # Setting up FalconAlliance (our connection to TBA) and retrieving match schedule
-        self.api_client = falcon_alliance.ApiClient(
-            api_key="6lcmneN5bBDYpC47FolBxp2RZa4AbQCVpmKMSKw9x9btKt7da5yMzVamJYk0XDBm"  # for testing purposes
-        )
+        self.api_client = falcon_alliance.ApiClient(self.config["tba_api_key"])
 
         with self.api_client:
             # make sure tba isn't down
@@ -102,7 +97,7 @@ class BaseDataValidation(ABC):
                 f"In {match_key}, {team_number} was NOT IN MATCH on the {alliance} alliance",
                 ErrorType.MISSING_DATA,
                 match_key,
-                team_number
+                team_number,
             )
 
         elif (team_number) != teams_on_alliance[driver_station - 1]:
@@ -110,7 +105,7 @@ class BaseDataValidation(ABC):
                 f"In {match_key}, {team_number} INCONSISTENT DRIVER STATION with schedule",
                 ErrorType.INCORRECT_DATA,
                 match_key,
-                team_number
+                team_number,
             )
 
         self.teams = self.get_teams()
@@ -143,7 +138,7 @@ class BaseDataValidation(ABC):
                 f"In {match_key}, {team_number} rated for defense but NO DEFENSE PCT",
                 ErrorType.MISSING_DATA,
                 match_key,
-                team_number
+                team_number,
             )
 
         # Check for missing defense rating.
@@ -152,7 +147,7 @@ class BaseDataValidation(ABC):
                 f"In {match_key}, {team_number} MISSING DEFENSE RATING",
                 ErrorType.MISSING_DATA,
                 match_key,
-                team_number
+                team_number,
             )
 
         # Check for 0% counter defense pct but given rating.
@@ -162,7 +157,7 @@ class BaseDataValidation(ABC):
                 f"rated for counter defense but NO COUNTER DEFENSE PCT",
                 ErrorType.MISSING_DATA,
                 match_key,
-                team_number
+                team_number,
             )
 
         # Check for missing counter defense rating.
@@ -171,7 +166,7 @@ class BaseDataValidation(ABC):
                 f"In {match_key}, {team_number} MISSING COUNTER DEFENSE RATING",
                 ErrorType.MISSING_DATA,
                 match_key,
-                team_number
+                team_number,
             )
 
         # Inconsistent defense + counter defense pct.
@@ -184,7 +179,7 @@ class BaseDataValidation(ABC):
                 f"In {match_key}, {team_number} DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
                 ErrorType.INCORRECT_DATA,
                 match_key,
-                team_number
+                team_number,
             )
 
     def check_team_numbers_for_each_match(self, scouting_data: pd.DataFrame) -> None:
@@ -217,7 +212,7 @@ class BaseDataValidation(ABC):
                             f"In {match_key}, frc{double_scouted} was DOUBLE SCOUTED",
                             ErrorType.EXTRA_DATA,
                             match_key,
-                            double_scouted
+                            double_scouted,
                         )
                 elif len(match_data[alliance]) < 3:
                     team_numbers = [
@@ -231,10 +226,17 @@ class BaseDataValidation(ABC):
                                 f"In {match_key}, {team} was NOT SCOUTED",
                                 ErrorType.MISSING_DATA,
                                 match_key,
-                                team
+                                team,
                             )
 
-    def add_error(self, error_message: str, error_type: ErrorType, match_key: str, team_id: int, scout_id: str = "N/A") -> None:
+    def add_error(
+        self,
+        error_message: str,
+        error_type: ErrorType,
+        match_key: str,
+        team_id: int,
+        scout_id: str = "N/A",
+    ) -> None:
         """
         Adds an error to the dictionary containing all errors raised with data validation.
 
@@ -248,7 +250,7 @@ class BaseDataValidation(ABC):
                 "message": error_message,
                 "match": match_key,
                 "scout_id": scout_id,
-                "team_id": team_id
+                "team_id": team_id,
             }
         )
 
