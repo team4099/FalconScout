@@ -1,0 +1,389 @@
+import json
+from lib2to3.pgen2 import driver
+from typing import Hashable
+
+from data_validation.base_data_val import BaseDataValidation
+from data_validation.config.constants import RapidReact
+from data_validation.config.utils import ErrorType
+from numpy import percentile
+from pandas import DataFrame, Series, isna, notna
+
+
+class DataValidation2023(BaseDataValidation):
+    def __init__(self, path_to_config: str = "config.yaml"):
+        super().__init__(path_to_config)
+
+    def validate_data(self, scouting_data: list = None) -> None:
+        """
+        Runs all checks for validating data from 2022's game (Rapid React).
+
+        :param scouting_data: Optional parameter containing scouting data mostly for testing purposes.
+        :return:
+        """
+        # Loads in scouting data if not passed in.
+        if scouting_data is None:
+            with open(self.path_to_data_file) as file:
+                scouting_data = sorted(
+                    json.load(file), key=lambda data: data[self.config["match_key"]]
+                )
+
+        # Converts JSON to DataFrame
+        scouting_data = DataFrame.from_dict(scouting_data)
+
+        self.check_team_numbers_for_each_match(scouting_data)
+
+        # Validates individual submissions
+        for _, submission in scouting_data.iterrows():
+            if not submission[self.config["team_number"]]:
+                self.add_error(
+                    f"NO TEAM NUMBER for match {submission[self.config['match_key']]}",
+                    error_type=ErrorType.CRITICAL,
+                )
+                continue
+
+            self.validate_submission(submission)
+
+        self.output_errors()
+
+    def validate_submission(self, submission: Series) -> None:
+        """
+        Runs all checks validating a single submission from 2022's game (Rapid React).
+
+        :param submission: Series object containing a single submission of scouting data.
+        :return:
+        """
+        # TODO: Add check to validate match schedule (see Notion doc for more information.)
+        ...
+
+        # TODO: Add more data-specific checks (see Notion doc for which checks to add.)
+        try:
+            self.check_for_missing_shooting_zones(
+                match_key=submission[self.config["match_key"]],
+                team_number=submission[self.config["team_number"]],
+                auto_lower_hub=submission[self.config["auto_lower_hub"]],
+                auto_upper_hub=submission[self.config["auto_upper_hub"]],
+                auto_misses=submission[self.config["auto_misses"]],
+                auto_shooting_zones=submission[self.config["auto_shooting_zones"]],
+                teleop_lower_hub=submission[self.config["teleop_lower_hub"]],
+                teleop_upper_hub=submission[self.config["teleop_upper_hub"]],
+                teleop_misses=submission[self.config["teleop_misses"]],
+                teleop_shooting_zones=submission[self.config["teleop_shooting_zones"]],
+            )
+        except Exception as e:
+            print(e)
+
+        try:
+            self.check_for_invalid_defense_data(
+                match_key=submission[self.config["match_key"]],
+                team_number=submission[self.config["team_number"]],
+                defense_pct=submission[self.config["defense_pct"]],
+                counter_defense_pct=submission[self.config["counter_defense_pct"]],
+                defense_rating=submission[self.config["defense_rating"]],
+                counter_defense_rating=submission[
+                    self.config["counter_defense_rating"]
+                ],
+            )
+        except Exception as e:
+            print(e)
+
+        try:
+            self.check_team_info_with_match_schedule(
+                match_key=submission[self.config["match_key"]],
+                team_number=submission[self.config["team_number"]],
+                alliance=submission[self.config["alliance"]],
+                driver_station=submission[self.config["driver_station"]],
+            )
+        except Exception as e:
+            print(e)
+
+        try:
+            self.check_for_auto_great_than_6(
+                match_key=submission[self.config["match_key"]],
+                team_number=submission[self.config["team_number"]],
+                auto_lower_hub=submission[self.config["auto_lower_hub"]],
+                auto_upper_hub=submission[self.config["auto_upper_hub"]],
+                auto_misses=submission[self.config["auto_misses"]],
+            )
+        except Exception as e:
+            print(e)
+
+        try:
+            self.check_for_auto_cargo_when_taxi(
+                match_key=submission[self.config["match_key"]],
+                team_number=submission[self.config["team_number"]],
+                auto_lower_hub=submission[self.config["auto_lower_hub"]],
+                auto_upper_hub=submission[self.config["auto_upper_hub"]],
+                auto_misses=submission[self.config["auto_misses"]],
+                taxi=submission[self.config["taxied"]],
+            )
+        except Exception as e:
+            print(e)
+
+        # TODO: Add TBA-related checks (see Notion docs for which checks to add.)
+        if self._run_with_tba:
+            try:
+                self.check_submission_with_tba(
+                    match_key=submission[self.config["match_key"]],
+                    team_number=submission[self.config["team_number"]],
+                    alliance=submission[self.config["alliance"]],
+                    driver_station=submission[self.config["driver_station"]],
+                    taxied=submission[self.config["taxied"]],
+                    final_climb_type=submission[self.config["final_climb_type"]],
+                )
+            except Exception as e:
+                print(e)
+
+    def check_for_invalid_defense_data(
+        self,
+        match_key: str,
+        team_number: int,
+        defense_pct: float,
+        defense_rating: float,
+        counter_defense_pct: float,
+        counter_defense_rating: float,
+    ) -> None:
+        """
+        Checks if scouter gave defense or counter defense rating but stated that the robot didn't play defense/counter defense.
+        Checks if scouter stated that robot played defense or counter defense but didn't give a corresponding rating.
+        Checks if total defense played + counter defense played > 100% hence impossible.
+
+        :param match_key: Key of match that was scouted.
+        :param team_number: Number of team that was scouted (eg 4099).
+        :param defense_pct: Decimal representing how much the scouted team played defense out of 1 (eg 0.75)
+        :param defense_rating: Representing how well the scouted team played defense on a scale of 1 to 5.
+        :param counter_defense_pct: Decimal representing how much the scouted team played counter defense out of 1 (eg 0.75)
+        :param counter_defense_rating: Representing how well the scouted team played counter defense on a scale of 1 to 5.
+        :return: None
+        """  # noqa
+        # Check for missing defense pct.
+        if (notna(defense_rating) and isna(defense_pct)) or (
+            defense_rating and not defense_pct
+        ):
+            self.add_error(
+                f"In {match_key}, {team_number} rated for defense but NO DEFENSE PCT",
+                ErrorType.MISSING_DATA,
+                match_key,
+                team_number,
+            )
+
+        # Check for missing defense rating.
+        if (isna(defense_rating) and notna(defense_pct)) or (
+            defense_pct and not defense_rating
+        ):
+            self.add_error(
+                f"In {match_key}, {team_number} MISSING DEFENSE RATING",
+                ErrorType.MISSING_DATA,
+                match_key,
+                team_number,
+            )
+
+        # Check for 0% counter defense pct but given rating.
+        if (notna(counter_defense_rating) and isna(counter_defense_pct)) or (
+            counter_defense_rating and not counter_defense_pct
+        ):
+            self.add_error(
+                f"In {match_key}, {team_number} "
+                f"rated for counter defense but NO COUNTER DEFENSE PCT",
+                ErrorType.MISSING_DATA,
+                match_key,
+                team_number,
+            )
+
+        # Check for missing counter defense rating.
+        if (notna(counter_defense_pct) and isna(counter_defense_rating)) or (
+            counter_defense_pct and not counter_defense_rating
+        ):
+            self.add_error(
+                f"In {match_key}, {team_number} MISSING COUNTER DEFENSE RATING",
+                ErrorType.MISSING_DATA,
+                match_key,
+                team_number,
+            )
+
+        # Inconsistent defense + counter defense pct.
+        if (
+            notna(defense_pct)
+            and notna(counter_defense_pct)
+            and (defense_pct + counter_defense_pct) > 1
+        ):
+            self.add_error(
+                f"In {match_key}, {team_number} DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
+                ErrorType.INCORRECT_DATA,
+                match_key,
+                team_number,
+            )
+
+    def validate_auto_attempted_game_pieces(
+        self,
+        match_key: str,
+        team_number: int,
+        preloaded: bool,
+        auto_cones: list,
+        auto_cubes: list,
+        auto_misses: list,
+    ) -> None:
+        """
+        Checks if the amount of game pieces the robot attempted to score in auto is "reasonable".
+
+        :param match_key: Key of match that was scouted.
+        :param team_number: Number of team that was scouted (eg 4099).
+        :param preloaded: Whether or not the robot was preloaded with a game piece.
+        :param auto_cones: List containing the type of node where the cone was placed onto in auto.
+        :param auto_cubes: List containing the type of node where the cube was placed onto in auto.
+        :param auto_misses: List containing the type of node and the type of game piece that the robot missed in auto.
+        :return:
+        """
+        # Checks the # of attempted cones + cubes placed in auto
+        pieces_attempted_in_auto = len(auto_cones) + len(auto_cubes) + len(auto_misses)
+
+        # Checks if either the number of pieces attempted > 4 despite no preloaded or if it's > 5
+        if (
+            not preloaded and pieces_attempted_in_auto > 4
+        ) or pieces_attempted_in_auto > 5:
+            self.add_error(
+                f"In {match_key}, {team_number} {pieces_attempted_in_auto} CONES AND CUBES BEING ATTEMPTED IN AUTO IS IMPOSSIBLE",
+                ErrorType.INCORRECT_DATA,
+                match_key,
+                team_number,
+            )
+
+    def validate_attempted_game_pieces(
+        self,
+        match_key: str,
+        team_number: int,
+        auto_cones: list,
+        teleop_cones: list,
+        auto_cubes: list,
+        teleop_cubes: list,
+    ) -> None:
+        """
+        Checks if the amount of cones scored in auto + teleop < 21 (12 cone nodes + 9 hybrid nodes).
+        Checks if the amount of cubes scored in auto + teleop < 15 (6 cube nodes + 9 hybrid nodes).
+        Checks if the amount of cones + cubes scored in auto + teleop < 27 (12 cone nodes + 6 cube nodes + 9 hybrid nodes).
+
+        :param match_key: Key of match that was scouted.
+        :param team_number: Number of team that was scouted (eg 4099).
+        :param auto_cones: List containing the type of node where the cone was placed onto in auto.
+        :param teleop_cones: List containing the type of node where the cone was placed onto in teleop.
+        :param auto_cubes: List containing the type of node where the cube was placed onto in auto.
+        :param teleop_cubes: List containing the type of node where the cube was placed onto in teleop.
+        :return:
+        """
+        # Makes sure that the # of cones scored is <= 21
+        if (cones_scored := len(auto_cones) + len(teleop_cones)) > 21:
+            self.add_error(
+                f"In {match_key}, {team_number} SCORING {cones_scored} CONES IS IMPOSSIBLE",
+                ErrorType.INCORRECT_DATA,
+                match_key,
+                team_number,
+            )
+
+        # Makes sure that the # of cubes scored is <= 15
+        if (cubes_scored := len(auto_cubes) + len(teleop_cubes)) > 15:
+            self.add_error(
+                f"In {match_key}, {team_number} SCORING {cubes_scored} CUBES IS IMPOSSIBLE",
+                ErrorType.INCORRECT_DATA,
+                match_key,
+                team_number,
+            )
+
+        # Makes sure that the # of cubes and cones scored is <= 27
+        if (total_scored := cones_scored + cubes_scored) > 27:
+            self.add_error(
+                f"In {match_key}, {team_number} SCORING {total_scored} CUBES AND CONES IS IMPOSSIBLE",
+                ErrorType.INCORRECT_DATA,
+                match_key,
+                team_number,
+            )
+
+    def auto_charge_station_checks(self, scouting_data: DataFrame) -> None:
+        """
+        Checks if either more than one robot is ticked off as docked/engaged
+        or if a robot was marked as engaged but not docked.
+
+        :param scouting_data: A Pandas dataframe containing the scouting submissions.
+        :return:
+        """
+        for match_key, alliance, submissions_by_alliance in scouting_data.groupby(
+            ["match_key", "alliance"]
+        ):
+            # Ensure that only one robot was marked off as docked/engaged
+            if (
+                len(
+                    submissions_by_alliance[
+                        submissions_by_alliance["auto_docked"] == True
+                    ]
+                )
+                > 1
+                or len(
+                    submissions_by_alliance[
+                        submissions_by_alliance["auto_engaged"] == True
+                    ]
+                )
+                > 1
+            ):
+                self.add_error(
+                    f"In {match_key}, THE {alliance.upper()} ALLIANCE MARKED MORE THAN ONE ROBOT AS DOCKED/ENGAGED IN AUTO",
+                    ErrorType.INCORRECT_DATA,
+                    match_key,
+                )
+
+            # Check for any robots marked as engaged but not docked
+            for submission in submissions_by_alliance.iterrows():
+                if (
+                    submission["auto_docked"] == False
+                    and submission["auto_engaged"] == True
+                ):
+                    self.add_error(
+                        f"In {match_key}, {submission['team_number']} WAS MARKED AS ENGAGED DESPITE NOT DOCKING IN AUTO",
+                        ErrorType.INCORRECT_DATA,
+                        match_key,
+                        submission["team_number"],
+                    )
+
+    def check_if_engaged_but_not_docked(self, scouting_data: DataFrame) -> None:
+        """
+        Checks if a robot was marked as engaged but not docked in the endgame.
+
+        :param scouting_data: A Pandas dataframe containing the scouting submissions.
+        :return:
+        """
+        for match_key, alliance, submissions_by_alliance in scouting_data.groupby(
+            ["match_key", "alliance"]
+        ):
+            for submission in submissions_by_alliance.iterrows():
+                if submission["docked"] == False and submission["engaged"] == True:
+                    self.add_error(
+                        f"In {match_key}, {submission['team_number']} WAS MARKED AS ENGAGED DESPITE NOT DOCKING",
+                        ErrorType.INCORRECT_DATA,
+                        match_key,
+                        submission["team_number"],
+                    )
+
+    def check_for_inconsistent_engaged(self, scouting_data: DataFrame) -> None:
+        """
+        Checks if two or more robots were marked as docked but one was marked as engaged whilst the other wasn't.
+
+        :param scouting_data: A Pandas dataframe containing the scouting submissions.
+        :return:
+        """
+        for match_key, alliance, submissions_by_alliance in scouting_data.groupby(
+            ["match_key", "alliance"]
+        ):
+            robots_docked = len(
+                submissions_by_alliance[submissions_by_alliance["docked"] == True]
+            )
+            robots_engaged = len(
+                submissions_by_alliance[submissions_by_alliance["engaged"] == True]
+            )
+
+            if (
+                robots_docked > 0
+                and robots_engaged > 0
+                and robots_docked != robots_engaged
+            ):
+                self.add_error(
+                    f"In {match_key}, THE {alliance.upper()} ALLIANCE HAS SOME ROBOTS MARKED AS ENGAGED AND OTHERS NOT",
+                    ErrorType.INCORRECT_DATA,
+                    match_key,
+                )
