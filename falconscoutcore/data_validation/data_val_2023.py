@@ -187,7 +187,10 @@ class DataValidation2023(BaseDataValidation):
             not preloaded and pieces_attempted_in_auto > 4
         ) or pieces_attempted_in_auto > 5:
             self.add_error(
-                f"In {match_key}, {team_number} {pieces_attempted_in_auto} CONES AND CUBES BEING ATTEMPTED IN AUTO IS IMPOSSIBLE",
+                (
+                    f"In {match_key}, {team_number} {pieces_attempted_in_auto} CONES AND CUBES BEING"
+                    f" ATTEMPTED IN AUTO IS IMPOSSIBLE"
+                ),
                 ErrorType.INCORRECT_DATA,
                 match_key,
                 team_number,
@@ -205,7 +208,7 @@ class DataValidation2023(BaseDataValidation):
         """
         Checks if the amount of cones scored in auto + teleop < 21 (12 cone nodes + 9 hybrid nodes).
         Checks if the amount of cubes scored in auto + teleop < 15 (6 cube nodes + 9 hybrid nodes).
-        Checks if the amount of cones + cubes scored in auto + teleop < 27 (12 cone nodes + 6 cube nodes + 9 hybrid nodes).
+        Checks if the amount of cones + cubes scored thru the game < 27 (12 cone nodes + 6 cube nodes + 9 hybrid nodes).
 
         :param match_key: Key of match that was scouted.
         :param team_number: Number of team that was scouted (eg 4099).
@@ -269,7 +272,10 @@ class DataValidation2023(BaseDataValidation):
                 > 1
             ):
                 self.add_error(
-                    f"In {match_key}, THE {alliance.upper()} ALLIANCE MARKED MORE THAN ONE ROBOT AS DOCKED/ENGAGED IN AUTO",
+                    (
+                        f"In {match_key}, THE {alliance.upper()} ALLIANCE MARKED MORE THAN "
+                        f"ONE ROBOT AS DOCKED/ENGAGED IN AUTO"
+                    ),
                     ErrorType.INCORRECT_DATA,
                     match_key,
                 )
@@ -281,7 +287,10 @@ class DataValidation2023(BaseDataValidation):
                     and submission[self.config["auto_engaged"]] == True
                 ):
                     self.add_error(
-                        f"In {match_key}, {submission[self.config['team_number']]} WAS MARKED AS ENGAGED DESPITE NOT DOCKING IN AUTO",
+                        (
+                            f"In {match_key}, {submission[self.config['team_number']]} WAS MARKED"
+                            f" AS ENGAGED DESPITE NOT DOCKING IN AUTO"
+                        ),
                         ErrorType.INCORRECT_DATA,
                         match_key,
                         submission[self.config["team_number"]],
