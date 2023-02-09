@@ -30,7 +30,9 @@ class DataValidation2023(BaseDataValidation):
         # Converts JSON to DataFrame
         scouting_data = DataFrame.from_dict(scouting_data)
 
-        self.check_team_numbers_for_each_match(scouting_data)
+        self.auto_charge_station_checks(scouting_data)
+        self.check_if_engaged_but_not_docked(scouting_data)
+        self.check_for_inconsistent_engaged(scouting_data)
 
         # Validates individual submissions
         for _, submission in scouting_data.iterrows():
@@ -52,22 +54,14 @@ class DataValidation2023(BaseDataValidation):
         :param submission: Series object containing a single submission of scouting data.
         :return:
         """
-        # TODO: Add check to validate match schedule (see Notion doc for more information.)
-        ...
-
-        # TODO: Add more data-specific checks (see Notion doc for which checks to add.)
         try:
-            self.check_for_missing_shooting_zones(
+            self.validate_auto_attempted_game_pieces(
                 match_key=submission[self.config["match_key"]],
                 team_number=submission[self.config["team_number"]],
-                auto_lower_hub=submission[self.config["auto_lower_hub"]],
-                auto_upper_hub=submission[self.config["auto_upper_hub"]],
+                preloaded=submission[self.config["preloaded"]],
+                auto_cones=submission[self.config["auto_cones"]],
+                auto_cubes=submission[self.config["auto_cubes"]],
                 auto_misses=submission[self.config["auto_misses"]],
-                auto_shooting_zones=submission[self.config["auto_shooting_zones"]],
-                teleop_lower_hub=submission[self.config["teleop_lower_hub"]],
-                teleop_upper_hub=submission[self.config["teleop_upper_hub"]],
-                teleop_misses=submission[self.config["teleop_misses"]],
-                teleop_shooting_zones=submission[self.config["teleop_shooting_zones"]],
             )
         except Exception as e:
             print(e)
@@ -87,51 +81,16 @@ class DataValidation2023(BaseDataValidation):
             print(e)
 
         try:
-            self.check_team_info_with_match_schedule(
+            self.validate_attempted_game_pieces(
                 match_key=submission[self.config["match_key"]],
                 team_number=submission[self.config["team_number"]],
-                alliance=submission[self.config["alliance"]],
-                driver_station=submission[self.config["driver_station"]],
+                auto_cones=submission[self.config["auto_cones"]],
+                teleop_cones=submission[self.config["teleop_cones"]],
+                auto_cubes=submission[self.config["auto_cubes"]],
+                teleop_cubes=submission[self.config["teleop_cubes"]],
             )
         except Exception as e:
             print(e)
-
-        try:
-            self.check_for_auto_great_than_6(
-                match_key=submission[self.config["match_key"]],
-                team_number=submission[self.config["team_number"]],
-                auto_lower_hub=submission[self.config["auto_lower_hub"]],
-                auto_upper_hub=submission[self.config["auto_upper_hub"]],
-                auto_misses=submission[self.config["auto_misses"]],
-            )
-        except Exception as e:
-            print(e)
-
-        try:
-            self.check_for_auto_cargo_when_taxi(
-                match_key=submission[self.config["match_key"]],
-                team_number=submission[self.config["team_number"]],
-                auto_lower_hub=submission[self.config["auto_lower_hub"]],
-                auto_upper_hub=submission[self.config["auto_upper_hub"]],
-                auto_misses=submission[self.config["auto_misses"]],
-                taxi=submission[self.config["taxied"]],
-            )
-        except Exception as e:
-            print(e)
-
-        # TODO: Add TBA-related checks (see Notion docs for which checks to add.)
-        if self._run_with_tba:
-            try:
-                self.check_submission_with_tba(
-                    match_key=submission[self.config["match_key"]],
-                    team_number=submission[self.config["team_number"]],
-                    alliance=submission[self.config["alliance"]],
-                    driver_station=submission[self.config["driver_station"]],
-                    taxied=submission[self.config["taxied"]],
-                    final_climb_type=submission[self.config["final_climb_type"]],
-                )
-            except Exception as e:
-                print(e)
 
     def check_for_invalid_defense_data(
         self,
@@ -311,13 +270,13 @@ class DataValidation2023(BaseDataValidation):
             if (
                 len(
                     submissions_by_alliance[
-                        submissions_by_alliance["auto_docked"] == True
+                        submissions_by_alliance[self.config["auto_docked"]] == True
                     ]
                 )
                 > 1
                 or len(
                     submissions_by_alliance[
-                        submissions_by_alliance["auto_engaged"] == True
+                        submissions_by_alliance[self.config["auto_engaged"]] == True
                     ]
                 )
                 > 1
@@ -331,14 +290,14 @@ class DataValidation2023(BaseDataValidation):
             # Check for any robots marked as engaged but not docked
             for submission in submissions_by_alliance.iterrows():
                 if (
-                    submission["auto_docked"] == False
-                    and submission["auto_engaged"] == True
+                    submission[self.config["auto_docked"]] == False
+                    and submission[self.config["auto_engaged"]] == True
                 ):
                     self.add_error(
-                        f"In {match_key}, {submission['team_number']} WAS MARKED AS ENGAGED DESPITE NOT DOCKING IN AUTO",
+                        f"In {match_key}, {submission[self.config['team_number']]} WAS MARKED AS ENGAGED DESPITE NOT DOCKING IN AUTO",
                         ErrorType.INCORRECT_DATA,
                         match_key,
-                        submission["team_number"],
+                        submission[self.config["team_number"]],
                     )
 
     def check_if_engaged_but_not_docked(self, scouting_data: DataFrame) -> None:
@@ -352,12 +311,15 @@ class DataValidation2023(BaseDataValidation):
             ["match_key", "alliance"]
         ):
             for submission in submissions_by_alliance.iterrows():
-                if submission["docked"] == False and submission["engaged"] == True:
+                if (
+                    submission[self.config["docked"]] == False
+                    and submission[self.config["engaged"]] == True
+                ):
                     self.add_error(
                         f"In {match_key}, {submission['team_number']} WAS MARKED AS ENGAGED DESPITE NOT DOCKING",
                         ErrorType.INCORRECT_DATA,
                         match_key,
-                        submission["team_number"],
+                        submission[self.config["team_number"]],
                     )
 
     def check_for_inconsistent_engaged(self, scouting_data: DataFrame) -> None:
@@ -371,10 +333,14 @@ class DataValidation2023(BaseDataValidation):
             ["match_key", "alliance"]
         ):
             robots_docked = len(
-                submissions_by_alliance[submissions_by_alliance["docked"] == True]
+                submissions_by_alliance[
+                    submissions_by_alliance[self.config["docked"]] == True
+                ]
             )
             robots_engaged = len(
-                submissions_by_alliance[submissions_by_alliance["engaged"] == True]
+                submissions_by_alliance[
+                    submissions_by_alliance[self.config["engaged"]] == True
+                ]
             )
 
             if (
