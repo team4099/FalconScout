@@ -15,6 +15,7 @@ team_number: "team_number"
 # Charged Up 2023: hyper-specific parameters
 auto_cones: "auto_cones"
 auto_cubes: "auto_cubes"
+auto_misses: "auto_misses"
 auto_docked: "auto_docked"
 preloaded: "preloaded"
 auto_engaged: "auto_engaged"

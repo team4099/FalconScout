@@ -1,7 +1,7 @@
 [
     {
-        "error_type": "MISSING DATA",
-        "message": "In qm1, 4099 MISSING COUNTER DEFENSE RATING",
+        "error_type": "INCORRECT DATA",
+        "message": "In qm1, 4099 SCORING 28 CUBES AND CONES IS IMPOSSIBLE",
         "match": "qm1",
         "scout_id": "N/A",
         "team_id": 4099

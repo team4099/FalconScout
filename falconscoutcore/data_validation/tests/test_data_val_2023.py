@@ -11,12 +11,12 @@ def example_scouting_data(
     driver_station: int = 1,
     preloaded: bool = True,
     mobile: bool = True,
-    auto_cones: list[str] = ["High", "Mid", "Low"],
-    auto_cubes: list[str] = ["High", "Mid", "Low"],
-    auto_misses: list[tuple] = [("Mid", "Cone"), ("Low", "Cube")],
-    teleop_cones: list[str] = ["High", "Mid", "Low"],
-    teleop_cubes: list[str] = ["High", "Mid", "Low"],
-    teleop_misses: list[tuple] = [("Mid", "Cone"), ("Low", "Cube")],
+    auto_cones: list[str] = [],
+    auto_cubes: list[str] = [],
+    auto_misses: list[tuple] = [],
+    teleop_cones: list[str] = [],
+    teleop_cubes: list[str] = [],
+    teleop_misses: list[tuple] = [],
     auto_docked: bool = False,
     auto_engaged: bool = False,
     docked: bool = False,
@@ -157,3 +157,179 @@ def test_counter_defense_pct_but_no_counter_defense_rating():
         errors = load(file)
 
     assert len(errors) == 1 and errors[0]["error_type"] == "MISSING DATA"
+
+
+def test_more_than_one_docked_robot_in_auto():
+    """Tests `auto_charge_station_checks` for when more than one robot is marked as docked/engaged."""
+    data_validator = DataValidation2023()
+    data_validator._run_with_tba = False
+
+    scouting_data_with_invalid_auto = [
+        example_scouting_data(alliance="red", auto_docked=True, auto_engaged=True),
+        example_scouting_data(alliance="red", auto_docked=True, auto_engaged=True),
+        example_scouting_data(alliance="red"),
+    ]
+
+    data_validator.validate_data(scouting_data=scouting_data_with_invalid_auto)
+
+    with open("../data/errors.json") as file:
+        errors = load(file)
+
+    assert len(errors) == 1 and errors[0]["error_type"] == "INCORRECT DATA"
+
+
+def test_for_if_engaged_but_not_docked_auto():
+    """Tests `auto_charge_station_checks` for when a robot is marked as engaged but not docked."""
+    data_validator = DataValidation2023()
+    data_validator._run_with_tba = False
+
+    scouting_data_with_invalid_auto = [
+        example_scouting_data(alliance="red", auto_docked=False, auto_engaged=True),
+        example_scouting_data(alliance="red"),
+        example_scouting_data(alliance="red"),
+    ]
+
+    data_validator.validate_data(scouting_data=scouting_data_with_invalid_auto)
+
+    with open("../data/errors.json") as file:
+        errors = load(file)
+
+    assert len(errors) == 1 and errors[0]["error_type"] == "INCORRECT DATA"
+
+
+def test_for_if_engaged_but_not_docked():
+    """Tests `check_if_engaged_but_not_docked` for when a robot is marked as engaged but not docked."""
+    data_validator = DataValidation2023()
+    data_validator._run_with_tba = False
+
+    scouting_data_with_invalid_endgame = [
+        example_scouting_data(alliance="red", docked=False, engaged=True),
+        example_scouting_data(alliance="red"),
+        example_scouting_data(alliance="red"),
+    ]
+
+    data_validator.validate_data(scouting_data=scouting_data_with_invalid_endgame)
+
+    with open("../data/errors.json") as file:
+        errors = load(file)
+
+    assert len(errors) == 1 and errors[0]["error_type"] == "INCORRECT DATA"
+
+
+def test_for_inconsistent_engaged():
+    """Tests `check_for_inconsistent_engaged` for when a robot is marked as engaged but not docked."""
+    data_validator = DataValidation2023()
+    data_validator._run_with_tba = False
+
+    scouting_data_with_invalid_endgame = [
+        example_scouting_data(alliance="red", docked=True, engaged=True),
+        example_scouting_data(alliance="red", docked=True, engaged=False),
+        example_scouting_data(alliance="red", docked=True, engaged=True),
+    ]
+
+    data_validator.validate_data(scouting_data=scouting_data_with_invalid_endgame)
+
+    with open("../data/errors.json") as file:
+        errors = load(file)
+
+    assert len(errors) == 1 and errors[0]["error_type"] == "INCORRECT DATA"
+
+
+def test_for_only_one_robot_engaged():
+    """Tests `check_if_engaged_for_only_one_robot` for when only one robot is marked as docked/engaged (impossible)."""
+    data_validator = DataValidation2023()
+    data_validator._run_with_tba = False
+
+    scouting_data_with_invalid_endgame = [
+        example_scouting_data(alliance="red", docked=True, engaged=True),
+        example_scouting_data(alliance="red"),
+        example_scouting_data(alliance="red"),
+    ]
+
+    data_validator.validate_data(scouting_data=scouting_data_with_invalid_endgame)
+
+    with open("../data/errors.json") as file:
+        errors = load(file)
+
+    assert len(errors) == 1 and errors[0]["error_type"] == "INCORRECT DATA"
+
+
+def test_for_invalid_cones_scored_in_auto_without_preloaded():
+    """Tests `validate_auto_attempted_game_pieces` for when an invalid amount of game pieces is scored without a preloaded game piece."""  # noqa
+    data_validator = DataValidation2023()
+    data_validator._run_with_tba = False
+
+    scouting_data_with_invalid_auto = [
+        example_scouting_data(auto_cones=["Mid"] * 5, preloaded=False)
+    ]
+
+    data_validator.validate_data(scouting_data=scouting_data_with_invalid_auto)
+
+    with open("../data/errors.json") as file:
+        errors = load(file)
+
+    assert len(errors) == 1 and errors[0]["error_type"] == "INCORRECT DATA"
+
+
+def test_for_invalid_cones_scored_in_auto_with_preloaded():
+    """Tests `validate_auto_attempted_game_pieces` for when an invalid amount of game pieces is scored with a preloaded game piece."""  # noqa
+    data_validator = DataValidation2023()
+    data_validator._run_with_tba = False
+
+    scouting_data_with_invalid_auto = [
+        example_scouting_data(auto_cones=["Mid"] * 6, preloaded=True)
+    ]
+
+    data_validator.validate_data(scouting_data=scouting_data_with_invalid_auto)
+
+    with open("../data/errors.json") as file:
+        errors = load(file)
+
+    assert len(errors) == 1 and errors[0]["error_type"] == "INCORRECT DATA"
+
+
+def test_for_invalid_amount_of_cones_scored():
+    """Tests `validate_attempted_game_pieces` for when an invalid amount of cones (>21) is scored during the game."""
+    data_validator = DataValidation2023()
+    data_validator._run_with_tba = False
+
+    scouting_data_with_invalid_auto = [example_scouting_data(teleop_cones=["Mid"] * 22)]
+
+    data_validator.validate_data(scouting_data=scouting_data_with_invalid_auto)
+
+    with open("../data/errors.json") as file:
+        errors = load(file)
+
+    assert len(errors) == 1 and errors[0]["error_type"] == "INCORRECT DATA"
+
+
+def test_for_invalid_amount_of_cubes_scored():
+    """Tests `validate_attempted_game_pieces` for when an invalid amount of cubes (>15) is scored during the game."""
+    data_validator = DataValidation2023()
+    data_validator._run_with_tba = False
+
+    scouting_data_with_invalid_auto = [example_scouting_data(teleop_cubes=["Mid"] * 16)]
+
+    data_validator.validate_data(scouting_data=scouting_data_with_invalid_auto)
+
+    with open("../data/errors.json") as file:
+        errors = load(file)
+
+    assert len(errors) == 1 and errors[0]["error_type"] == "INCORRECT DATA"
+
+
+def test_for_invalid_amount_of_game_pieces_scored():
+    """Tests `validate_attempted_game_pieces` for when more than 27 game pieces are scored during the game."""
+    data_validator = DataValidation2023()
+    data_validator._run_with_tba = False
+
+    scouting_data_with_invalid_auto = [
+        example_scouting_data(teleop_cones=["Mid"] * 15, teleop_cubes=["Mid"] * 13)
+    ]
+
+    data_validator.validate_data(scouting_data=scouting_data_with_invalid_auto)
+
+    with open("../data/errors.json") as file:
+        errors = load(file)
+
+    assert len(errors) == 1 and errors[0]["error_type"] == "INCORRECT DATA"

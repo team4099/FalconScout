@@ -30,6 +30,7 @@ class DataValidation2023(BaseDataValidation):
         self.auto_charge_station_checks(scouting_data)
         self.check_if_engaged_but_not_docked(scouting_data)
         self.check_for_inconsistent_engaged(scouting_data)
+        self.check_if_engaged_for_only_one_robot(scouting_data)
 
         # Validates individual submissions
         for _, submission in scouting_data.iterrows():
@@ -51,43 +52,32 @@ class DataValidation2023(BaseDataValidation):
         :param submission: Series object containing a single submission of scouting data.
         :return:
         """
-        try:
-            self.validate_auto_attempted_game_pieces(
-                match_key=submission[self.config["match_key"]],
-                team_number=submission[self.config["team_number"]],
-                preloaded=submission[self.config["preloaded"]],
-                auto_cones=submission[self.config["auto_cones"]],
-                auto_cubes=submission[self.config["auto_cubes"]],
-                auto_misses=submission[self.config["auto_misses"]],
-            )
-        except Exception as e:
-            print(e)
+        self.validate_auto_attempted_game_pieces(
+            match_key=submission[self.config["match_key"]],
+            team_number=submission[self.config["team_number"]],
+            preloaded=submission[self.config["preloaded"]],
+            auto_cones=submission[self.config["auto_cones"]],
+            auto_cubes=submission[self.config["auto_cubes"]],
+            auto_misses=submission[self.config["auto_misses"]],
+        )
 
-        try:
-            self.check_for_invalid_defense_data(
-                match_key=submission[self.config["match_key"]],
-                team_number=submission[self.config["team_number"]],
-                defense_pct=submission[self.config["defense_pct"]],
-                counter_defense_pct=submission[self.config["counter_defense_pct"]],
-                defense_rating=submission[self.config["defense_rating"]],
-                counter_defense_rating=submission[
-                    self.config["counter_defense_rating"]
-                ],
-            )
-        except Exception as e:
-            print(e)
+        self.check_for_invalid_defense_data(
+            match_key=submission[self.config["match_key"]],
+            team_number=submission[self.config["team_number"]],
+            defense_pct=submission[self.config["defense_pct"]],
+            counter_defense_pct=submission[self.config["counter_defense_pct"]],
+            defense_rating=submission[self.config["defense_rating"]],
+            counter_defense_rating=submission[self.config["counter_defense_rating"]],
+        )
 
-        try:
-            self.validate_attempted_game_pieces(
-                match_key=submission[self.config["match_key"]],
-                team_number=submission[self.config["team_number"]],
-                auto_cones=submission[self.config["auto_cones"]],
-                teleop_cones=submission[self.config["teleop_cones"]],
-                auto_cubes=submission[self.config["auto_cubes"]],
-                teleop_cubes=submission[self.config["teleop_cubes"]],
-            )
-        except Exception as e:
-            print(e)
+        self.validate_attempted_game_pieces(
+            match_key=submission[self.config["match_key"]],
+            team_number=submission[self.config["team_number"]],
+            auto_cones=submission[self.config["auto_cones"]],
+            teleop_cones=submission[self.config["teleop_cones"]],
+            auto_cubes=submission[self.config["auto_cubes"]],
+            teleop_cubes=submission[self.config["teleop_cubes"]],
+        )
 
     def check_for_invalid_defense_data(
         self,
@@ -318,6 +308,36 @@ class DataValidation2023(BaseDataValidation):
                         match_key,
                         submission[self.config["team_number"]],
                     )
+
+    def check_if_engaged_for_only_one_robot(self, scouting_data: DataFrame) -> None:
+        """
+        Checks if a robot was marked as engaged in Endgame even though only one robot was marked as docked (impossible).
+
+        :param scouting_data: A Pandas dataframe containing the scouting submissions.
+        :return:
+        """
+        for (match_key, alliance), submissions_by_alliance in scouting_data.groupby(
+            ["match_key", "alliance"]
+        ):
+            robots_docked = len(
+                submissions_by_alliance[
+                    submissions_by_alliance[self.config["docked"]] == True
+                ]
+            )
+            robots_engaged = len(
+                submissions_by_alliance[
+                    submissions_by_alliance[self.config["engaged"]] == True
+                ]
+            )
+            if robots_engaged == 1 and robots_docked == 1:
+                self.add_error(
+                    (
+                        f"In {match_key}, THE {alliance.upper()} ALLIANCE HAS ONLY ONE ROBOT MARKED AS DOCKED/ENGAGED"
+                        " WHICH IS IMPOSSIBLE IN ENDGAME"
+                    ),
+                    ErrorType.INCORRECT_DATA,
+                    match_key,
+                )
 
     def check_for_inconsistent_engaged(self, scouting_data: DataFrame) -> None:
         """
