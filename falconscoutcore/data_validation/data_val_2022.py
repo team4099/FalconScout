@@ -1,6 +1,4 @@
 import json
-from lib2to3.pgen2 import driver
-from typing import Hashable
 
 from data_validation.base_data_val import BaseDataValidation
 from data_validation.config.constants import RapidReact
@@ -83,7 +81,9 @@ class DataValidation2022(BaseDataValidation):
                 defense_pct=submission[self.config["defense_pct"]],
                 counter_defense_pct=submission[self.config["counter_defense_pct"]],
                 defense_rating=submission[self.config["defense_rating"]],
-                counter_defense_rating=submission[self.config["counter_defense_rating"]],
+                counter_defense_rating=submission[
+                    self.config["counter_defense_rating"]
+                ],
             )
         except Exception as e:
             print(e)
@@ -97,7 +97,7 @@ class DataValidation2022(BaseDataValidation):
             )
         except Exception as e:
             print(e)
-        
+
         try:
             self.check_for_auto_great_than_6(
                 match_key=submission[self.config["match_key"]],
@@ -116,7 +116,7 @@ class DataValidation2022(BaseDataValidation):
                 auto_lower_hub=submission[self.config["auto_lower_hub"]],
                 auto_upper_hub=submission[self.config["auto_upper_hub"]],
                 auto_misses=submission[self.config["auto_misses"]],
-                taxi=submission[self.config["taxied"]]
+                taxi=submission[self.config["taxied"]],
             )
         except Exception as e:
             print(e)
@@ -170,7 +170,7 @@ class DataValidation2022(BaseDataValidation):
                 f"In {match_key}, {team_number} MISSING AUTO SHOOTING ZONES",
                 ErrorType.MISSING_DATA,
                 match_key,
-                team_number
+                team_number,
             )
 
         # Checks teleop shooting zones
@@ -180,7 +180,7 @@ class DataValidation2022(BaseDataValidation):
                 f"In {match_key}, {team_number} MISSING TELEOP SHOOTING ZONES",
                 ErrorType.MISSING_DATA,
                 match_key,
-                team_number
+                team_number,
             )
 
     def check_submission_with_tba(
@@ -220,7 +220,7 @@ class DataValidation2022(BaseDataValidation):
                     f"In {match_key}, {team_number} INCORRECT TAXI according to TBA",
                     ErrorType.INCORRECT_DATA,
                     match_key,
-                    team_number
+                    team_number,
                 )
 
             # check for inconsistent climb type
@@ -229,7 +229,7 @@ class DataValidation2022(BaseDataValidation):
                     f"In {match_key}, {team_number} INCORRECT ClIMB TYPE according to TBA, should be {tba_climb}",
                     ErrorType.INCORRECT_DATA,
                     match_key,
-                    team_number
+                    team_number,
                 )
 
     def check_for_invalid_defense_data(
@@ -262,7 +262,7 @@ class DataValidation2022(BaseDataValidation):
                 f"In {match_key}, {team_number} rated for defense but NO DEFENSE PCT",
                 ErrorType.MISSING_DATA,
                 match_key,
-                team_number
+                team_number,
             )
 
         # Check for missing defense rating.
@@ -273,7 +273,7 @@ class DataValidation2022(BaseDataValidation):
                 f"In {match_key}, {team_number} MISSING DEFENSE RATING",
                 ErrorType.MISSING_DATA,
                 match_key,
-                team_number
+                team_number,
             )
 
         # Check for 0% counter defense pct but given rating.
@@ -285,7 +285,7 @@ class DataValidation2022(BaseDataValidation):
                 f"rated for counter defense but NO COUNTER DEFENSE PCT",
                 ErrorType.MISSING_DATA,
                 match_key,
-                team_number
+                team_number,
             )
 
         # Check for missing counter defense rating.
@@ -296,7 +296,7 @@ class DataValidation2022(BaseDataValidation):
                 f"In {match_key}, {team_number} MISSING COUNTER DEFENSE RATING",
                 ErrorType.MISSING_DATA,
                 match_key,
-                team_number
+                team_number,
             )
 
         # Inconsistent defense + counter defense pct.
@@ -309,7 +309,7 @@ class DataValidation2022(BaseDataValidation):
                 f"In {match_key}, {team_number} DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
                 ErrorType.INCORRECT_DATA,
                 match_key,
-                team_number
+                team_number,
             )
 
     def check_for_auto_cargo_when_taxi(
@@ -417,7 +417,7 @@ class DataValidation2022(BaseDataValidation):
                     f"In {outlier[0]}, frc{team} HAD AN AUTONOMOUS SCORE OUTLIER (<Q1) OF {outlier[1]} POINTS",
                     ErrorType.INFO,
                     outlier[0],
-                    team
+                    team,
                 )
 
             for outlier in max_outliers:
@@ -426,7 +426,7 @@ class DataValidation2022(BaseDataValidation):
                     f"In {outlier[0]}, frc{team} HAD AN AUTONOMOUS SCORE OUTLIER (>Q3) {outlier[1]} POINTS",
                     ErrorType.INFO,
                     outlier[0],
-                    team
+                    team,
                 )
 
     def check_for_auto_great_than_6(
@@ -454,5 +454,5 @@ class DataValidation2022(BaseDataValidation):
                 f"In {match_key}, {team_number} UNLIKELY AUTO SHOT COUNT",
                 ErrorType.WARNING,
                 match_key,
-                team_number
+                team_number,
             )

@@ -1,6 +1,6 @@
 from json import load
 
-from data_val_2022 import DataValidation2022
+from ..data_val_2022 import DataValidation2022
 
 
 def example_scouting_data(
@@ -165,6 +165,7 @@ def test_incorrect_team_number():
 
     # Runs the validation of data to ensure errors are put into the corresponding JSON.
     data_validator.validate_data(scouting_data=[scouting_data_with_wrong_team_number])
+
 
 def test_incorrect_taxi_state():
     """Tests the `check_submission_with_tba` function to ensure errors are written w/ an incorrect taxi state."""
@@ -341,7 +342,7 @@ def test_auto_great_than_6():
 
     # Ensures that the length of the errors JSON is 2 (total number of errors that should've been raised).
     # Ensures that the errors are both flagged as 'MISSING DATA'
-    
+
     assert len(errors) == 1 and errors[0]["error_type"] == "MISSING DATA"
 
 

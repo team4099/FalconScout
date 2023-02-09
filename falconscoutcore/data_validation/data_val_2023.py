@@ -1,11 +1,8 @@
 import json
-from lib2to3.pgen2 import driver
-from typing import Hashable
 
 from data_validation.base_data_val import BaseDataValidation
-from data_validation.config.constants import RapidReact
+from data_validation.config.constants import ChargedUp
 from data_validation.config.utils import ErrorType
-from numpy import percentile
 from pandas import DataFrame, Series, isna, notna
 
 
@@ -263,7 +260,7 @@ class DataValidation2023(BaseDataValidation):
         :param scouting_data: A Pandas dataframe containing the scouting submissions.
         :return:
         """
-        for match_key, alliance, submissions_by_alliance in scouting_data.groupby(
+        for (match_key, alliance), submissions_by_alliance in scouting_data.groupby(
             ["match_key", "alliance"]
         ):
             # Ensure that only one robot was marked off as docked/engaged
@@ -288,7 +285,7 @@ class DataValidation2023(BaseDataValidation):
                 )
 
             # Check for any robots marked as engaged but not docked
-            for submission in submissions_by_alliance.iterrows():
+            for _, submission in submissions_by_alliance.iterrows():
                 if (
                     submission[self.config["auto_docked"]] == False
                     and submission[self.config["auto_engaged"]] == True
@@ -307,10 +304,10 @@ class DataValidation2023(BaseDataValidation):
         :param scouting_data: A Pandas dataframe containing the scouting submissions.
         :return:
         """
-        for match_key, alliance, submissions_by_alliance in scouting_data.groupby(
+        for (match_key, alliance), submissions_by_alliance in scouting_data.groupby(
             ["match_key", "alliance"]
         ):
-            for submission in submissions_by_alliance.iterrows():
+            for _, submission in submissions_by_alliance.iterrows():
                 if (
                     submission[self.config["docked"]] == False
                     and submission[self.config["engaged"]] == True
@@ -329,7 +326,7 @@ class DataValidation2023(BaseDataValidation):
         :param scouting_data: A Pandas dataframe containing the scouting submissions.
         :return:
         """
-        for match_key, alliance, submissions_by_alliance in scouting_data.groupby(
+        for (match_key, alliance), submissions_by_alliance in scouting_data.groupby(
             ["match_key", "alliance"]
         ):
             robots_docked = len(
@@ -353,3 +350,8 @@ class DataValidation2023(BaseDataValidation):
                     ErrorType.INCORRECT_DATA,
                     match_key,
                 )
+
+    # TODO: Implement the statistical outliers check.
+    def check_for_statistical_outliers(self) -> None:
+        """Needs to be implemented later."""
+        pass
