@@ -4,6 +4,7 @@
         "message": "In qm1, 4099 SCORING 28 CUBES AND CONES IS IMPOSSIBLE",
         "match": "qm1",
         "scout_id": "N/A",
-        "team_id": 4099
+        "team_id": 4099,
+        "alliance": "N/A"
     }
 ]

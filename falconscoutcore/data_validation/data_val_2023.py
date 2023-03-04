@@ -43,6 +43,10 @@ class DataValidation2023(BaseDataValidation):
 
             self.validate_submission(submission)
 
+        if self._run_with_tba:
+            self.tba_validate_auto_game_pieces_scored(scouting_data)
+            self.tba_validate_teleop_game_pieces_scored(scouting_data)
+
         self.output_errors()
 
     def validate_submission(self, submission: Series) -> None:
@@ -79,6 +83,227 @@ class DataValidation2023(BaseDataValidation):
             teleop_cubes=submission[self.config["teleop_cubes"]],
         )
 
+        if self._run_with_tba:
+            self.tba_validate_auto_charge_station_state(
+                match_key=submission[self.config["match_key"]],
+                team_number=submission[self.config["team_number"]],
+                alliance=submission[self.config["alliance"]],
+                driver_station=submission[self.config["driver_station"]],
+                auto_docked=submission[self.config["auto_docked"]],
+                auto_engaged=submission[self.config["auto_engaged"]],
+            )
+            self.tba_validate_endgame_charge_station_state(
+                match_key=submission[self.config["match_key"]],
+                team_number=submission[self.config["team_number"]],
+                alliance=submission[self.config["alliance"]],
+                driver_station=submission[self.config["driver_station"]],
+                docked=submission[self.config["docked"]],
+                engaged=submission[self.config["engaged"]],
+            )
+
+    # TBA checks
+    def tba_validate_auto_charge_station_state(
+        self,
+        match_key: str,
+        team_number: int,
+        alliance: str,
+        driver_station: int,
+        auto_docked: bool,
+        auto_engaged: bool,
+    ) -> None:
+        """
+        Validates the state of any robots during autonomous if they were said to have docked/engaged with TBA data.
+
+        :param match_key: Key of match that was scouted.
+        :param team_number: Number of team that was scouted (eg 4099).
+        :param alliance: The name of the alliance the team scouted was on.
+        :param driver_station: The corresponding driver station of the team scouted (eg 1 for Red 1).
+        :param auto_docked: Whether or not the team scouted got onto the charge station during autonomous.
+        :param auto_engaged: Whether or not the team scouted was level on the charge station during autonomous.
+        :return:
+        """
+        with self.api_client as api_client:
+            score_breakdown = api_client.match(
+                f"{self._event_key}_{match_key}"
+            ).score_breakdown[alliance.lower()]
+            docked_state = (
+                score_breakdown[f"autoChargeStationRobot{driver_station}"] == "Docked"
+            )
+            engaged_state = score_breakdown["autoBridgeState"] == "Level"
+
+            # Using XOR (^) here because we want to check for only when the two states are differing.
+            if auto_docked ^ docked_state:
+                self.add_error(
+                    f"In {match_key}, {team_number} has an incorrect DOCKED state during AUTO based on TBA data.",
+                    ErrorType.INCORRECT_DATA,
+                    match_key,
+                    team_number,
+                )
+            if auto_engaged ^ engaged_state:
+                self.add_error(
+                    f"In {match_key}, {team_number} has an incorrect ENGAGED state during AUTO based on TBA data.",
+                    ErrorType.INCORRECT_DATA,
+                    match_key,
+                    team_number,
+                )
+
+    def tba_validate_endgame_charge_station_state(
+        self,
+        match_key: str,
+        team_number: int,
+        alliance: str,
+        driver_station: int,
+        docked: bool,
+        engaged: bool,
+    ) -> None:
+        """
+        Validates the state of any robots during endgame if they were said to have docked/engaged with TBA.
+
+        :param match_key: Key of match that was scouted.
+        :param team_number: Number of team that was scouted (eg 4099).
+        :param alliance: The name of the alliance the team scouted was on.
+        :param driver_station: The corresponding driver station of the team scouted (eg 1 for Red 1).
+        :param docked: Whether or not the team scouted got onto the charge station during endgame.
+        :param engaged: Whether or not the team scouted was level on the charge station during endgame.
+        :return:
+        """
+        with self.api_client as api_client:
+            score_breakdown = api_client.match(
+                f"{self._event_key}_{match_key}"
+            ).score_breakdown[alliance.lower()]
+            docked_state = (
+                score_breakdown[f"endGameChargeStationRobot{driver_station}"]
+                == "Docked"
+            )
+            engaged_state = score_breakdown["endGameBridgeState"] == "Level"
+
+            # Using XOR (^) here because we want to check for only when the two states are differing.
+            if docked ^ docked_state:
+                self.add_error(
+                    f"In {match_key}, {team_number} has an incorrect DOCKED state during ENDGAME based on TBA data.",
+                    ErrorType.INCORRECT_DATA,
+                    match_key,
+                    team_number,
+                )
+            if engaged ^ engaged_state:
+                self.add_error(
+                    f"In {match_key}, {team_number} has an incorrect ENGAGED state during ENDGAME based on TBA data.",
+                    ErrorType.INCORRECT_DATA,
+                    match_key,
+                    team_number,
+                )
+
+    def tba_validate_auto_game_pieces_scored(
+        self,
+        scouting_data: DataFrame,
+    ) -> None:
+        """
+        Validates if the amount of game pieces that were said to have been scored during autonomous are correct w/ TBA.
+
+        :param scouting_data: A Pandas dataframe containing all the submissions scouting-data wise.
+        :return:
+        """
+        with self.api_client as api_client:
+            for (match_key, alliance), submissions_by_alliance in scouting_data.groupby(
+                ["match_key", "alliance"]
+            ):
+                score_breakdown = api_client.match(
+                    f"{self._event_key}_{match_key}"
+                ).score_breakdown[alliance.lower()]
+
+                actual_auto_cones = sum(
+                    [
+                        nodes.count("Cone")
+                        for nodes in score_breakdown["autoCommunity"].values()
+                    ]
+                )
+                scouted_auto_cones = len(
+                    sum(submissions_by_alliance["auto_cones"], start=[])
+                )
+
+                actual_auto_cubes = sum(
+                    [
+                        nodes.count("Cube")
+                        for nodes in score_breakdown["autoCommunity"].values()
+                    ]
+                )
+                scouted_auto_cubes = len(
+                    sum(submissions_by_alliance["auto_cubes"], start=[])
+                )
+
+                if scouted_auto_cones != actual_auto_cones:
+                    self.add_error(
+                        f"In {match_key}, the {alliance.upper()} alliance was said to have scored"
+                        f" {scouted_auto_cones} CONES during AUTO but actually scored {actual_auto_cones} CONES.",
+                        ErrorType.INCORRECT_DATA,
+                        match_key,
+                        alliance=alliance,
+                    )
+                if scouted_auto_cubes != actual_auto_cubes:
+                    self.add_error(
+                        f"In {match_key}, the {alliance.upper()} alliance was said to have scored"
+                        f" {scouted_auto_cubes} CUBES during AUTO but actually scored {actual_auto_cubes} CUBES.",
+                        ErrorType.INCORRECT_DATA,
+                        match_key,
+                        alliance=alliance,
+                    )
+
+    def tba_validate_teleop_game_pieces_scored(
+        self,
+        scouting_data: DataFrame,
+    ) -> None:
+        """
+        Validates if the amount of game pieces that were said to have been scored during teleop are correct w/ TBA.
+
+        :param scouting_data: A Pandas dataframe containing all the submissions scouting-data wise.
+        :return:
+        """
+        with self.api_client as api_client:
+            for (match_key, alliance), submissions_by_alliance in scouting_data.groupby(
+                ["match_key", "alliance"]
+            ):
+                score_breakdown = api_client.match(
+                    f"{self._event_key}_{match_key}"
+                ).score_breakdown[alliance.lower()]
+
+                actual_teleop_cones = sum(
+                    [
+                        nodes.count("Cone")
+                        for nodes in score_breakdown["teleopCommunity"].values()
+                    ]
+                )
+                scouted_teleop_cones = len(
+                    sum(submissions_by_alliance["teleop_cones"], start=[])
+                )
+
+                actual_teleop_cubes = sum(
+                    [
+                        nodes.count("Cube")
+                        for nodes in score_breakdown["teleopCommunity"].values()
+                    ]
+                )
+                scouted_teleop_cubes = len(
+                    sum(submissions_by_alliance["teleop_cubes"], start=[])
+                )
+
+                if scouted_teleop_cones != actual_teleop_cones:
+                    self.add_error(
+                        f"In {match_key}, the {alliance.upper()} alliance was said to have scored "
+                        f"{scouted_teleop_cones} CONES during TELEOP but actually scored {actual_teleop_cones} CONES.",
+                        ErrorType.INCORRECT_DATA,
+                        match_key,
+                        alliance=alliance,
+                    )
+                if scouted_teleop_cubes != actual_teleop_cubes:
+                    self.add_error(
+                        f"In {match_key}, the {alliance.upper()} alliance was said to have scored "
+                        f"{scouted_teleop_cubes} CUBES during TELEOP but actually scored {actual_teleop_cubes} CUBES.",
+                        ErrorType.INCORRECT_DATA,
+                        match_key,
+                        alliance=alliance,
+                    )
+
+    # Non-TBA checks
     def check_for_invalid_defense_data(
         self,
         match_key: str,

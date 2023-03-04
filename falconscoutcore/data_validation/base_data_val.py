@@ -167,21 +167,27 @@ class BaseDataValidation(ABC):
         match_key: str,
         team_id: int = "N/A",
         scout_id: str = "N/A",
+        alliance: str = "N/A",
     ) -> None:
         """
         Adds an error to the dictionary containing all errors raised with data validation.
 
         :param error_type: Represents the error type (eg WARNING, CRITICAL, etc.). Value by default is ErrorType.ERROR.
         :param error_message: Message containing information about the error.
+        :param match_key: The key of the match where the error is being raised from.
+        :param team_id: The team number where the error is being raised from.
+        :param scout_id: The scout responsible for the error being raised.
+        :param alliance: The alliance where the error is being raised from.
         :return:
         """
         self.errors.append(
             {
-                "error_type": error_type._name_.replace("_", " "),
+                "error_type": error_type.name.replace("_", " "),
                 "message": error_message,
                 "match": match_key,
                 "scout_id": scout_id,
                 "team_id": team_id,
+                "alliance": alliance,
             }
         )
 
@@ -248,13 +254,3 @@ class BaseDataValidation(ABC):
         all_teams = list(map(lambda x: int(x[3:]), all_team_identifiers))
 
         return all_teams
-
-    @abstractmethod
-    def check_for_statistical_outliers(self) -> None:
-        """
-        Check and mark any statistical outliers across all teams' auto data.
-        Outliers are identified by the IQR method https://online.stat.psu.edu/stat200/lesson/3/3.2
-        Data points below Q1 and above Q3 are logged as possible errors. Point differentials are reported
-        separately across different parts of the game (i.e. autonomous, teleoperated, endgame).
-        """
-        pass
