@@ -18,6 +18,8 @@ class BaseDataValidation(ABC):
     Implements base checks explained below (e.g. checking if the scout scouted the right driver station.)
     """
 
+    RESCOUTING_ERROR_THRESHOLD = 10
+
     def __init__(self, path_to_config: str = "config.yaml"):
         # Basic attributes
         self.tba_match_data = {}
@@ -183,6 +185,7 @@ class BaseDataValidation(ABC):
         self.errors.append(
             {
                 "error_type": error_type.name.replace("_", " "),
+                "error_number": error_type.value,
                 "message": error_message,
                 "match": match_key,
                 "scout_id": scout_id,
@@ -198,6 +201,19 @@ class BaseDataValidation(ABC):
 
         :return: None
         """
+        # Add rescouting flag for matches with a 10 or more cumulative "error amount" (enum value).
+        error_dataframe = DataFrame.from_dict(self.errors)
+        for match_key, error_amount in (
+            error_dataframe.groupby("match")["error_number"].sum().iteritems()
+        ):
+            if error_amount >= self.RESCOUTING_ERROR_THRESHOLD:
+                self.add_error(
+                    f"In {match_key}, a cumulative amount of {error_amount} gathered "
+                    f"from ERRORS were found, this match should be RESCOUTED.",
+                    ErrorType.RESCOUT_MATCH,
+                    match_key,
+                )
+
         with open(self.path_to_output_file, "w") as file:
             dump(self.errors, file, indent=4)
 

@@ -1,10 +1,11 @@
 [
     {
         "error_type": "INCORRECT DATA",
-        "message": "In qm1, 4099 SCORING 28 CUBES AND CONES IS IMPOSSIBLE",
+        "error_number": 5,
+        "message": "In qm1, THE RED ALLIANCE HAS ONLY ONE ROBOT MARKED AS DOCKED/ENGAGED WHICH IS IMPOSSIBLE IN ENDGAME",
         "match": "qm1",
         "scout_id": "N/A",
-        "team_id": 4099,
+        "team_id": "N/A",
         "alliance": "N/A"
     }
 ]
