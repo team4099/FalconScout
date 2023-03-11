@@ -12,3 +12,6 @@ export { GenericRadioSelect }
 
 import GenericCheckboxSelect from "./GenericCheckboxSelect";
 export { GenericCheckboxSelect }
+
+import { ChargedUpGridSelect } from "./ChargedUpGridSelect";
+export { ChargedUpGridSelect }
