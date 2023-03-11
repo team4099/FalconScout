@@ -1,11 +1,2 @@
 [
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm1, THE RED ALLIANCE HAS ONLY ONE ROBOT MARKED AS DOCKED/ENGAGED WHICH IS IMPOSSIBLE IN ENDGAME",
-        "match": "qm1",
-        "scout_id": "N/A",
-        "team_id": "N/A",
-        "alliance": "N/A"
-    }
 ]

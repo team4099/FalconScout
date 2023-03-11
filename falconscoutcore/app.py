@@ -5,7 +5,7 @@ from csv import reader, writer
 from datetime import datetime
 
 import yaml
-from data_validation.data_val_2022 import DataValidation2022
+from data_validation.data_val_2023 import DataValidation2023
 from dotenv import load_dotenv
 from flask import Flask, jsonify, render_template, request
 from github import Github
@@ -19,8 +19,8 @@ DATA_JSON_FILE = config["data_config"]["json_file"]
 DATA_CSV_FILE = config["data_config"]["csv_file"]
 ERROR_JSON = config["data_config"]["error_json"]
 
-validation_by_year = {2022: DataValidation2022}
-path_to_config = "config.yaml"
+validation_by_year = {2023: DataValidation2023}
+path_to_config = "data_validation/config.yaml"
 
 with open(path_to_config) as file:
     data_validator = validation_by_year[yaml.safe_load(file)["year"]](path_to_config)

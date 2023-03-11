@@ -1,13 +1,13 @@
 # core setup features
-year: 2022
-event_code: "iri"
+year: 2023
+event_code: "mdbet"
 run_with_tba: False
-path_to_data: "../data/2022iri_match_data.json"
-path_to_output: "../data/errors.json"
+path_to_data: "data/2023mdbet_match_data.json"
+path_to_output: "data/errors.json"
 
 # required translation
-match_key: "match_key"
-team_number: "team_number"
+match_key: "MatchKey"
+team_number: "TeamNumber"
 
 # optional parameters - if it is needed for a data check and is
 # not listed, the check will not run
@@ -17,7 +17,7 @@ auto_cones: "auto_cones"
 auto_cubes: "auto_cubes"
 auto_misses: "auto_misses"
 auto_docked: "auto_docked"
-preloaded: "preloaded"
+preloaded: "Preloaded"
 auto_engaged: "auto_engaged"
 teleop_cubes: "teleop_cubes"
 teleop_cones: "teleop_cones"
@@ -27,9 +27,9 @@ docked: "docked"
 engaged: "engaged"
 
 # general game parameters
-alliance: "alliance"
-driver_station: "driver_station"
-defense_pct: "defense_pct"
-counter_defense_pct: "counter_defense_pct"
-defense_rating: "defense_rating"
-counter_defense_rating: "counter_defense_rating"
+alliance: "Alliance"
+driver_station: "DriverStation"
+defense_pct: "DefenseTime"
+counter_defense_pct: "DefendedTime"
+defense_rating: "DefenseRating"
+counter_defense_rating: "CounterDefenseRating"

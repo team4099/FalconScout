@@ -18,6 +18,7 @@ export function QRCodeModal(props: ComponentSetup){
                             viewBox={`0 0 256 256`}
                             className="h-[200px] w-[200px] mx-auto mb-4"
                         />
+                        <h1>{props.getValue["export"].text}</h1>
                     </div>
                 )
             }
