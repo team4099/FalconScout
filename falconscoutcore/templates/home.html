@@ -2,6 +2,27 @@
 
 {% block content %}
 
+<style>
+  .scrollbar::-webkit-scrollbar {
+    width: 15px;
+    height: 15px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: #e0e0e0;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #a0a0a0;
+    border-radius: 100vh;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #c0c0c0;
+  }
+</style>
+
 <div id="statusContainer" class="container h-10 w-full px-4 md:w-2/3 mx-auto absolute top-0 left-1/2 transform -translate-x-1/2 translate-y-1/2">
 </div>
 
@@ -20,7 +41,7 @@
 		  Scan
 		</h1>
 		<div class="max-w-[600px]">
-			<div class="overflow-x-auto overflow-y-scroll relative rounded-lg md:w-5/6 w-full h-[600px]">
+			<div class="overflow-x-auto overflow-y-scroll relative md:w-5/6 w-full h-[600px] max-h-screen scrollbar">
 				<table class="w-full text-sm text-left text-black">
 					<thead class="text-md text-black bg-gray-200">
 						<tr class="row">
@@ -55,7 +76,7 @@
 		</h1>
 		<div id="errorArea">
 			{% for i in errorData %}
-				<div class='rounded-xl bg-white border-2 border-gray-200 shadow-sm mb-4'>
+				<div class='rounded-xl bg-white border-2 {{ "border-red-800 drop-shadow-xl" if i["error_type"] == "RESCOUT MATCH" else "border-gray-200" }} shadow-sm mb-4'>
 					<div class="bg-white rounded-xl">
 						<h1 class="text-2xl font-semibold pt-4 px-4 w-full">
 							{{ i["message"] }}
@@ -104,7 +125,7 @@
 		setTimeout(
 			function () {
 				new Dismiss(document.getElementById(`status${id}`), options).hide();
-			}, 
+			},
 			2500
 		)
 		codeCount += 1
@@ -264,7 +285,7 @@
 						setStatusTimeout(codeCount)
 
 						getErrors()
-						
+
 					}
 					else {
 						statusContainer.innerHTML += `

@@ -27,27 +27,26 @@ class DataValidation2023(BaseDataValidation):
         # Converts JSON to DataFrame
         scouting_data = DataFrame.from_dict(scouting_data)
 
-        self.auto_charge_station_checks(scouting_data)
-        self.check_if_engaged_but_not_docked(scouting_data)
-        self.check_for_inconsistent_engaged(scouting_data)
-        self.check_if_engaged_for_only_one_robot(scouting_data)
+        if not scouting_data.empty:
+            self.auto_charge_station_checks(scouting_data)
+            self.check_for_inconsistent_engaged(scouting_data)
 
-        # Validates individual submissions
-        for _, submission in scouting_data.iterrows():
-            if not submission[self.config["team_number"]]:
-                self.add_error(
-                    f"NO TEAM NUMBER for match {submission[self.config['match_key']]}",
-                    error_type=ErrorType.CRITICAL,
-                )
-                continue
+            # Validates individual submissions
+            for _, submission in scouting_data.iterrows():
+                if not submission[self.config["team_number"]]:
+                    self.add_error(
+                        f"NO TEAM NUMBER for match {submission[self.config['match_key']]}",
+                        error_type=ErrorType.CRITICAL,
+                    )
+                    continue
 
-            self.validate_submission(submission)
+                self.validate_submission(submission)
 
-        if self._run_with_tba:
-            self.tba_validate_auto_game_pieces_scored(scouting_data)
-            self.tba_validate_teleop_game_pieces_scored(scouting_data)
+            if self._run_with_tba:
+                self.tba_validate_auto_game_pieces_scored(scouting_data)
+                self.tba_validate_teleop_game_pieces_scored(scouting_data)
 
-        self.output_errors()
+            self.output_errors()
 
     def validate_submission(self, submission: Series) -> None:
         """
@@ -62,7 +61,6 @@ class DataValidation2023(BaseDataValidation):
             preloaded=submission[self.config["preloaded"]],
             auto_cones=submission[self.config["auto_cones"]],
             auto_cubes=submission[self.config["auto_cubes"]],
-            auto_misses=submission[self.config["auto_misses"]],
         )
 
         self.check_for_invalid_defense_data(
@@ -89,16 +87,16 @@ class DataValidation2023(BaseDataValidation):
                 team_number=submission[self.config["team_number"]],
                 alliance=submission[self.config["alliance"]],
                 driver_station=submission[self.config["driver_station"]],
-                auto_docked=submission[self.config["auto_docked"]],
-                auto_engaged=submission[self.config["auto_engaged"]],
+                auto_charging_state=submission[self.config["auto_charging_state"]],
             )
             self.tba_validate_endgame_charge_station_state(
                 match_key=submission[self.config["match_key"]],
                 team_number=submission[self.config["team_number"]],
                 alliance=submission[self.config["alliance"]],
                 driver_station=submission[self.config["driver_station"]],
-                docked=submission[self.config["docked"]],
-                engaged=submission[self.config["engaged"]],
+                endgame_charging_state=submission[
+                    self.config["endgame_charging_state"]
+                ],
             )
 
     # TBA checks
@@ -108,8 +106,7 @@ class DataValidation2023(BaseDataValidation):
         team_number: int,
         alliance: str,
         driver_station: int,
-        auto_docked: bool,
-        auto_engaged: bool,
+        auto_charging_state: str,
     ) -> None:
         """
         Validates the state of any robots during autonomous if they were said to have docked/engaged with TBA data.
@@ -118,8 +115,7 @@ class DataValidation2023(BaseDataValidation):
         :param team_number: Number of team that was scouted (eg 4099).
         :param alliance: The name of the alliance the team scouted was on.
         :param driver_station: The corresponding driver station of the team scouted (eg 1 for Red 1).
-        :param auto_docked: Whether or not the team scouted got onto the charge station during autonomous.
-        :param auto_engaged: Whether or not the team scouted was level on the charge station during autonomous.
+        :param auto_charging_state: The state the robot is in at the end of Autonomous in regards to the Charge Station.
         :return:
         """
         with self.api_client as api_client:
@@ -132,14 +128,14 @@ class DataValidation2023(BaseDataValidation):
             engaged_state = score_breakdown["autoBridgeState"] == "Level"
 
             # Using XOR (^) here because we want to check for only when the two states are differing.
-            if auto_docked ^ docked_state:
+            if (auto_charging_state == "Docked") ^ docked_state:
                 self.add_error(
                     f"In {match_key}, {team_number} has an incorrect DOCKED state during AUTO based on TBA data.",
                     ErrorType.INCORRECT_DATA,
                     match_key,
                     team_number,
                 )
-            if auto_engaged ^ engaged_state:
+            if (auto_charging_state == "Engaged") ^ engaged_state:
                 self.add_error(
                     f"In {match_key}, {team_number} has an incorrect ENGAGED state during AUTO based on TBA data.",
                     ErrorType.INCORRECT_DATA,
@@ -153,8 +149,7 @@ class DataValidation2023(BaseDataValidation):
         team_number: int,
         alliance: str,
         driver_station: int,
-        docked: bool,
-        engaged: bool,
+        endgame_charging_state: str,
     ) -> None:
         """
         Validates the state of any robots during endgame if they were said to have docked/engaged with TBA.
@@ -163,8 +158,7 @@ class DataValidation2023(BaseDataValidation):
         :param team_number: Number of team that was scouted (eg 4099).
         :param alliance: The name of the alliance the team scouted was on.
         :param driver_station: The corresponding driver station of the team scouted (eg 1 for Red 1).
-        :param docked: Whether or not the team scouted got onto the charge station during endgame.
-        :param engaged: Whether or not the team scouted was level on the charge station during endgame.
+        :param endgame_charging_state: The state the robot is in at the end of Teleop in regards to the Charge Station.
         :return:
         """
         with self.api_client as api_client:
@@ -178,14 +172,14 @@ class DataValidation2023(BaseDataValidation):
             engaged_state = score_breakdown["endGameBridgeState"] == "Level"
 
             # Using XOR (^) here because we want to check for only when the two states are differing.
-            if docked ^ docked_state:
+            if (endgame_charging_state == "Docked") ^ docked_state:
                 self.add_error(
                     f"In {match_key}, {team_number} has an incorrect DOCKED state during ENDGAME based on TBA data.",
                     ErrorType.INCORRECT_DATA,
                     match_key,
                     team_number,
                 )
-            if engaged ^ engaged_state:
+            if (endgame_charging_state == "Engaged") ^ engaged_state:
                 self.add_error(
                     f"In {match_key}, {team_number} has an incorrect ENGAGED state during ENDGAME based on TBA data.",
                     ErrorType.INCORRECT_DATA,
@@ -205,7 +199,7 @@ class DataValidation2023(BaseDataValidation):
         """
         with self.api_client as api_client:
             for (match_key, alliance), submissions_by_alliance in scouting_data.groupby(
-                ["match_key", "alliance"]
+                [self.config["match_key"], self.config["alliance"]]
             ):
                 score_breakdown = api_client.match(
                     f"{self._event_key}_{match_key}"
@@ -260,7 +254,7 @@ class DataValidation2023(BaseDataValidation):
         """
         with self.api_client as api_client:
             for (match_key, alliance), submissions_by_alliance in scouting_data.groupby(
-                ["match_key", "alliance"]
+                [self.config["match_key"], self.config["alliance"]]
             ):
                 score_breakdown = api_client.match(
                     f"{self._event_key}_{match_key}"
@@ -391,7 +385,6 @@ class DataValidation2023(BaseDataValidation):
         preloaded: bool,
         auto_cones: list,
         auto_cubes: list,
-        auto_misses: list,
     ) -> None:
         """
         Checks if the amount of game pieces the robot attempted to score in auto is "reasonable".
@@ -401,11 +394,10 @@ class DataValidation2023(BaseDataValidation):
         :param preloaded: Whether or not the robot was preloaded with a game piece.
         :param auto_cones: List containing the type of node where the cone was placed onto in auto.
         :param auto_cubes: List containing the type of node where the cube was placed onto in auto.
-        :param auto_misses: List containing the type of node and the type of game piece that the robot missed in auto.
         :return:
         """
         # Checks the # of attempted cones + cubes placed in auto
-        pieces_attempted_in_auto = len(auto_cones) + len(auto_cubes) + len(auto_misses)
+        pieces_attempted_in_auto = len(auto_cones) + len(auto_cubes)
 
         # Checks if either the number of pieces attempted > 4 despite no preloaded or if it's > 5
         if (
@@ -479,19 +471,21 @@ class DataValidation2023(BaseDataValidation):
         :return:
         """
         for (match_key, alliance), submissions_by_alliance in scouting_data.groupby(
-            ["match_key", "alliance"]
+            [self.config["match_key"], self.config["alliance"]]
         ):
             # Ensure that only one robot was marked off as docked/engaged
             if (
                 len(
                     submissions_by_alliance[
-                        submissions_by_alliance[self.config["auto_docked"]] == True
+                        submissions_by_alliance[self.config["auto_charging_state"]]
+                        == "Docked"
                     ]
                 )
                 > 1
                 or len(
                     submissions_by_alliance[
-                        submissions_by_alliance[self.config["auto_engaged"]] == True
+                        submissions_by_alliance[self.config["auto_charging_state"]]
+                        == "Engaged"
                     ]
                 )
                 > 1
@@ -505,22 +499,6 @@ class DataValidation2023(BaseDataValidation):
                     match_key,
                 )
 
-            # Check for any robots marked as engaged but not docked
-            for _, submission in submissions_by_alliance.iterrows():
-                if (
-                    submission[self.config["auto_docked"]] == False
-                    and submission[self.config["auto_engaged"]] == True
-                ):
-                    self.add_error(
-                        (
-                            f"In {match_key}, {submission[self.config['team_number']]} WAS MARKED"
-                            f" AS ENGAGED DESPITE NOT DOCKING IN AUTO"
-                        ),
-                        ErrorType.INCORRECT_DATA,
-                        match_key,
-                        submission[self.config["team_number"]],
-                    )
-
     def check_if_engaged_but_not_docked(self, scouting_data: DataFrame) -> None:
         """
         Checks if a robot was marked as engaged but not docked in the endgame.
@@ -529,7 +507,7 @@ class DataValidation2023(BaseDataValidation):
         :return:
         """
         for (match_key, alliance), submissions_by_alliance in scouting_data.groupby(
-            ["match_key", "alliance"]
+            [self.config["match_key"], self.config["alliance"]]
         ):
             for _, submission in submissions_by_alliance.iterrows():
                 if (
@@ -543,36 +521,6 @@ class DataValidation2023(BaseDataValidation):
                         submission[self.config["team_number"]],
                     )
 
-    def check_if_engaged_for_only_one_robot(self, scouting_data: DataFrame) -> None:
-        """
-        Checks if a robot was marked as engaged in Endgame even though only one robot was marked as docked (impossible).
-
-        :param scouting_data: A Pandas dataframe containing the scouting submissions.
-        :return:
-        """
-        for (match_key, alliance), submissions_by_alliance in scouting_data.groupby(
-            ["match_key", "alliance"]
-        ):
-            robots_docked = len(
-                submissions_by_alliance[
-                    submissions_by_alliance[self.config["docked"]] == True
-                ]
-            )
-            robots_engaged = len(
-                submissions_by_alliance[
-                    submissions_by_alliance[self.config["engaged"]] == True
-                ]
-            )
-            if robots_engaged == 1 and robots_docked == 1:
-                self.add_error(
-                    (
-                        f"In {match_key}, THE {alliance.upper()} ALLIANCE HAS ONLY ONE ROBOT MARKED AS DOCKED/ENGAGED"
-                        " WHICH IS IMPOSSIBLE IN ENDGAME"
-                    ),
-                    ErrorType.INCORRECT_DATA,
-                    match_key,
-                )
-
     def check_for_inconsistent_engaged(self, scouting_data: DataFrame) -> None:
         """
         Checks if two or more robots were marked as docked but one was marked as engaged whilst the other wasn't.
@@ -581,16 +529,18 @@ class DataValidation2023(BaseDataValidation):
         :return:
         """
         for (match_key, alliance), submissions_by_alliance in scouting_data.groupby(
-            ["match_key", "alliance"]
+            [self.config["match_key"], self.config["alliance"]]
         ):
             robots_docked = len(
                 submissions_by_alliance[
-                    submissions_by_alliance[self.config["docked"]] == True
+                    submissions_by_alliance[self.config["endgame_charging_state"]]
+                    == "Docked"
                 ]
             )
             robots_engaged = len(
                 submissions_by_alliance[
-                    submissions_by_alliance[self.config["engaged"]] == True
+                    submissions_by_alliance[self.config["endgame_charging_state"]]
+                    == "Engaged"
                 ]
             )
 

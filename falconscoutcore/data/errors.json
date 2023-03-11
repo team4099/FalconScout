@@ -1,2 +1,128 @@
 [
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 8,
+        "message": "In qm1, a cumulative amount of 15 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm1",
+        "scout_id": "N/A",
+        "team_id": "N/A",
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 8,
+        "message": "In qm2, a cumulative amount of 20 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm2",
+        "scout_id": "N/A",
+        "team_id": "N/A",
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 8,
+        "message": "In qm4, a cumulative amount of 20 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm4",
+        "scout_id": "N/A",
+        "team_id": "N/A",
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm2, 4999 SCORING 38 CONES IS IMPOSSIBLE",
+        "match": "qm2",
+        "scout_id": "N/A",
+        "team_id": 4999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm1, 4999 SCORING 34 CONES IS IMPOSSIBLE",
+        "match": "qm1",
+        "scout_id": "N/A",
+        "team_id": 4999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm4, 4999 27 CONES AND CUBES BEING ATTEMPTED IN AUTO IS IMPOSSIBLE",
+        "match": "qm4",
+        "scout_id": "N/A",
+        "team_id": 4999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm1, 4999 22 CONES AND CUBES BEING ATTEMPTED IN AUTO IS IMPOSSIBLE",
+        "match": "qm1",
+        "scout_id": "N/A",
+        "team_id": 4999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm2, 4999 SCORING 16 CUBES IS IMPOSSIBLE",
+        "match": "qm2",
+        "scout_id": "N/A",
+        "team_id": 4999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm4, 4999 SCORING 38 CONES IS IMPOSSIBLE",
+        "match": "qm4",
+        "scout_id": "N/A",
+        "team_id": 4999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm4, 4999 SCORING 54 CUBES AND CONES IS IMPOSSIBLE",
+        "match": "qm4",
+        "scout_id": "N/A",
+        "team_id": 4999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm4, 4999 SCORING 16 CUBES IS IMPOSSIBLE",
+        "match": "qm4",
+        "scout_id": "N/A",
+        "team_id": 4999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm2, 4999 SCORING 54 CUBES AND CONES IS IMPOSSIBLE",
+        "match": "qm2",
+        "scout_id": "N/A",
+        "team_id": 4999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm2, 4999 27 CONES AND CUBES BEING ATTEMPTED IN AUTO IS IMPOSSIBLE",
+        "match": "qm2",
+        "scout_id": "N/A",
+        "team_id": 4999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm1, 4999 SCORING 44 CUBES AND CONES IS IMPOSSIBLE",
+        "match": "qm1",
+        "scout_id": "N/A",
+        "team_id": 4999,
+        "alliance": "N/A"
+    }
 ]

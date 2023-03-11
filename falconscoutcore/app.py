@@ -9,6 +9,7 @@ from data_validation.data_val_2023 import DataValidation2023
 from dotenv import load_dotenv
 from flask import Flask, jsonify, render_template, request
 from github import Github
+from pandas import DataFrame
 
 g = Github(os.getenv("GITHUB_KEY"))
 
@@ -35,7 +36,6 @@ def home():
 
     data_validator.validate_data(file_data)
 
-    tableData = []
     scanRawData = []
 
     for row in file_data:
@@ -43,8 +43,6 @@ def home():
 
     with open(ERROR_JSON, "r") as file:
         errorData = json.load(file)
-
-    print(errorData[-20:])
 
     return render_template(
         "home.html",
@@ -61,16 +59,18 @@ def process_scan():
     if request.method == "POST":
         try:
             scan_info = request.get_json()
-            split_scan = scan_info["scan_text"].split(config["data_config"]["delimiter"])
+            split_scan = scan_info["scan_text"].split(
+                config["data_config"]["delimiter"]
+            )
             for i in range(len(split_scan)):
                 try:
                     try:
                         split_scan[i] = int(split_scan[i])
                     except ValueError:
                         split_scan[i] = float(split_scan[i])
-                except:
-                    pass
-            print(split_scan)
+                except Exception as e:
+                    print(e)
+
             if len(split_scan) != len(config["data_config"]["data_labels"]):
                 # 110: Data points in scan are too short and do not fit data label list size
                 return jsonify(
@@ -80,6 +80,61 @@ def process_scan():
             data_map = dict(zip(config["data_config"]["data_labels"], split_scan))
             data_map["scanRaw"] = scan_info["scan_text"]
             data_map["uuid"] = str(uuid.uuid4())
+            # Commas in values will cause the CSV to error out
+            data_map["AutoGrid"] = data_map["AutoGrid"].replace(",", "|")
+            data_map["TeleopGrid"] = data_map["TeleopGrid"].replace(",", "|")
+
+            positions_to_names = {"L": "Low", "M": "Mid", "H": "High"}
+
+            auto_cones = []
+            auto_cubes = []
+
+            try:
+                for game_piece in data_map["AutoGrid"].split("|"):
+                    position = game_piece[1]
+
+                    if "cone" in game_piece:
+                        auto_cones.append(positions_to_names[position])
+                    elif "cube" in game_piece:
+                        auto_cubes.append(positions_to_names[position])
+                    elif int(game_piece[0]) % 2 != 0:
+                        auto_cones.append(positions_to_names[position])
+                    else:
+                        auto_cubes.append(positions_to_names[position])
+            except Exception as e:
+                return jsonify(
+                    {
+                        "action_code": "200",
+                        "result": [
+                            "Error while Scanning",
+                            f"{type(e).__name__} caused, check your code.",
+                        ],
+                    }
+                )
+
+            data_map["AutoCones"] = auto_cones
+            data_map["AutoCubes"] = auto_cubes
+
+            teleop_cones = []
+            teleop_cubes = []
+
+            for game_piece in data_map["TeleopGrid"].split("|"):
+                position = game_piece[1]
+
+                if "cone" in game_piece:
+                    teleop_cones.append(positions_to_names[position])
+                elif "cube" in game_piece:
+                    teleop_cubes.append(positions_to_names[position])
+                elif int(game_piece[0]) % 2 != 0:
+                    teleop_cones.append(positions_to_names[position])
+                else:
+                    teleop_cubes.append(positions_to_names[position])
+
+            data_map["TeleopCones"] = teleop_cones
+            data_map["TeleopCubes"] = teleop_cubes
+
+            # Fix match key parsing
+            data_map["MatchKey"] = data_map["MatchKey"].replace(",", "")
 
             with open(DATA_JSON_FILE, "r+") as file:
                 file_data = json.load(file)
@@ -87,12 +142,11 @@ def process_scan():
                 file.seek(0)
                 json.dump(file_data, file, indent=4)
 
-            with open(DATA_CSV_FILE, "a") as file:
-                new_data_map = data_map
-                new_data_map.pop("scanRaw")
-                writer_file = writer(file)
-                writer_file.writerow(new_data_map.values())
-                file.close()
+            data_df = DataFrame.from_dict(file_data)
+            data_df.drop(
+                columns=["AutoCones", "AutoCubes", "TeleopCones", "TeleopCubes"]
+            )
+            data_df.to_csv(DATA_CSV_FILE)
 
             data_validator.validate_data(scouting_data=[data_map])
 
@@ -100,7 +154,7 @@ def process_scan():
                 {
                     "action_code": "200",
                     "result": ["100", "scan read well"],
-                    "scanInfo": data_map
+                    "scanInfo": data_map,
                 }
             )
 

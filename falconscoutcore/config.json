@@ -34,7 +34,7 @@
         "error_json": "./data/errors.json"
     },
     "repo_config": {
-        "repo": "Team4099/ScoutingAppData",
+        "repo": "team4099/ScoutingAppData",
         "update_csv": "2023mdbet_match_data.csv",
         "update_json": "2023mdbet_match_data.json"
     }
