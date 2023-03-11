@@ -13,8 +13,8 @@ team_number: "TeamNumber"
 # not listed, the check will not run
 
 # Charged Up 2023: hyper-specific parameters
-auto_cones: "TeleopCones"
-auto_cubes: "TeleopCubes"
+auto_cones: "AutoCones"
+auto_cubes: "AutoCubes"
 auto_charging_state: "AutoChargingState"
 preloaded: "Preloaded"
 teleop_cones: "TeleopCones"

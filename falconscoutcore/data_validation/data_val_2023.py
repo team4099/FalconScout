@@ -406,8 +406,8 @@ class DataValidation2023(BaseDataValidation):
         ) or pieces_attempted_in_auto > 5:
             self.add_error(
                 (
-                    f"In {match_key}, {team_number} {pieces_attempted_in_auto} CONES AND CUBES BEING"
-                    f" ATTEMPTED IN AUTO IS IMPOSSIBLE"
+                    f"In {match_key}, {team_number} SCORING {pieces_attempted_in_auto} CONES AND CUBES"
+                    f" IN AUTO IS IMPOSSIBLE"
                 ),
                 ErrorType.INCORRECT_DATA,
                 match_key,

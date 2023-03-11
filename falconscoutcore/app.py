@@ -57,6 +57,10 @@ def home():
 @app.route("/process_scan", methods=["POST"])
 def process_scan():
     if request.method == "POST":
+        # Retrieve file data to check for 
+        with open(DATA_JSON_FILE, "r") as file:
+            file_data = json.load(file)
+
         try:
             scan_info = request.get_json()
             split_scan = scan_info["scan_text"].split(
@@ -84,6 +88,12 @@ def process_scan():
             data_map["AutoGrid"] = data_map["AutoGrid"].replace(",", "|")
             data_map["TeleopGrid"] = data_map["TeleopGrid"].replace(",", "|")
 
+            if (data_map in file_data):
+                # Check for if the qrcode was already scanned
+                return jsonify(
+                    {"action_code": "200", "result": ["This QRcode has already scanned before."]}
+                )
+            
             auto_grid = data_map["AutoGrid"].split("|")
             positions_to_names = {"L": "Low", "M": "Mid", "H": "High"}
             teleop_grid = data_map["TeleopGrid"].split("|")
@@ -91,28 +101,20 @@ def process_scan():
             auto_cones = []
             auto_cubes = []
 
-            try:
-                for game_piece in auto_grid:
-                    position = game_piece[1]
+            for game_piece in auto_grid:
+                if not game_piece:
+                    continue
+                
+                position = game_piece[1]
 
-                    if "cone" in game_piece:
-                        auto_cones.append(positions_to_names[position])
-                    elif "cube" in game_piece:
-                        auto_cubes.append(positions_to_names[position])
-                    elif int(game_piece[0]) % 2 != 0:
-                        auto_cones.append(positions_to_names[position])
-                    else:
-                        auto_cubes.append(positions_to_names[position])
-            except Exception as e:
-                return jsonify(
-                    {
-                        "action_code": "200",
-                        "result": [
-                            "Error while Scanning",
-                            f"{type(e).__name__} caused, check your code.",
-                        ],
-                    }
-                )
+                if "cone" in game_piece:
+                    auto_cones.append(positions_to_names[position])
+                elif "cube" in game_piece:
+                    auto_cubes.append(positions_to_names[position])
+                elif int(game_piece[0]) % 2 != 0:
+                    auto_cones.append(positions_to_names[position])
+                else:
+                    auto_cubes.append(positions_to_names[position])
 
             data_map["AutoCones"] = auto_cones
             data_map["AutoCubes"] = auto_cubes
@@ -121,6 +123,9 @@ def process_scan():
             teleop_cubes = []
 
             for game_piece in teleop_grid:
+                if not game_piece:
+                    continue
+
                 position = game_piece[1]
 
                 if "cone" in game_piece:
@@ -135,7 +140,7 @@ def process_scan():
             data_map["TeleopCones"] = teleop_cones
             data_map["TeleopCubes"] = teleop_cubes
 
-            if data_map["Alliance"] == "Red":
+            if data_map["Alliance"].lower() == "red":
                 auto_grid_reversed = [f"{9 - int(position[0]) + 1}{position[1:]}" for position in auto_grid]
                 teleop_grid_reversed = [f"{9 - int(position[0]) + 1}{position[1:]}" for position in teleop_grid]
 
