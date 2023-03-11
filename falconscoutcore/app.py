@@ -84,13 +84,15 @@ def process_scan():
             data_map["AutoGrid"] = data_map["AutoGrid"].replace(",", "|")
             data_map["TeleopGrid"] = data_map["TeleopGrid"].replace(",", "|")
 
+            auto_grid = data_map["AutoGrid"].split("|")
             positions_to_names = {"L": "Low", "M": "Mid", "H": "High"}
+            teleop_grid = data_map["TeleopGrid"].split("|")
 
             auto_cones = []
             auto_cubes = []
 
             try:
-                for game_piece in data_map["AutoGrid"].split("|"):
+                for game_piece in auto_grid:
                     position = game_piece[1]
 
                     if "cone" in game_piece:
@@ -118,7 +120,7 @@ def process_scan():
             teleop_cones = []
             teleop_cubes = []
 
-            for game_piece in data_map["TeleopGrid"].split("|"):
+            for game_piece in teleop_grid:
                 position = game_piece[1]
 
                 if "cone" in game_piece:
@@ -132,6 +134,13 @@ def process_scan():
 
             data_map["TeleopCones"] = teleop_cones
             data_map["TeleopCubes"] = teleop_cubes
+
+            if data_map["Alliance"] == "Red":
+                auto_grid_reversed = [f"{9 - int(position[0]) + 1}{position[1:]}" for position in auto_grid]
+                teleop_grid_reversed = [f"{9 - int(position[0]) + 1}{position[1:]}" for position in teleop_grid]
+
+                data_map["AutoGrid"] = "|".join(auto_grid_reversed)
+                data_map["TeleopGrid"] = "|".join(teleop_grid_reversed)
 
             # Fix match key parsing
             data_map["MatchKey"] = data_map["MatchKey"].replace(",", "")

@@ -18,7 +18,7 @@ class BaseDataValidation(ABC):
     Implements base checks explained below (e.g. checking if the scout scouted the right driver station.)
     """
 
-    RESCOUTING_ERROR_THRESHOLD = 10
+    RESCOUTING_ERROR_THRESHOLD = 15
 
     def __init__(self, path_to_config: str = "config.yaml"):
         # Basic attributes
@@ -214,19 +214,20 @@ class BaseDataValidation(ABC):
         # Add rescouting flag for matches with a 10 or more cumulative "error amount" (enum value).
         error_dataframe = DataFrame.from_dict(self.errors)
 
-        for match_key, error_amount in (
-            error_dataframe[error_dataframe["error_type"] != "RESCOUT MATCH"]
-            .groupby("match")["error_number"]
-            .sum()
-            .items()
-        ):
-            if error_amount >= self.RESCOUTING_ERROR_THRESHOLD:
-                self.add_error(
-                    f"In {match_key}, a cumulative amount of {error_amount} gathered "
-                    f"from ERRORS were found, this match should be RESCOUTED.",
-                    ErrorType.RESCOUT_MATCH,
-                    match_key,
-                )
+        if not error_dataframe.empty:
+            for match_key, error_amount in (
+                error_dataframe[error_dataframe["error_type"] != "RESCOUT MATCH"]
+                .groupby("match")["error_number"]
+                .sum()
+                .items()
+            ):
+                if error_amount >= self.RESCOUTING_ERROR_THRESHOLD:
+                    self.add_error(
+                        f"In {match_key}, a cumulative amount of {error_amount} gathered "
+                        f"from ERRORS were found, this match should be RESCOUTED.",
+                        ErrorType.RESCOUT_MATCH,
+                        match_key,
+                    )
 
         self.remove_duplicate_errors()
 

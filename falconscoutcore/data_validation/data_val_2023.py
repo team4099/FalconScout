@@ -36,7 +36,8 @@ class DataValidation2023(BaseDataValidation):
                 if not submission[self.config["team_number"]]:
                     self.add_error(
                         f"NO TEAM NUMBER for match {submission[self.config['match_key']]}",
-                        error_type=ErrorType.CRITICAL,
+                        ErrorType.CRITICAL,
+                        submission[self.config["match_key"]]
                     )
                     continue
 
