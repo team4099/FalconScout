@@ -18,7 +18,7 @@ class BaseDataValidation(ABC):
     Implements base checks explained below (e.g. checking if the scout scouted the right driver station.)
     """
 
-    RESCOUTING_ERROR_THRESHOLD = 15
+    RESCOUTING_ERROR_THRESHOLD = 20
 
     def __init__(self, path_to_config: str = "config.yaml"):
         # Basic attributes
@@ -35,6 +35,7 @@ class BaseDataValidation(ABC):
             "path_to_data",
             f"data/{self.config['year']}{self.config['event_code']}_match_data.json",
         )
+        self.run_datawide_checks = False
         self.df = read_json(self.path_to_data_file)
 
         self._event_key = str(self.config["year"]) + self.config["event_code"]
@@ -55,8 +56,9 @@ class BaseDataValidation(ABC):
 
                 if self._run_with_tba:
                     self.get_match_schedule_tba()
-                else:
-                    self.get_match_schedule_file()
+        
+        if not self._run_with_tba:
+            self.get_match_schedule_file()
 
     @abstractmethod
     def validate_data(self, scouting_data: list = None) -> None:
@@ -126,16 +128,16 @@ class BaseDataValidation(ABC):
         data_by_match_key = defaultdict(lambda: defaultdict(list))
 
         for _, submission in scouting_data.iterrows():
-            if notna(submission["match_key"]):
-                data_by_match_key[submission["match_key"].strip().lower()][
-                    submission["alliance"].lower()
+            if notna(submission[self.config["match_key"]]):
+                data_by_match_key[submission[self.config["match_key"]].strip().lower()][
+                    submission[self.config["alliance"]].lower()
                 ].append(submission)
 
         for match_key, match_data in data_by_match_key.items():
             for alliance in ("red", "blue"):
                 teams = self.match_schedule[f"{self._event_key}_{match_key}"][alliance]
                 team_numbers = [
-                    submission["team_number"] for submission in match_data[alliance]
+                    submission[self.config["team_number"]] for submission in match_data[alliance]
                 ]
 
                 if len(match_data[alliance]) > 3:
@@ -150,7 +152,7 @@ class BaseDataValidation(ABC):
                         )
                 elif len(match_data[alliance]) < 3:
                     team_numbers = [
-                        f"frc{submission['team_number']}"
+                        f"frc{submission[self.config['team_number']]}"
                         for submission in match_data[alliance]
                     ]
 
@@ -234,7 +236,7 @@ class BaseDataValidation(ABC):
         with open(self.path_to_output_file, "w") as file:
             dump(
                 sorted(
-                    self.errors, key=lambda error: error["error_type"], reverse=True
+                    self.errors, key=lambda error: (error["error_type"], error["match"]), reverse=True
                 ),
                 file,
                 indent=4,

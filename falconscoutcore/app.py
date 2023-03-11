@@ -104,7 +104,7 @@ def process_scan():
             for game_piece in auto_grid:
                 if not game_piece:
                     continue
-                
+
                 position = game_piece[1]
 
                 if "cone" in game_piece:
@@ -141,8 +141,15 @@ def process_scan():
             data_map["TeleopCubes"] = teleop_cubes
 
             if data_map["Alliance"].lower() == "red":
-                auto_grid_reversed = [f"{9 - int(position[0]) + 1}{position[1:]}" for position in auto_grid]
-                teleop_grid_reversed = [f"{9 - int(position[0]) + 1}{position[1:]}" for position in teleop_grid]
+                if auto_grid != [""]:
+                    auto_grid_reversed = [f"{9 - int(position[0]) + 1}{position[1:]}" for position in auto_grid]
+                else:
+                    auto_grid_reversed = []
+
+                if teleop_grid != [""]:
+                    teleop_grid_reversed = [f"{9 - int(position[0]) + 1}{position[1:]}" for position in teleop_grid]
+                else:
+                    teleop_grid_reversed = []
 
                 data_map["AutoGrid"] = "|".join(auto_grid_reversed)
                 data_map["TeleopGrid"] = "|".join(teleop_grid_reversed)
@@ -160,6 +167,11 @@ def process_scan():
             data_df.drop(
                 columns=["AutoCones", "AutoCubes", "TeleopCones", "TeleopCubes"]
             )
+            data_df["AutoNotes"] = data_df["AutoNotes"].astype(str).apply(lambda note: note.replace(",", ""))
+            data_df["TeleopNotes"] = data_df["TeleopNotes"].astype(str).apply(lambda note: note.replace(",", ""))
+            data_df["EndgameNotes"] = data_df["EndgameNotes"].astype(str).apply(lambda note: note.replace(",", ""))
+            data_df["RatingNotes"] = data_df["RatingNotes"].astype(str).apply(lambda note: note.replace(",", ""))
+            
             data_df.to_csv(DATA_CSV_FILE)
 
             data_validator.validate_data(scouting_data=[data_map])
