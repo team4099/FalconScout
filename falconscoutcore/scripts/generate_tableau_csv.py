@@ -140,6 +140,10 @@ with open("../data/2023mdbet_match_data.json") as file:
     scouting_data = load(file)
 
     for submission in scouting_data:
+        submission["Preloaded"] = int(submission["Preloaded"] == "true")
+        submission["Mobile"] = int(submission["Mobile"] == "true")
+        submission["Disable"] = int(submission["Disable"] == "true")
+
         auto_grid = submission["AutoGrid"].split("|")
 
         for header in headers:
@@ -268,10 +272,5 @@ with open("../data/2023mdbet_match_data.json") as file:
             "RatingNotes",
         ]
     ]
-    submission_df.rename(
-        {
-            original_name: new_name
-            for original_name, new_name in zip(submission_df.columns, new_headers)
-        }
-    )
+    submission_df.columns = new_headers
     submission_df.to_csv("../data/tableau_data.csv")
