@@ -1,1 +1,1 @@
-# File created purely for the reason to make tests/ a package in order to be able to import DataValidation classes.
+# This file purely exists to make the tests folder a package for importing the data validation classes.

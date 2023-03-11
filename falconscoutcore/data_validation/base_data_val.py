@@ -1,6 +1,4 @@
 from abc import ABC, abstractmethod
-from json import dump, load
-from pandas import DataFrame, Series
 from collections import defaultdict
 from itertools import chain
 from json import dump, load
@@ -10,7 +8,7 @@ import falcon_alliance
 import pandas as pd
 import yaml
 from data_validation.config.utils import ErrorType
-from pandas import isna, notna, read_json
+from pandas import DataFrame, Series, isna, notna, read_json
 
 
 class BaseDataValidation(ABC):
@@ -19,6 +17,8 @@ class BaseDataValidation(ABC):
 
     Implements base checks explained below (e.g. checking if the scout scouted the right driver station.)
     """
+
+    RESCOUTING_ERROR_THRESHOLD = 10
 
     def __init__(self, path_to_config: str = "config.yaml"):
         # Basic attributes
@@ -102,7 +102,7 @@ class BaseDataValidation(ABC):
                 f"In {match_key}, {team_number} was NOT IN MATCH on the {alliance} alliance",
                 ErrorType.MISSING_DATA,
                 match_key,
-                team_number
+                team_number,
             )
 
         elif (team_number) != teams_on_alliance[driver_station - 1]:
@@ -110,82 +110,10 @@ class BaseDataValidation(ABC):
                 f"In {match_key}, {team_number} INCONSISTENT DRIVER STATION with schedule",
                 ErrorType.INCORRECT_DATA,
                 match_key,
-                team_number
+                team_number,
             )
 
         self.teams = self.get_teams()
-
-    def check_for_invalid_defense_data(
-        self,
-        match_key: str,
-        team_number: int,
-        defense_pct: float,
-        defense_rating: float,
-        counter_defense_pct: float,
-        counter_defense_rating: float,
-    ) -> None:
-        """
-        Checks if scouter gave defense or counter defense rating but stated that the robot didn't play defense/counter defense.
-        Checks if scouter stated that robot played defense or counter defense but didn't give a corresponding rating.
-        Checks if total defense played + counter defense played > 100% hence impossible.
-
-        :param match_key: Key of match that was scouted.
-        :param team_number: Number of team that was scouted (eg 4099).
-        :param defense_pct: Decimal representing how much the scouted team played defense out of 1 (eg 0.75)
-        :param defense_rating: Representing how well the scouted team played defense on a scale of 1 to 5.
-        :param counter_defense_pct: Decimal representing how much the scouted team played counter defense out of 1 (eg 0.75)
-        :param counter_defense_rating: Representing how well the scouted team played counter defense on a scale of 1 to 5.
-        :return: None
-        """  # noqa
-        # Check for 0% defense pct but given rating.
-        if notna(defense_rating) and isna(defense_pct):
-            self.add_error(
-                f"In {match_key}, {team_number} rated for defense but NO DEFENSE PCT",
-                ErrorType.MISSING_DATA,
-                match_key,
-                team_number
-            )
-
-        # Check for missing defense rating.
-        if isna(defense_rating) and notna(defense_rating):
-            self.add_error(
-                f"In {match_key}, {team_number} MISSING DEFENSE RATING",
-                ErrorType.MISSING_DATA,
-                match_key,
-                team_number
-            )
-
-        # Check for 0% counter defense pct but given rating.
-        if notna(counter_defense_rating) and isna(counter_defense_pct):
-            self.add_error(
-                f"In {match_key}, {team_number} "
-                f"rated for counter defense but NO COUNTER DEFENSE PCT",
-                ErrorType.MISSING_DATA,
-                match_key,
-                team_number
-            )
-
-        # Check for missing counter defense rating.
-        if notna(counter_defense_pct) and isna(counter_defense_rating):
-            self.add_error(
-                f"In {match_key}, {team_number} MISSING COUNTER DEFENSE RATING",
-                ErrorType.MISSING_DATA,
-                match_key,
-                team_number
-            )
-
-        # Inconsistent defense + counter defense pct.
-        if (
-            notna(defense_pct)
-            and notna(counter_defense_pct)
-            and (defense_pct + counter_defense_pct) > 1
-        ):
-            self.add_error(
-                f"In {match_key}, {team_number} DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-                ErrorType.INCORRECT_DATA,
-                match_key,
-                team_number
-            )
 
     def check_team_numbers_for_each_match(self, scouting_data: pd.DataFrame) -> None:
         """
@@ -217,7 +145,7 @@ class BaseDataValidation(ABC):
                             f"In {match_key}, frc{double_scouted} was DOUBLE SCOUTED",
                             ErrorType.EXTRA_DATA,
                             match_key,
-                            double_scouted
+                            double_scouted,
                         )
                 elif len(match_data[alliance]) < 3:
                     team_numbers = [
@@ -231,24 +159,38 @@ class BaseDataValidation(ABC):
                                 f"In {match_key}, {team} was NOT SCOUTED",
                                 ErrorType.MISSING_DATA,
                                 match_key,
-                                team
+                                team,
                             )
 
-    def add_error(self, error_message: str, error_type: ErrorType, match_key: str, team_id: int, scout_id: str = "N/A") -> None:
+    def add_error(
+        self,
+        error_message: str,
+        error_type: ErrorType,
+        match_key: str,
+        team_id: int = "N/A",
+        scout_id: str = "N/A",
+        alliance: str = "N/A",
+    ) -> None:
         """
         Adds an error to the dictionary containing all errors raised with data validation.
 
         :param error_type: Represents the error type (eg WARNING, CRITICAL, etc.). Value by default is ErrorType.ERROR.
         :param error_message: Message containing information about the error.
+        :param match_key: The key of the match where the error is being raised from.
+        :param team_id: The team number where the error is being raised from.
+        :param scout_id: The scout responsible for the error being raised.
+        :param alliance: The alliance where the error is being raised from.
         :return:
         """
         self.errors.append(
             {
-                "error_type": error_type._name_.replace("_", " "),
+                "error_type": error_type.name.replace("_", " "),
+                "error_number": error_type.value,
                 "message": error_message,
                 "match": match_key,
                 "scout_id": scout_id,
-                "team_id": team_id
+                "team_id": team_id,
+                "alliance": alliance,
             }
         )
 
@@ -259,6 +201,19 @@ class BaseDataValidation(ABC):
 
         :return: None
         """
+        # Add rescouting flag for matches with a 10 or more cumulative "error amount" (enum value).
+        error_dataframe = DataFrame.from_dict(self.errors)
+        for match_key, error_amount in (
+            error_dataframe.groupby("match")["error_number"].sum().iteritems()
+        ):
+            if error_amount >= self.RESCOUTING_ERROR_THRESHOLD:
+                self.add_error(
+                    f"In {match_key}, a cumulative amount of {error_amount} gathered "
+                    f"from ERRORS were found, this match should be RESCOUTED.",
+                    ErrorType.RESCOUT_MATCH,
+                    match_key,
+                )
+
         with open(self.path_to_output_file, "w") as file:
             dump(self.errors, file, indent=4)
 
@@ -315,13 +270,3 @@ class BaseDataValidation(ABC):
         all_teams = list(map(lambda x: int(x[3:]), all_team_identifiers))
 
         return all_teams
-
-    @abstractmethod
-    def check_for_statistical_outliers(self) -> None:
-        """
-        Check and mark any statistical outliers across all teams' auto data.
-        Outliers are identified by the IQR method https://online.stat.psu.edu/stat200/lesson/3/3.2
-        Data points below Q1 and above Q3 are logged as possible errors. Point differentials are reported
-        separately across different parts of the game (i.e. autonomous, teleoperated, endgame).
-        """
-        pass

@@ -1,7 +1,9 @@
 # core setup features
 year: 2022
 event_code: "iri"
-run_with_tba: True
+run_with_tba: False
+path_to_data: "../data/2022iri_match_data.json"
+path_to_output: "../data/errors.json"
 
 # required translation
 match_key: "match_key"
@@ -10,17 +12,19 @@ team_number: "team_number"
 # optional parameters - if it is needed for a data check and is
 # not listed, the check will not run
 
-# Rapid React 2022: hyper-specific parameters
-auto_lower_hub: "auto_lower_hub"
-auto_upper_hub: "auto_upper_hub"
+# Charged Up 2023: hyper-specific parameters
+auto_cones: "auto_cones"
+auto_cubes: "auto_cubes"
 auto_misses: "auto_misses"
-auto_shooting_zones: "auto_shooting_zones"
-teleop_lower_hub: "teleop_lower_hub"
-teleop_upper_hub: "teleop_upper_hub"
+auto_docked: "auto_docked"
+preloaded: "preloaded"
+auto_engaged: "auto_engaged"
+teleop_cubes: "teleop_cubes"
+teleop_cones: "teleop_cones"
 teleop_misses: "teleop_misses"
-teleop_shooting_zones: "teleop_shooting_zones"
-taxied: "taxied"
-final_climb_type: "final_climb_type"
+mobile: "mobile"
+docked: "docked"
+engaged: "engaged"
 
 # general game parameters
 alliance: "alliance"
