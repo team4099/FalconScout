@@ -18,7 +18,7 @@ class BaseDataValidation(ABC):
     Implements base checks explained below (e.g. checking if the scout scouted the right driver station.)
     """
 
-    RESCOUTING_ERROR_THRESHOLD = 10
+    RESCOUTING_ERROR_THRESHOLD = 15
 
     def __init__(self, path_to_config: str = "config.yaml"):
         # Basic attributes
@@ -38,24 +38,25 @@ class BaseDataValidation(ABC):
         self.df = read_json(self.path_to_data_file)
 
         self._event_key = str(self.config["year"]) + self.config["event_code"]
-        # Determines both if were using tba for match shedule and whether we're running tba checks
-        self._run_with_tba = self.config.get("run_with_tba", True)
+        # Determines both if were using tba for match schedule and whether we're running tba checks
+        self._run_with_tba = self.config.get("run_with_tba", False)
 
         # Setting up FalconAlliance (our connection to TBA) and retrieving match schedule
         self.api_client = falcon_alliance.ApiClient(
             api_key="6lcmneN5bBDYpC47FolBxp2RZa4AbQCVpmKMSKw9x9btKt7da5yMzVamJYk0XDBm"  # for testing purposes
         )
 
-        with self.api_client:
-            # make sure tba isn't down
-            self._run_with_tba = (
-                self._event_key not in self.api_client.status().down_events
-            )
+        if self._run_with_tba:
+            with self.api_client:
+                # make sure tba isn't down
+                self._run_with_tba = (
+                    self._event_key not in self.api_client.status().down_events
+                )
 
-            if self._run_with_tba:
-                self.get_match_schedule_tba()
-            else:
-                self.get_match_schedule_file()
+                if self._run_with_tba:
+                    self.get_match_schedule_tba()
+                else:
+                    self.get_match_schedule_file()
 
     @abstractmethod
     def validate_data(self, scouting_data: list = None) -> None:
@@ -162,6 +163,13 @@ class BaseDataValidation(ABC):
                                 team,
                             )
 
+    def remove_duplicate_errors(self) -> None:
+        """Edits self.errors to remove any duplicate errors found."""
+        self.errors = [
+            dict(error)
+            for error in set([tuple(error.items()) for error in self.errors])
+        ]
+
     def add_error(
         self,
         error_message: str,
@@ -201,21 +209,36 @@ class BaseDataValidation(ABC):
 
         :return: None
         """
+        self.remove_duplicate_errors()
+
         # Add rescouting flag for matches with a 10 or more cumulative "error amount" (enum value).
         error_dataframe = DataFrame.from_dict(self.errors)
-        for match_key, error_amount in (
-            error_dataframe.groupby("match")["error_number"].sum().iteritems()
-        ):
-            if error_amount >= self.RESCOUTING_ERROR_THRESHOLD:
-                self.add_error(
-                    f"In {match_key}, a cumulative amount of {error_amount} gathered "
-                    f"from ERRORS were found, this match should be RESCOUTED.",
-                    ErrorType.RESCOUT_MATCH,
-                    match_key,
-                )
+
+        if not error_dataframe.empty:
+            for match_key, error_amount in (
+                error_dataframe[error_dataframe["error_type"] != "RESCOUT MATCH"]
+                .groupby("match")["error_number"]
+                .sum()
+                .items()
+            ):
+                if error_amount >= self.RESCOUTING_ERROR_THRESHOLD:
+                    self.add_error(
+                        f"In {match_key}, a cumulative amount of {error_amount} gathered "
+                        f"from ERRORS were found, this match should be RESCOUTED.",
+                        ErrorType.RESCOUT_MATCH,
+                        match_key,
+                    )
+
+        self.remove_duplicate_errors()
 
         with open(self.path_to_output_file, "w") as file:
-            dump(self.errors, file, indent=4)
+            dump(
+                sorted(
+                    self.errors, key=lambda error: error["error_type"], reverse=True
+                ),
+                file,
+                indent=4,
+            )
 
     def get_match_schedule_tba(self) -> None:
         """

@@ -1,7 +1,7 @@
 # core setup features
 year: 2023
 event_code: "mdbet"
-run_with_tba: False
+run_with_tba: false
 path_to_data: "data/2023mdbet_match_data.json"
 path_to_output: "data/errors.json"
 
@@ -13,18 +13,14 @@ team_number: "TeamNumber"
 # not listed, the check will not run
 
 # Charged Up 2023: hyper-specific parameters
-auto_cones: "auto_cones"
-auto_cubes: "auto_cubes"
-auto_misses: "auto_misses"
-auto_docked: "auto_docked"
+auto_cones: "TeleopCones"
+auto_cubes: "TeleopCubes"
+auto_charging_state: "AutoChargingState"
 preloaded: "Preloaded"
-auto_engaged: "auto_engaged"
-teleop_cubes: "teleop_cubes"
-teleop_cones: "teleop_cones"
-teleop_misses: "teleop_misses"
-mobile: "mobile"
-docked: "docked"
-engaged: "engaged"
+teleop_cones: "TeleopCones"
+teleop_cubes: "TeleopCubes"
+mobile: "Mobile"
+endgame_charging_state: "EndgameFinalCharge"
 
 # general game parameters
 alliance: "Alliance"
