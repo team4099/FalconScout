@@ -4,8 +4,9 @@ import { Link } from "react-router-dom"
 import { DarkButton } from "../buttons"
 import { DropdownTextInput, GenericTextArea, GenericTextInput, IncrementNumberInput, SliderInput } from "../inputs"
 import { ComponentSetup, PageSetup } from "../interface"
-import { GenericCheckboxSelect, GenericDropdown, GenericRadioSelect, GenericToggle } from "../selects"
-import { GenericHeaderOne, GenericHeaderTwo, QRCodeModal } from "../texts"
+import { GenericCheckboxSelect, GenericDropdown, GenericRadioSelect, GenericToggle, ChargedUpGridSelect } from "../selects"
+import { GenericHeaderOne, GenericHeaderTwo, QRCodeModal, Timer } from "../texts"
+import { CycleCounter } from "../monitor"
 
 interface ImportedComponentSetup extends ComponentSetup {
     type: string;
@@ -24,7 +25,10 @@ export function Page(props: PageSetup){
         "GenericRadioSelect": [GenericRadioSelect, ""],
         "GenericToggle": [GenericToggle, false],
         "GenericHeaderOne": [GenericHeaderOne, ""],
-        "GenericHeaderTwo": [GenericHeaderTwo, ""]
+        "GenericHeaderTwo": [GenericHeaderTwo, ""],
+        "CycleCounter": [CycleCounter, ""],
+        "Timer": [Timer, ""],
+        "ChargedUpGridSelect": [ChargedUpGridSelect, []]
     }
 
     let componentSetup: any = {}

@@ -1,12 +1,15 @@
 [
     {
-        "name": "Pit Scouting",
-        "description": "Gather qualitative data on robots in pits.",
+        "name": "2023 Scouting App",
+        "description": "Team 4099: The Falcon's 2023 scouting data collection page",
         "components": [
             {
                 "type": "GenericHeaderOne",
-                "text": "Pit Scouting",
-                "id": "titleheader"
+                "text": "2023 Scouting App"
+            },
+            {
+                "type": "GenericHeaderTwo",
+                "text": "Match Info"
             },
             {
                 "type": "GenericTextInput",
@@ -14,251 +17,51 @@
                 "placeholder": [
                     "Pranav"
                 ],
-                "id": "scoutid"
+                "id": "ScoutId"
             },
             {
-                "type": "GenericTextInput",
-                "text": "Team Name",
-                "placeholder": [
-                    "The Falcons"
-                ],
-                "id": "teamname"
-            },
-            {
-                "type": "GenericTextInput",
-                "text": "Team Number",
-                "placeholder": [
-                    "4099"
-                ],
-                "id": "teamnumber"
-            },
-            {
-                "type": "Spacing"
-            },
-            {
-                "type": "GenericHeaderTwo",
-                "text": "Controls",
-                "id": "controlsheader"
-            },
-            {
-                "type": "GenericTextInput",
-                "text": "How many backup batteries",
-                "placeholder": [
-                    "4"
-                ],
-                "id": "batterycount"
-            },
-            {
-                "type": "GenericCheckboxSelect",
-                "text": "Autos",
+                "type": "DropdownTextInput",
+                "text": "Match Key",
                 "options": [
-                    "1 ball",
-                    "2 ball",
-                    "3 ball",
-                    "4 ball",
-                    "5 ball",
-                    "6 ball",
-                    "1 ball steal",
-                    "2 ball stall",
-                    "gremlin auto",
-                    "counter auto"
+                    "qm",
+                    "qf",
+                    "sf",
+                    "f"
                 ],
-                "id": "autoselect"
+                "placeholder": [
+                    "number"
+                ],
+                "id": "MatchKey"
             },
             {
                 "type": "GenericRadioSelect",
-                "text": "Language",
+                "text": "Alliance",
                 "options": [
-                    "C++",
-                    "Java",
-                    "Labview",
-                    "Kotlin",
-                    "Python"
+                    "red",
+                    "blue"
                 ],
-                "id": "languageselect"
+                "id": "Alliance"
             },
             {
-                "type": "Spacing"
-            },
-            {
-                "type": "GenericHeaderTwo",
-                "text": "Mech",
-                "id": "mechheader"
-            },
-            {
-                "type": "GenericRadioSelect",
-                "text": "Drivetrain",
-                "options": [
-                    "swerve",
-                    "tank",
-                    "rhino",
-                    "mecanum",
-                    "omni"
-                ],
-                "id": "drivetrainselect"
-            },
-            {
-                "type": "GenericRadioSelect",
-                "text": "Intake Method",
-                "options": [
-                    "single intake from ground",
-                    "double intake from ground",
-                    "terminal intake"
-                ],
-                "id": "intakeselect"
-            },
-            {
-                "type": "GenericCheckboxSelect",
-                "text": "Max Cargo Storage",
+                "type": "GenericDropdown",
+                "text": "Driver Station",
                 "options": [
                     "1",
                     "2",
                     "3"
                 ],
-                "id": "cargoselect"
+                "id": "DriverStation"
+            },
+            {
+                "type": "GenericTextInput",
+                "text": "Team Number",
+                "placeholder": [
+                    "9999"
+                ],
+                "id": "TeamNumber"
             },
             {
                 "type": "Spacing"
-            },
-            {
-                "type": "GenericHeaderTwo",
-                "text": "Strategy",
-                "id": "strategyheader"
-            },
-            {
-                "type": "GenericCheckboxSelect",
-                "text": "Which hub",
-                "options": [
-                    "Upper Hub",
-                    "Lower Hub"
-                ],
-                "id": "hubselect"
-            },
-            {
-                "type": "GenericCheckboxSelect",
-                "text": "Shooting zones",
-                "options": [
-                    "tarmac",
-                    "fender",
-                    "terminal",
-                    "launchpad",
-                    "elsewhere"
-                ],
-                "id": "zoneselect"
-            },
-            {
-                "type": "GenericRadioSelect",
-                "text": "Max Climb level",
-                "options": [
-                    "low",
-                    "mid",
-                    "high",
-                    "traversal",
-                    "no climb"
-                ],
-                "id": "climbselect"
-            },
-            {
-                "type": "SliderInput",
-                "text": "Climb time",
-                "options": [
-                    "0",
-                    "15"
-                ],
-                "id": "climbtime"
-            },
-            {
-                "type": "GenericTextArea",
-                "text": "Other notes",
-                "placeholder": [
-                    "4099 robot bad"
-                ],
-                "id": "robotnotes"
-            },
-            {
-                "type": "DarkButton",
-                "text": "Submit",
-                "id": "result"
-            }
-        ],
-        "export": {
-            "order": ["scoutid", "teamname", "robotnotes"],
-            "delimiter": ";"
-
-        }
-    },
-    {
-        "name": "Match Scouting",
-        "description": "Gather data on robots during matches. Data used for quantitative metrics in alliance selection.",
-        "components": [
-            {
-                "type": "GenericHeaderOne",
-                "text": "Match Scouting",
-                "id": "titleheader"
-            },
-            {
-                "type": "GenericTextInput",
-                "text": "Scout Name",
-                "placeholder": [
-                    "Pranav"
-                ],
-                "id": "scoutid"
-            },
-            {
-                "type": "GenericTextInput",
-                "text": "Team Number",
-                "placeholder": [
-                    "4099"
-                ],
-                "id": "teamnumber"
-            },
-            {
-                "type": "DarkButton",
-                "text": "Submit",
-                "id": "result"
-            }
-        ],
-        "export": {
-            "delimiter": ";"
-
-        }
-    },
-    {
-        "name": "2018 Scouting Page",
-        "description": "Collect general data for each match",
-        "components": [
-            {
-                "type": "GenericHeaderOne",
-                "text": "2018 Scouting Page"
-            },
-            {
-                "type": "GenericTextInput",
-                "text": "Scout Name",
-                "placeholder": [
-                    "pranav"
-                ],
-                "id": "scoutid"
-            },
-            {
-                "type": "DropdownTextInput",
-                "text": "Match Key",
-                "id": "matchkey",
-                "options": ["qm", "qf", "sf", "f"],
-                "placeholder": ["match id"]
-            },
-            {
-                "type": "GenericRadioSelect",
-                "text": "Alliance",
-                "id": "alliance",
-                "options": ["red", "blue"]
-            },
-            {
-                "type": "GenericTextInput",
-                "text": "Team Number",
-                "placeholder": [
-                    "4099"
-                ],
-                "id": "teamnumber"
             },
             {
                 "type": "GenericHeaderTwo",
@@ -266,293 +69,218 @@
             },
             {
                 "type": "GenericToggle",
-                "text": "Preloaded Cargo?",
-                "id": "preloadedcargo"
+                "text": "Preloaded",
+                "id": "Preloaded"
             },
-            {   
+            {
+                "type": "ChargedUpGridSelect",
+                "text": "Auto Grid",
+                "id": "AutoGrid"
+            },
+            {
+                "type": "IncrementNumberInput",
+                "text": "Auto Missed",
+                "placeholder": ["0"],
+                "id": "AutoMissed"
+            },
+            {
                 "type": "GenericToggle",
-                "text": "Line Crossed?",
-                "id": "linecrossed"
+                "text": "Mobile",
+                "id": "Mobile"
             },
             {
-                "type": "IncrementNumberInput",
-                "text": "Switch Blocks",
-                "id": "switchauto",
-                "placeholder": ["0"]
-            },
-            {
-                "type": "IncrementNumberInput",
-                "text": "Scale Blocks",
-                "id": "scaleauto",
-                "placeholder": ["0"]
+                "type": "GenericRadioSelect",
+                "text": "Robot Charging Pad State",
+                "options": [
+                    "Docked",
+                    "Engaged",
+                    "None"
+                ],
+                "id": "AutoChargingState"
             },
             {
                 "type": "GenericTextArea",
                 "text": "Auto Notes",
-                "placeholder": ["Notes"],
-                "id": "autonotes"
-
+                "id": "AutoNotes"
+            },
+            {
+                "type": "Spacing"
+            },
+            {
+                "type": "Spacing"
             },
             {
                 "type": "GenericHeaderTwo",
-                "text": "Tele Ops"
+                "text": "Teleop"
+            },
+            {
+                "type": "ChargedUpGridSelect",
+                "text": "Teleop Grid",
+                "id": "TeleopGrid"
             },
             {
                 "type": "IncrementNumberInput",
-                "text": "Switch Blocks",
-                "id": "switchteleop",
-                "placeholder": ["0"]
+                "text": "Teleop Missed",
+                "placeholder": ["0"],
+                "id": "TeleopMissed"
             },
             {
-                "type": "IncrementNumberInput",
-                "text": "Opposing Alliance Switch Blocks",
-                "id": "oppswitch",
-                "placeholder": ["0"]
+                "type": "GenericRadioSelect",
+                "text": "Robot Charging Pad State",
+                "options": [
+                    "Docked",
+                    "Engaged",
+                    "None"
+                ],
+                "id": "TeleopChargingState"
             },
             {
-                "type": "IncrementNumberInput",
-                "text": "Exchange Port",
-                "id": "exchangeportteleop",
-                "placeholder": ["0"]
+                "type": "GenericTextArea",
+                "text": "Teleop Notes",
+                "id": "TeleopNotes"
+            },
+            {
+                "type": "Spacing"
+            },
+            {
+                "type": "Spacing"
             },
             {
                 "type": "GenericHeaderTwo",
                 "text": "Endgame"
             },
             {
-                "type": "GenericRadioSelect",
-                "text": "Attemped Climb",
-                "id": "attempedClimb",
-                "options": ["none", "park","carried", "climb"]
+                "type": "Timer"
+            },
+            {
+                "type": "GenericCheckboxSelect",
+                "text": "Attempted Charge",
+                "options": [
+                    "Dock",
+                    "Engage"
+                ],
+                "id": "EndgameAttemptedCharge"
             },
             {
                 "type": "GenericRadioSelect",
-                "text": "Final Climb",
-                "id": "finalClimb",
-                "options": ["none", "park", "levitate", "carried", "climb"]
+                "text": "Final Charge",
+                "options": [
+                    "None",
+                    "Dock",
+                    "Engage",
+                    "Parked"
+                ],
+                "id": "EndgameFinalCharge"
             },
             {
-                "type": "GenericToggle",
-                "text": "Carried another Robot?",
-                "id": "carryanotherrobot"
+                "type": "GenericTextInput",
+                "text": "Final Charge Time",
+                "id": "EndgameChargeTime"
             },
             {
                 "type": "GenericTextArea",
                 "text": "Endgame Notes",
-                "placeholder": ["Notes"],
-                "id": "endgamenotes"
+                "id": "EndgameNotes"
+            },
+            {
+                "type": "Spacing"
             },
             {
                 "type": "GenericHeaderTwo",
-                "text": "Misc.",
-                "id": "mischeader"
+                "text": "Ratings"
+            },
+            {
+                "type": "GenericToggle",
+                "text": "Did they disable",
+                "id": "Disable"
             },
             {
                 "type": "SliderInput",
-                "text": "Driver Rating",
+                "text": "How much do they play defense",
                 "options": [
                     "0",
-                    "5"
+                    "100"
                 ],
-                "id": "driverrating"
+                "id": "DefenseTime"
             },
             {
                 "type": "SliderInput",
-                "text": "Defense Time",
+                "text": "Defense rating",
                 "options": [
                     "0",
-                    "5"
+                    "100"
                 ],
-                "id": "defensetime"
+                "id": "DefenseRating"
             },
             {
                 "type": "SliderInput",
-                "text": "Defense Rating",
+                "text": "How much were they defended",
                 "options": [
                     "0",
-                    "5"
+                    "100"
                 ],
-                "id": "defenserating"
+                "id": "DefendedTime"
             },
             {
                 "type": "SliderInput",
-                "text": "Counter Defense Time",
+                "text": "Counter defense rating",
                 "options": [
                     "0",
-                    "5"
+                    "100"
                 ],
-                "id": "counterdefensetime"
+                "id": "CounterDefenseRating"
             },
             {
                 "type": "SliderInput",
-                "text": "Counter Defense Rating",
+                "text": "How well do they drive",
                 "options": [
                     "0",
-                    "5"
+                    "100"
                 ],
-                "id": "counterdefenserating"
+                "id": "DriverRating"
+            },
+            {
+                "type": "GenericTextArea",
+                "text": "Rating Notes",
+                "id": "RatingNotes"
             },
             {
                 "type": "DarkButton",
                 "text": "Submit",
                 "id": "result"
             }
+            
         ],
         "export": {
-            "order": ["scoutid", "alliance"],
-            "delimiter": ";"
-        }
-    },
-    {
-        "name": "All Components",
-        "description": "Every component for view and testing",
-        "components": [
-            {
-                "type": "GenericHeaderOne",
-                "text": "All Component Test"
-            },
-            {
-                "type": "Spacing"
-            },
-            {
-                "type": "GenericHeaderTwo",
-                "text": "Headers"
-            },
-            {
-                "type": "GenericHeaderOne",
-                "text": "GenericHeaderOne"
-            },
-            {
-                "type": "GenericHeaderTwo",
-                "text": "GenericHeaderTwo"
-            },
-            {
-                "type": "Spacing"
-            },
-            {
-                "type": "GenericHeaderTwo",
-                "text": "Selects"
-            },
-            {
-                "type": "GenericCheckboxSelect",
-                "text": "GenericCheckBoxSelect",
-                "options": [
-                    "Option 1",
-                    "Option 2",
-                    "Option 3",
-                    "Option 4",
-                    "Option 5"
-                ],
-                "id": "GenericCheckboxSelect"
-            },
-            {
-                "type": "GenericDropdown",
-                "text": "GenericDropdown",
-                "options": [
-                    "Option 1",
-                    "Option 2",
-                    "Option 3",
-                    "Option 4",
-                    "Option 5"
-                ],
-                "id": "GenericDropdown"
-            },
-            {
-                "type": "GenericRadioSelect",
-                "text": "GenericRadioSelect",
-                "options": [
-                    "Option 1",
-                    "Option 2",
-                    "Option 3",
-                    "Option 4",
-                    "Option 5"
-                ],
-                "id": "GenericRadioSelect"
-            },
-            {
-                "type": "GenericToggle",
-                "text": "GenericToggle",
-                "id": "GenericToggle"
-            },
-            {
-                "type": "Spacing"
-            },
-            {
-                "type": "GenericHeaderTwo",
-                "text": "Inputs"
-            },
-            {
-                "type": "DropdownTextInput",
-                "text": "DropdownTextInput",
-                "options": [
-                    "Option 1",
-                    "Option 2",
-                    "Option 3",
-                    "Option 4",
-                    "Option 5"
-                ],
-                "placeholder": ["type"],
-                "id": "DropdownTextInput"
-            },
-            {
-                "type": "GenericTextInput",
-                "text": "GenericTextInput",
-                "placeholder": ["Wowerz"],
-                "id": "GenericTextInput"
-            },
-            {
-                "type": "GenericTextArea",
-                "text": "GenericTextArea",
-                "placeholder": ["Wowerz"],
-                "id": "GenericTextArea"
-            },
-            {
-                "type": "IncrementNumberInput",
-                "text": "IncrementNumberInput",
-                "placeholder": ["0"],
-                "id": "IncrementNumberInput"
-            },
-            {
-                "type": "SliderInput",
-                "text": "SliderInput",
-                "options": [
-                    "0", 
-                    "20"
-                ],
-                "id": "SliderInput"
-            },
-            {
-                "type": "Spacing"
-            },
-            {
-                "type": "GenericHeaderTwo",
-                "text": "Buttons"
-            },
-            {
-                "type": "DarkButton",
-                "text": "Normal DarkButton",
-                "id": "DarkButton"
-            },
-            {
-                "type": "DarkButton",
-                "text": "Submit DarkButton",
-                "id": "result"
-            }
-        ],
-        "export": {
+            "delimiter": "|",
             "order": [
-                "GenericCheckboxSelect", 
-                "GenericDropdown", 
-                "GenericRadioSelect",
-                "GenericToggle",
-                "DropdownTextInput",
-                "GenericTextInput",
-                "GenericTextArea",
-                "IncrementNumberInput",
-                "SliderInput"
-            ],
-            "delimiter": "  "
-
+                "ScoutId",
+                "MatchKey",
+                "Alliance",
+                "DriverStation",
+                "TeamNumber",
+                "Preloaded",
+                "AutoGrid",
+                "AutoMissed",
+                "Mobile",
+                "AutoChargingState",
+                "AutoNotes",
+                "TeleopGrid",
+                "TeleopMissed",
+                "TeleopChargingState",
+                "TeleopNotes",
+                "EndgameAttemptedCharge",
+                "EndgameFinalCharge",
+                "EndgameChargeTime",
+                "EndgameNotes",
+                "Disable",
+                "DefenseTime",
+                "DefenseRating",
+                "DefendedTime",
+                "CounterDefenseRating",
+                "DriverRating",
+                "RatingNotes"
+            ]
         }
     }
 ]
