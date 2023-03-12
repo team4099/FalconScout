@@ -134,7 +134,6 @@ class BaseDataValidation(ABC):
                 ].append(submission)
 
         for match_key, match_data in data_by_match_key.items():
-            raise Exception(match_key)
             for alliance in ("red", "blue"):
                 teams = self.match_schedule[f"{self._event_key}_{match_key}"][alliance]
                 team_numbers = [
