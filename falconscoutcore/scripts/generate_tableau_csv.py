@@ -84,8 +84,9 @@ new_headers = [
     "Auto LCone7",
     "Auto LCone8",
     "Auto LCone9",
+    "Auto Misses",
     "Mobile",
-    "Auto Charging State",
+    "Auto Final Charge",
     "Auto Notes",
     "Teleop H1",
     "Teleop H2",
@@ -123,8 +124,10 @@ new_headers = [
     "Teleop LCone7",
     "Teleop LCone8",
     "Teleop LCone9",
+    "Teleop Misses",
     "Teleop Notes",
     "Endgame Attempted",
+    "Endgame Final Charge",
     "Final Charge Time",
     "Endgame Notes",
     "Disable",
@@ -176,6 +179,8 @@ with open("../data/2023mdbet_match_data.json") as file:
         submission.pop("TeleopGrid")
 
     submission_df = pd.DataFrame.from_dict(scouting_data)
+    submission_df.drop("TeleopChargingState", axis=1)
+
     submission_df = submission_df[
         [
             "ScoutId",
@@ -220,6 +225,7 @@ with open("../data/2023mdbet_match_data.json") as file:
             "Auto LCone7",
             "Auto LCone8",
             "Auto LCone9",
+            "AutoMissed",
             "Mobile",
             "AutoChargingState",
             "AutoNotes",
@@ -259,8 +265,10 @@ with open("../data/2023mdbet_match_data.json") as file:
             "Teleop LCone7",
             "Teleop LCone8",
             "Teleop LCone9",
+            "TeleopMissed",
             "TeleopNotes",
             "EndgameAttemptedCharge",
+            "EndgameFinalCharge",
             "EndgameChargeTime",
             "EndgameNotes",
             "Disable",
@@ -272,5 +280,6 @@ with open("../data/2023mdbet_match_data.json") as file:
             "RatingNotes",
         ]
     ]
+    
     submission_df.columns = new_headers
     submission_df.to_csv("../data/tableau_data.csv")

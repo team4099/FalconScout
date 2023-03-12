@@ -50,7 +50,7 @@ def home():
         scanRawData=scanRawData,
         tableData=file_data[::-1],
         tableHeaderData=config["data_config"]["data_labels"],
-        errorData=errorData[-20:],
+        errorData=errorData[:20],
     )
 
 
@@ -213,7 +213,7 @@ def sync_github():
             repo.update_file(
                 contents.path,
                 f'updated data @ {datetime.now().strftime("%m/%d/%Y, %H:%M:%S")}',
-                str(file_json_data),
+                str(file_json_data).replace("'", '"'),
                 contents.sha,
             )
 

@@ -35,7 +35,7 @@ class BaseDataValidation(ABC):
             "path_to_data",
             f"data/{self.config['year']}{self.config['event_code']}_match_data.json",
         )
-        self.run_datawide_checks = False
+        self.run_datawide_checks = True
         self.df = read_json(self.path_to_data_file)
 
         self._event_key = str(self.config["year"]) + self.config["event_code"]
@@ -134,6 +134,7 @@ class BaseDataValidation(ABC):
                 ].append(submission)
 
         for match_key, match_data in data_by_match_key.items():
+            raise Exception(match_key)
             for alliance in ("red", "blue"):
                 teams = self.match_schedule[f"{self._event_key}_{match_key}"][alliance]
                 team_numbers = [
@@ -236,7 +237,7 @@ class BaseDataValidation(ABC):
         with open(self.path_to_output_file, "w") as file:
             dump(
                 sorted(
-                    self.errors, key=lambda error: (error["error_type"], error["match"]), reverse=True
+                    self.errors, key=lambda error: int(error["match"].replace("qm", "")), reverse=True
                 ),
                 file,
                 indent=4,
