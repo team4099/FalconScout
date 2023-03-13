@@ -373,7 +373,7 @@ class DataValidation2023(BaseDataValidation):
         if (
             notna(defense_pct)
             and notna(counter_defense_pct)
-            and (defense_pct + counter_defense_pct) > 1
+            and (defense_pct + counter_defense_pct) > 100
         ):
             self.add_error(
                 f"In {match_key}, {team_number} DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",

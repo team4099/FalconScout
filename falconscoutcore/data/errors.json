@@ -1,29 +1,155 @@
 [
     {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm67, 1111 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
+        "match": "qm67",
+        "scout_id": "N/A",
+        "team_id": 1111,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm66, 620 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
+        "match": "qm66",
+        "scout_id": "N/A",
+        "team_id": 620,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm66, 1389 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
+        "match": "qm66",
+        "scout_id": "N/A",
+        "team_id": 1389,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm66, 8514 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
+        "match": "qm66",
+        "scout_id": "N/A",
+        "team_id": 8514,
+        "alliance": "N/A"
+    },
+    {
         "error_type": "MISSING DATA",
         "error_number": 6,
-        "message": "In qm48, frc2377 was NOT SCOUTED",
-        "match": "qm48",
+        "message": "In qm66, 449 MISSING COUNTER DEFENSE RATING",
+        "match": "qm66",
         "scout_id": "N/A",
-        "team_id": "frc2377",
+        "team_id": 449,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 8,
+        "message": "In qm66, a cumulative amount of 21 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm66",
+        "scout_id": "N/A",
+        "team_id": "N/A",
         "alliance": "N/A"
     },
     {
         "error_type": "INCORRECT DATA",
         "error_number": 5,
-        "message": "In qm47, 1446 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm47",
+        "message": "In qm64, THE BLUE ALLIANCE MARKED MORE THAN ONE ROBOT AS DOCKED/ENGAGED IN AUTO",
+        "match": "qm64",
         "scout_id": "N/A",
-        "team_id": 1446,
+        "team_id": "N/A",
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "MISSING DATA",
+        "error_number": 6,
+        "message": "In qm62, 8622 MISSING DEFENSE RATING",
+        "match": "qm62",
+        "scout_id": "N/A",
+        "team_id": 8622,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "MISSING DATA",
+        "error_number": 6,
+        "message": "In qm60, 5830 rated for counter defense but NO COUNTER DEFENSE PCT",
+        "match": "qm60",
+        "scout_id": "N/A",
+        "team_id": 5830,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "MISSING DATA",
+        "error_number": 6,
+        "message": "In qm58, 1908 MISSING COUNTER DEFENSE RATING",
+        "match": "qm58",
+        "scout_id": "N/A",
+        "team_id": 1908,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "MISSING DATA",
+        "error_number": 6,
+        "message": "In qm56, 6326 rated for counter defense but NO COUNTER DEFENSE PCT",
+        "match": "qm56",
+        "scout_id": "N/A",
+        "team_id": 6326,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "MISSING DATA",
+        "error_number": 6,
+        "message": "In qm53, 5830 MISSING COUNTER DEFENSE RATING",
+        "match": "qm53",
+        "scout_id": "N/A",
+        "team_id": 5830,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "MISSING DATA",
+        "error_number": 6,
+        "message": "In qm53, 5830 rated for defense but NO DEFENSE PCT",
+        "match": "qm53",
+        "scout_id": "N/A",
+        "team_id": 5830,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "MISSING DATA",
+        "error_number": 6,
+        "message": "In qm53, 4099 MISSING COUNTER DEFENSE RATING",
+        "match": "qm53",
+        "scout_id": "N/A",
+        "team_id": 4099,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "MISSING DATA",
+        "error_number": 6,
+        "message": "In qm51, 8514 MISSING COUNTER DEFENSE RATING",
+        "match": "qm51",
+        "scout_id": "N/A",
+        "team_id": 8514,
         "alliance": "N/A"
     },
     {
         "error_type": "INCORRECT DATA",
         "error_number": 5,
-        "message": "In qm47, 611 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm47",
+        "message": "In qm51, 8514 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
+        "match": "qm51",
         "scout_id": "N/A",
-        "team_id": 611,
+        "team_id": 8514,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "MISSING DATA",
+        "error_number": 6,
+        "message": "In qm45, 1111 rated for defense but NO DEFENSE PCT",
+        "match": "qm45",
+        "scout_id": "N/A",
+        "team_id": 1111,
         "alliance": "N/A"
     },
     {
@@ -38,154 +164,10 @@
     {
         "error_type": "MISSING DATA",
         "error_number": 6,
-        "message": "In qm45, 1111 rated for defense but NO DEFENSE PCT",
-        "match": "qm45",
-        "scout_id": "N/A",
-        "team_id": 1111,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm45, 620 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm45",
-        "scout_id": "N/A",
-        "team_id": 620,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm44, 1908 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm44",
-        "scout_id": "N/A",
-        "team_id": 1908,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm44, 8326 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm44",
-        "scout_id": "N/A",
-        "team_id": 8326,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm43, 8622 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm43",
-        "scout_id": "N/A",
-        "team_id": 8622,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm43, 2199 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm43",
-        "scout_id": "N/A",
-        "team_id": 2199,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm43, 4638 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm43",
-        "scout_id": "N/A",
-        "team_id": 4638,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm42, 2377 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm42",
-        "scout_id": "N/A",
-        "team_id": 2377,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "MISSING DATA",
-        "error_number": 6,
         "message": "In qm42, 2377 MISSING DEFENSE RATING",
         "match": "qm42",
         "scout_id": "N/A",
         "team_id": 2377,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "MISSING DATA",
-        "error_number": 6,
-        "message": "In qm41, frc1895 was NOT SCOUTED",
-        "match": "qm41",
-        "scout_id": "N/A",
-        "team_id": "frc1895",
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm41, 4456 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm41",
-        "scout_id": "N/A",
-        "team_id": 4456,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm41, 1111 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm41",
-        "scout_id": "N/A",
-        "team_id": 1111,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "RESCOUT MATCH",
-        "error_number": 8,
-        "message": "In qm41, a cumulative amount of 22 gathered from ERRORS were found, this match should be RESCOUTED.",
-        "match": "qm41",
-        "scout_id": "N/A",
-        "team_id": "N/A",
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "MISSING DATA",
-        "error_number": 6,
-        "message": "In qm41, frc1731 was NOT SCOUTED",
-        "match": "qm41",
-        "scout_id": "N/A",
-        "team_id": "frc1731",
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm40, 1389 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm40",
-        "scout_id": "N/A",
-        "team_id": 1389,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm40, 1446 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm40",
-        "scout_id": "N/A",
-        "team_id": 1446,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm40, 2534 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm40",
-        "scout_id": "N/A",
-        "team_id": 2534,
         "alliance": "N/A"
     },
     {
@@ -200,64 +182,10 @@
     {
         "error_type": "INCORRECT DATA",
         "error_number": 5,
-        "message": "In qm40, 2914 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm40",
-        "scout_id": "N/A",
-        "team_id": 2914,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "RESCOUT MATCH",
-        "error_number": 8,
-        "message": "In qm40, a cumulative amount of 30 gathered from ERRORS were found, this match should be RESCOUTED.",
-        "match": "qm40",
-        "scout_id": "N/A",
-        "team_id": "N/A",
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm40, 6326 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm40",
-        "scout_id": "N/A",
-        "team_id": 6326,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm39, 8514 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm39",
-        "scout_id": "N/A",
-        "team_id": 8514,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
         "message": "In qm39, 1908 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
         "match": "qm39",
         "scout_id": "N/A",
         "team_id": 1908,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm38, 620 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm38",
-        "scout_id": "N/A",
-        "team_id": 620,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm38, 888 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm38",
-        "scout_id": "N/A",
-        "team_id": 888,
         "alliance": "N/A"
     },
     {
@@ -267,15 +195,6 @@
         "match": "qm38",
         "scout_id": "N/A",
         "team_id": 888,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm37, 2961 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm37",
-        "scout_id": "N/A",
-        "team_id": 2961,
         "alliance": "N/A"
     },
     {
@@ -290,82 +209,10 @@
     {
         "error_type": "INCORRECT DATA",
         "error_number": 5,
-        "message": "In qm37, 4638 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm37",
-        "scout_id": "N/A",
-        "team_id": 4638,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
         "message": "In qm36, 449 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
         "match": "qm36",
         "scout_id": "N/A",
         "team_id": 449,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm36, 5549 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm36",
-        "scout_id": "N/A",
-        "team_id": 5549,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "RESCOUT MATCH",
-        "error_number": 8,
-        "message": "In qm36, a cumulative amount of 20 gathered from ERRORS were found, this match should be RESCOUTED.",
-        "match": "qm36",
-        "scout_id": "N/A",
-        "team_id": "N/A",
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm36, 1111 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm36",
-        "scout_id": "N/A",
-        "team_id": 1111,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm36, 5338 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm36",
-        "scout_id": "N/A",
-        "team_id": 5338,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "RESCOUT MATCH",
-        "error_number": 8,
-        "message": "In qm35, a cumulative amount of 23 gathered from ERRORS were found, this match should be RESCOUTED.",
-        "match": "qm35",
-        "scout_id": "N/A",
-        "team_id": "N/A",
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "MISSING DATA",
-        "error_number": 6,
-        "message": "In qm35, frc1731 was NOT SCOUTED",
-        "match": "qm35",
-        "scout_id": "N/A",
-        "team_id": "frc1731",
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm35, 1731 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm35",
-        "scout_id": "N/A",
-        "team_id": 1731,
         "alliance": "N/A"
     },
     {
@@ -380,28 +227,10 @@
     {
         "error_type": "MISSING DATA",
         "error_number": 6,
-        "message": "In qm35, frc8514 was NOT SCOUTED",
-        "match": "qm35",
-        "scout_id": "N/A",
-        "team_id": "frc8514",
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm34, 2900 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
+        "message": "In qm34, 620 MISSING DEFENSE RATING",
         "match": "qm34",
         "scout_id": "N/A",
-        "team_id": 2900,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "RESCOUT MATCH",
-        "error_number": 8,
-        "message": "In qm34, a cumulative amount of 32 gathered from ERRORS were found, this match should be RESCOUTED.",
-        "match": "qm34",
-        "scout_id": "N/A",
-        "team_id": "N/A",
+        "team_id": 620,
         "alliance": "N/A"
     },
     {
@@ -416,82 +245,10 @@
     {
         "error_type": "MISSING DATA",
         "error_number": 6,
-        "message": "In qm34, 620 MISSING DEFENSE RATING",
-        "match": "qm34",
-        "scout_id": "N/A",
-        "team_id": 620,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm34, 614 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm34",
-        "scout_id": "N/A",
-        "team_id": 614,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm34, 1446 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm34",
-        "scout_id": "N/A",
-        "team_id": 1446,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm34, 620 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm34",
-        "scout_id": "N/A",
-        "team_id": 620,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm33, 6863 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm33",
-        "scout_id": "N/A",
-        "team_id": 6863,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "MISSING DATA",
-        "error_number": 6,
         "message": "In qm33, 836 MISSING COUNTER DEFENSE RATING",
         "match": "qm33",
         "scout_id": "N/A",
         "team_id": 836,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm33, 836 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm33",
-        "scout_id": "N/A",
-        "team_id": 836,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "MISSING DATA",
-        "error_number": 6,
-        "message": "In qm32, frc2961 was NOT SCOUTED",
-        "match": "qm32",
-        "scout_id": "N/A",
-        "team_id": "frc2961",
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "MISSING DATA",
-        "error_number": 6,
-        "message": "In qm32, frc8622 was NOT SCOUTED",
-        "match": "qm32",
-        "scout_id": "N/A",
-        "team_id": "frc8622",
         "alliance": "N/A"
     },
     {
@@ -506,91 +263,10 @@
     {
         "error_type": "INCORRECT DATA",
         "error_number": 5,
-        "message": "In qm31, 2537 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm31",
-        "scout_id": "N/A",
-        "team_id": 2537,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "MISSING DATA",
-        "error_number": 6,
-        "message": "In qm27, frc2961 was NOT SCOUTED",
-        "match": "qm27",
-        "scout_id": "N/A",
-        "team_id": "frc2961",
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "RESCOUT MATCH",
-        "error_number": 8,
-        "message": "In qm27, a cumulative amount of 21 gathered from ERRORS were found, this match should be RESCOUTED.",
-        "match": "qm27",
-        "scout_id": "N/A",
-        "team_id": "N/A",
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
         "message": "In qm27, 2537 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
         "match": "qm27",
         "scout_id": "N/A",
         "team_id": 2537,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm27, 5841 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm27",
-        "scout_id": "N/A",
-        "team_id": 5841,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm27, 7886 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm27",
-        "scout_id": "N/A",
-        "team_id": 7886,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "EXTRA DATA",
-        "error_number": 4,
-        "message": "In qm26, frc614 was DOUBLE SCOUTED",
-        "match": "qm26",
-        "scout_id": "N/A",
-        "team_id": 614,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "EXTRA DATA",
-        "error_number": 4,
-        "message": "In qm26, frc5587 was DOUBLE SCOUTED",
-        "match": "qm26",
-        "scout_id": "N/A",
-        "team_id": 5587,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "EXTRA DATA",
-        "error_number": 4,
-        "message": "In qm26, frc620 was DOUBLE SCOUTED",
-        "match": "qm26",
-        "scout_id": "N/A",
-        "team_id": 620,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "RESCOUT MATCH",
-        "error_number": 8,
-        "message": "In qm26, a cumulative amount of 26 gathered from ERRORS were found, this match should be RESCOUTED.",
-        "match": "qm26",
-        "scout_id": "N/A",
-        "team_id": "N/A",
         "alliance": "N/A"
     },
     {
@@ -603,15 +279,6 @@
         "alliance": "N/A"
     },
     {
-        "error_type": "EXTRA DATA",
-        "error_number": 4,
-        "message": "In qm26, frc4456 was DOUBLE SCOUTED",
-        "match": "qm26",
-        "scout_id": "N/A",
-        "team_id": 4456,
-        "alliance": "N/A"
-    },
-    {
         "error_type": "INCORRECT DATA",
         "error_number": 5,
         "message": "In qm26, THE BLUE ALLIANCE MARKED MORE THAN ONE ROBOT AS DOCKED/ENGAGED IN AUTO",
@@ -621,12 +288,12 @@
         "alliance": "N/A"
     },
     {
-        "error_type": "RESCOUT MATCH",
-        "error_number": 8,
-        "message": "In qm25, a cumulative amount of 33 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "error_type": "MISSING DATA",
+        "error_number": 6,
+        "message": "In qm25, 1123 rated for defense but NO DEFENSE PCT",
         "match": "qm25",
         "scout_id": "N/A",
-        "team_id": "N/A",
+        "team_id": 1123,
         "alliance": "N/A"
     },
     {
@@ -648,84 +315,12 @@
         "alliance": "N/A"
     },
     {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm25, 611 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm25",
-        "scout_id": "N/A",
-        "team_id": 611,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm25, 2199 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm25",
-        "scout_id": "N/A",
-        "team_id": 2199,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "MISSING DATA",
-        "error_number": 6,
-        "message": "In qm25, 1123 rated for defense but NO DEFENSE PCT",
-        "match": "qm25",
-        "scout_id": "N/A",
-        "team_id": 1123,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm25, 4099 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm25",
-        "scout_id": "N/A",
-        "team_id": 4099,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "RESCOUT MATCH",
-        "error_number": 8,
-        "message": "In qm23, a cumulative amount of 22 gathered from ERRORS were found, this match should be RESCOUTED.",
-        "match": "qm23",
-        "scout_id": "N/A",
-        "team_id": "N/A",
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "MISSING DATA",
-        "error_number": 6,
-        "message": "In qm23, frc2961 was NOT SCOUTED",
-        "match": "qm23",
-        "scout_id": "N/A",
-        "team_id": "frc2961",
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm23, 8622 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm23",
-        "scout_id": "N/A",
-        "team_id": 8622,
-        "alliance": "N/A"
-    },
-    {
         "error_type": "MISSING DATA",
         "error_number": 6,
         "message": "In qm23, 5830 rated for counter defense but NO COUNTER DEFENSE PCT",
         "match": "qm23",
         "scout_id": "N/A",
         "team_id": 5830,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm23, 8514 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm23",
-        "scout_id": "N/A",
-        "team_id": 8514,
         "alliance": "N/A"
     },
     {
@@ -738,102 +333,12 @@
         "alliance": "N/A"
     },
     {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm22, 8326 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm22",
-        "scout_id": "N/A",
-        "team_id": 8326,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm21, 6863 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm21",
-        "scout_id": "N/A",
-        "team_id": 6863,
-        "alliance": "N/A"
-    },
-    {
         "error_type": "CRITICAL",
         "error_number": 7,
         "message": "NO TEAM NUMBER for match qm20",
         "match": "qm20",
         "scout_id": "N/A",
         "team_id": "N/A",
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "RESCOUT MATCH",
-        "error_number": 8,
-        "message": "In qm20, a cumulative amount of 29 gathered from ERRORS were found, this match should be RESCOUTED.",
-        "match": "qm20",
-        "scout_id": "N/A",
-        "team_id": "N/A",
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "MISSING DATA",
-        "error_number": 6,
-        "message": "In qm20, frc2377 was NOT SCOUTED",
-        "match": "qm20",
-        "scout_id": "N/A",
-        "team_id": "frc2377",
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "MISSING DATA",
-        "error_number": 6,
-        "message": "In qm20, frc611 was NOT SCOUTED",
-        "match": "qm20",
-        "scout_id": "N/A",
-        "team_id": "frc611",
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm20, 620 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm20",
-        "scout_id": "N/A",
-        "team_id": 620,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm20, 2537 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm20",
-        "scout_id": "N/A",
-        "team_id": 2537,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm19, 449 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm19",
-        "scout_id": "N/A",
-        "team_id": 449,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm19, 614 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm19",
-        "scout_id": "N/A",
-        "team_id": 614,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm19, 5841 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm19",
-        "scout_id": "N/A",
-        "team_id": 5841,
         "alliance": "N/A"
     },
     {
@@ -846,18 +351,18 @@
         "alliance": "N/A"
     },
     {
-        "error_type": "RESCOUT MATCH",
-        "error_number": 8,
-        "message": "In qm18, a cumulative amount of 32 gathered from ERRORS were found, this match should be RESCOUTED.",
-        "match": "qm18",
-        "scout_id": "N/A",
-        "team_id": "N/A",
-        "alliance": "N/A"
-    },
-    {
         "error_type": "INCORRECT DATA",
         "error_number": 5,
         "message": "In qm18, 8514 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
+        "match": "qm18",
+        "scout_id": "N/A",
+        "team_id": 8514,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "MISSING DATA",
+        "error_number": 6,
+        "message": "In qm18, 8514 MISSING DEFENSE RATING",
         "match": "qm18",
         "scout_id": "N/A",
         "team_id": 8514,
@@ -873,102 +378,12 @@
         "alliance": "N/A"
     },
     {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm18, 5587 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm18",
-        "scout_id": "N/A",
-        "team_id": 5587,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm18, 1446 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm18",
-        "scout_id": "N/A",
-        "team_id": 1446,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "MISSING DATA",
-        "error_number": 6,
-        "message": "In qm18, 8514 MISSING DEFENSE RATING",
-        "match": "qm18",
-        "scout_id": "N/A",
-        "team_id": 8514,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm17, 1731 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm17",
-        "scout_id": "N/A",
-        "team_id": 1731,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm17, 4821 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm17",
-        "scout_id": "N/A",
-        "team_id": 4821,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm17, 1111 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm17",
-        "scout_id": "N/A",
-        "team_id": 1111,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm17, 8326 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm17",
-        "scout_id": "N/A",
-        "team_id": 8326,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm17, 6863 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm17",
-        "scout_id": "N/A",
-        "team_id": 6863,
-        "alliance": "N/A"
-    },
-    {
         "error_type": "RESCOUT MATCH",
         "error_number": 8,
-        "message": "In qm17, a cumulative amount of 25 gathered from ERRORS were found, this match should be RESCOUTED.",
-        "match": "qm17",
+        "message": "In qm18, a cumulative amount of 22 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm18",
         "scout_id": "N/A",
         "team_id": "N/A",
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm16, 1123 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm16",
-        "scout_id": "N/A",
-        "team_id": 1123,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm16, 1908 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm16",
-        "scout_id": "N/A",
-        "team_id": 1908,
         "alliance": "N/A"
     },
     {
@@ -981,57 +396,12 @@
         "alliance": "N/A"
     },
     {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm16, 2914 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm16",
-        "scout_id": "N/A",
-        "team_id": 2914,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "RESCOUT MATCH",
-        "error_number": 8,
-        "message": "In qm16, a cumulative amount of 21 gathered from ERRORS were found, this match should be RESCOUTED.",
-        "match": "qm16",
-        "scout_id": "N/A",
-        "team_id": "N/A",
-        "alliance": "N/A"
-    },
-    {
         "error_type": "MISSING DATA",
         "error_number": 6,
         "message": "In qm15, 5841 rated for counter defense but NO COUNTER DEFENSE PCT",
         "match": "qm15",
         "scout_id": "N/A",
         "team_id": 5841,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm15, 5841 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm15",
-        "scout_id": "N/A",
-        "team_id": 5841,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "MISSING DATA",
-        "error_number": 6,
-        "message": "In qm15, frc4099 was NOT SCOUTED",
-        "match": "qm15",
-        "scout_id": "N/A",
-        "team_id": "frc4099",
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "RESCOUT MATCH",
-        "error_number": 8,
-        "message": "In qm15, a cumulative amount of 23 gathered from ERRORS were found, this match should be RESCOUTED.",
-        "match": "qm15",
-        "scout_id": "N/A",
-        "team_id": "N/A",
         "alliance": "N/A"
     },
     {
@@ -1046,46 +416,19 @@
     {
         "error_type": "MISSING DATA",
         "error_number": 6,
-        "message": "In qm14, frc2961 was NOT SCOUTED",
-        "match": "qm14",
+        "message": "In qm12, 4821 rated for defense but NO DEFENSE PCT",
+        "match": "qm12",
         "scout_id": "N/A",
-        "team_id": "frc2961",
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm13, 888 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm13",
-        "scout_id": "N/A",
-        "team_id": 888,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm13, 449 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm13",
-        "scout_id": "N/A",
-        "team_id": 449,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm13, 1895 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm13",
-        "scout_id": "N/A",
-        "team_id": 1895,
+        "team_id": 4821,
         "alliance": "N/A"
     },
     {
         "error_type": "MISSING DATA",
         "error_number": 6,
-        "message": "In qm12, 4821 rated for defense but NO DEFENSE PCT",
-        "match": "qm12",
+        "message": "In qm11, 614 MISSING DEFENSE RATING",
+        "match": "qm11",
         "scout_id": "N/A",
-        "team_id": 4821,
+        "team_id": 614,
         "alliance": "N/A"
     },
     {
@@ -1107,30 +450,21 @@
         "alliance": "N/A"
     },
     {
-        "error_type": "RESCOUT MATCH",
-        "error_number": 8,
-        "message": "In qm11, a cumulative amount of 44 gathered from ERRORS were found, this match should be RESCOUTED.",
-        "match": "qm11",
-        "scout_id": "N/A",
-        "team_id": "N/A",
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm11, 2914 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm11",
-        "scout_id": "N/A",
-        "team_id": 2914,
-        "alliance": "N/A"
-    },
-    {
         "error_type": "MISSING DATA",
         "error_number": 6,
         "message": "In qm11, 8622 MISSING DEFENSE RATING",
         "match": "qm11",
         "scout_id": "N/A",
         "team_id": 8622,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 8,
+        "message": "In qm11, a cumulative amount of 29 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm11",
+        "scout_id": "N/A",
+        "team_id": "N/A",
         "alliance": "N/A"
     },
     {
@@ -1145,60 +479,6 @@
     {
         "error_type": "INCORRECT DATA",
         "error_number": 5,
-        "message": "In qm11, 1123 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm11",
-        "scout_id": "N/A",
-        "team_id": 1123,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "MISSING DATA",
-        "error_number": 6,
-        "message": "In qm11, 614 MISSING DEFENSE RATING",
-        "match": "qm11",
-        "scout_id": "N/A",
-        "team_id": 614,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm11, 614 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm11",
-        "scout_id": "N/A",
-        "team_id": 614,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm10, 2534 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm10",
-        "scout_id": "N/A",
-        "team_id": 2534,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "RESCOUT MATCH",
-        "error_number": 8,
-        "message": "In qm10, a cumulative amount of 33 gathered from ERRORS were found, this match should be RESCOUTED.",
-        "match": "qm10",
-        "scout_id": "N/A",
-        "team_id": "N/A",
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm10, 1908 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm10",
-        "scout_id": "N/A",
-        "team_id": 1908,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
         "message": "In qm10, 2377 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
         "match": "qm10",
         "scout_id": "N/A",
@@ -1208,7 +488,7 @@
     {
         "error_type": "MISSING DATA",
         "error_number": 6,
-        "message": "In qm10, 2377 MISSING COUNTER DEFENSE RATING",
+        "message": "In qm10, 2377 MISSING DEFENSE RATING",
         "match": "qm10",
         "scout_id": "N/A",
         "team_id": 2377,
@@ -1226,37 +506,19 @@
     {
         "error_type": "MISSING DATA",
         "error_number": 6,
-        "message": "In qm10, 2377 MISSING DEFENSE RATING",
+        "message": "In qm10, 2377 MISSING COUNTER DEFENSE RATING",
         "match": "qm10",
         "scout_id": "N/A",
         "team_id": 2377,
         "alliance": "N/A"
     },
     {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm9, 4456 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm9",
+        "error_type": "RESCOUT MATCH",
+        "error_number": 8,
+        "message": "In qm10, a cumulative amount of 23 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm10",
         "scout_id": "N/A",
-        "team_id": 4456,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm9, 5830 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm9",
-        "scout_id": "N/A",
-        "team_id": 5830,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "MISSING DATA",
-        "error_number": 6,
-        "message": "In qm9, frc2961 was NOT SCOUTED",
-        "match": "qm9",
-        "scout_id": "N/A",
-        "team_id": "frc2961",
+        "team_id": "N/A",
         "alliance": "N/A"
     },
     {
@@ -1266,78 +528,6 @@
         "match": "qm9",
         "scout_id": "N/A",
         "team_id": 620,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "RESCOUT MATCH",
-        "error_number": 8,
-        "message": "In qm9, a cumulative amount of 22 gathered from ERRORS were found, this match should be RESCOUTED.",
-        "match": "qm9",
-        "scout_id": "N/A",
-        "team_id": "N/A",
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm8, 4099 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm8",
-        "scout_id": "N/A",
-        "team_id": 4099,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "MISSING DATA",
-        "error_number": 6,
-        "message": "In qm8, frc7886 was NOT SCOUTED",
-        "match": "qm8",
-        "scout_id": "N/A",
-        "team_id": "frc7886",
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm6, 2537 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm6",
-        "scout_id": "N/A",
-        "team_id": 2537,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "RESCOUT MATCH",
-        "error_number": 8,
-        "message": "In qm5, a cumulative amount of 20 gathered from ERRORS were found, this match should be RESCOUTED.",
-        "match": "qm5",
-        "scout_id": "N/A",
-        "team_id": "N/A",
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "EXTRA DATA",
-        "error_number": 4,
-        "message": "In qm5, frc4821 was DOUBLE SCOUTED",
-        "match": "qm5",
-        "scout_id": "N/A",
-        "team_id": 4821,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm5, 836 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm5",
-        "scout_id": "N/A",
-        "team_id": 836,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm5, 4821 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm5",
-        "scout_id": "N/A",
-        "team_id": 4821,
         "alliance": "N/A"
     },
     {
@@ -1352,73 +542,19 @@
     {
         "error_type": "MISSING DATA",
         "error_number": 6,
-        "message": "In qm4, frc7886 was NOT SCOUTED",
-        "match": "qm4",
+        "message": "In sf1, 4099 rated for defense but NO DEFENSE PCT",
+        "match": "sf1",
         "scout_id": "N/A",
-        "team_id": "frc7886",
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm3, 5830 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm3",
-        "scout_id": "N/A",
-        "team_id": 5830,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm3, 5587 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm3",
-        "scout_id": "N/A",
-        "team_id": 5587,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm2, 449 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm2",
-        "scout_id": "N/A",
-        "team_id": 449,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm1, 1731 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm1",
-        "scout_id": "N/A",
-        "team_id": 1731,
+        "team_id": 4099,
         "alliance": "N/A"
     },
     {
         "error_type": "MISSING DATA",
         "error_number": 6,
-        "message": "In qm1, frc2961 was NOT SCOUTED",
-        "match": "qm1",
+        "message": "In sf1, 2377 rated for defense but NO DEFENSE PCT",
+        "match": "sf1",
         "scout_id": "N/A",
-        "team_id": "frc2961",
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "RESCOUT MATCH",
-        "error_number": 8,
-        "message": "In qm1, a cumulative amount of 22 gathered from ERRORS were found, this match should be RESCOUTED.",
-        "match": "qm1",
-        "scout_id": "N/A",
-        "team_id": "N/A",
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm1, 611 DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",
-        "match": "qm1",
-        "scout_id": "N/A",
-        "team_id": 611,
+        "team_id": 2377,
         "alliance": "N/A"
     },
     {

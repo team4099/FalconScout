@@ -35,7 +35,7 @@ class BaseDataValidation(ABC):
             "path_to_data",
             f"data/{self.config['year']}{self.config['event_code']}_match_data.json",
         )
-        self.run_datawide_checks = True
+        self.run_datawide_checks = False
         self.df = read_json(self.path_to_data_file)
 
         self._event_key = str(self.config["year"]) + self.config["event_code"]
@@ -236,7 +236,7 @@ class BaseDataValidation(ABC):
         with open(self.path_to_output_file, "w") as file:
             dump(
                 sorted(
-                    self.errors, key=lambda error: int(error["match"].replace("qm", "")), reverse=True
+                    self.errors, key=lambda error: int(error["match"].replace("qm", "").replace("sf", "").replace("f", "")), reverse=True
                 ),
                 file,
                 indent=4,
