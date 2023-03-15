@@ -1,12 +1,11 @@
 import json
 import os
 import uuid
-from csv import reader, writer
+from csv import reader
 from datetime import datetime
 
 import yaml
 from data_validation.data_val_2023 import DataValidation2023
-from dotenv import load_dotenv
 from flask import Flask, jsonify, render_template, request
 from github import Github
 from pandas import DataFrame
@@ -57,7 +56,7 @@ def home():
 @app.route("/process_scan", methods=["POST"])
 def process_scan():
     if request.method == "POST":
-        # Retrieve file data to check for 
+        # Retrieve file data to check for
         with open(DATA_JSON_FILE, "r") as file:
             file_data = json.load(file)
 
@@ -88,12 +87,15 @@ def process_scan():
             data_map["AutoGrid"] = data_map["AutoGrid"].replace(",", "|")
             data_map["TeleopGrid"] = data_map["TeleopGrid"].replace(",", "|")
 
-            if (data_map in file_data):
+            if data_map in file_data:
                 # Check for if the qrcode was already scanned
                 return jsonify(
-                    {"action_code": "200", "result": ["This QRcode has already scanned before."]}
+                    {
+                        "action_code": "200",
+                        "result": ["This QRcode has already scanned before."],
+                    }
                 )
-            
+
             auto_grid = data_map["AutoGrid"].split("|")
             positions_to_names = {"L": "Low", "M": "Mid", "H": "High"}
             teleop_grid = data_map["TeleopGrid"].split("|")
@@ -142,12 +144,18 @@ def process_scan():
 
             if data_map["Alliance"].lower() == "red":
                 if auto_grid != [""]:
-                    auto_grid_reversed = [f"{9 - int(position[0]) + 1}{position[1:]}" for position in auto_grid]
+                    auto_grid_reversed = [
+                        f"{9 - int(position[0]) + 1}{position[1:]}"
+                        for position in auto_grid
+                    ]
                 else:
                     auto_grid_reversed = []
 
                 if teleop_grid != [""]:
-                    teleop_grid_reversed = [f"{9 - int(position[0]) + 1}{position[1:]}" for position in teleop_grid]
+                    teleop_grid_reversed = [
+                        f"{9 - int(position[0]) + 1}{position[1:]}"
+                        for position in teleop_grid
+                    ]
                 else:
                     teleop_grid_reversed = []
 
@@ -167,11 +175,27 @@ def process_scan():
             data_df.drop(
                 columns=["AutoCones", "AutoCubes", "TeleopCones", "TeleopCubes"]
             )
-            data_df["AutoNotes"] = data_df["AutoNotes"].astype(str).apply(lambda note: note.replace(",", ""))
-            data_df["TeleopNotes"] = data_df["TeleopNotes"].astype(str).apply(lambda note: note.replace(",", ""))
-            data_df["EndgameNotes"] = data_df["EndgameNotes"].astype(str).apply(lambda note: note.replace(",", ""))
-            data_df["RatingNotes"] = data_df["RatingNotes"].astype(str).apply(lambda note: note.replace(",", ""))
-            
+            data_df["AutoNotes"] = (
+                data_df["AutoNotes"]
+                .astype(str)
+                .apply(lambda note: note.replace(",", ""))
+            )
+            data_df["TeleopNotes"] = (
+                data_df["TeleopNotes"]
+                .astype(str)
+                .apply(lambda note: note.replace(",", ""))
+            )
+            data_df["EndgameNotes"] = (
+                data_df["EndgameNotes"]
+                .astype(str)
+                .apply(lambda note: note.replace(",", ""))
+            )
+            data_df["RatingNotes"] = (
+                data_df["RatingNotes"]
+                .astype(str)
+                .apply(lambda note: note.replace(",", ""))
+            )
+
             data_df.to_csv(DATA_CSV_FILE)
 
             data_validator.validate_data(scouting_data=[data_map])
@@ -262,6 +286,29 @@ def get_errors():
                     "result": ["110", "python error: " + str(e)[:20]],
                 }
             )
+
+
+@app.route("/delete_data", methods=["POST"])
+def delete_data():
+    data_to_remove = request.get_json()
+
+    with open(DATA_JSON_FILE, "r+") as file:
+        file_data = json.load(file)
+        file_data.remove(data_to_remove)
+
+        file.seek(0)
+        json.dump(file_data, file, indent=2)
+        file.truncate()
+
+    return jsonify(
+        {
+            "action_code": "200",
+            "result": [
+                "100",
+                f"Data of scout {data_to_remove['ScoutId']} in {data_to_remove['MatchKey']} removed",
+            ],
+        }
+    )
 
 
 if __name__ == "__main__":
