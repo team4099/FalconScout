@@ -26,9 +26,8 @@ class DataValidation2023(BaseDataValidation):
 
         # Converts JSON to DataFrame
         scouting_data = DataFrame.from_dict(scouting_data)
-        
-        if self.run_datawide_checks is True:
-            self.check_team_numbers_for_each_match(scouting_data)
+
+        self.check_team_numbers_for_each_match(scouting_data)
 
         if not scouting_data.empty:
             self.auto_charge_station_checks(scouting_data)
@@ -40,7 +39,7 @@ class DataValidation2023(BaseDataValidation):
                     self.add_error(
                         f"NO TEAM NUMBER for match {submission[self.config['match_key']]}",
                         ErrorType.CRITICAL,
-                        submission[self.config["match_key"]]
+                        submission[self.config["match_key"]],
                     )
                     continue
 

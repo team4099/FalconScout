@@ -33,8 +33,6 @@ def home():
     with open(DATA_JSON_FILE, "r") as file:
         file_data = json.load(file)
 
-    data_validator.validate_data(file_data)
-
     scanRawData = []
 
     for row in file_data:
@@ -198,8 +196,6 @@ def process_scan():
 
             data_df.to_csv(DATA_CSV_FILE)
 
-            data_validator.validate_data(scouting_data=[data_map])
-
             return jsonify(
                 {
                     "action_code": "200",
@@ -265,6 +261,34 @@ def sync_github():
             )
 
 
+@app.route("/validate_data", methods=["POST"])
+def validate_data():
+    with open(DATA_JSON_FILE) as file:
+        file_data = json.load(file)
+        data_validator.validate_data(file_data)
+
+    with open(ERROR_JSON) as error_file:
+        amount_of_errors = len(json.load(error_file))
+
+    if amount_of_errors == 0:
+        return jsonify(
+            {
+                "action_code": "200",
+                "result": ["100", "All passes checked when ran with DataVal!"],
+            }
+        )
+    else:
+        return jsonify(
+            {
+                "action_code": "200",
+                "result": [
+                    "110",
+                    f"{amount_of_errors} errors raised when ran with DataVal.",
+                ],
+            }
+        )
+
+
 @app.route("/get_errors", methods=["POST"])
 def get_errors():
     if request.method == "POST":
@@ -306,6 +330,60 @@ def delete_data():
             "result": [
                 "100",
                 f"Data of scout {data_to_remove['ScoutId']} in {data_to_remove['MatchKey']} removed",
+            ],
+        }
+    )
+
+
+@app.route("/delete_error", methods=["POST"])
+def delete_error():
+    error_to_remove = request.get_json()
+
+    with open(ERROR_JSON, "r+") as file:
+        file_data = json.load(file)
+        file_data.remove(error_to_remove)
+
+        file.seek(0)
+        json.dump(file_data, file, indent=2)
+        file.truncate()
+
+    return jsonify(
+        {
+            "action_code": "200",
+            "result": [
+                "100",
+                f"An error raised in {error_to_remove['match']} was successfully removed.",
+            ],
+        }
+    )
+
+
+@app.route("/change_submission", methods=["POST"])
+def change_submission():
+    headers = config["data_config"]["data_labels"]
+    changed_submission = request.get_json()
+
+    submission_row = changed_submission["submissionRow"]
+    submission_col = changed_submission["submissionCol"]
+    header_changed = headers[submission_col]
+    new_value = changed_submission["changedValue"]
+
+    with open(DATA_JSON_FILE, "r+") as file:
+        file_data = json.load(file)
+
+        old_value = file_data[~submission_row][header_changed]
+        file_data[~submission_row][header_changed] = new_value
+
+        file.seek(0)
+        json.dump(file_data, file, indent=2)
+        file.truncate()
+
+    return jsonify(
+        {
+            "action_code": "200",
+            "result": [
+                "100",
+                f"Data in column {header_changed!r} changed from {old_value!r} to {new_value!r}",
             ],
         }
     )

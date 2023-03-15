@@ -35,7 +35,6 @@ class BaseDataValidation(ABC):
             "path_to_data",
             f"data/{self.config['year']}{self.config['event_code']}_match_data.json",
         )
-        self.run_datawide_checks = False
         self.df = read_json(self.path_to_data_file)
 
         self._event_key = str(self.config["year"]) + self.config["event_code"]
@@ -56,7 +55,7 @@ class BaseDataValidation(ABC):
 
                 if self._run_with_tba:
                     self.get_match_schedule_tba()
-        
+
         if not self._run_with_tba:
             self.get_match_schedule_file()
 
@@ -135,9 +134,17 @@ class BaseDataValidation(ABC):
 
         for match_key, match_data in data_by_match_key.items():
             for alliance in ("red", "blue"):
-                teams = self.match_schedule[f"{self._event_key}_{match_key}"][alliance]
+                try:
+                    teams = self.match_schedule[f"{self._event_key}_{match_key}"][
+                        alliance
+                    ]
+                except KeyError as e:
+                    print(e)
+                    continue
+
                 team_numbers = [
-                    submission[self.config["team_number"]] for submission in match_data[alliance]
+                    submission[self.config["team_number"]]
+                    for submission in match_data[alliance]
                 ]
 
                 if len(match_data[alliance]) > 3:
@@ -236,7 +243,14 @@ class BaseDataValidation(ABC):
         with open(self.path_to_output_file, "w") as file:
             dump(
                 sorted(
-                    self.errors, key=lambda error: int(error["match"].replace("qm", "").replace("sf", "").replace("f", "")), reverse=True
+                    self.errors,
+                    key=lambda error: int(
+                        error["match"]
+                        .replace("qm", "")
+                        .replace("sf", "")
+                        .replace("f", "")
+                    ),
+                    reverse=True,
                 ),
                 file,
                 indent=4,
