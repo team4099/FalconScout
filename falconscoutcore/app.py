@@ -173,6 +173,36 @@ def process_scan():
             data_df.drop(
                 columns=["AutoCones", "AutoCubes", "TeleopCones", "TeleopCubes"]
             )
+            data_df = data_df[
+                [
+                    "ScoutId",
+                    "MatchKey",
+                    "Alliance",
+                    "DriverStation",
+                    "TeamNumber",
+                    "Preloaded",
+                    "AutoGrid",
+                    "AutoMissed",
+                    "Mobile",
+                    "AutoChargingState",
+                    "AutoNotes",
+                    "TeleopGrid",
+                    "TeleopMissed",
+                    "TeleopNotes",
+                    "EndgameAttemptedCharge",
+                    "EndgameFinalCharge",
+                    "EndgameChargeTime",
+                    "EndgameNotes",
+                    "Disable",
+                    "DefenseTime",
+                    "DefenseRating",
+                    "DefendedTime",
+                    "CounterDefenseRating",
+                    "DriverRating",
+                    "RatingNotes",
+                ]
+            ]
+
             data_df["AutoNotes"] = (
                 data_df["AutoNotes"]
                 .astype(str)
@@ -299,7 +329,7 @@ def get_errors():
                 {
                     "action_code": "200",
                     "result": ["100", "Sent errors success"],
-                    "errors": file_data[-20:],
+                    "errors": file_data[:20],
                 }
             )
         except Exception as e:
