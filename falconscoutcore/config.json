@@ -11,6 +11,7 @@
             "AutoGrid",
             "AutoMissed",
             "Mobile",
+            "AutoAttemptedCharge",
             "AutoChargingState",
             "AutoNotes",
             "TeleopGrid",
