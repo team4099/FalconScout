@@ -105,6 +105,7 @@
                     "Docked",
                     "Engaged"
                 ],
+                "placeholder":["None"],
                 "id": "AutoChargingState"
             },
             {
