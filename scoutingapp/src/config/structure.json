@@ -89,12 +89,21 @@
                 "id": "Mobile"
             },
             {
+                "type": "GenericCheckboxSelect",
+                "text": "Auto Attempted Charge",
+                "options": [
+                    "Dock",
+                    "Engage"
+                ],
+                "id": "AutoAttemptedCharge"
+            },
+            {
                 "type": "GenericRadioSelect",
                 "text": "Robot Charging Pad State",
                 "options": [
+                    "None",
                     "Docked",
-                    "Engaged",
-                    "None"
+                    "Engaged"
                 ],
                 "id": "AutoChargingState"
             },
@@ -125,16 +134,6 @@
                 "id": "TeleopMissed"
             },
             {
-                "type": "GenericRadioSelect",
-                "text": "Robot Charging Pad State",
-                "options": [
-                    "Docked",
-                    "Engaged",
-                    "None"
-                ],
-                "id": "TeleopChargingState"
-            },
-            {
                 "type": "GenericTextArea",
                 "text": "Teleop Notes",
                 "id": "TeleopNotes"
@@ -154,7 +153,7 @@
             },
             {
                 "type": "GenericCheckboxSelect",
-                "text": "Attempted Charge",
+                "text": "Endgame Attempted Charge",
                 "options": [
                     "Dock",
                     "Engage"
@@ -195,39 +194,50 @@
                 "id": "Disable"
             },
             {
+                "type": "GenericToggle",
+                "text": "Were they tippy",
+                "id": "Tippy"
+            },
+            {
                 "type": "SliderInput",
-                "text": "How much do they play defense",
+                "text": "How much do they play defense (0-100%)",
                 "options": [
                     "0",
-                    "100"
+                    "100",
+                    "20"
                 ],
+                "placeholder":[0],
                 "id": "DefenseTime"
             },
             {
                 "type": "SliderInput",
-                "text": "Defense rating",
+                "text": "Defense rating (0 is no defense)",
                 "options": [
                     "0",
-                    "100"
+                    "5"
                 ],
+                "placeholder":[0],
                 "id": "DefenseRating"
             },
             {
                 "type": "SliderInput",
-                "text": "How much were they defended",
+                "text": "How much were they defended (0-100%)",
                 "options": [
                     "0",
-                    "100"
+                    "100",
+                    "20"
                 ],
+                "placeholder":[0],
                 "id": "DefendedTime"
             },
             {
                 "type": "SliderInput",
-                "text": "Counter defense rating",
+                "text": "Counter defense rating (0 is no counter defense)",
                 "options": [
                     "0",
-                    "100"
+                    "5"
                 ],
+                "placeholder":[0],
                 "id": "CounterDefenseRating"
             },
             {
@@ -235,8 +245,9 @@
                 "text": "How well do they drive",
                 "options": [
                     "0",
-                    "100"
+                    "5"
                 ],
+                "placeholder":[0],
                 "id": "DriverRating"
             },
             {
@@ -263,17 +274,18 @@
                 "AutoGrid",
                 "AutoMissed",
                 "Mobile",
+                "AutoAttemptedCharge",
                 "AutoChargingState",
                 "AutoNotes",
                 "TeleopGrid",
                 "TeleopMissed",
-                "TeleopChargingState",
                 "TeleopNotes",
                 "EndgameAttemptedCharge",
                 "EndgameFinalCharge",
                 "EndgameChargeTime",
                 "EndgameNotes",
                 "Disable",
+                "Tippy",
                 "DefenseTime",
                 "DefenseRating",
                 "DefendedTime",
