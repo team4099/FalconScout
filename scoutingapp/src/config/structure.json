@@ -245,10 +245,10 @@
                 "type": "SliderInput",
                 "text": "How well do they drive",
                 "options": [
-                    "0",
+                    "1",
                     "5"
                 ],
-                "placeholder":[0],
+                "placeholder":[3],
                 "id": "DriverRating"
             },
             {
