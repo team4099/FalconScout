@@ -15893,5 +15893,40 @@
         "TeleopCubes": [
             "High"
         ]
+    },
+    {
+        "ScoutId": "",
+        "MatchKey": "",
+        "Alliance": "",
+        "DriverStation": "",
+        "TeamNumber": "",
+        "Preloaded": "false",
+        "AutoGrid": "",
+        "AutoMissed": 0,
+        "Mobile": "false",
+        "AutoChargingState": "",
+        "AutoNotes": "",
+        "TeleopGrid": "",
+        "TeleopMissed": "",
+        "TeleopChargingState": 0,
+        "TeleopNotes": "",
+        "EndgameAttemptedCharge": "",
+        "EndgameFinalCharge": "",
+        "EndgameChargeTime": "",
+        "EndgameNotes": "",
+        "Disable": "false",
+        "Tippy": "false",
+        "DefenseTime": 0,
+        "DefenseRating": 0,
+        "DefendedTime": 0,
+        "CounterDefenseRating": 0,
+        "DriverRating": 0,
+        "RatingNotes": "",
+        "scanRaw": "|,||||false||0|false|||||0||||||false|false|0|0|0|0|0|",
+        "uuid": "6a0b8e9d-84c3-4ae8-b088-6ec9709199e5",
+        "AutoCones": [],
+        "AutoCubes": [],
+        "TeleopCones": [],
+        "TeleopCubes": []
     }
 ]

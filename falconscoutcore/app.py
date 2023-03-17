@@ -173,35 +173,7 @@ def process_scan():
             data_df.drop(
                 columns=["AutoCones", "AutoCubes", "TeleopCones", "TeleopCubes"]
             )
-            data_df = data_df[
-                [
-                    "ScoutId",
-                    "MatchKey",
-                    "Alliance",
-                    "DriverStation",
-                    "TeamNumber",
-                    "Preloaded",
-                    "AutoGrid",
-                    "AutoMissed",
-                    "Mobile",
-                    "AutoChargingState",
-                    "AutoNotes",
-                    "TeleopGrid",
-                    "TeleopMissed",
-                    "TeleopNotes",
-                    "EndgameAttemptedCharge",
-                    "EndgameFinalCharge",
-                    "EndgameChargeTime",
-                    "EndgameNotes",
-                    "Disable",
-                    "DefenseTime",
-                    "DefenseRating",
-                    "DefendedTime",
-                    "CounterDefenseRating",
-                    "DriverRating",
-                    "RatingNotes",
-                ]
-            ]
+            data_df = data_df[config["data_config"]["data_labels"]]
 
             data_df["AutoNotes"] = (
                 data_df["AutoNotes"]

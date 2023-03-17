@@ -131,6 +131,7 @@ new_headers = [
     "Final Charge Time",
     "Endgame Notes",
     "Disable",
+    "Tippy",
     "Defense Time",
     "Defense Rating",
     "Defended Time",
@@ -272,6 +273,7 @@ with open("../data/2023mdbet_match_data.json") as file:
             "EndgameChargeTime",
             "EndgameNotes",
             "Disable",
+            "Tippy",
             "DefenseTime",
             "DefenseRating",
             "DefendedTime",
@@ -280,6 +282,6 @@ with open("../data/2023mdbet_match_data.json") as file:
             "RatingNotes",
         ]
     ]
-    
+
     submission_df.columns = new_headers
     submission_df.to_csv("../data/tableau_data.csv")
