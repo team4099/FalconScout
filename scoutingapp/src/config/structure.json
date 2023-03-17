@@ -102,8 +102,8 @@
                 "text": "Robot Charging Pad State",
                 "options": [
                     "None",
-                    "Docked",
-                    "Engaged"
+                    "Dock",
+                    "Engage"
                 ],
                 "placeholder":["None"],
                 "id": "AutoChargingState"
@@ -168,7 +168,7 @@
                     "None",
                     "Dock",
                     "Engage",
-                    "Parked"
+                    "Park"
                 ],
                 "id": "EndgameFinalCharge"
             },
