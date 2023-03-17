@@ -16,7 +16,6 @@
             "AutoNotes",
             "TeleopGrid",
             "TeleopMissed",
-            "TeleopChargingState",
             "TeleopNotes",
             "EndgameAttemptedCharge",
             "EndgameFinalCharge",
