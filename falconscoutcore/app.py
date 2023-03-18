@@ -27,6 +27,9 @@ with open(path_to_config) as file:
 
 app = Flask(__name__)
 
+def remove_escape_characters(string_to_change: str) -> str:
+    escape_characters = "".join(chr(char) for char in range(1, 32))
+    return string_to_change.translate(None, escape_characters)
 
 @app.route("/")
 def home():
@@ -161,7 +164,8 @@ def process_scan():
                 data_map["TeleopGrid"] = "|".join(teleop_grid_reversed)
 
             # Fix match key parsing
-            data_map["MatchKey"] = data_map["MatchKey"].replace(",", "")
+            
+            data_map = {key: remove_escape_characters(value).replace(",", "|") for key, value in data_map.items()}
 
             with open(DATA_JSON_FILE, "r+") as file:
                 file_data = json.load(file)
