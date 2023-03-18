@@ -29,7 +29,8 @@ app = Flask(__name__)
 
 def remove_escape_characters(string_to_change: str) -> str:
     escape_characters = "".join(chr(char) for char in range(1, 32))
-    return string_to_change.translate(None, escape_characters)
+    translator = string_to_change.maketrans("", "", escape_characters)
+    return string_to_change.translate(translator)
 
 @app.route("/")
 def home():
@@ -97,8 +98,10 @@ def process_scan():
                     }
                 )
 
-            auto_grid = data_map["AutoGrid"].split("|")
+            cone_positions = {1, 3, 4, 6, 7, 9}
             positions_to_names = {"L": "Low", "M": "Mid", "H": "High"}
+
+            auto_grid = data_map["AutoGrid"].split("|")
             teleop_grid = data_map["TeleopGrid"].split("|")
 
             auto_cones = []
@@ -114,7 +117,7 @@ def process_scan():
                     auto_cones.append(positions_to_names[position])
                 elif "cube" in game_piece:
                     auto_cubes.append(positions_to_names[position])
-                elif int(game_piece[0]) % 2 != 0:
+                elif int(game_piece[0]) in cone_positions:
                     auto_cones.append(positions_to_names[position])
                 else:
                     auto_cubes.append(positions_to_names[position])
@@ -135,7 +138,7 @@ def process_scan():
                     teleop_cones.append(positions_to_names[position])
                 elif "cube" in game_piece:
                     teleop_cubes.append(positions_to_names[position])
-                elif int(game_piece[0]) % 2 != 0:
+                elif int(game_piece[0]) in cone_positions:
                     teleop_cones.append(positions_to_names[position])
                 else:
                     teleop_cubes.append(positions_to_names[position])
@@ -163,15 +166,19 @@ def process_scan():
                 data_map["AutoGrid"] = "|".join(auto_grid_reversed)
                 data_map["TeleopGrid"] = "|".join(teleop_grid_reversed)
 
-            # Fix match key parsing
-            
-            data_map = {key: remove_escape_characters(value).replace(",", "|") for key, value in data_map.items()}
+                # Remove escape characters + commas
+                data_map["MatchKey"] = data_map["MatchKey"].replace(",", "")
+                data_map = {
+                    key: remove_escape_characters(value).replace(",", "|") if isinstance(value, str) else value
+                    for key, value in data_map.items()
+                }
 
             with open(DATA_JSON_FILE, "r+") as file:
                 file_data = json.load(file)
                 file_data.append(data_map)
+
                 file.seek(0)
-                json.dump(file_data, file, indent=4)
+                json.dump(file_data, file, indent=2)
 
             data_df = DataFrame.from_dict(file_data)
             data_df.drop(
