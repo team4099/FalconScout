@@ -290,7 +290,7 @@ class BaseDataValidation(ABC):
 
         # Writes match schedule to the corresponding JSON
         with open("data/match_schedule.json", "w") as file:
-            dump(self.match_schedule, file, indent=4)
+            dump(self.match_schedule, file, indent=2)
 
     def get_teams(self) -> List[int]:
         """

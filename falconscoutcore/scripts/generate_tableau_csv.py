@@ -141,13 +141,14 @@ new_headers = [
     "Rating Notes",
 ]
 
-with open("../data/2023mdbet_match_data.json") as file:
+with open("../data/2023vaale_match_data.json") as file:
     scouting_data = load(file)
 
     for submission in scouting_data:
         submission["Preloaded"] = int(submission["Preloaded"] == "true")
         submission["Mobile"] = int(submission["Mobile"] == "true")
         submission["Disable"] = int(submission["Disable"] == "true")
+        submission["Tippy"] = int(submission["Tippy"] == "true")
 
         auto_grid = submission["AutoGrid"].split("|")
 
@@ -181,7 +182,6 @@ with open("../data/2023mdbet_match_data.json") as file:
         submission.pop("TeleopGrid")
 
     submission_df = pd.DataFrame.from_dict(scouting_data)
-    submission_df.drop("TeleopChargingState", axis=1)
 
     submission_df = submission_df[
         [

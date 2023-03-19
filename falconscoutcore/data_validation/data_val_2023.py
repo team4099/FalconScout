@@ -325,7 +325,7 @@ class DataValidation2023(BaseDataValidation):
         """  # noqa
         # Check for missing defense pct.
         if (notna(defense_rating) and isna(defense_pct)) or (
-            defense_rating and not defense_pct
+            float(defense_rating) and not float(defense_pct)
         ):
             self.add_error(
                 f"In {match_key}, {team_number} rated for defense but NO DEFENSE PCT",
@@ -336,7 +336,7 @@ class DataValidation2023(BaseDataValidation):
 
         # Check for missing defense rating.
         if (isna(defense_rating) and notna(defense_pct)) or (
-            defense_pct and not defense_rating
+            float(defense_pct) and not float(defense_rating)
         ):
             self.add_error(
                 f"In {match_key}, {team_number} MISSING DEFENSE RATING",
@@ -347,7 +347,7 @@ class DataValidation2023(BaseDataValidation):
 
         # Check for 0% counter defense pct but given rating.
         if (notna(counter_defense_rating) and isna(counter_defense_pct)) or (
-            counter_defense_rating and not counter_defense_pct
+            float(counter_defense_rating) and not float(counter_defense_pct)
         ):
             self.add_error(
                 f"In {match_key}, {team_number} "
@@ -359,7 +359,7 @@ class DataValidation2023(BaseDataValidation):
 
         # Check for missing counter defense rating.
         if (notna(counter_defense_pct) and isna(counter_defense_rating)) or (
-            counter_defense_pct and not counter_defense_rating
+            float(counter_defense_pct) and not float(counter_defense_rating)
         ):
             self.add_error(
                 f"In {match_key}, {team_number} MISSING COUNTER DEFENSE RATING",
@@ -372,7 +372,7 @@ class DataValidation2023(BaseDataValidation):
         if (
             notna(defense_pct)
             and notna(counter_defense_pct)
-            and (defense_pct + counter_defense_pct) > 100
+            and (float(defense_pct) + float(counter_defense_pct)) > 100
         ):
             self.add_error(
                 f"In {match_key}, {team_number} DEFENSE AND COUNTER DEFENSE PCT TOO HIGH",

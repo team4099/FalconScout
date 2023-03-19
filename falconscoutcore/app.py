@@ -166,12 +166,12 @@ def process_scan():
                 data_map["AutoGrid"] = "|".join(auto_grid_reversed)
                 data_map["TeleopGrid"] = "|".join(teleop_grid_reversed)
 
-                # Remove escape characters + commas
-                data_map["MatchKey"] = data_map["MatchKey"].replace(",", "")
-                data_map = {
-                    key: remove_escape_characters(value).replace(",", "|") if isinstance(value, str) else value
-                    for key, value in data_map.items()
-                }
+            # Remove escape characters + commas
+            data_map["MatchKey"] = data_map["MatchKey"].replace(",", "")
+            data_map = {
+                key: remove_escape_characters(value).replace(",", "|") if isinstance(value, str) else value
+                for key, value in data_map.items()
+            }
 
             with open(DATA_JSON_FILE, "r+") as file:
                 file_data = json.load(file)
