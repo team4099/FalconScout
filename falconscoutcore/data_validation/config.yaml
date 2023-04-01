@@ -1,8 +1,8 @@
 # core setup features
 year: 2023
-event_code: "mdbet"
+event_code: "vaale"
 run_with_tba: false
-path_to_data: "data/2023mdbet_match_data.json"
+path_to_data: "data/2023vaale_match_data.json"
 path_to_output: "data/errors.json"
 
 # required translation

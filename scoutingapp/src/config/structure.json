@@ -40,6 +40,7 @@
                     "red",
                     "blue"
                 ],
+                "required": true,
                 "id": "Alliance"
             },
             {
@@ -174,6 +175,9 @@
             {
                 "type": "GenericTextInput",
                 "text": "Final Charge Time",
+                "options": [
+                    ""
+                ],
                 "id": "EndgameChargeTime"
             },
             {
