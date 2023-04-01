@@ -1,6 +1,7 @@
 import json
 import os
 import uuid
+from ast import literal_eval
 from csv import reader
 from datetime import datetime
 
@@ -368,7 +369,10 @@ def change_submission():
     submission_row = changed_submission["submissionRow"]
     submission_col = changed_submission["submissionCol"]
     header_changed = headers[submission_col]
-    new_value = changed_submission["changedValue"]
+    try:
+        new_value = literal_eval(changed_submission["changedValue"])
+    except (ValueError, SyntaxError):
+        new_value = changed_submission["changedValue"]
 
     with open(DATA_JSON_FILE, "r+") as file:
         file_data = json.load(file)

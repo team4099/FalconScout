@@ -1,8 +1,10 @@
 import json
+from itertools import chain
 
 from data_validation.base_data_val import BaseDataValidation
 from data_validation.config.constants import ChargedUp
-from data_validation.config.utils import ErrorType
+from data_validation.config.utils import (ErrorType,
+                                          get_intersection_of_n_series)
 from pandas import DataFrame, Series, isna, notna
 
 
@@ -27,6 +29,7 @@ class DataValidation2023(BaseDataValidation):
         # Converts JSON to DataFrame
         scouting_data = DataFrame.from_dict(scouting_data)
 
+        self.average_out_data(scouting_data)
         self.check_team_numbers_for_each_match(scouting_data)
 
         if not scouting_data.empty:
@@ -58,6 +61,13 @@ class DataValidation2023(BaseDataValidation):
         :param submission: Series object containing a single submission of scouting data.
         :return:
         """
+        self.check_team_info_with_match_schedule(
+            match_key=submission[self.config["match_key"]],
+            team_number=submission[self.config["team_number"]],
+            alliance=submission[self.config["alliance"]],
+            driver_station=submission[self.config["driver_station"]],
+        )
+
         self.validate_auto_attempted_game_pieces(
             match_key=submission[self.config["match_key"]],
             team_number=submission[self.config["team_number"]],
@@ -101,6 +111,159 @@ class DataValidation2023(BaseDataValidation):
                     self.config["endgame_charging_state"]
                 ],
             )
+
+    def average_out_data(self, scouting_data: DataFrame) -> DataFrame:
+        """
+        Averages out data if n-scouts scouted a single robot in order to get more accurate data.
+
+        :return: A dataframe containing the averaged-out dataframe.
+        """
+        averaged_scouting_data = DataFrame(columns=scouting_data.columns)
+
+        for (
+            match_key,
+            alliance,
+            team_number,
+        ), submissions_by_alliance in scouting_data.groupby(
+            [
+                self.config["match_key"],
+                self.config["alliance"],
+                self.config["team_number"],
+            ]
+        ):
+            # Convert auto grid and teleop grids to a list
+            submissions_by_alliance["auto_grid"] = [
+                grid_submission.split("|")
+                for grid_submission in submissions_by_alliance["auto_grid"]
+            ]
+            submissions_by_alliance["teleop_grid"] = [
+                grid_submission.split("|")
+                for grid_submission in submissions_by_alliance["teleop_grid"]
+            ]
+
+            if len(submissions_by_alliance) == 1:
+                averaged_scouting_data.append(submissions_by_alliance)
+            else:
+                n_scouts = len(submissions_by_alliance)
+
+                # Auto grid intersection
+                (
+                    auto_grid_intersected,
+                    auto_same_length,
+                    auto_same_values,
+                ) = get_intersection_of_n_series(
+                    submissions_by_alliance[self.config["auto_grid"]]
+                )
+
+                if auto_same_length and not auto_same_values:
+                    auto_grid_intersected = submissions_by_alliance[
+                        self.config["auto_grid"]
+                    ][0]
+                    self.add_error(
+                        f"In {match_key}, {n_scouts} SCOUTS scouting {team_number} have"
+                        f" DIFFERENT positions for the GAME PIECES scored during AUTONOMOUS.",
+                        ErrorType.INCORRECT_DATA,
+                        match_key,
+                        team_number,
+                    )
+                elif not (auto_same_length or auto_same_values):
+                    auto_grid_intersected = submissions_by_alliance[
+                        self.config["auto_grid"]
+                    ][0]
+                    total_differences = len(
+                        {
+                            *chain.from_iterable(
+                                [*submissions_by_alliance[self.config["auto_grid"]]]
+                            )
+                        }
+                    ) - len(
+                        min(submissions_by_alliance[self.config["auto_grid"]], key=len)
+                    )
+
+                    self.add_error(
+                        f"In {match_key}, {n_scouts} SCOUTS scouting {team_number} have"
+                        f"a DIFFERENCE of {total_differences} GAME PIECES scored during AUTONOMOUS.",
+                        ErrorType.RESCOUT_MATCH
+                        if total_differences >= 2
+                        else ErrorType.INCORRECT_DATA,
+                        match_key,
+                        team_number,
+                    )
+
+                # Teleop grid intersection
+                (
+                    teleop_grid_intersected,
+                    teleop_same_length,
+                    teleop_same_values,
+                ) = get_intersection_of_n_series(
+                    submissions_by_alliance[self.config["teleop_grid"]]
+                )
+
+                if teleop_same_length and not teleop_same_values:
+                    teleop_grid_intersected = submissions_by_alliance[
+                        self.config["teleop_grid"]
+                    ][0]
+                    self.add_error(
+                        f"In {match_key}, {n_scouts} SCOUTS scouting {team_number} have"
+                        f" DIFFERENT positions for the GAME PIECES scored during TELEOP.",
+                        ErrorType.INCORRECT_DATA,
+                        match_key,
+                        team_number,
+                    )
+                elif not (teleop_same_length or teleop_same_values):
+                    teleop_grid_intersected = submissions_by_alliance[
+                        self.config["teleop_grid"]
+                    ][0]
+                    total_differences = len(
+                        {
+                            *chain.from_iterable(
+                                [*submissions_by_alliance[self.config["teleop_grid"]]]
+                            )
+                        }
+                    ) - len(
+                        min(
+                            submissions_by_alliance[self.config["teleop_grid"]], key=len
+                        )
+                    )
+
+                    self.add_error(
+                        f"In {match_key}, {n_scouts} SCOUTS scouting {team_number} have"
+                        f"a DIFFERENCE of {total_differences} GAME PIECES scored during TELEOP.",
+                        ErrorType.RESCOUT_MATCH
+                        if total_differences >= 2
+                        else ErrorType.INCORRECT_DATA,
+                        match_key,
+                        team_number,
+                    )
+
+                averaged_scouting_data.append(
+                    [
+                        {
+                            self.config["scout_id"]: ", ".join(
+                                submissions_by_alliance[self.config["scout_id"]]
+                            ),
+                            self.config["match_key"]: match_key,
+                            self.config["alliance"]: alliance,
+                            self.config["driver_station"]: submissions_by_alliance[
+                                self.config["driver_station"]
+                            ][0],
+                            self.config["team_number"]: team_number,
+                            self.config["preloaded"]: submissions_by_alliance[
+                                self.config["preloaded"]
+                            ][0],
+                            self.config["auto_grid"]: "|".join(auto_grid_intersected),
+                            self.config["auto_missed"]: submissions_by_alliance[
+                                self.config["auto_missed"]
+                            ].mean(),
+                            self.config["mobile"]: submissions_by_alliance[
+                                self.config["mobile"]
+                            ][0],
+                            self.config["teleop_grid"]: "|".join(
+                                teleop_grid_intersected
+                            ),
+                        }
+                    ]
+                )
 
     # TBA checks
     def tba_validate_auto_charge_station_state(
@@ -404,8 +567,8 @@ class DataValidation2023(BaseDataValidation):
 
         # Checks if either the number of pieces attempted > 4 despite no preloaded or if it's > 5
         if (
-            not preloaded and pieces_attempted_in_auto > 4
-        ) or pieces_attempted_in_auto > 5:
+            not preloaded and pieces_attempted_in_auto > 2
+        ) or pieces_attempted_in_auto > 3:
             self.add_error(
                 (
                     f"In {match_key}, {team_number} SCORING {pieces_attempted_in_auto} CONES AND CUBES"
