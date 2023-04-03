@@ -1,0 +1,3 @@
+,ScoutId,MatchKey,Alliance,DriverStation,TeamNumber,Preloaded,AutoGrid,AutoMissed,Mobile,AutoAttemptedCharge,AutoChargingState,AutoNotes,TeleopGrid,TeleopMissed,TeleopNotes,EndgameAttemptedCharge,EndgameFinalCharge,EndgameChargeTime,EndgameNotes,Disable,Tippy,DefenseTime,DefenseRating,DefendedTime,CounterDefenseRating,DriverRating,RatingNotes
+0,pranav and shayaan,qm1,blue,,4099,true,1H|2H,0.0,True,,None, | ,1Lcube|2Lcube|3Lcube|3H|4Lcube|5Lcube|6Lcube|7Lcube|8Lcube|9Lcube,1.0, | ,Dock|Engage,Engage,5.25,good at triple blanace | ,0,0.0,30.0,1.5,40.0,3.0,3.0, |
+1,shayaan,qm2,blue,,4099,true,1H|2H,0.0,true,,None,,1Lcone|2Lcone|3Lcube|3H|4Lcone|5Lcone|6Lcone|7Lcone|8Lcone|9Lcone,1.0,,Dock|Engage,None,5.2,,false,false,20.0,3.0,100.0,2.0,3.0,

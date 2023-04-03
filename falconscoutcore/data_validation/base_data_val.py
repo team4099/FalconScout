@@ -179,7 +179,7 @@ class BaseDataValidation(ABC):
         error_message: str,
         error_type: ErrorType,
         match_key: str,
-        team_id: int = "N/A",
+        team_id: int = 9999,
         scout_id: str = "N/A",
         alliance: str = "N/A",
     ) -> None:
@@ -194,14 +194,15 @@ class BaseDataValidation(ABC):
         :param alliance: The alliance where the error is being raised from.
         :return:
         """
+        # Explicit conversions to string and integers because of NumPy types that might be passed in.
         self.errors.append(
             {
                 "error_type": error_type.name.replace("_", " "),
                 "error_number": error_type.value,
                 "message": error_message,
-                "match": match_key,
+                "match": str(match_key),
                 "scout_id": scout_id,
-                "team_id": team_id,
+                "team_id": int(team_id),
                 "alliance": alliance,
             }
         )

@@ -1,0 +1,410 @@
+[
+  {
+    "ScoutId": "pranav",
+    "MatchKey": "qm1",
+    "Alliance": "blue",
+    "DriverStation": "",
+    "TeamNumber": 4099,
+    "Preloaded": "true",
+    "AutoGrid": "1H|2H",
+    "AutoMissed": 0,
+    "Mobile": "true",
+    "AutoAttemptedCharge": "",
+    "AutoChargingState": "None",
+    "AutoNotes": "",
+    "TeleopGrid": "1Lcube|2Lcube|3Lcube|3H|4Lcube|5Lcube|6Lcube|7Lcube|8Lcube|9Lcube",
+    "TeleopMissed": 1,
+    "TeleopNotes": "",
+    "EndgameAttemptedCharge": "Dock|Engage",
+    "EndgameFinalCharge": "Engage",
+    "EndgameChargeTime": 5.3,
+    "EndgameNotes": "good at triple blanace",
+    "Disable": "false",
+    "Tippy": "false",
+    "DefenseTime": 0,
+    "DefenseRating": 0,
+    "DefendedTime": 60,
+    "CounterDefenseRating": 4,
+    "DriverRating": 3,
+    "RatingNotes": "",
+    "scanRaw": "pranav|qm|1|blue||4099|true|1H|2H|0|true||None||1Lcube|2Lcube|3Lcube|3H|4Lcube|5Lcube|6Lcube|7Lcube|8Lcube|9Lcube|1||Dock|Engage|Engage|5.3|good at triple blanace|false|false|0|0|60|4|3|",
+    "uuid": "c0961430-6c5e-43f1-8c1d-d806037a440b",
+    "AutoCones": [
+      "High"
+    ],
+    "AutoCubes": [
+      "High"
+    ],
+    "TeleopCones": [
+      "High"
+    ],
+    "TeleopCubes": [
+      "Low",
+      "Low",
+      "Low",
+      "Low",
+      "Low",
+      "Low",
+      "Low",
+      "Low",
+      "Low"
+    ]
+  },
+  {
+    "ScoutId": "shayaan",
+    "MatchKey": "qm1",
+    "Alliance": "blue",
+    "DriverStation": "",
+    "TeamNumber": 4099,
+    "Preloaded": "true",
+    "AutoGrid": "1H|2H",
+    "AutoMissed": 0,
+    "Mobile": "true",
+    "AutoAttemptedCharge": "",
+    "AutoChargingState": "None",
+    "AutoNotes": "",
+    "TeleopGrid": "1Lcone|2Lcone|3Lcube|3H|4Lcone|5Lcone|6Lcone|7Lcone|8Lcone|9Lcone",
+    "TeleopMissed": 1,
+    "TeleopNotes": "",
+    "EndgameAttemptedCharge": "Dock|Engage",
+    "EndgameFinalCharge": "None",
+    "EndgameChargeTime": 5.2,
+    "EndgameNotes": "",
+    "Disable": "false",
+    "Tippy": "false",
+    "DefenseTime": 60,
+    "DefenseRating": 3,
+    "DefendedTime": 20,
+    "CounterDefenseRating": 2,
+    "DriverRating": 3,
+    "RatingNotes": "",
+    "scanRaw": "shayaan|qm|1 |blue||4099|true|1H|2H|0|true||None||1Lcone|2Lcone|3Lcube|3H|4Lcone|5Lcone|6Lcone|7Lcone|8Lcone|9Lcone|1||Dock|Engage|None|5.2||false|false|60|3|20|2|3|",
+    "uuid": "a1e41669-732b-4167-8354-288332b2c8b0",
+    "AutoCones": [
+      "High"
+    ],
+    "AutoCubes": [
+      "High"
+    ],
+    "TeleopCones": [
+      "Low",
+      "Low",
+      "High",
+      "Low",
+      "Low",
+      "Low",
+      "Low",
+      "Low",
+      "Low"
+    ],
+    "TeleopCubes": [
+      "Low"
+    ]
+  },
+  {
+    "ScoutId": "shayaan",
+    "MatchKey": "qm1 ",
+    "Alliance": "blue",
+    "DriverStation": "",
+    "TeamNumber": 4099,
+    "Preloaded": "true",
+    "AutoGrid": "1H|2H",
+    "AutoMissed": 0,
+    "Mobile": "true",
+    "AutoAttemptedCharge": "",
+    "AutoChargingState": "None",
+    "AutoNotes": "",
+    "TeleopGrid": "1Lcone|2Lcone|3Lcube|3H|4Lcone|5Lcone|6Lcone|7Lcone|8Lcone|9Lcone",
+    "TeleopMissed": 1,
+    "TeleopNotes": "",
+    "EndgameAttemptedCharge": "Dock|Engage",
+    "EndgameFinalCharge": "None",
+    "EndgameChargeTime": 5.2,
+    "EndgameNotes": "",
+    "Disable": "false",
+    "Tippy": "false",
+    "DefenseTime": 60,
+    "DefenseRating": 3,
+    "DefendedTime": 20,
+    "CounterDefenseRating": 2,
+    "DriverRating": 3,
+    "RatingNotes": "",
+    "scanRaw": "shayaan|qm|1 |blue||4099|true|1H|2H|0|true||None||1Lcone|2Lcone|3Lcube|3H|4Lcone|5Lcone|6Lcone|7Lcone|8Lcone|9Lcone|1||Dock|Engage|None|5.2||false|false|60|3|20|2|3|",
+    "uuid": "4154565d-1e95-4acc-be2a-e73a8336e38a",
+    "AutoCones": [
+      "High"
+    ],
+    "AutoCubes": [
+      "High"
+    ],
+    "TeleopCones": [
+      "Low",
+      "Low",
+      "High",
+      "Low",
+      "Low",
+      "Low",
+      "Low",
+      "Low",
+      "Low"
+    ],
+    "TeleopCubes": [
+      "Low"
+    ]
+  },
+  {
+    "ScoutId": "shayaan",
+    "MatchKey": "qm1 ",
+    "Alliance": "blue",
+    "DriverStation": "",
+    "TeamNumber": 4099,
+    "Preloaded": "true",
+    "AutoGrid": "1H|2H",
+    "AutoMissed": 0,
+    "Mobile": "true",
+    "AutoAttemptedCharge": "",
+    "AutoChargingState": "None",
+    "AutoNotes": "",
+    "TeleopGrid": "1Lcone|2Lcone|3Lcube|3H|4Lcone|5Lcone|6Lcone|7Lcone|8Lcone|9Lcone",
+    "TeleopMissed": 1,
+    "TeleopNotes": "",
+    "EndgameAttemptedCharge": "Dock|Engage",
+    "EndgameFinalCharge": "None",
+    "EndgameChargeTime": 5.2,
+    "EndgameNotes": "",
+    "Disable": "false",
+    "Tippy": "false",
+    "DefenseTime": 60,
+    "DefenseRating": 3,
+    "DefendedTime": 20,
+    "CounterDefenseRating": 2,
+    "DriverRating": 3,
+    "RatingNotes": "",
+    "scanRaw": "shayaan|qm|1 |blue||4099|true|1H|2H|0|true||None||1Lcone|2Lcone|3Lcube|3H|4Lcone|5Lcone|6Lcone|7Lcone|8Lcone|9Lcone|1||Dock|Engage|None|5.2||false|false|60|3|20|2|3|",
+    "uuid": "08494c8f-b2af-429d-8bec-7adc5be65dd7",
+    "AutoCones": [
+      "High"
+    ],
+    "AutoCubes": [
+      "High"
+    ],
+    "TeleopCones": [
+      "Low",
+      "Low",
+      "High",
+      "Low",
+      "Low",
+      "Low",
+      "Low",
+      "Low",
+      "Low"
+    ],
+    "TeleopCubes": [
+      "Low"
+    ]
+  },
+  {
+    "ScoutId": "pranav",
+    "MatchKey": "qm1",
+    "Alliance": "blue",
+    "DriverStation": "",
+    "TeamNumber": 4099,
+    "Preloaded": "true",
+    "AutoGrid": "1H|2H",
+    "AutoMissed": 0,
+    "Mobile": "true",
+    "AutoAttemptedCharge": "",
+    "AutoChargingState": "None",
+    "AutoNotes": "",
+    "TeleopGrid": "1Lcube|2Lcube|3Lcube|3H|4Lcube|5Lcube|6Lcube|7Lcube|8Lcube|9Lcube",
+    "TeleopMissed": 1,
+    "TeleopNotes": "",
+    "EndgameAttemptedCharge": "Dock|Engage",
+    "EndgameFinalCharge": "Engage",
+    "EndgameChargeTime": 5.3,
+    "EndgameNotes": "good at triple blanace",
+    "Disable": "false",
+    "Tippy": "false",
+    "DefenseTime": 0,
+    "DefenseRating": 0,
+    "DefendedTime": 60,
+    "CounterDefenseRating": 4,
+    "DriverRating": 3,
+    "RatingNotes": "",
+    "scanRaw": "pranav|qm|1|blue||4099|true|1H|2H|0|true||None||1Lcube|2Lcube|3Lcube|3H|4Lcube|5Lcube|6Lcube|7Lcube|8Lcube|9Lcube|1||Dock|Engage|Engage|5.3|good at triple blanace|false|false|0|0|60|4|3|",
+    "uuid": "7204573d-7af8-4fec-8e1c-4fe025a1d363",
+    "AutoCones": [
+      "High"
+    ],
+    "AutoCubes": [
+      "High"
+    ],
+    "TeleopCones": [
+      "High"
+    ],
+    "TeleopCubes": [
+      "Low",
+      "Low",
+      "Low",
+      "Low",
+      "Low",
+      "Low",
+      "Low",
+      "Low",
+      "Low"
+    ]
+  },
+  {
+    "ScoutId": "pranav",
+    "MatchKey": "qm1",
+    "Alliance": "blue",
+    "DriverStation": "",
+    "TeamNumber": 4099,
+    "Preloaded": "true",
+    "AutoGrid": "1H|2H",
+    "AutoMissed": 0,
+    "Mobile": "true",
+    "AutoAttemptedCharge": "",
+    "AutoChargingState": "None",
+    "AutoNotes": "",
+    "TeleopGrid": "1Lcube|2Lcube|3Lcube|3H|4Lcube|5Lcube|6Lcube|7Lcube|8Lcube|9Lcube",
+    "TeleopMissed": 1,
+    "TeleopNotes": "",
+    "EndgameAttemptedCharge": "Dock|Engage",
+    "EndgameFinalCharge": "Engage",
+    "EndgameChargeTime": 5.3,
+    "EndgameNotes": "good at triple blanace",
+    "Disable": "false",
+    "Tippy": "false",
+    "DefenseTime": 0,
+    "DefenseRating": 0,
+    "DefendedTime": 60,
+    "CounterDefenseRating": 4,
+    "DriverRating": 3,
+    "RatingNotes": "",
+    "scanRaw": "pranav|qm|1|blue||4099|true|1H|2H|0|true||None||1Lcube|2Lcube|3Lcube|3H|4Lcube|5Lcube|6Lcube|7Lcube|8Lcube|9Lcube|1||Dock|Engage|Engage|5.3|good at triple blanace|false|false|0|0|60|4|3|",
+    "uuid": "a272168b-a3b9-49db-b985-cfd4ece51e73",
+    "AutoCones": [
+      "High"
+    ],
+    "AutoCubes": [
+      "High"
+    ],
+    "TeleopCones": [
+      "High"
+    ],
+    "TeleopCubes": [
+      "Low",
+      "Low",
+      "Low",
+      "Low",
+      "Low",
+      "Low",
+      "Low",
+      "Low",
+      "Low"
+    ]
+  },
+  {
+    "ScoutId": "shayaan",
+    "MatchKey": "qm1",
+    "Alliance": "blue",
+    "DriverStation": "",
+    "TeamNumber": 4099,
+    "Preloaded": "true",
+    "AutoGrid": "1H|2H",
+    "AutoMissed": 0,
+    "Mobile": "true",
+    "AutoAttemptedCharge": "",
+    "AutoChargingState": "None",
+    "AutoNotes": "",
+    "TeleopGrid": "1Lcone|2Lcone|3Lcube|3H|4Lcone|5Lcone|6Lcone|7Lcone|8Lcone|9Lcone",
+    "TeleopMissed": 1,
+    "TeleopNotes": "",
+    "EndgameAttemptedCharge": "Dock|Engage",
+    "EndgameFinalCharge": "None",
+    "EndgameChargeTime": 5.2,
+    "EndgameNotes": "",
+    "Disable": "false",
+    "Tippy": "false",
+    "DefenseTime": 60,
+    "DefenseRating": 3,
+    "DefendedTime": 20,
+    "CounterDefenseRating": 2,
+    "DriverRating": 3,
+    "RatingNotes": "",
+    "scanRaw": "shayaan|qm|1|blue||4099|true|1H|2H|0|true||None||1Lcone|2Lcone|3Lcube|3H|4Lcone|5Lcone|6Lcone|7Lcone|8Lcone|9Lcone|1||Dock|Engage|None|5.2||false|false|60|3|20|2|3|",
+    "uuid": "e4f069fc-eae2-48cd-9323-76c8f4f67722",
+    "AutoCones": [
+      "High"
+    ],
+    "AutoCubes": [
+      "High"
+    ],
+    "TeleopCones": [
+      "Low",
+      "Low",
+      "High",
+      "Low",
+      "Low",
+      "Low",
+      "Low",
+      "Low",
+      "Low"
+    ],
+    "TeleopCubes": [
+      "Low"
+    ]
+  },
+  {
+    "ScoutId": "shayaan",
+    "MatchKey": "qm2",
+    "Alliance": "blue",
+    "DriverStation": "",
+    "TeamNumber": 4099,
+    "Preloaded": "true",
+    "AutoGrid": "1H|2H",
+    "AutoMissed": 0,
+    "Mobile": "true",
+    "AutoAttemptedCharge": "",
+    "AutoChargingState": "None",
+    "AutoNotes": "",
+    "TeleopGrid": "1Lcone|2Lcone|3Lcube|3H|4Lcone|5Lcone|6Lcone|7Lcone|8Lcone|9Lcone",
+    "TeleopMissed": 1,
+    "TeleopNotes": "",
+    "EndgameAttemptedCharge": "Dock|Engage",
+    "EndgameFinalCharge": "None",
+    "EndgameChargeTime": 5.2,
+    "EndgameNotes": "",
+    "Disable": "false",
+    "Tippy": "false",
+    "DefenseTime": 20,
+    "DefenseRating": 3,
+    "DefendedTime": 100,
+    "CounterDefenseRating": 2,
+    "DriverRating": 3,
+    "RatingNotes": "",
+    "scanRaw": "shayaan|qm|2|blue||4099|true|1H|2H|0|true||None||1Lcone|2Lcone|3Lcube|3H|4Lcone|5Lcone|6Lcone|7Lcone|8Lcone|9Lcone|1||Dock|Engage|None|5.2||false|false|20|3|100|2|3|",
+    "uuid": "2331e45b-d3a0-4c51-919c-a937888eab77",
+    "AutoCones": [
+      "High"
+    ],
+    "AutoCubes": [
+      "High"
+    ],
+    "TeleopCones": [
+      "Low",
+      "Low",
+      "High",
+      "Low",
+      "Low",
+      "Low",
+      "Low",
+      "Low",
+      "Low"
+    ],
+    "TeleopCubes": [
+      "Low"
+    ]
+  }
+]

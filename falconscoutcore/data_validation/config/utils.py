@@ -2,7 +2,7 @@ import re
 from enum import Enum
 from functools import reduce
 
-from pandas import Series, isna
+from pandas import DataFrame, Series, isna
 
 
 class ErrorType(Enum):
@@ -37,9 +37,8 @@ def valid_match_key(key: str) -> bool:
 
 def get_intersection_of_n_series(*args: Series) -> tuple[list, bool, bool]:
     intersected_result = list(reduce(lambda x, y: set(x).intersection(set(y)), args))
-
     return (
         intersected_result,
         len({len(scouting_datum) for scouting_datum in args}) == 1,
-        len({tuple(scouting_datum) for scouting_datum in args}) == 1,
+        (DataFrame(*args).astype(str).nunique() == 1).all(),
     )

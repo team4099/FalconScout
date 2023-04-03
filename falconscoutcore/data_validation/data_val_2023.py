@@ -5,7 +5,7 @@ from data_validation.base_data_val import BaseDataValidation
 from data_validation.config.constants import ChargedUp
 from data_validation.config.utils import (ErrorType,
                                           get_intersection_of_n_series)
-from pandas import DataFrame, Series, isna, notna
+from pandas import DataFrame, Series, concat, isna, notna
 
 
 class DataValidation2023(BaseDataValidation):
@@ -28,9 +28,12 @@ class DataValidation2023(BaseDataValidation):
 
         # Converts JSON to DataFrame
         scouting_data = DataFrame.from_dict(scouting_data)
+        scouting_data = self.average_out_data(scouting_data)
 
-        self.average_out_data(scouting_data)
-        self.check_team_numbers_for_each_match(scouting_data)
+        # Write averaged out data back to file
+        with open(self.path_to_data_file, "w") as file:
+            json.dump(scouting_data.to_dict("records"), file, indent=2)
+        # self.check_team_numbers_for_each_match(scouting_data)
 
         if not scouting_data.empty:
             self.auto_charge_station_checks(scouting_data)
@@ -61,12 +64,12 @@ class DataValidation2023(BaseDataValidation):
         :param submission: Series object containing a single submission of scouting data.
         :return:
         """
-        self.check_team_info_with_match_schedule(
-            match_key=submission[self.config["match_key"]],
-            team_number=submission[self.config["team_number"]],
-            alliance=submission[self.config["alliance"]],
-            driver_station=submission[self.config["driver_station"]],
-        )
+        # self.check_team_info_with_match_schedule(
+        #     match_key=submission[self.config["match_key"]],
+        #     team_number=submission[self.config["team_number"]],
+        #     alliance=submission[self.config["alliance"]],
+        #     driver_station=submission[self.config["driver_station"]],
+        # )
 
         self.validate_auto_attempted_game_pieces(
             match_key=submission[self.config["match_key"]],
@@ -118,7 +121,10 @@ class DataValidation2023(BaseDataValidation):
 
         :return: A dataframe containing the averaged-out dataframe.
         """
-        averaged_scouting_data = DataFrame(columns=scouting_data.columns)
+        columns_to_use = [
+            column for column in scouting_data.columns if column != "uuid"
+        ]
+        averaged_scouting_data = DataFrame(columns=columns_to_use)
 
         for (
             match_key,
@@ -131,20 +137,26 @@ class DataValidation2023(BaseDataValidation):
                 self.config["team_number"],
             ]
         ):
-            # Convert auto grid and teleop grids to a list
-            submissions_by_alliance["auto_grid"] = [
-                grid_submission.split("|")
-                for grid_submission in submissions_by_alliance["auto_grid"]
-            ]
-            submissions_by_alliance["teleop_grid"] = [
-                grid_submission.split("|")
-                for grid_submission in submissions_by_alliance["teleop_grid"]
-            ]
-
             if len(submissions_by_alliance) == 1:
-                averaged_scouting_data.append(submissions_by_alliance)
+                averaged_scouting_data = concat(
+                    [averaged_scouting_data, submissions_by_alliance]
+                )
             else:
                 n_scouts = len(submissions_by_alliance)
+
+                # Convert auto grid and teleop grids to a list
+                submissions_by_alliance[self.config["auto_grid"]] = [
+                    grid_submission.split("|")
+                    for grid_submission in submissions_by_alliance[
+                        self.config["auto_grid"]
+                    ]
+                ]
+                submissions_by_alliance[self.config["teleop_grid"]] = [
+                    grid_submission.split("|")
+                    for grid_submission in submissions_by_alliance[
+                        self.config["teleop_grid"]
+                    ]
+                ]
 
                 # Auto grid intersection
                 (
@@ -154,7 +166,6 @@ class DataValidation2023(BaseDataValidation):
                 ) = get_intersection_of_n_series(
                     submissions_by_alliance[self.config["auto_grid"]]
                 )
-
                 if auto_same_length and not auto_same_values:
                     auto_grid_intersected = submissions_by_alliance[
                         self.config["auto_grid"]
@@ -189,6 +200,8 @@ class DataValidation2023(BaseDataValidation):
                         match_key,
                         team_number,
                     )
+                else:
+                    auto_grid_intersected = auto_grid_intersected[0]
 
                 # Teleop grid intersection
                 (
@@ -198,6 +211,7 @@ class DataValidation2023(BaseDataValidation):
                 ) = get_intersection_of_n_series(
                     submissions_by_alliance[self.config["teleop_grid"]]
                 )
+                print(teleop_same_length, teleop_same_values)
 
                 if teleop_same_length and not teleop_same_values:
                     teleop_grid_intersected = submissions_by_alliance[
@@ -235,35 +249,247 @@ class DataValidation2023(BaseDataValidation):
                         match_key,
                         team_number,
                     )
+                else:
+                    teleop_grid_intersected = teleop_grid_intersected[0]
 
-                averaged_scouting_data.append(
+                # Auto attempted and actual charge station states
+                auto_attempted_charges = submissions_by_alliance[
+                    self.config["auto_attempted_charge"]
+                ]
+                if auto_attempted_charges.nunique() == 1:
+                    auto_attempted_charge = auto_attempted_charges[0]
+                else:
+                    different_charges = set(auto_attempted_charges)
+                    auto_attempted_charge = (
+                        "Dock|Engage" if "Dock|Engage" in different_charges else "None"
+                    )
+
+                auto_final_charges = submissions_by_alliance[
+                    self.config["auto_charging_state"]
+                ]
+                if auto_final_charges.nunique() == 1:
+                    auto_final_charge = auto_final_charges[0]
+                else:
+                    different_charges = set(auto_final_charges)
+                    if "Engage" in different_charges:
+                        auto_final_charge = "Engage"
+                    elif "Docked" in different_charges:
+                        auto_final_charge = "Docked"
+                    else:
+                        auto_final_charge = "None"
+
+                # Endgame attempted and actual charge station states
+                endgame_attempted_charges = submissions_by_alliance[
+                    self.config["endgame_attempted_charge"]
+                ]
+                if endgame_attempted_charges.nunique():
+                    endgame_attempted_charge = endgame_attempted_charges[0]
+                else:
+                    different_charges = set(endgame_attempted_charges)
+                    endgame_attempted_charge = (
+                        "Dock|Engage" if "Dock|Engage" in different_charges else "None"
+                    )
+
+                endgame_final_charges = submissions_by_alliance[
+                    self.config["endgame_charging_state"]
+                ]
+                if endgame_final_charges.nunique() == 1:
+                    endgame_final_charge = endgame_final_charges[0]
+                else:
+                    different_charges = set(endgame_final_charges)
+                    if "Engage" in different_charges:
+                        endgame_final_charge = "Engage"
+                    elif "Docked" in different_charges:
+                        endgame_final_charge = "Docked"
+                    elif "Parked" in different_charges:
+                        endgame_final_charge = "Parked"
+                    else:
+                        endgame_final_charge = "None"
+
+                # create lists for auto cones, auto cubes, teleop cones and teleop cubes
+                cone_positions = {1, 3, 4, 6, 7, 9}
+                positions_to_names = {"H": "High", "M": "Mid", "L": "Low"}
+
+                auto_cones = []
+                auto_cubes = []
+                teleop_cones = []
+                teleop_cubes = []
+
+                for game_piece in auto_grid_intersected:
+                    position, height = game_piece[:2]
+
+                    if height == "L":
+                        if "cone" in game_piece:
+                            auto_cones.append("Low")
+                        elif "cube" in game_piece:
+                            auto_cubes.append("Low")
+                        continue
+
+                    if int(position) in cone_positions:
+                        auto_cones.append(positions_to_names[height])
+                    else:
+                        auto_cubes.append(positions_to_names[height])
+
+                for game_piece in teleop_grid_intersected:
+                    position, height = game_piece[:2]
+
+                    if height == "L":
+                        if "cone" in game_piece:
+                            teleop_cones.append("Low")
+                        elif "cube" in game_piece:
+                            teleop_cubes.append("Low")
+                        continue
+
+                    if int(position) in cone_positions:
+                        teleop_cones.append(positions_to_names[height])
+                    else:
+                        teleop_cubes.append(positions_to_names[height])
+
+                # Map "Disabled", "Tippy" and "Mobile" from strings to booleans
+                json_boolean_to_int = {"true": True, "false": False}
+
+                submissions_by_alliance[
+                    self.config["disabled"]
+                ] = submissions_by_alliance[self.config["disabled"]].map(
+                    json_boolean_to_int
+                )
+                submissions_by_alliance[self.config["tippy"]] = submissions_by_alliance[
+                    self.config["tippy"]
+                ].map(json_boolean_to_int)
+                submissions_by_alliance[
+                    self.config["mobile"]
+                ] = submissions_by_alliance[self.config["mobile"]].map(
+                    json_boolean_to_int
+                )
+
+                averaged_scouting_data = concat(
                     [
-                        {
-                            self.config["scout_id"]: ", ".join(
-                                submissions_by_alliance[self.config["scout_id"]]
-                            ),
-                            self.config["match_key"]: match_key,
-                            self.config["alliance"]: alliance,
-                            self.config["driver_station"]: submissions_by_alliance[
-                                self.config["driver_station"]
-                            ][0],
-                            self.config["team_number"]: team_number,
-                            self.config["preloaded"]: submissions_by_alliance[
-                                self.config["preloaded"]
-                            ][0],
-                            self.config["auto_grid"]: "|".join(auto_grid_intersected),
-                            self.config["auto_missed"]: submissions_by_alliance[
-                                self.config["auto_missed"]
-                            ].mean(),
-                            self.config["mobile"]: submissions_by_alliance[
-                                self.config["mobile"]
-                            ][0],
-                            self.config["teleop_grid"]: "|".join(
-                                teleop_grid_intersected
-                            ),
-                        }
+                        averaged_scouting_data,
+                        DataFrame.from_dict(
+                            [
+                                {
+                                    self.config["scout_id"]: " and ".join(
+                                        submissions_by_alliance[self.config["scout_id"]]
+                                    ).strip(),
+                                    self.config["match_key"]: match_key,
+                                    self.config["alliance"]: alliance,
+                                    self.config[
+                                        "driver_station"
+                                    ]: submissions_by_alliance[
+                                        self.config["driver_station"]
+                                    ][
+                                        0
+                                    ],
+                                    self.config["team_number"]: team_number,
+                                    self.config["preloaded"]: submissions_by_alliance[
+                                        self.config["preloaded"]
+                                    ][0],
+                                    self.config["auto_grid"]: "|".join(
+                                        auto_grid_intersected
+                                    ),
+                                    self.config["auto_missed"]: submissions_by_alliance[
+                                        self.config["auto_missed"]
+                                    ].mean(),
+                                    self.config["mobile"]: submissions_by_alliance[
+                                        self.config["mobile"]
+                                    ][0],
+                                    self.config[
+                                        "auto_attempted_charge"
+                                    ]: auto_attempted_charge,
+                                    self.config[
+                                        "auto_charging_state"
+                                    ]: auto_final_charge,
+                                    self.config["auto_notes"]: " | ".join(
+                                        submissions_by_alliance[
+                                            self.config["auto_notes"]
+                                        ]
+                                    ),
+                                    self.config["teleop_grid"]: "|".join(
+                                        teleop_grid_intersected
+                                    ),
+                                    self.config[
+                                        "teleop_missed"
+                                    ]: submissions_by_alliance[
+                                        self.config["teleop_missed"]
+                                    ].mean(),
+                                    self.config["teleop_notes"]: " | ".join(
+                                        submissions_by_alliance[
+                                            self.config["teleop_notes"]
+                                        ]
+                                    ),
+                                    self.config[
+                                        "endgame_attempted_charge"
+                                    ]: endgame_attempted_charge,
+                                    self.config[
+                                        "endgame_charging_state"
+                                    ]: endgame_final_charge,
+                                    self.config[
+                                        "final_charge_time"
+                                    ]: submissions_by_alliance[
+                                        self.config["final_charge_time"]
+                                    ].mean(),
+                                    self.config["endgame_notes"]: " | ".join(
+                                        submissions_by_alliance[
+                                            self.config["endgame_notes"]
+                                        ]
+                                    ),
+                                    self.config["disabled"]: (
+                                        int(
+                                            submissions_by_alliance[
+                                                self.config["disabled"]
+                                            ][0]
+                                        )
+                                        if submissions_by_alliance[
+                                            self.config["disabled"]
+                                        ].nunique()
+                                        == 1
+                                        else 1
+                                    ),
+                                    self.config["tippy"]: submissions_by_alliance[
+                                        self.config["tippy"]
+                                    ]
+                                    .astype(int)
+                                    .mean(),
+                                    self.config["defense_pct"]: submissions_by_alliance[
+                                        self.config["defense_pct"]
+                                    ].mean(),
+                                    self.config[
+                                        "defense_rating"
+                                    ]: submissions_by_alliance[
+                                        self.config["defense_rating"]
+                                    ].mean(),
+                                    self.config[
+                                        "counter_defense_pct"
+                                    ]: submissions_by_alliance[
+                                        self.config["counter_defense_pct"]
+                                    ].mean(),
+                                    self.config[
+                                        "counter_defense_rating"
+                                    ]: submissions_by_alliance[
+                                        self.config["counter_defense_rating"]
+                                    ].mean(),
+                                    self.config[
+                                        "driver_rating"
+                                    ]: submissions_by_alliance[
+                                        self.config["driver_rating"]
+                                    ].mean(),
+                                    self.config["rating_notes"]: " | ".join(
+                                        submissions_by_alliance[
+                                            self.config["rating_notes"]
+                                        ]
+                                    ),
+                                    self.config["auto_cones"]: auto_cones,
+                                    self.config["auto_cubes"]: auto_cubes,
+                                    self.config["teleop_cones"]: teleop_cones,
+                                    self.config["teleop_cubes"]: teleop_cubes,
+                                    "scanRaw": submissions_by_alliance["scanRaw"][0],
+                                }
+                            ]
+                        ),
                     ]
                 )
+
+        return averaged_scouting_data
 
     # TBA checks
     def tba_validate_auto_charge_station_state(

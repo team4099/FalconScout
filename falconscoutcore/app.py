@@ -28,10 +28,12 @@ with open(path_to_config) as file:
 
 app = Flask(__name__)
 
+
 def remove_escape_characters(string_to_change: str) -> str:
     escape_characters = "".join(chr(char) for char in range(1, 32))
     translator = string_to_change.maketrans("", "", escape_characters)
     return string_to_change.translate(translator)
+
 
 @app.route("/")
 def home():
@@ -170,16 +172,30 @@ def process_scan():
             # Remove escape characters + commas
             data_map["MatchKey"] = data_map["MatchKey"].replace(",", "")
             data_map = {
-                key: remove_escape_characters(value).replace(",", "|") if isinstance(value, str) else value
+                key: remove_escape_characters(value).replace(",", "|")
+                if isinstance(value, str)
+                else value
                 for key, value in data_map.items()
             }
 
-            with open(DATA_JSON_FILE, "r+") as file:
+            with (
+                open(DATA_JSON_FILE, "r+") as file,
+                open(
+                    DATA_JSON_FILE.replace("match_data", "individual_data"), "r+"
+                ) as individual_submissions,
+            ):
+                individual_data = json.load(individual_submissions)
                 file_data = json.load(file)
+
+                individual_data.append(data_map)
                 file_data.append(data_map)
 
                 file.seek(0)
                 json.dump(file_data, file, indent=2)
+
+                # Dump individual submissions into a separate file
+                individual_submissions.seek(0)
+                json.dump(individual_data, individual_submissions, indent=2)
 
             data_df = DataFrame.from_dict(file_data)
             data_df.drop(

@@ -1,11 +1,12 @@
 # core setup features
 year: 2023
-event_code: "vaale"
+event_code: "chcmp"
 run_with_tba: false
-path_to_data: "data/2023vaale_match_data.json"
+path_to_data: "data/2023chcmp_match_data.json"
 path_to_output: "data/errors.json"
 
 # required translation
+scout_id: "ScoutId"
 match_key: "MatchKey"
 team_number: "TeamNumber"
 
@@ -15,12 +16,20 @@ team_number: "TeamNumber"
 # Charged Up 2023: hyper-specific parameters
 auto_cones: "AutoCones"
 auto_cubes: "AutoCubes"
+auto_grid: "AutoGrid"
+auto_missed: "AutoMissed"
+mobile: "Mobile"
+auto_attempted_charge: "AutoAttemptedCharge"
 auto_charging_state: "AutoChargingState"
-preloaded: "Preloaded"
+
 teleop_cones: "TeleopCones"
 teleop_cubes: "TeleopCubes"
-mobile: "Mobile"
+teleop_grid: "TeleopGrid"
+teleop_missed: "TeleopMissed"
+
+endgame_attempted_charge: "EndgameAttemptedCharge"
 endgame_charging_state: "EndgameFinalCharge"
+final_charge_time: "EndgameChargeTime"
 
 # general game parameters
 alliance: "Alliance"
@@ -29,3 +38,13 @@ defense_pct: "DefenseTime"
 counter_defense_pct: "DefendedTime"
 defense_rating: "DefenseRating"
 counter_defense_rating: "CounterDefenseRating"
+driver_rating: "DriverRating"
+disabled: "Disable"
+tippy: "Tippy"
+preloaded: "Preloaded"
+
+# parameters for notes
+auto_notes: "AutoNotes"
+teleop_notes: "TeleopNotes"
+endgame_notes: "EndgameNotes"
+rating_notes: "RatingNotes"
