@@ -28,9 +28,9 @@ export function ChargedUpGridSelect(props: ComponentSetup){
     }
 
     var hybridMapping: any = {
-        false: "cone",
-        cone: "cube",
-        cube: false
+        false: "cube",
+        cube: "cone",
+        cone: false
     }
 
     const [gridValues, setGridValues] = useState(values)
