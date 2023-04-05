@@ -222,27 +222,6 @@
             },
             {
                 "type": "SliderInput",
-                "text": "How much were they defended (0-100%)",
-                "options": [
-                    "0",
-                    "100",
-                    "20"
-                ],
-                "placeholder":[0],
-                "id": "DefendedTime"
-            },
-            {
-                "type": "SliderInput",
-                "text": "Counter defense rating (0 is no counter defense)",
-                "options": [
-                    "0",
-                    "5"
-                ],
-                "placeholder":[0],
-                "id": "CounterDefenseRating"
-            },
-            {
-                "type": "SliderInput",
                 "text": "How well do they drive",
                 "options": [
                     "1",
@@ -289,8 +268,6 @@
                 "Tippy",
                 "DefenseTime",
                 "DefenseRating",
-                "DefendedTime",
-                "CounterDefenseRating",
                 "DriverRating",
                 "RatingNotes"
             ]
