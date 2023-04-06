@@ -33,7 +33,8 @@ class DataValidation2023(BaseDataValidation):
         # Write averaged out data back to file
         with open(self.path_to_data_file, "w") as file:
             json.dump(scouting_data.to_dict("records"), file, indent=2)
-        # self.check_team_numbers_for_each_match(scouting_data)
+
+        self.check_team_numbers_for_each_match(scouting_data)
 
         if not scouting_data.empty:
             self.auto_charge_station_checks(scouting_data)
@@ -146,7 +147,7 @@ class DataValidation2023(BaseDataValidation):
                 >= 3
             )
 
-            for team_number, submissions_by_team in scouting_data.groupby(
+            for team_number, submissions_by_team in submissions_by_alliance.groupby(
                 self.config["team_number"]
             ):
                 if len(submissions_by_team) == 1:
@@ -188,7 +189,7 @@ class DataValidation2023(BaseDataValidation):
                     if auto_same_length and not auto_same_values:
                         auto_grid_intersected = submissions_by_team[
                             self.config["auto_grid"]
-                        ][0]
+                        ].iloc[0]
                         self.add_error(
                             f"In {match_key}, {n_scouts} SCOUTS scouting {team_number} have"
                             f" DIFFERENT positions for the GAME PIECES scored during AUTONOMOUS.",
@@ -199,7 +200,7 @@ class DataValidation2023(BaseDataValidation):
                     elif not (auto_same_length or auto_same_values):
                         auto_grid_intersected = submissions_by_team[
                             self.config["auto_grid"]
-                        ][0]
+                        ].iloc[0]
                         total_differences = len(
                             {
                                 *chain.from_iterable(
@@ -234,7 +235,7 @@ class DataValidation2023(BaseDataValidation):
                     if teleop_same_length and not teleop_same_values:
                         teleop_grid_intersected = submissions_by_team[
                             self.config["teleop_grid"]
-                        ][0]
+                        ].iloc[0]
                         self.add_error(
                             f"In {match_key}, {n_scouts} SCOUTS scouting {team_number} have"
                             f" DIFFERENT positions for the GAME PIECES scored during TELEOP.",
@@ -245,7 +246,7 @@ class DataValidation2023(BaseDataValidation):
                     elif not (teleop_same_length or teleop_same_values):
                         teleop_grid_intersected = submissions_by_team[
                             self.config["teleop_grid"]
-                        ][0]
+                        ].iloc[0]
                         total_differences = len(
                             {
                                 *chain.from_iterable(
@@ -275,7 +276,7 @@ class DataValidation2023(BaseDataValidation):
                         self.config["auto_attempted_charge"]
                     ]
                     if auto_attempted_charges.nunique() == 1:
-                        auto_attempted_charge = auto_attempted_charges[0]
+                        auto_attempted_charge = auto_attempted_charges.iloc[0]
                     else:
                         different_charges = set(auto_attempted_charges)
                         auto_attempted_charge = (
@@ -286,7 +287,7 @@ class DataValidation2023(BaseDataValidation):
                         self.config["auto_charging_state"]
                     ]
                     if auto_final_charges.nunique() == 1:
-                        auto_final_charge = auto_final_charges[0]
+                        auto_final_charge = auto_final_charges.iloc[0]
                     else:
                         different_charges = set(auto_final_charges)
                         if "Engage" in different_charges:
@@ -301,7 +302,7 @@ class DataValidation2023(BaseDataValidation):
                         self.config["endgame_attempted_charge"]
                     ]
                     if endgame_attempted_charges.nunique():
-                        endgame_attempted_charge = endgame_attempted_charges[0]
+                        endgame_attempted_charge = endgame_attempted_charges.iloc[0]
                     else:
                         different_charges = set(endgame_attempted_charges)
                         endgame_attempted_charge = (
@@ -314,7 +315,7 @@ class DataValidation2023(BaseDataValidation):
                         self.config["endgame_charging_state"]
                     ]
                     if endgame_final_charges.nunique() == 1:
-                        endgame_final_charge = endgame_final_charges[0]
+                        endgame_final_charge = endgame_final_charges.iloc[0]
                     else:
                         different_charges = set(endgame_final_charges)
                         if "Engage" in different_charges:
@@ -393,13 +394,13 @@ class DataValidation2023(BaseDataValidation):
                                             "driver_station"
                                         ]: submissions_by_team[
                                             self.config["driver_station"]
-                                        ][
+                                        ].iloc[
                                             0
                                         ],
                                         self.config["team_number"]: team_number,
                                         self.config["preloaded"]: submissions_by_team[
                                             self.config["preloaded"]
-                                        ][0],
+                                        ].iloc[0],
                                         self.config["auto_grid"]: "|".join(
                                             auto_grid_intersected
                                         ),
@@ -408,7 +409,7 @@ class DataValidation2023(BaseDataValidation):
                                         ].mean(),
                                         self.config["mobile"]: submissions_by_team[
                                             self.config["mobile"]
-                                        ][0],
+                                        ].iloc[0],
                                         self.config[
                                             "auto_attempted_charge"
                                         ]: auto_attempted_charge,
@@ -457,7 +458,7 @@ class DataValidation2023(BaseDataValidation):
                                             int(
                                                 submissions_by_team[
                                                     self.config["disabled"]
-                                                ][0]
+                                                ].iloc[0]
                                             )
                                             if submissions_by_team[
                                                 self.config["disabled"]
@@ -492,8 +493,10 @@ class DataValidation2023(BaseDataValidation):
                                         self.config["auto_cubes"]: auto_cubes,
                                         self.config["teleop_cones"]: teleop_cones,
                                         self.config["teleop_cubes"]: teleop_cubes,
-                                        "scanRaw": submissions_by_team["scanRaw"][0],
-                                        "uuid": submissions_by_team["uuid"][0],
+                                        "scanRaw": submissions_by_team["scanRaw"].iloc[
+                                            0
+                                        ],
+                                        "uuid": submissions_by_team["uuid"].iloc[0],
                                         self.config["attempted_triple_balance"]: int(
                                             attempted_triple_balance
                                         ),
