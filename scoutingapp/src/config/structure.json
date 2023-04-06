@@ -92,7 +92,6 @@
                 "type": "GenericCheckboxSelect",
                 "text": "Auto Attempted Charge",
                 "options": [
-                    "Dock",
                     "Engage"
                 ],
                 "id": "AutoAttemptedCharge"
@@ -156,7 +155,6 @@
                 "type": "GenericCheckboxSelect",
                 "text": "Endgame Attempted Charge",
                 "options": [
-                    "Dock",
                     "Engage"
                 ],
                 "id": "EndgameAttemptedCharge"
