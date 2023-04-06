@@ -5,6 +5,7 @@ from data_validation.base_data_val import BaseDataValidation
 from data_validation.config.constants import ChargedUp
 from data_validation.config.utils import (ErrorType,
                                           get_intersection_of_n_series)
+from numpy import logical_or
 from pandas import DataFrame, Series, concat, isna, notna
 
 
@@ -133,7 +134,12 @@ class DataValidation2023(BaseDataValidation):
             attempted_triple_balance = int(
                 len(
                     submissions_by_alliance[
-                        submissions_by_alliance["EndgameAttemptedCharge"] == "Engage"
+                        logical_or(
+                            submissions_by_alliance["EndgameAttemptedCharge"]
+                            == "Engage",
+                            submissions_by_alliance["EndgameAttemptedCharge"]
+                            == "Dock|Engage",
+                        )
                     ]
                 )
                 >= 3
@@ -141,7 +147,11 @@ class DataValidation2023(BaseDataValidation):
             successful_triple_balance = int(
                 len(
                     submissions_by_alliance[
-                        submissions_by_alliance["EndgameFinalCharge"] == "Engage"
+                        logical_or(
+                            submissions_by_alliance["EndgameFinalCharge"] == "Engage",
+                            submissions_by_alliance["EndgameFinalCharge"]
+                            == "Dock|Engage",
+                        )
                     ]
                 )
                 >= 3

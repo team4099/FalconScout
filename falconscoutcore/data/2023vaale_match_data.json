@@ -246,7 +246,7 @@
       "Mid"
     ],
     "TeleopCubes": [],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 1,
     "uuid": "2304de7b-f8ef-4f8c-968a-432bacd44c55"
   },
@@ -288,7 +288,7 @@
       "High"
     ],
     "TeleopCubes": [],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 1,
     "uuid": "74a9c4cd-f482-4d58-8c38-a8016020ffc2"
   },
@@ -332,7 +332,7 @@
       "High",
       "Mid"
     ],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 1,
     "uuid": "dd75eaef-d05f-4fc1-a875-4fea495d3977"
   },
@@ -373,7 +373,7 @@
       "Low"
     ],
     "TeleopCubes": [],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 0,
     "uuid": "ade23c88-677c-47f0-a408-ac35b721e154"
   },
@@ -417,7 +417,7 @@
       "High"
     ],
     "TeleopCubes": [],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 0,
     "uuid": "c5a7264b-4a67-4221-81f0-768fd2a927ed"
   },
@@ -457,7 +457,7 @@
       "Low",
       "High"
     ],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 0,
     "uuid": "815861fb-0a71-4f51-8f9f-c19abcad757c"
   },
@@ -4493,7 +4493,7 @@
     "AutoCubes": [],
     "TeleopCones": [],
     "TeleopCubes": [],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 1,
     "uuid": "7f6558ee-c64b-48e4-9106-8de4af0e95c3"
   },
@@ -4532,7 +4532,7 @@
     ],
     "TeleopCones": [],
     "TeleopCubes": [],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 1,
     "uuid": "12c01502-59e3-4529-b5e0-4454e98b845a"
   },
@@ -4576,7 +4576,7 @@
       "Low",
       "Low"
     ],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 1,
     "uuid": "dca20e1d-a18d-4e5f-9f31-ba1f4962b2a3"
   },
@@ -4744,7 +4744,7 @@
       "High"
     ],
     "TeleopCubes": [],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 1,
     "uuid": "7cb6276c-6867-49ea-99e2-b64e7efbe3f4"
   },
@@ -4788,7 +4788,7 @@
       "High",
       "Mid"
     ],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 1,
     "uuid": "f7dc3230-88b4-47aa-af4e-45237d27891d"
   },
@@ -4831,7 +4831,7 @@
     "TeleopCubes": [
       "High"
     ],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 1,
     "uuid": "197c6db7-6c9b-4327-904e-bfa619574245"
   },
@@ -6301,7 +6301,7 @@
       "High",
       "High"
     ],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 1,
     "uuid": "5f7a5bb1-7355-43c2-895c-306e34d9bb93"
   },
@@ -6342,7 +6342,7 @@
       "High"
     ],
     "TeleopCubes": [],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 1,
     "uuid": "e5fa29c6-384a-4ae3-b1b9-2ff2e6c1e0ba"
   },
@@ -6385,7 +6385,7 @@
       "High"
     ],
     "TeleopCubes": [],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 1,
     "uuid": "ec3a101c-cf98-4400-a9ce-bd12cdab516a"
   },
@@ -6920,7 +6920,7 @@
       "High"
     ],
     "TeleopCubes": [],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 0,
     "uuid": "083df2f3-d138-435d-95d3-1f6a0915e9f0"
   },
@@ -6960,7 +6960,7 @@
       "Low",
       "Low"
     ],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 0,
     "uuid": "3c4f456f-2711-4f7a-90c8-51449f8c64ea"
   },
@@ -7004,7 +7004,7 @@
       "Low",
       "Low"
     ],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 0,
     "uuid": "4dc6c9fb-ac5d-460a-a782-bfeed7dc7f14"
   },
@@ -7211,7 +7211,7 @@
       "Mid",
       "Mid"
     ],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 1,
     "uuid": "8191b207-1bbb-4914-9071-ab533109d3c2"
   },
@@ -7253,7 +7253,7 @@
       "Low"
     ],
     "TeleopCubes": [],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 1,
     "uuid": "ce45eb11-642a-4012-ad3d-a821629d7bed"
   },
@@ -7295,7 +7295,7 @@
       "Low",
       "High"
     ],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 1,
     "uuid": "deb5b6f9-fc75-411d-bbb9-385883d1363a"
   },
@@ -7632,7 +7632,7 @@
       "Low",
       "Mid"
     ],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 1,
     "uuid": "93e2901c-786b-4834-9c5e-810b73d7271c"
   },
@@ -7673,7 +7673,7 @@
       "Low"
     ],
     "TeleopCubes": [],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 1,
     "uuid": "4cab1906-01e8-4648-8c24-ddcbc80081f1"
   },
@@ -7712,7 +7712,7 @@
     ],
     "TeleopCones": [],
     "TeleopCubes": [],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 1,
     "uuid": "820571b3-6288-417e-ab7b-3ca5f65b1bc5"
   },
@@ -7751,7 +7751,7 @@
     "TeleopCubes": [
       "Mid"
     ],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 1,
     "uuid": "bcaacda7-20bb-4d93-84c1-5718e8a5594a"
   },
@@ -7791,7 +7791,7 @@
       "Low",
       "Mid"
     ],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 1,
     "uuid": "40408fc1-b4a3-4095-a2fa-33b4ec7b4322"
   },
@@ -7834,7 +7834,7 @@
       "High"
     ],
     "TeleopCubes": [],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 1,
     "uuid": "29fb6d9a-b6ef-4290-acc4-a9b5ed243db8"
   },
@@ -8994,7 +8994,7 @@
     "AutoCubes": [],
     "TeleopCones": [],
     "TeleopCubes": [],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 0,
     "uuid": "d5197acf-e059-46d7-97f6-3434eabc5635"
   },
@@ -9031,7 +9031,7 @@
     "AutoCubes": [],
     "TeleopCones": [],
     "TeleopCubes": [],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 0,
     "uuid": "d717688c-297e-496a-a507-08b2aa9221b7"
   },
@@ -9076,7 +9076,7 @@
     "TeleopCubes": [
       "Low"
     ],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 0,
     "uuid": "14c8a508-2729-41ff-9823-a84851244d5c"
   },
@@ -9683,7 +9683,7 @@
       "High"
     ],
     "TeleopCubes": [],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 1,
     "uuid": "799c9bac-af1f-4b22-a04b-4c0e2e66f5a4"
   },
@@ -9724,7 +9724,7 @@
       "High",
       "Mid"
     ],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 1,
     "uuid": "e4cd9bbe-4cba-4f30-b499-e6c4e7a84bca"
   },
@@ -9766,7 +9766,7 @@
       "High"
     ],
     "TeleopCubes": [],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 1,
     "uuid": "57526351-5ed4-423a-b3c3-492593d66309"
   },
@@ -11187,7 +11187,7 @@
       "High"
     ],
     "TeleopCubes": [],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 0,
     "uuid": "f341b4b3-84dc-4ca3-8b08-df4fe9e07013"
   },
@@ -11226,7 +11226,7 @@
     ],
     "TeleopCones": [],
     "TeleopCubes": [],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 0,
     "uuid": "5efa7b70-9f61-45dc-b2b0-5414441d76b6"
   },
@@ -11265,7 +11265,7 @@
       "Low"
     ],
     "TeleopCubes": [],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 0,
     "uuid": "69bc9720-c635-4f1d-bfc7-d2cb1b1bf31e"
   },
@@ -11677,7 +11677,7 @@
     "TeleopCubes": [
       "Low"
     ],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 1,
     "uuid": "16b404f1-deb2-49a7-b6d2-8940ef814cdc"
   },
@@ -11719,7 +11719,7 @@
       "High",
       "High"
     ],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 1,
     "uuid": "7e04b79e-5587-4a1b-9a6b-7b7ffa9b0ba2"
   },
@@ -11760,7 +11760,7 @@
       "High"
     ],
     "TeleopCubes": [],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 1,
     "uuid": "bccdb5dd-f20b-49f2-a2cd-a9daebd17b1c"
   },
@@ -12064,7 +12064,7 @@
       "Mid",
       "Mid"
     ],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 0,
     "uuid": "b3ebf5eb-13f5-4d74-8b9f-88b784a11239"
   },
@@ -12110,7 +12110,7 @@
     "TeleopCubes": [
       "High"
     ],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 0,
     "uuid": "390a0184-cefa-48fc-b7dc-eb5fbd689bc1"
   },
@@ -12147,7 +12147,7 @@
     "AutoCubes": [],
     "TeleopCones": [],
     "TeleopCubes": [],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 0,
     "uuid": "71833fab-574b-4a25-85ad-a7579ceee280"
   },
@@ -12927,7 +12927,7 @@
       "Low",
       "Low"
     ],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 1,
     "uuid": "6fcb1ffc-4cdc-42b8-a528-190b16cbb5f5"
   },
@@ -12970,7 +12970,7 @@
       "Low",
       "High"
     ],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 1,
     "uuid": "73504068-1e4b-475a-9d5b-f7ca26059522"
   },
@@ -13013,7 +13013,7 @@
       "High"
     ],
     "TeleopCubes": [],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 1,
     "uuid": "71d85f76-4893-44ce-9cb1-c75340ea8087"
   },
@@ -13496,7 +13496,7 @@
     "AutoCubes": [],
     "TeleopCones": [],
     "TeleopCubes": [],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 0,
     "uuid": "22a52ca8-3083-49c8-8415-623c7890b15d"
   },
@@ -13538,7 +13538,7 @@
       "Low"
     ],
     "TeleopCubes": [],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 0,
     "uuid": "02f3ea10-0b84-4bc7-b3bd-c2e51f45ddf8"
   },
@@ -13582,7 +13582,7 @@
     "TeleopCubes": [
       "High"
     ],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 0,
     "uuid": "947ab6dc-57dd-4f94-967c-affc4543310e"
   },
@@ -16465,7 +16465,7 @@
     "AutoCubes": [],
     "TeleopCones": [],
     "TeleopCubes": [],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 1,
     "uuid": "0cb038b3-1ca4-4e3e-8dda-60e563ad55cd"
   },
@@ -16502,7 +16502,7 @@
     "AutoCubes": [],
     "TeleopCones": [],
     "TeleopCubes": [],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 1,
     "uuid": "731c78b8-3832-4496-8b0c-a0baf842b63d"
   },
@@ -16542,7 +16542,7 @@
       "Low"
     ],
     "TeleopCubes": [],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 1,
     "uuid": "51765e3a-0ba0-4d7c-9f61-cc4e31e29113"
   },
@@ -18795,7 +18795,7 @@
     "TeleopCubes": [
       "Mid"
     ],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 1,
     "uuid": "f27e1e68-446c-4923-9ebe-4260f28619cc"
   },
@@ -18832,7 +18832,7 @@
     "AutoCubes": [],
     "TeleopCones": [],
     "TeleopCubes": [],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 1,
     "uuid": "a79de382-d34a-42e3-9ebb-b953f814eeba"
   },
@@ -18874,7 +18874,7 @@
       "High",
       "Mid"
     ],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 1,
     "uuid": "41001b1e-160d-4b98-8edb-2189464755fb"
   },
