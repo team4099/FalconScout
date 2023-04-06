@@ -85,6 +85,7 @@ def process_scan():
                     {"action_code": "200", "result": ["110", "scan too short"]}
                 )
 
+            # TODO: Use config names instead of raw names (eg self.config["auto_grid"] rather than AutoGrid)
             data_map = dict(zip(config["data_config"]["data_labels"], split_scan))
             data_map["scanRaw"] = scan_info["scan_text"]
             data_map["uuid"] = str(uuid.uuid4())

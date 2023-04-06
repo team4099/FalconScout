@@ -139,9 +139,11 @@ new_headers = [
     "Counter Defense Rating",
     "Driver Rating",
     "Rating Notes",
+    "Attempted Triple Balance",
+    "Successful Triple Balance",
 ]
 
-with open("../data/2023vaale_match_data.json") as file:
+with open("../data/2023chcmp_match_data.json") as file:
     scouting_data = load(file)
 
     for submission in scouting_data:
@@ -149,6 +151,10 @@ with open("../data/2023vaale_match_data.json") as file:
         submission["Mobile"] = int(submission["Mobile"] == "true")
         submission["Disable"] = int(submission["Disable"] == "true")
         submission["Tippy"] = int(submission["Tippy"] == "true")
+        submission["AttemptedTripleBalance"] = int(submission["AttemptedTripleBalance"])
+        submission["SuccessfulTripleBalance"] = int(
+            submission["SuccessfulTripleBalance"]
+        )
 
         auto_grid = submission["AutoGrid"].split("|")
 
@@ -282,6 +288,8 @@ with open("../data/2023vaale_match_data.json") as file:
             "CounterDefenseRating",
             "DriverRating",
             "RatingNotes",
+            "AttemptedTripleBalance",
+            "SuccessfulTripleBalance",
         ]
     ]
 

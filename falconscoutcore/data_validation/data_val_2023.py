@@ -79,14 +79,14 @@ class DataValidation2023(BaseDataValidation):
             auto_cubes=submission[self.config["auto_cubes"]],
         )
 
-        self.check_for_invalid_defense_data(
-            match_key=submission[self.config["match_key"]],
-            team_number=submission[self.config["team_number"]],
-            defense_pct=submission[self.config["defense_pct"]],
-            counter_defense_pct=submission[self.config["counter_defense_pct"]],
-            defense_rating=submission[self.config["defense_rating"]],
-            counter_defense_rating=submission[self.config["counter_defense_rating"]],
-        )
+        # self.check_for_invalid_defense_data(
+        #     match_key=submission[self.config["match_key"]],
+        #     team_number=submission[self.config["team_number"]],
+        #     defense_pct=submission[self.config["defense_pct"]],
+        #     counter_defense_pct=submission[self.config["counter_defense_pct"]],
+        #     defense_rating=submission[self.config["defense_rating"]],
+        #     counter_defense_rating=submission[self.config["counter_defense_rating"]],
+        # )
 
         self.validate_attempted_game_pieces(
             match_key=submission[self.config["match_key"]],
@@ -126,368 +126,385 @@ class DataValidation2023(BaseDataValidation):
         ]
         averaged_scouting_data = DataFrame(columns=columns_to_use)
 
-        for (
-            match_key,
-            alliance,
-            team_number,
-        ), submissions_by_alliance in scouting_data.groupby(
-            [
-                self.config["match_key"],
-                self.config["alliance"],
-                self.config["team_number"],
-            ]
+        for (match_key, alliance), submissions_by_alliance in scouting_data.groupby(
+            [self.config["match_key"], self.config["alliance"]]
         ):
-            if len(submissions_by_alliance) == 1:
-                averaged_scouting_data = concat(
-                    [averaged_scouting_data, submissions_by_alliance]
-                )
-            else:
-                n_scouts = len(submissions_by_alliance)
-
-                # Convert auto grid and teleop grids to a list
-                submissions_by_alliance[self.config["auto_grid"]] = [
-                    grid_submission.split("|")
-                    for grid_submission in submissions_by_alliance[
-                        self.config["auto_grid"]
+            attempted_triple_balance = int(
+                len(
+                    submissions_by_alliance[
+                        submissions_by_alliance["EndgameAttemptedCharge"] == "Engage"
                     ]
-                ]
-                submissions_by_alliance[self.config["teleop_grid"]] = [
-                    grid_submission.split("|")
-                    for grid_submission in submissions_by_alliance[
-                        self.config["teleop_grid"]
-                    ]
-                ]
-
-                # Auto grid intersection
-                (
-                    auto_grid_intersected,
-                    auto_same_length,
-                    auto_same_values,
-                ) = get_intersection_of_n_series(
-                    submissions_by_alliance[self.config["auto_grid"]]
                 )
-                if auto_same_length and not auto_same_values:
-                    auto_grid_intersected = submissions_by_alliance[
-                        self.config["auto_grid"]
-                    ][0]
-                    self.add_error(
-                        f"In {match_key}, {n_scouts} SCOUTS scouting {team_number} have"
-                        f" DIFFERENT positions for the GAME PIECES scored during AUTONOMOUS.",
-                        ErrorType.INCORRECT_DATA,
-                        match_key,
-                        team_number,
+                >= 3
+            )
+            successful_triple_balance = int(
+                len(
+                    submissions_by_alliance[
+                        submissions_by_alliance["EndgameFinalCharge"] == "Engage"
+                    ]
+                )
+                >= 3
+            )
+
+            for team_number, submissions_by_team in scouting_data.groupby(
+                self.config["team_number"]
+            ):
+                if len(submissions_by_team) == 1:
+                    submissions_by_team[self.config["attempted_triple_balance"]] = int(
+                        attempted_triple_balance
                     )
-                elif not (auto_same_length or auto_same_values):
-                    auto_grid_intersected = submissions_by_alliance[
-                        self.config["auto_grid"]
-                    ][0]
-                    total_differences = len(
-                        {
-                            *chain.from_iterable(
-                                [*submissions_by_alliance[self.config["auto_grid"]]]
-                            )
-                        }
-                    ) - len(
-                        min(submissions_by_alliance[self.config["auto_grid"]], key=len)
+                    submissions_by_team[self.config["successful_triple_balance"]] = int(
+                        successful_triple_balance
                     )
 
-                    self.add_error(
-                        f"In {match_key}, {n_scouts} SCOUTS scouting {team_number} have"
-                        f"a DIFFERENCE of {total_differences} GAME PIECES scored during AUTONOMOUS.",
-                        ErrorType.RESCOUT_MATCH
-                        if total_differences >= 2
-                        else ErrorType.INCORRECT_DATA,
-                        match_key,
-                        team_number,
+                    averaged_scouting_data = concat(
+                        [averaged_scouting_data, submissions_by_team]
                     )
                 else:
-                    auto_grid_intersected = auto_grid_intersected[0]
+                    n_scouts = len(submissions_by_team)
 
-                # Teleop grid intersection
-                (
-                    teleop_grid_intersected,
-                    teleop_same_length,
-                    teleop_same_values,
-                ) = get_intersection_of_n_series(
-                    submissions_by_alliance[self.config["teleop_grid"]]
-                )
-                print(teleop_same_length, teleop_same_values)
+                    # Convert auto grid and teleop grids to a list
+                    submissions_by_team[self.config["auto_grid"]] = [
+                        grid_submission.split("|")
+                        for grid_submission in submissions_by_team[
+                            self.config["auto_grid"]
+                        ]
+                    ]
+                    submissions_by_team[self.config["teleop_grid"]] = [
+                        grid_submission.split("|")
+                        for grid_submission in submissions_by_team[
+                            self.config["teleop_grid"]
+                        ]
+                    ]
 
-                if teleop_same_length and not teleop_same_values:
-                    teleop_grid_intersected = submissions_by_alliance[
-                        self.config["teleop_grid"]
-                    ][0]
-                    self.add_error(
-                        f"In {match_key}, {n_scouts} SCOUTS scouting {team_number} have"
-                        f" DIFFERENT positions for the GAME PIECES scored during TELEOP.",
-                        ErrorType.INCORRECT_DATA,
-                        match_key,
-                        team_number,
+                    # Auto grid intersection
+                    (
+                        auto_grid_intersected,
+                        auto_same_length,
+                        auto_same_values,
+                    ) = get_intersection_of_n_series(
+                        submissions_by_team[self.config["auto_grid"]]
                     )
-                elif not (teleop_same_length or teleop_same_values):
-                    teleop_grid_intersected = submissions_by_alliance[
-                        self.config["teleop_grid"]
-                    ][0]
-                    total_differences = len(
-                        {
-                            *chain.from_iterable(
-                                [*submissions_by_alliance[self.config["teleop_grid"]]]
-                            )
-                        }
-                    ) - len(
-                        min(
-                            submissions_by_alliance[self.config["teleop_grid"]], key=len
+                    if auto_same_length and not auto_same_values:
+                        auto_grid_intersected = submissions_by_team[
+                            self.config["auto_grid"]
+                        ][0]
+                        self.add_error(
+                            f"In {match_key}, {n_scouts} SCOUTS scouting {team_number} have"
+                            f" DIFFERENT positions for the GAME PIECES scored during AUTONOMOUS.",
+                            ErrorType.INCORRECT_DATA,
+                            match_key,
+                            team_number,
                         )
+                    elif not (auto_same_length or auto_same_values):
+                        auto_grid_intersected = submissions_by_team[
+                            self.config["auto_grid"]
+                        ][0]
+                        total_differences = len(
+                            {
+                                *chain.from_iterable(
+                                    [*submissions_by_team[self.config["auto_grid"]]]
+                                )
+                            }
+                        ) - len(
+                            min(submissions_by_team[self.config["auto_grid"]], key=len)
+                        )
+
+                        self.add_error(
+                            f"In {match_key}, {n_scouts} SCOUTS scouting {team_number} have"
+                            f"a DIFFERENCE of {total_differences} GAME PIECES scored during AUTONOMOUS.",
+                            ErrorType.RESCOUT_MATCH
+                            if total_differences >= 2
+                            else ErrorType.INCORRECT_DATA,
+                            match_key,
+                            team_number,
+                        )
+                    else:
+                        auto_grid_intersected = auto_grid_intersected[0]
+
+                    # Teleop grid intersection
+                    (
+                        teleop_grid_intersected,
+                        teleop_same_length,
+                        teleop_same_values,
+                    ) = get_intersection_of_n_series(
+                        submissions_by_team[self.config["teleop_grid"]]
                     )
 
-                    self.add_error(
-                        f"In {match_key}, {n_scouts} SCOUTS scouting {team_number} have"
-                        f"a DIFFERENCE of {total_differences} GAME PIECES scored during TELEOP.",
-                        ErrorType.RESCOUT_MATCH
-                        if total_differences >= 2
-                        else ErrorType.INCORRECT_DATA,
-                        match_key,
-                        team_number,
-                    )
-                else:
-                    teleop_grid_intersected = teleop_grid_intersected[0]
+                    if teleop_same_length and not teleop_same_values:
+                        teleop_grid_intersected = submissions_by_team[
+                            self.config["teleop_grid"]
+                        ][0]
+                        self.add_error(
+                            f"In {match_key}, {n_scouts} SCOUTS scouting {team_number} have"
+                            f" DIFFERENT positions for the GAME PIECES scored during TELEOP.",
+                            ErrorType.INCORRECT_DATA,
+                            match_key,
+                            team_number,
+                        )
+                    elif not (teleop_same_length or teleop_same_values):
+                        teleop_grid_intersected = submissions_by_team[
+                            self.config["teleop_grid"]
+                        ][0]
+                        total_differences = len(
+                            {
+                                *chain.from_iterable(
+                                    [*submissions_by_team[self.config["teleop_grid"]]]
+                                )
+                            }
+                        ) - len(
+                            min(
+                                submissions_by_team[self.config["teleop_grid"]], key=len
+                            )
+                        )
 
-                # Auto attempted and actual charge station states
-                auto_attempted_charges = submissions_by_alliance[
-                    self.config["auto_attempted_charge"]
-                ]
-                if auto_attempted_charges.nunique() == 1:
-                    auto_attempted_charge = auto_attempted_charges[0]
-                else:
-                    different_charges = set(auto_attempted_charges)
-                    auto_attempted_charge = (
-                        "Dock|Engage" if "Dock|Engage" in different_charges else "None"
-                    )
-
-                auto_final_charges = submissions_by_alliance[
-                    self.config["auto_charging_state"]
-                ]
-                if auto_final_charges.nunique() == 1:
-                    auto_final_charge = auto_final_charges[0]
-                else:
-                    different_charges = set(auto_final_charges)
-                    if "Engage" in different_charges:
-                        auto_final_charge = "Engage"
-                    elif "Docked" in different_charges:
-                        auto_final_charge = "Docked"
+                        self.add_error(
+                            f"In {match_key}, {n_scouts} SCOUTS scouting {team_number} have"
+                            f"a DIFFERENCE of {total_differences} GAME PIECES scored during TELEOP.",
+                            ErrorType.RESCOUT_MATCH
+                            if total_differences >= 2
+                            else ErrorType.INCORRECT_DATA,
+                            match_key,
+                            team_number,
+                        )
                     else:
-                        auto_final_charge = "None"
+                        teleop_grid_intersected = teleop_grid_intersected[0]
 
-                # Endgame attempted and actual charge station states
-                endgame_attempted_charges = submissions_by_alliance[
-                    self.config["endgame_attempted_charge"]
-                ]
-                if endgame_attempted_charges.nunique():
-                    endgame_attempted_charge = endgame_attempted_charges[0]
-                else:
-                    different_charges = set(endgame_attempted_charges)
-                    endgame_attempted_charge = (
-                        "Dock|Engage" if "Dock|Engage" in different_charges else "None"
-                    )
-
-                endgame_final_charges = submissions_by_alliance[
-                    self.config["endgame_charging_state"]
-                ]
-                if endgame_final_charges.nunique() == 1:
-                    endgame_final_charge = endgame_final_charges[0]
-                else:
-                    different_charges = set(endgame_final_charges)
-                    if "Engage" in different_charges:
-                        endgame_final_charge = "Engage"
-                    elif "Docked" in different_charges:
-                        endgame_final_charge = "Docked"
-                    elif "Parked" in different_charges:
-                        endgame_final_charge = "Parked"
-                    else:
-                        endgame_final_charge = "None"
-
-                # create lists for auto cones, auto cubes, teleop cones and teleop cubes
-                cone_positions = {1, 3, 4, 6, 7, 9}
-                positions_to_names = {"H": "High", "M": "Mid", "L": "Low"}
-
-                auto_cones = []
-                auto_cubes = []
-                teleop_cones = []
-                teleop_cubes = []
-
-                for game_piece in auto_grid_intersected:
-                    position, height = game_piece[:2]
-
-                    if height == "L":
-                        if "cone" in game_piece:
-                            auto_cones.append("Low")
-                        elif "cube" in game_piece:
-                            auto_cubes.append("Low")
-                        continue
-
-                    if int(position) in cone_positions:
-                        auto_cones.append(positions_to_names[height])
-                    else:
-                        auto_cubes.append(positions_to_names[height])
-
-                for game_piece in teleop_grid_intersected:
-                    position, height = game_piece[:2]
-
-                    if height == "L":
-                        if "cone" in game_piece:
-                            teleop_cones.append("Low")
-                        elif "cube" in game_piece:
-                            teleop_cubes.append("Low")
-                        continue
-
-                    if int(position) in cone_positions:
-                        teleop_cones.append(positions_to_names[height])
-                    else:
-                        teleop_cubes.append(positions_to_names[height])
-
-                # Map "Disabled", "Tippy" and "Mobile" from strings to booleans
-                json_boolean_to_int = {"true": True, "false": False}
-
-                submissions_by_alliance[
-                    self.config["disabled"]
-                ] = submissions_by_alliance[self.config["disabled"]].map(
-                    json_boolean_to_int
-                )
-                submissions_by_alliance[self.config["tippy"]] = submissions_by_alliance[
-                    self.config["tippy"]
-                ].map(json_boolean_to_int)
-                submissions_by_alliance[
-                    self.config["mobile"]
-                ] = submissions_by_alliance[self.config["mobile"]].map(
-                    json_boolean_to_int
-                )
-
-                averaged_scouting_data = concat(
-                    [
-                        averaged_scouting_data,
-                        DataFrame.from_dict(
-                            [
-                                {
-                                    self.config["scout_id"]: " and ".join(
-                                        submissions_by_alliance[self.config["scout_id"]]
-                                    ).strip(),
-                                    self.config["match_key"]: match_key,
-                                    self.config["alliance"]: alliance,
-                                    self.config[
-                                        "driver_station"
-                                    ]: submissions_by_alliance[
-                                        self.config["driver_station"]
-                                    ][
-                                        0
-                                    ],
-                                    self.config["team_number"]: team_number,
-                                    self.config["preloaded"]: submissions_by_alliance[
-                                        self.config["preloaded"]
-                                    ][0],
-                                    self.config["auto_grid"]: "|".join(
-                                        auto_grid_intersected
-                                    ),
-                                    self.config["auto_missed"]: submissions_by_alliance[
-                                        self.config["auto_missed"]
-                                    ].mean(),
-                                    self.config["mobile"]: submissions_by_alliance[
-                                        self.config["mobile"]
-                                    ][0],
-                                    self.config[
-                                        "auto_attempted_charge"
-                                    ]: auto_attempted_charge,
-                                    self.config[
-                                        "auto_charging_state"
-                                    ]: auto_final_charge,
-                                    self.config["auto_notes"]: " | ".join(
-                                        submissions_by_alliance[
-                                            self.config["auto_notes"]
-                                        ]
-                                    ),
-                                    self.config["teleop_grid"]: "|".join(
-                                        teleop_grid_intersected
-                                    ),
-                                    self.config[
-                                        "teleop_missed"
-                                    ]: submissions_by_alliance[
-                                        self.config["teleop_missed"]
-                                    ].mean(),
-                                    self.config["teleop_notes"]: " | ".join(
-                                        submissions_by_alliance[
-                                            self.config["teleop_notes"]
-                                        ]
-                                    ),
-                                    self.config[
-                                        "endgame_attempted_charge"
-                                    ]: endgame_attempted_charge,
-                                    self.config[
-                                        "endgame_charging_state"
-                                    ]: endgame_final_charge,
-                                    self.config[
-                                        "final_charge_time"
-                                    ]: submissions_by_alliance[
-                                        self.config["final_charge_time"]
-                                    ].mean(),
-                                    self.config["endgame_notes"]: " | ".join(
-                                        submissions_by_alliance[
-                                            self.config["endgame_notes"]
-                                        ]
-                                    ),
-                                    self.config["disabled"]: (
-                                        int(
-                                            submissions_by_alliance[
-                                                self.config["disabled"]
-                                            ][0]
-                                        )
-                                        if submissions_by_alliance[
-                                            self.config["disabled"]
-                                        ].nunique()
-                                        == 1
-                                        else 1
-                                    ),
-                                    self.config["tippy"]: submissions_by_alliance[
-                                        self.config["tippy"]
-                                    ]
-                                    .astype(int)
-                                    .mean(),
-                                    self.config["defense_pct"]: submissions_by_alliance[
-                                        self.config["defense_pct"]
-                                    ].mean(),
-                                    self.config[
-                                        "defense_rating"
-                                    ]: submissions_by_alliance[
-                                        self.config["defense_rating"]
-                                    ].mean(),
-                                    self.config[
-                                        "counter_defense_pct"
-                                    ]: submissions_by_alliance[
-                                        self.config["counter_defense_pct"]
-                                    ].mean(),
-                                    self.config[
-                                        "counter_defense_rating"
-                                    ]: submissions_by_alliance[
-                                        self.config["counter_defense_rating"]
-                                    ].mean(),
-                                    self.config[
-                                        "driver_rating"
-                                    ]: submissions_by_alliance[
-                                        self.config["driver_rating"]
-                                    ].mean(),
-                                    self.config["rating_notes"]: " | ".join(
-                                        submissions_by_alliance[
-                                            self.config["rating_notes"]
-                                        ]
-                                    ),
-                                    self.config["auto_cones"]: auto_cones,
-                                    self.config["auto_cubes"]: auto_cubes,
-                                    self.config["teleop_cones"]: teleop_cones,
-                                    self.config["teleop_cubes"]: teleop_cubes,
-                                    "scanRaw": submissions_by_alliance["scanRaw"][0],
-                                }
-                            ]
-                        ),
+                    # Auto attempted and actual charge station states
+                    auto_attempted_charges = submissions_by_team[
+                        self.config["auto_attempted_charge"]
                     ]
-                )
+                    if auto_attempted_charges.nunique() == 1:
+                        auto_attempted_charge = auto_attempted_charges[0]
+                    else:
+                        different_charges = set(auto_attempted_charges)
+                        auto_attempted_charge = (
+                            "Engage" if "Engage" in different_charges else "None"
+                        )
+
+                    auto_final_charges = submissions_by_team[
+                        self.config["auto_charging_state"]
+                    ]
+                    if auto_final_charges.nunique() == 1:
+                        auto_final_charge = auto_final_charges[0]
+                    else:
+                        different_charges = set(auto_final_charges)
+                        if "Engage" in different_charges:
+                            auto_final_charge = "Engage"
+                        elif "Docked" in different_charges:
+                            auto_final_charge = "Docked"
+                        else:
+                            auto_final_charge = "None"
+
+                    # Endgame attempted and actual charge station states
+                    endgame_attempted_charges = submissions_by_team[
+                        self.config["endgame_attempted_charge"]
+                    ]
+                    if endgame_attempted_charges.nunique():
+                        endgame_attempted_charge = endgame_attempted_charges[0]
+                    else:
+                        different_charges = set(endgame_attempted_charges)
+                        endgame_attempted_charge = (
+                            "Dock|Engage"
+                            if "Dock|Engage" in different_charges
+                            else "None"
+                        )
+
+                    endgame_final_charges = submissions_by_team[
+                        self.config["endgame_charging_state"]
+                    ]
+                    if endgame_final_charges.nunique() == 1:
+                        endgame_final_charge = endgame_final_charges[0]
+                    else:
+                        different_charges = set(endgame_final_charges)
+                        if "Engage" in different_charges:
+                            endgame_final_charge = "Engage"
+                        elif "Docked" in different_charges:
+                            endgame_final_charge = "Docked"
+                        elif "Parked" in different_charges:
+                            endgame_final_charge = "Parked"
+                        else:
+                            endgame_final_charge = "None"
+
+                    # create lists for auto cones, auto cubes, teleop cones and teleop cubes
+                    cone_positions = {1, 3, 4, 6, 7, 9}
+                    positions_to_names = {"H": "High", "M": "Mid", "L": "Low"}
+
+                    auto_cones = []
+                    auto_cubes = []
+                    teleop_cones = []
+                    teleop_cubes = []
+
+                    for game_piece in auto_grid_intersected:
+                        position, height = game_piece[:2]
+
+                        if height == "L":
+                            if "cone" in game_piece:
+                                auto_cones.append("Low")
+                            elif "cube" in game_piece:
+                                auto_cubes.append("Low")
+                            continue
+
+                        if int(position) in cone_positions:
+                            auto_cones.append(positions_to_names[height])
+                        else:
+                            auto_cubes.append(positions_to_names[height])
+
+                    for game_piece in teleop_grid_intersected:
+                        position, height = game_piece[:2]
+
+                        if height == "L":
+                            if "cone" in game_piece:
+                                teleop_cones.append("Low")
+                            elif "cube" in game_piece:
+                                teleop_cubes.append("Low")
+                            continue
+
+                        if int(position) in cone_positions:
+                            teleop_cones.append(positions_to_names[height])
+                        else:
+                            teleop_cubes.append(positions_to_names[height])
+
+                    # Map "Disabled", "Tippy" and "Mobile" from strings to booleans
+                    json_boolean_to_int = {"true": True, "false": False}
+
+                    submissions_by_team[self.config["disabled"]] = submissions_by_team[
+                        self.config["disabled"]
+                    ].map(json_boolean_to_int)
+                    submissions_by_team[self.config["tippy"]] = submissions_by_team[
+                        self.config["tippy"]
+                    ].map(json_boolean_to_int)
+                    submissions_by_team[self.config["mobile"]] = submissions_by_team[
+                        self.config["mobile"]
+                    ].map(json_boolean_to_int)
+
+                    averaged_scouting_data = concat(
+                        [
+                            averaged_scouting_data,
+                            DataFrame.from_dict(
+                                [
+                                    {
+                                        self.config["scout_id"]: " and ".join(
+                                            submissions_by_team[self.config["scout_id"]]
+                                        ).strip(),
+                                        self.config["match_key"]: match_key,
+                                        self.config["alliance"]: alliance,
+                                        self.config[
+                                            "driver_station"
+                                        ]: submissions_by_team[
+                                            self.config["driver_station"]
+                                        ][
+                                            0
+                                        ],
+                                        self.config["team_number"]: team_number,
+                                        self.config["preloaded"]: submissions_by_team[
+                                            self.config["preloaded"]
+                                        ][0],
+                                        self.config["auto_grid"]: "|".join(
+                                            auto_grid_intersected
+                                        ),
+                                        self.config["auto_missed"]: submissions_by_team[
+                                            self.config["auto_missed"]
+                                        ].mean(),
+                                        self.config["mobile"]: submissions_by_team[
+                                            self.config["mobile"]
+                                        ][0],
+                                        self.config[
+                                            "auto_attempted_charge"
+                                        ]: auto_attempted_charge,
+                                        self.config[
+                                            "auto_charging_state"
+                                        ]: auto_final_charge,
+                                        self.config["auto_notes"]: " | ".join(
+                                            submissions_by_team[
+                                                self.config["auto_notes"]
+                                            ]
+                                        ),
+                                        self.config["teleop_grid"]: "|".join(
+                                            teleop_grid_intersected
+                                        ),
+                                        self.config[
+                                            "teleop_missed"
+                                        ]: submissions_by_team[
+                                            self.config["teleop_missed"]
+                                        ].mean(),
+                                        self.config["teleop_notes"]: " | ".join(
+                                            submissions_by_team[
+                                                self.config["teleop_notes"]
+                                            ]
+                                        ),
+                                        self.config[
+                                            "endgame_attempted_charge"
+                                        ]: endgame_attempted_charge,
+                                        self.config[
+                                            "endgame_charging_state"
+                                        ]: endgame_final_charge,
+                                        self.config["final_charge_time"]: charge_times
+                                        if (
+                                            charge_times := submissions_by_team[
+                                                self.config["final_charge_time"]
+                                            ]
+                                        )
+                                        .apply(lambda x: isinstance(x, float))
+                                        .all()
+                                        else "",
+                                        self.config["endgame_notes"]: " | ".join(
+                                            submissions_by_team[
+                                                self.config["endgame_notes"]
+                                            ]
+                                        ),
+                                        self.config["disabled"]: (
+                                            int(
+                                                submissions_by_team[
+                                                    self.config["disabled"]
+                                                ][0]
+                                            )
+                                            if submissions_by_team[
+                                                self.config["disabled"]
+                                            ].nunique()
+                                            == 1
+                                            else 1
+                                        ),
+                                        self.config["tippy"]: submissions_by_team[
+                                            self.config["tippy"]
+                                        ]
+                                        .astype(int)
+                                        .mean(),
+                                        self.config["defense_pct"]: submissions_by_team[
+                                            self.config["defense_pct"]
+                                        ].mean(),
+                                        self.config[
+                                            "defense_rating"
+                                        ]: submissions_by_team[
+                                            self.config["defense_rating"]
+                                        ].mean(),
+                                        self.config[
+                                            "driver_rating"
+                                        ]: submissions_by_team[
+                                            self.config["driver_rating"]
+                                        ].mean(),
+                                        self.config["rating_notes"]: " | ".join(
+                                            submissions_by_team[
+                                                self.config["rating_notes"]
+                                            ]
+                                        ),
+                                        self.config["auto_cones"]: auto_cones,
+                                        self.config["auto_cubes"]: auto_cubes,
+                                        self.config["teleop_cones"]: teleop_cones,
+                                        self.config["teleop_cubes"]: teleop_cubes,
+                                        "scanRaw": submissions_by_team["scanRaw"][0],
+                                        "uuid": submissions_by_team["uuid"][0],
+                                        self.config["attempted_triple_balance"]: int(
+                                            attempted_triple_balance
+                                        ),
+                                        self.config["successful_triple_balance"]: int(
+                                            successful_triple_balance
+                                        ),
+                                    }
+                                ]
+                            ),
+                        ]
+                    )
 
         return averaged_scouting_data
 

@@ -35,6 +35,8 @@ class BaseDataValidation(ABC):
             "path_to_data",
             f"data/{self.config['year']}{self.config['event_code']}_match_data.json",
         )
+        self.path_to_scouting_rotations = self.config("path_to_scouting_rotations")
+
         self.df = read_json(self.path_to_data_file)
 
         self._event_key = str(self.config["year"]) + self.config["event_code"]
@@ -58,6 +60,12 @@ class BaseDataValidation(ABC):
 
         if not self._run_with_tba:
             self.get_match_schedule_file()
+
+        if self.path_to_scouting_rotations:
+            with open(f"data/{self._event_key}_scouting_rotations.json") as file:
+                self.scouting_rotations = load(file)
+        else:
+            self.scouting_rotations = []
 
     @abstractmethod
     def validate_data(self, scouting_data: list = None) -> None:
@@ -158,13 +166,19 @@ class BaseDataValidation(ABC):
                 ]
 
                 if len(match_data[alliance]) < 3:
-                    for team in teams:
+                    for driver_station, team in enumerate(teams):
                         if team not in team_numbers:
+                            scout_responsible = (
+                                self.scouting_rotations[match_key][driver_station]
+                                if self.scouting_rotations
+                                else ""
+                            )
                             self.add_error(
                                 f"In {match_key}, {team} was NOT SCOUTED",
                                 ErrorType.MISSING_DATA,
                                 match_key,
                                 team,
+                                scout_id=scout_responsible,
                             )
 
     def remove_duplicate_errors(self) -> None:

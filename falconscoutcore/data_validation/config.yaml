@@ -31,13 +31,14 @@ endgame_attempted_charge: "EndgameAttemptedCharge"
 endgame_charging_state: "EndgameFinalCharge"
 final_charge_time: "EndgameChargeTime"
 
+attempted_triple_balance: "AttemptedTripleBalance"
+successful_triple_balance: "SuccessfulTripleBalance"
+
 # general game parameters
 alliance: "Alliance"
 driver_station: "DriverStation"
 defense_pct: "DefenseTime"
-counter_defense_pct: "DefendedTime"
 defense_rating: "DefenseRating"
-counter_defense_rating: "CounterDefenseRating"
 driver_rating: "DriverRating"
 disabled: "Disable"
 tippy: "Tippy"
