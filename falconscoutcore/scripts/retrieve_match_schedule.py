@@ -8,7 +8,7 @@ with (
     open("../data/match_schedule.json", "w") as file
 ):
     match_schedule_formatted = {}
-    event_matches: list[falcon_alliance.Match] = falcon_alliance.Event("2023vaale").matches()
+    event_matches: list[falcon_alliance.Match] = falcon_alliance.Event("2023chcmp").matches()
 
     for match in event_matches:
         match_schedule_formatted[match.key] = {

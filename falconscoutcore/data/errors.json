@@ -2,163 +2,55 @@
     {
         "error_type": "MISSING DATA",
         "error_number": 6,
-        "message": "In qm77, frc1885 was NOT SCOUTED",
-        "match": "qm77",
+        "message": "In qm41, frc888 was NOT SCOUTED",
+        "match": "qm41",
         "scout_id": "",
-        "team_id": 1885,
+        "team_id": 888,
         "alliance": "N/A"
     },
     {
         "error_type": "MISSING DATA",
         "error_number": 6,
-        "message": "In qm70, frc9033 was NOT SCOUTED",
-        "match": "qm70",
+        "message": "In qm31, frc5549 was NOT SCOUTED",
+        "match": "qm31",
         "scout_id": "",
-        "team_id": 9033,
+        "team_id": 5549,
         "alliance": "N/A"
     },
     {
         "error_type": "MISSING DATA",
         "error_number": 6,
-        "message": "In qm69, frc2988 was NOT SCOUTED",
-        "match": "qm69",
+        "message": "In qm21, frc686 was NOT SCOUTED",
+        "match": "qm21",
         "scout_id": "",
-        "team_id": 2988,
+        "team_id": 686,
         "alliance": "N/A"
     },
     {
         "error_type": "MISSING DATA",
         "error_number": 6,
-        "message": "In qm67, frc8590 was NOT SCOUTED",
-        "match": "qm67",
+        "message": "In qm10, frc5724 was NOT SCOUTED",
+        "match": "qm10",
         "scout_id": "",
-        "team_id": 8590,
+        "team_id": 5724,
         "alliance": "N/A"
     },
     {
         "error_type": "MISSING DATA",
         "error_number": 6,
-        "message": "In qm66, frc3361 was NOT SCOUTED",
-        "match": "qm66",
+        "message": "In qm3, frc6863 was NOT SCOUTED",
+        "match": "qm3",
         "scout_id": "",
-        "team_id": 3361,
+        "team_id": 6863,
         "alliance": "N/A"
     },
     {
         "error_type": "MISSING DATA",
         "error_number": 6,
-        "message": "In qm66, frc3748 was NOT SCOUTED",
-        "match": "qm66",
-        "scout_id": "",
-        "team_id": 3748,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "MISSING DATA",
-        "error_number": 6,
-        "message": "In qm61, frc1389 was NOT SCOUTED",
-        "match": "qm61",
-        "scout_id": "",
-        "team_id": 1389,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "MISSING DATA",
-        "error_number": 6,
-        "message": "In qm61, frc5587 was NOT SCOUTED",
-        "match": "qm61",
-        "scout_id": "",
-        "team_id": 5587,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "MISSING DATA",
-        "error_number": 6,
-        "message": "In qm49, frc3361 was NOT SCOUTED",
-        "match": "qm49",
-        "scout_id": "",
-        "team_id": 3361,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "MISSING DATA",
-        "error_number": 6,
-        "message": "In qm47, frc8592 was NOT SCOUTED",
-        "match": "qm47",
-        "scout_id": "",
-        "team_id": 8592,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "MISSING DATA",
-        "error_number": 6,
-        "message": "In qm45, frc1885 was NOT SCOUTED",
-        "match": "qm45",
-        "scout_id": "",
-        "team_id": 1885,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "MISSING DATA",
-        "error_number": 6,
-        "message": "In qm45, frc116 was NOT SCOUTED",
-        "match": "qm45",
-        "scout_id": "",
-        "team_id": 116,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "MISSING DATA",
-        "error_number": 6,
-        "message": "In qm38, frc5115 was NOT SCOUTED",
-        "match": "qm38",
-        "scout_id": "",
-        "team_id": 5115,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "MISSING DATA",
-        "error_number": 6,
-        "message": "In qm37, frc4099 was NOT SCOUTED",
-        "match": "qm37",
-        "scout_id": "",
-        "team_id": 4099,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "INCORRECT DATA",
-        "error_number": 5,
-        "message": "In qm35, 1389 SCORING 4 CONES AND CUBES IN AUTO IS IMPOSSIBLE",
-        "match": "qm35",
-        "scout_id": "N/A",
-        "team_id": 1389,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "MISSING DATA",
-        "error_number": 6,
-        "message": "In qm6, frc1389 was NOT SCOUTED",
-        "match": "qm6",
-        "scout_id": "",
-        "team_id": 1389,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "MISSING DATA",
-        "error_number": 6,
-        "message": "In qm2, frc5587 was NOT SCOUTED",
-        "match": "qm2",
-        "scout_id": "",
-        "team_id": 5587,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "MISSING DATA",
-        "error_number": 6,
-        "message": "In qm1, frc2988 was NOT SCOUTED",
+        "message": "In qm1, frc4456 was NOT SCOUTED",
         "match": "qm1",
         "scout_id": "",
-        "team_id": 2988,
+        "team_id": 4456,
         "alliance": "N/A"
     }
 ]
