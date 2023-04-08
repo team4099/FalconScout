@@ -551,7 +551,7 @@ class DataValidation2023(BaseDataValidation):
                 f"{self._event_key}_{match_key}"
             ).score_breakdown[alliance.lower()]
             docked_state = (
-                score_breakdown[f"autoChargeStationRobot{driver_station}"] == "Docked"
+                score_breakdown[f"autoChargeStationRobot{driver_station or 1}"] == "Docked"
             )
             engaged_state = score_breakdown["autoBridgeState"] == "Level"
 
@@ -594,7 +594,7 @@ class DataValidation2023(BaseDataValidation):
                 f"{self._event_key}_{match_key}"
             ).score_breakdown[alliance.lower()]
             docked_state = (
-                score_breakdown[f"endGameChargeStationRobot{driver_station}"]
+                score_breakdown[f"endGameChargeStationRobot{driver_station or 1}"]
                 == "Docked"
             )
             engaged_state = score_breakdown["endGameBridgeState"] == "Level"

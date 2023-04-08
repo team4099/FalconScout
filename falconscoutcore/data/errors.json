@@ -1,56 +1,20 @@
 [
     {
-        "error_type": "MISSING DATA",
-        "error_number": 6,
-        "message": "In qm41, frc888 was NOT SCOUTED",
-        "match": "qm41",
-        "scout_id": "",
-        "team_id": 888,
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm95, 449 SCORING 4 CONES AND CUBES IN AUTO IS IMPOSSIBLE",
+        "match": "qm95",
+        "scout_id": "N/A",
+        "team_id": 449,
         "alliance": "N/A"
     },
     {
         "error_type": "MISSING DATA",
         "error_number": 6,
-        "message": "In qm31, frc5549 was NOT SCOUTED",
-        "match": "qm31",
+        "message": "In qm59, frc2068 was NOT SCOUTED",
+        "match": "qm59",
         "scout_id": "",
-        "team_id": 5549,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "MISSING DATA",
-        "error_number": 6,
-        "message": "In qm21, frc686 was NOT SCOUTED",
-        "match": "qm21",
-        "scout_id": "",
-        "team_id": 686,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "MISSING DATA",
-        "error_number": 6,
-        "message": "In qm10, frc5724 was NOT SCOUTED",
-        "match": "qm10",
-        "scout_id": "",
-        "team_id": 5724,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "MISSING DATA",
-        "error_number": 6,
-        "message": "In qm3, frc6863 was NOT SCOUTED",
-        "match": "qm3",
-        "scout_id": "",
-        "team_id": 6863,
-        "alliance": "N/A"
-    },
-    {
-        "error_type": "MISSING DATA",
-        "error_number": 6,
-        "message": "In qm1, frc4456 was NOT SCOUTED",
-        "match": "qm1",
-        "scout_id": "",
-        "team_id": 4456,
+        "team_id": 2068,
         "alliance": "N/A"
     }
 ]
