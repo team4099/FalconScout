@@ -171,7 +171,7 @@ def process_scan():
                 data_map["TeleopGrid"] = "|".join(teleop_grid_reversed)
 
             # Remove escape characters + commas
-            data_map["MatchKey"] = data_map["MatchKey"].replace(",", "")
+            data_map["MatchKey"] = f'qm{data_map["MatchKey"].replace(",", "")}'
             data_map = {
                 key: remove_escape_characters(value).replace(",", "|")
                 if isinstance(value, str)
@@ -207,22 +207,22 @@ def process_scan():
             data_df["AutoNotes"] = (
                 data_df["AutoNotes"]
                 .astype(str)
-                .apply(lambda note: note.replace(",", ""))
+                .apply(lambda note: note.replace(",", "").replace('"', "'"))
             )
             data_df["TeleopNotes"] = (
                 data_df["TeleopNotes"]
                 .astype(str)
-                .apply(lambda note: note.replace(",", ""))
+                .apply(lambda note: note.replace(",", "").replace('"', "'"))
             )
             data_df["EndgameNotes"] = (
                 data_df["EndgameNotes"]
                 .astype(str)
-                .apply(lambda note: note.replace(",", ""))
+                .apply(lambda note: note.replace(",", "").replace('"', "'"))
             )
             data_df["RatingNotes"] = (
                 data_df["RatingNotes"]
                 .astype(str)
-                .apply(lambda note: note.replace(",", ""))
+                .apply(lambda note: note.replace(",", "").replace('"', "'"))
             )
 
             data_df.to_csv(DATA_CSV_FILE)
@@ -264,7 +264,7 @@ def sync_github():
             repo.update_file(
                 contents.path,
                 f'updated data @ {datetime.now().strftime("%m/%d/%Y, %H:%M:%S")}',
-                str(file_json_data).replace("'", '"'),
+                json.dumps(file_json_data),
                 contents.sha,
             )
 

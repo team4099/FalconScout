@@ -135,8 +135,6 @@ new_headers = [
     "Tippy",
     "Defense Time",
     "Defense Rating",
-    "Defended Time",
-    "Counter Defense Rating",
     "Driver Rating",
     "Rating Notes",
     "Attempted Triple Balance",
@@ -151,10 +149,10 @@ with open("../data/2023chcmp_match_data.json") as file:
         submission["Mobile"] = int(submission["Mobile"] == "true")
         submission["Disable"] = int(submission["Disable"] == "true")
         submission["Tippy"] = int(submission["Tippy"] == "true")
-        submission["AttemptedTripleBalance"] = int(submission["AttemptedTripleBalance"])
-        submission["SuccessfulTripleBalance"] = int(
-            submission["SuccessfulTripleBalance"]
-        )
+        # submission["AttemptedTripleBalance"] = int(submission["AttemptedTripleBalance"])
+        # submission["SuccessfulTripleBalance"] = int(
+        #     submission["SuccessfulTripleBalance"]
+        # )
 
         auto_grid = submission["AutoGrid"].split("|")
 
@@ -284,8 +282,6 @@ with open("../data/2023chcmp_match_data.json") as file:
             "Tippy",
             "DefenseTime",
             "DefenseRating",
-            "DefendedTime",
-            "CounterDefenseRating",
             "DriverRating",
             "RatingNotes",
             "AttemptedTripleBalance",

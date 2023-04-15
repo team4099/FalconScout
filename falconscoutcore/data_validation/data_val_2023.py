@@ -160,6 +160,19 @@ class DataValidation2023(BaseDataValidation):
             for team_number, submissions_by_team in submissions_by_alliance.groupby(
                 self.config["team_number"]
             ):
+                # Map "Disabled", "Tippy" and "Mobile" from strings to booleans
+                json_boolean_to_int = {"true": 1, "false": 0, 0: 0, 1: 1, 0.5: 0.5}  # TODO: support dual scouting condensation after doing it once
+
+                submissions_by_team[self.config["disabled"]] = submissions_by_team[
+                    self.config["disabled"]
+                ].map(json_boolean_to_int)
+                submissions_by_team[self.config["tippy"]] = submissions_by_team[
+                    self.config["tippy"]
+                ].map(json_boolean_to_int)
+                submissions_by_team[self.config["mobile"]] = submissions_by_team[
+                    self.config["mobile"]
+                ].map(json_boolean_to_int)
+
                 if len(submissions_by_team) == 1:
                     submissions_by_team[self.config["attempted_triple_balance"]] = int(
                         attempted_triple_balance
@@ -200,13 +213,13 @@ class DataValidation2023(BaseDataValidation):
                         auto_grid_intersected = submissions_by_team[
                             self.config["auto_grid"]
                         ].iloc[0]
-                        self.add_error(
-                            f"In {match_key}, {n_scouts} SCOUTS scouting {team_number} have"
-                            f" DIFFERENT positions for the GAME PIECES scored during AUTONOMOUS.",
-                            ErrorType.INCORRECT_DATA,
-                            match_key,
-                            team_number,
-                        )
+                        # self.add_error(
+                        #     f"In {match_key}, {n_scouts} SCOUTS scouting {team_number} have"
+                        #     f" DIFFERENT positions for the GAME PIECES scored during AUTONOMOUS.",
+                        #     ErrorType.INCORRECT_DATA,
+                        #     match_key,
+                        #     team_number,
+                        # )
                     elif not (auto_same_length or auto_same_values):
                         auto_grid_intersected = submissions_by_team[
                             self.config["auto_grid"]
@@ -246,13 +259,13 @@ class DataValidation2023(BaseDataValidation):
                         teleop_grid_intersected = submissions_by_team[
                             self.config["teleop_grid"]
                         ].iloc[0]
-                        self.add_error(
-                            f"In {match_key}, {n_scouts} SCOUTS scouting {team_number} have"
-                            f" DIFFERENT positions for the GAME PIECES scored during TELEOP.",
-                            ErrorType.INCORRECT_DATA,
-                            match_key,
-                            team_number,
-                        )
+                        # self.add_error(
+                        #     f"In {match_key}, {n_scouts} SCOUTS scouting {team_number} have"
+                        #     f" DIFFERENT positions for the GAME PIECES scored during TELEOP.",
+                        #     ErrorType.INCORRECT_DATA,
+                        #     match_key,
+                        #     team_number,
+                        # )
                     elif not (teleop_same_length or teleop_same_values):
                         teleop_grid_intersected = submissions_by_team[
                             self.config["teleop_grid"]
@@ -347,6 +360,9 @@ class DataValidation2023(BaseDataValidation):
                     teleop_cubes = []
 
                     for game_piece in auto_grid_intersected:
+                        if not game_piece:
+                            continue
+
                         position, height = game_piece[:2]
 
                         if height == "L":
@@ -362,6 +378,9 @@ class DataValidation2023(BaseDataValidation):
                             auto_cubes.append(positions_to_names[height])
 
                     for game_piece in teleop_grid_intersected:
+                        if not game_piece:
+                            continue
+
                         position, height = game_piece[:2]
 
                         if height == "L":
@@ -375,19 +394,6 @@ class DataValidation2023(BaseDataValidation):
                             teleop_cones.append(positions_to_names[height])
                         else:
                             teleop_cubes.append(positions_to_names[height])
-
-                    # Map "Disabled", "Tippy" and "Mobile" from strings to booleans
-                    json_boolean_to_int = {"true": True, "false": False}
-
-                    submissions_by_team[self.config["disabled"]] = submissions_by_team[
-                        self.config["disabled"]
-                    ].map(json_boolean_to_int)
-                    submissions_by_team[self.config["tippy"]] = submissions_by_team[
-                        self.config["tippy"]
-                    ].map(json_boolean_to_int)
-                    submissions_by_team[self.config["mobile"]] = submissions_by_team[
-                        self.config["mobile"]
-                    ].map(json_boolean_to_int)
 
                     averaged_scouting_data = concat(
                         [
@@ -450,7 +456,7 @@ class DataValidation2023(BaseDataValidation):
                                         self.config[
                                             "endgame_charging_state"
                                         ]: endgame_final_charge,
-                                        self.config["final_charge_time"]: charge_times
+                                        self.config["final_charge_time"]: charge_times.mean()
                                         if (
                                             charge_times := submissions_by_team[
                                                 self.config["final_charge_time"]
@@ -545,7 +551,7 @@ class DataValidation2023(BaseDataValidation):
                 f"{self._event_key}_{match_key}"
             ).score_breakdown[alliance.lower()]
             docked_state = (
-                score_breakdown[f"autoChargeStationRobot{driver_station}"] == "Docked"
+                score_breakdown[f"autoChargeStationRobot{driver_station or 1}"] == "Docked"
             )
             engaged_state = score_breakdown["autoBridgeState"] == "Level"
 
@@ -588,7 +594,7 @@ class DataValidation2023(BaseDataValidation):
                 f"{self._event_key}_{match_key}"
             ).score_breakdown[alliance.lower()]
             docked_state = (
-                score_breakdown[f"endGameChargeStationRobot{driver_station}"]
+                score_breakdown[f"endGameChargeStationRobot{driver_station or 1}"]
                 == "Docked"
             )
             engaged_state = score_breakdown["endGameBridgeState"] == "Level"
