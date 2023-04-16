@@ -134,12 +134,7 @@ class DataValidation2023(BaseDataValidation):
             attempted_triple_balance = int(
                 len(
                     submissions_by_alliance[
-                        logical_or(
-                            submissions_by_alliance["EndgameAttemptedCharge"]
-                            == "Engage",
-                            submissions_by_alliance["EndgameAttemptedCharge"]
-                            == "Dock|Engage",
-                        )
+                        submissions_by_alliance["EndgameAttemptedCharge"] == "Engage",
                     ]
                 )
                 >= 3
@@ -147,11 +142,7 @@ class DataValidation2023(BaseDataValidation):
             successful_triple_balance = int(
                 len(
                     submissions_by_alliance[
-                        logical_or(
-                            submissions_by_alliance["EndgameFinalCharge"] == "Engage",
-                            submissions_by_alliance["EndgameFinalCharge"]
-                            == "Dock|Engage",
-                        )
+                        submissions_by_alliance["EndgameFinalCharge"] == "Engage",
                     ]
                 )
                 >= 3
@@ -161,7 +152,13 @@ class DataValidation2023(BaseDataValidation):
                 self.config["team_number"]
             ):
                 # Map "Disabled", "Tippy" and "Mobile" from strings to booleans
-                json_boolean_to_int = {"true": 1, "false": 0, 0: 0, 1: 1, 0.5: 0.5}  # TODO: support dual scouting condensation after doing it once
+                json_boolean_to_int = {
+                    "true": 1,
+                    "false": 0,
+                    0: 0,
+                    1: 1,
+                    0.5: 0.5,
+                }  # TODO: support dual scouting condensation after doing it once
 
                 submissions_by_team[self.config["disabled"]] = submissions_by_team[
                     self.config["disabled"]
@@ -456,7 +453,9 @@ class DataValidation2023(BaseDataValidation):
                                         self.config[
                                             "endgame_charging_state"
                                         ]: endgame_final_charge,
-                                        self.config["final_charge_time"]: charge_times.mean()
+                                        self.config[
+                                            "final_charge_time"
+                                        ]: charge_times.mean()
                                         if (
                                             charge_times := submissions_by_team[
                                                 self.config["final_charge_time"]
@@ -551,7 +550,8 @@ class DataValidation2023(BaseDataValidation):
                 f"{self._event_key}_{match_key}"
             ).score_breakdown[alliance.lower()]
             docked_state = (
-                score_breakdown[f"autoChargeStationRobot{driver_station or 1}"] == "Docked"
+                score_breakdown[f"autoChargeStationRobot{driver_station or 1}"]
+                == "Docked"
             )
             engaged_state = score_breakdown["autoBridgeState"] == "Level"
 
