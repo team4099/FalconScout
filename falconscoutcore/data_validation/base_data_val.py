@@ -18,6 +18,9 @@ class BaseDataValidation(ABC):
     Implements base checks explained below (e.g. checking if the scout scouted the right driver station.)
     """
 
+    TBA_GRID_AUTO_ERROR_THRESHOLD = 1
+    TBA_GRID_TELEOP_ERROR_THRESHOLD = 3
+
     RESCOUTING_ERROR_THRESHOLD = 20
 
     def __init__(self, path_to_config: str = "config.yaml"):
@@ -48,6 +51,9 @@ class BaseDataValidation(ABC):
             api_key="6lcmneN5bBDYpC47FolBxp2RZa4AbQCVpmKMSKw9x9btKt7da5yMzVamJYk0XDBm"  # for testing purposes
         )
 
+        # Retrieve match data from event so far
+        self.match_data = self.get_match_data()
+
         if self._run_with_tba:
             with self.api_client:
                 # make sure tba isn't down
@@ -66,6 +72,14 @@ class BaseDataValidation(ABC):
                 self.scouting_rotations = load(file)
         else:
             self.scouting_rotations = []
+
+    def get_match_data(self) -> dict:
+        if self._run_with_tba:
+            with self.api_client:
+                event_matches = falcon_alliance.Event(self._event_key).matches()
+                return {match.key: match for match in event_matches}
+        else:
+            return {}
 
     @abstractmethod
     def validate_data(self, scouting_data: list = None) -> None:

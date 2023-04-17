@@ -132,20 +132,11 @@ class DataValidation2023(BaseDataValidation):
             [self.config["match_key"], self.config["alliance"]]
         ):
             attempted_triple_balance = int(
-                len(
-                    submissions_by_alliance[
-                        submissions_by_alliance["EndgameAttemptedCharge"] == "Engage",
-                    ]
-                )
+                (submissions_by_alliance["EndgameAttemptedCharge"] == "Engage").sum()
                 >= 3
             )
             successful_triple_balance = int(
-                len(
-                    submissions_by_alliance[
-                        submissions_by_alliance["EndgameFinalCharge"] == "Engage",
-                    ]
-                )
-                >= 3
+                (submissions_by_alliance["EndgameFinalCharge"] == "Engage").sum() >= 3
             )
 
             for team_number, submissions_by_team in submissions_by_alliance.groupby(
@@ -453,17 +444,6 @@ class DataValidation2023(BaseDataValidation):
                                         self.config[
                                             "endgame_charging_state"
                                         ]: endgame_final_charge,
-                                        self.config[
-                                            "final_charge_time"
-                                        ]: charge_times.mean()
-                                        if (
-                                            charge_times := submissions_by_team[
-                                                self.config["final_charge_time"]
-                                            ]
-                                        )
-                                        .apply(lambda x: isinstance(x, float))
-                                        .all()
-                                        else "",
                                         self.config["endgame_notes"]: " | ".join(
                                             submissions_by_team[
                                                 self.config["endgame_notes"]
@@ -545,31 +525,38 @@ class DataValidation2023(BaseDataValidation):
         :param auto_charging_state: The state the robot is in at the end of Autonomous in regards to the Charge Station.
         :return:
         """
-        with self.api_client as api_client:
-            score_breakdown = api_client.match(
+        try:
+            score_breakdown = self.match_data[
                 f"{self._event_key}_{match_key}"
-            ).score_breakdown[alliance.lower()]
-            docked_state = (
-                score_breakdown[f"autoChargeStationRobot{driver_station or 1}"]
-                == "Docked"
-            )
-            engaged_state = score_breakdown["autoBridgeState"] == "Level"
+            ].score_breakdown[alliance.lower()]
+        except KeyError as e:
+            raise KeyError(
+                "No matches to retrieve data from OR invalid match key, check scouting data."
+            ) from e
 
-            # Using XOR (^) here because we want to check for only when the two states are differing.
-            if (auto_charging_state == "Docked") ^ docked_state:
-                self.add_error(
-                    f"In {match_key}, {team_number} has an incorrect DOCKED state during AUTO based on TBA data.",
-                    ErrorType.INCORRECT_DATA,
-                    match_key,
-                    team_number,
-                )
-            if (auto_charging_state == "Engaged") ^ engaged_state:
-                self.add_error(
-                    f"In {match_key}, {team_number} has an incorrect ENGAGED state during AUTO based on TBA data.",
-                    ErrorType.INCORRECT_DATA,
-                    match_key,
-                    team_number,
-                )
+        on_charge_station = (
+            score_breakdown[f"autoChargeStationRobot{driver_station or 1}"] == "Docked"
+        )
+        is_level = score_breakdown["autoBridgeState"] == "Level"
+
+        docked_state = on_charge_station and not is_level
+        engaged_state = on_charge_station and is_level
+
+        # Using XOR (^) here because we want to check for only when the two states are differing.
+        if (auto_charging_state == "Dock") ^ docked_state and not engaged_state:
+            self.add_error(
+                f"In {match_key}, {team_number} has an incorrect DOCKED state during AUTO based on TBA data.",
+                ErrorType.INCORRECT_DATA,
+                match_key,
+                team_number,
+            )
+        if (auto_charging_state == "Engage") ^ engaged_state and not docked_state:
+            self.add_error(
+                f"In {match_key}, {team_number} has an incorrect ENGAGED state during AUTO based on TBA data.",
+                ErrorType.INCORRECT_DATA,
+                match_key,
+                team_number,
+            )
 
     def tba_validate_endgame_charge_station_state(
         self,
@@ -589,31 +576,39 @@ class DataValidation2023(BaseDataValidation):
         :param endgame_charging_state: The state the robot is in at the end of Teleop in regards to the Charge Station.
         :return:
         """
-        with self.api_client as api_client:
-            score_breakdown = api_client.match(
+        try:
+            score_breakdown = self.match_data[
                 f"{self._event_key}_{match_key}"
-            ).score_breakdown[alliance.lower()]
-            docked_state = (
-                score_breakdown[f"endGameChargeStationRobot{driver_station or 1}"]
-                == "Docked"
-            )
-            engaged_state = score_breakdown["endGameBridgeState"] == "Level"
+            ].score_breakdown[alliance.lower()]
+        except KeyError as e:
+            raise KeyError(
+                "No matches to retrieve data from OR invalid match key, check scouting data."
+            ) from e
 
-            # Using XOR (^) here because we want to check for only when the two states are differing.
-            if (endgame_charging_state == "Docked") ^ docked_state:
-                self.add_error(
-                    f"In {match_key}, {team_number} has an incorrect DOCKED state during ENDGAME based on TBA data.",
-                    ErrorType.INCORRECT_DATA,
-                    match_key,
-                    team_number,
-                )
-            if (endgame_charging_state == "Engaged") ^ engaged_state:
-                self.add_error(
-                    f"In {match_key}, {team_number} has an incorrect ENGAGED state during ENDGAME based on TBA data.",
-                    ErrorType.INCORRECT_DATA,
-                    match_key,
-                    team_number,
-                )
+        on_charge_station = (
+            score_breakdown[f"endGameChargeStationRobot{driver_station or 1}"]
+            == "Docked"
+        )
+        is_level = score_breakdown["endGameBridgeState"] == "Level"
+
+        docked_state = on_charge_station and not is_level
+        engaged_state = on_charge_station and is_level
+
+        # Using XOR (^) here because we want to check for only when the two states are differing.
+        if (endgame_charging_state == "Dock") ^ docked_state and not engaged_state:
+            self.add_error(
+                f"In {match_key}, {team_number} has an incorrect DOCKED state during ENDGAME based on TBA data.",
+                ErrorType.INCORRECT_DATA,
+                match_key,
+                team_number,
+            )
+        if (endgame_charging_state == "Engage") ^ engaged_state and not docked_state:
+            self.add_error(
+                f"In {match_key}, {team_number} has an incorrect ENGAGED state during ENDGAME based on TBA data.",
+                ErrorType.INCORRECT_DATA,
+                match_key,
+                team_number,
+            )
 
     def tba_validate_auto_game_pieces_scored(
         self,
@@ -625,50 +620,54 @@ class DataValidation2023(BaseDataValidation):
         :param scouting_data: A Pandas dataframe containing all the submissions scouting-data wise.
         :return:
         """
-        with self.api_client as api_client:
-            for (match_key, alliance), submissions_by_alliance in scouting_data.groupby(
-                [self.config["match_key"], self.config["alliance"]]
-            ):
-                score_breakdown = api_client.match(
+        for (match_key, alliance), submissions_by_alliance in scouting_data.groupby(
+            [self.config["match_key"], self.config["alliance"]]
+        ):
+            try:
+                score_breakdown = self.match_data[
                     f"{self._event_key}_{match_key}"
-                ).score_breakdown[alliance.lower()]
+                ].score_breakdown[alliance.lower()]
+            except KeyError as e:
+                raise KeyError(
+                    "No matches to retrieve data from OR invalid match key, check scouting data."
+                ) from e
 
-                actual_auto_cones = sum(
-                    [
-                        nodes.count("Cone")
-                        for nodes in score_breakdown["autoCommunity"].values()
-                    ]
-                )
-                scouted_auto_cones = len(
-                    sum(submissions_by_alliance["auto_cones"], start=[])
-                )
+            actual_auto_cones = sum(
+                [
+                    nodes.count("Cone")
+                    for nodes in score_breakdown["autoCommunity"].values()
+                ]
+            )
+            scouted_auto_cones = len(
+                sum(submissions_by_alliance[self.config["auto_cones"]], start=[])
+            )
 
-                actual_auto_cubes = sum(
-                    [
-                        nodes.count("Cube")
-                        for nodes in score_breakdown["autoCommunity"].values()
-                    ]
-                )
-                scouted_auto_cubes = len(
-                    sum(submissions_by_alliance["auto_cubes"], start=[])
-                )
+            actual_auto_cubes = sum(
+                [
+                    nodes.count("Cube")
+                    for nodes in score_breakdown["autoCommunity"].values()
+                ]
+            )
+            scouted_auto_cubes = len(
+                sum(submissions_by_alliance[self.config["auto_cubes"]], start=[])
+            )
 
-                if scouted_auto_cones != actual_auto_cones:
-                    self.add_error(
-                        f"In {match_key}, the {alliance.upper()} alliance was said to have scored"
-                        f" {scouted_auto_cones} CONES during AUTO but actually scored {actual_auto_cones} CONES.",
-                        ErrorType.INCORRECT_DATA,
-                        match_key,
-                        alliance=alliance,
-                    )
-                if scouted_auto_cubes != actual_auto_cubes:
-                    self.add_error(
-                        f"In {match_key}, the {alliance.upper()} alliance was said to have scored"
-                        f" {scouted_auto_cubes} CUBES during AUTO but actually scored {actual_auto_cubes} CUBES.",
-                        ErrorType.INCORRECT_DATA,
-                        match_key,
-                        alliance=alliance,
-                    )
+            scouted_auto_pieces = scouted_auto_cones + scouted_auto_cubes
+            actual_auto_pieces = actual_auto_cones + actual_auto_cubes
+
+            if (
+                scouted_auto_pieces != actual_auto_pieces
+                and abs(scouted_auto_pieces - actual_auto_pieces)
+                >= self.TBA_GRID_AUTO_ERROR_THRESHOLD
+            ):
+                self.add_error(
+                    f"In {match_key}, the {alliance.upper()} alliance was said to have scored"
+                    f" {scouted_auto_cones} CONES and {scouted_auto_cubes} CUBES during AUTO "
+                    f"but actually scored {actual_auto_cones} CONES and {actual_auto_cubes} CUBES.",
+                    ErrorType.INCORRECT_DATA,
+                    match_key,
+                    alliance=alliance,
+                )
 
     def tba_validate_teleop_game_pieces_scored(
         self,
@@ -680,50 +679,54 @@ class DataValidation2023(BaseDataValidation):
         :param scouting_data: A Pandas dataframe containing all the submissions scouting-data wise.
         :return:
         """
-        with self.api_client as api_client:
-            for (match_key, alliance), submissions_by_alliance in scouting_data.groupby(
-                [self.config["match_key"], self.config["alliance"]]
-            ):
-                score_breakdown = api_client.match(
+        for (match_key, alliance), submissions_by_alliance in scouting_data.groupby(
+            [self.config["match_key"], self.config["alliance"]]
+        ):
+            try:
+                score_breakdown = self.match_data[
                     f"{self._event_key}_{match_key}"
-                ).score_breakdown[alliance.lower()]
+                ].score_breakdown[alliance.lower()]
+            except KeyError as e:
+                raise KeyError(
+                    "No matches to retrieve data from OR invalid match key, check scouting data."
+                ) from e
 
-                actual_teleop_cones = sum(
-                    [
-                        nodes.count("Cone")
-                        for nodes in score_breakdown["teleopCommunity"].values()
-                    ]
-                )
-                scouted_teleop_cones = len(
-                    sum(submissions_by_alliance["teleop_cones"], start=[])
-                )
+            actual_teleop_cones = sum(
+                [
+                    nodes.count("Cone")
+                    for nodes in score_breakdown["teleopCommunity"].values()
+                ]
+            )
+            scouted_teleop_cones = len(
+                sum(submissions_by_alliance[self.config["teleop_cones"]], start=[])
+            )
 
-                actual_teleop_cubes = sum(
-                    [
-                        nodes.count("Cube")
-                        for nodes in score_breakdown["teleopCommunity"].values()
-                    ]
-                )
-                scouted_teleop_cubes = len(
-                    sum(submissions_by_alliance["teleop_cubes"], start=[])
-                )
+            actual_teleop_cubes = sum(
+                [
+                    nodes.count("Cube")
+                    for nodes in score_breakdown["teleopCommunity"].values()
+                ]
+            )
+            scouted_teleop_cubes = len(
+                sum(submissions_by_alliance[self.config["teleop_cubes"]], start=[])
+            )
 
-                if scouted_teleop_cones != actual_teleop_cones:
-                    self.add_error(
-                        f"In {match_key}, the {alliance.upper()} alliance was said to have scored "
-                        f"{scouted_teleop_cones} CONES during TELEOP but actually scored {actual_teleop_cones} CONES.",
-                        ErrorType.INCORRECT_DATA,
-                        match_key,
-                        alliance=alliance,
-                    )
-                if scouted_teleop_cubes != actual_teleop_cubes:
-                    self.add_error(
-                        f"In {match_key}, the {alliance.upper()} alliance was said to have scored "
-                        f"{scouted_teleop_cubes} CUBES during TELEOP but actually scored {actual_teleop_cubes} CUBES.",
-                        ErrorType.INCORRECT_DATA,
-                        match_key,
-                        alliance=alliance,
-                    )
+            scouted_teleop_pieces = scouted_teleop_cones + scouted_teleop_cubes
+            actual_teleop_pieces = actual_teleop_cones + actual_teleop_cubes
+
+            if (
+                scouted_teleop_pieces != actual_teleop_pieces
+                and abs(scouted_teleop_pieces - actual_teleop_pieces)
+                >= self.TBA_GRID_TELEOP_ERROR_THRESHOLD
+            ):
+                self.add_error(
+                    f"In {match_key}, the {alliance.upper()} alliance was said to have scored"
+                    f" {scouted_teleop_cones} CONES and {scouted_teleop_cubes} CUBES during TELEOP "
+                    f"but actually scored {actual_teleop_cones} CONES and {actual_teleop_cubes} CUBES.",
+                    ErrorType.INCORRECT_DATA,
+                    match_key,
+                    alliance=alliance,
+                )
 
     # Non-TBA checks
     def check_for_invalid_defense_data(

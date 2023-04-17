@@ -2,6 +2,240 @@
     {
         "error_type": "INCORRECT DATA",
         "error_number": 5,
+        "message": "In qm102, the RED alliance was said to have scored 0 CONES and 3 CUBES during AUTO but actually scored 2 CONES and 2 CUBES.",
+        "match": "qm102",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm102, the RED alliance was said to have scored 6 CONES and 8 CUBES during TELEOP but actually scored 9 CONES and 11 CUBES.",
+        "match": "qm102",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm102, 1418 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm102",
+        "scout_id": "N/A",
+        "team_id": 1418,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm101, the RED alliance was said to have scored 8 CONES and 4 CUBES during TELEOP but actually scored 11 CONES and 9 CUBES.",
+        "match": "qm101",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm101, the BLUE alliance was said to have scored 4 CONES and 4 CUBES during TELEOP but actually scored 9 CONES and 7 CUBES.",
+        "match": "qm101",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm101, 2199 has an incorrect ENGAGED state during AUTO based on TBA data.",
+        "match": "qm101",
+        "scout_id": "N/A",
+        "team_id": 2199,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 0,
+        "message": "In qm101, a cumulative amount of 20 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm101",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm101, 836 has an incorrect ENGAGED state during ENDGAME based on TBA data.",
+        "match": "qm101",
+        "scout_id": "N/A",
+        "team_id": 836,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm100, the RED alliance was said to have scored 1 CONES and 0 CUBES during AUTO but actually scored 2 CONES and 0 CUBES.",
+        "match": "qm100",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm100, the RED alliance was said to have scored 8 CONES and 6 CUBES during TELEOP but actually scored 11 CONES and 7 CUBES.",
+        "match": "qm100",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm99, the BLUE alliance was said to have scored 6 CONES and 7 CUBES during TELEOP but actually scored 8 CONES and 8 CUBES.",
+        "match": "qm99",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm99, the RED alliance was said to have scored 6 CONES and 0 CUBES during TELEOP but actually scored 11 CONES and 1 CUBES.",
+        "match": "qm99",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm99, 9033 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm99",
+        "scout_id": "N/A",
+        "team_id": 9033,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm98, the BLUE alliance was said to have scored 9 CONES and 11 CUBES during TELEOP but actually scored 14 CONES and 10 CUBES.",
+        "match": "qm98",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm98, the RED alliance was said to have scored 9 CONES and 3 CUBES during TELEOP but actually scored 10 CONES and 5 CUBES.",
+        "match": "qm98",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 0,
+        "message": "In qm97, a cumulative amount of 25 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm97",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm97, the BLUE alliance was said to have scored 3 CONES and 7 CUBES during TELEOP but actually scored 6 CONES and 8 CUBES.",
+        "match": "qm97",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm97, 8726 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm97",
+        "scout_id": "N/A",
+        "team_id": 8726,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm97, the RED alliance was said to have scored 7 CONES and 7 CUBES during TELEOP but actually scored 8 CONES and 10 CUBES.",
+        "match": "qm97",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm97, 3373 has an incorrect ENGAGED state during ENDGAME based on TBA data.",
+        "match": "qm97",
+        "scout_id": "N/A",
+        "team_id": 3373,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm97, 4099 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm97",
+        "scout_id": "N/A",
+        "team_id": 4099,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm96, 8592 has an incorrect ENGAGED state during ENDGAME based on TBA data.",
+        "match": "qm96",
+        "scout_id": "N/A",
+        "team_id": 8592,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm96, the RED alliance was said to have scored 7 CONES and 6 CUBES during TELEOP but actually scored 10 CONES and 9 CUBES.",
+        "match": "qm96",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm95, 8622 has an incorrect ENGAGED state during ENDGAME based on TBA data.",
+        "match": "qm95",
+        "scout_id": "N/A",
+        "team_id": 8622,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm95, the BLUE alliance was said to have scored 10 CONES and 4 CUBES during TELEOP but actually scored 9 CONES and 8 CUBES.",
+        "match": "qm95",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 0,
+        "message": "In qm95, a cumulative amount of 20 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm95",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
         "message": "In qm95, 449 SCORING 4 CONES AND CUBES IN AUTO IS IMPOSSIBLE",
         "match": "qm95",
         "scout_id": "N/A",
@@ -9,12 +243,2964 @@
         "alliance": "N/A"
     },
     {
-        "error_type": "MISSING DATA",
-        "error_number": 6,
-        "message": "In qm59, frc2068 was NOT SCOUTED",
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm95, the BLUE alliance was said to have scored 4 CONES and 3 CUBES during AUTO but actually scored 2 CONES and 2 CUBES.",
+        "match": "qm95",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm94, the BLUE alliance was said to have scored 2 CONES and 15 CUBES during TELEOP but actually scored 0 CONES and 12 CUBES.",
+        "match": "qm94",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm94, the BLUE alliance was said to have scored 1 CONES and 4 CUBES during AUTO but actually scored 0 CONES and 3 CUBES.",
+        "match": "qm94",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm94, 422 has an incorrect ENGAGED state during AUTO based on TBA data.",
+        "match": "qm94",
+        "scout_id": "N/A",
+        "team_id": 422,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm93, the RED alliance was said to have scored 11 CONES and 5 CUBES during TELEOP but actually scored 14 CONES and 6 CUBES.",
+        "match": "qm93",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm93, the BLUE alliance was said to have scored 8 CONES and 6 CUBES during TELEOP but actually scored 9 CONES and 8 CUBES.",
+        "match": "qm93",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm92, the RED alliance was said to have scored 5 CONES and 7 CUBES during TELEOP but actually scored 7 CONES and 12 CUBES.",
+        "match": "qm92",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm92, the RED alliance was said to have scored 1 CONES and 3 CUBES during AUTO but actually scored 1 CONES and 1 CUBES.",
+        "match": "qm92",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 0,
+        "message": "In qm92, a cumulative amount of 20 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm92",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm92, the BLUE alliance was said to have scored 1 CONES and 2 CUBES during AUTO but actually scored 0 CONES and 2 CUBES.",
+        "match": "qm92",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm92, the BLUE alliance was said to have scored 7 CONES and 9 CUBES during TELEOP but actually scored 8 CONES and 12 CUBES.",
+        "match": "qm92",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm91, the RED alliance was said to have scored 9 CONES and 3 CUBES during TELEOP but actually scored 9 CONES and 6 CUBES.",
+        "match": "qm91",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm91, the BLUE alliance was said to have scored 1 CONES and 3 CUBES during AUTO but actually scored 1 CONES and 2 CUBES.",
+        "match": "qm91",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm91, the BLUE alliance was said to have scored 8 CONES and 6 CUBES during TELEOP but actually scored 9 CONES and 8 CUBES.",
+        "match": "qm91",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm90, the BLUE alliance was said to have scored 5 CONES and 1 CUBES during TELEOP but actually scored 7 CONES and 4 CUBES.",
+        "match": "qm90",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm90, the RED alliance was said to have scored 6 CONES and 8 CUBES during TELEOP but actually scored 9 CONES and 10 CUBES.",
+        "match": "qm90",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm90, 620 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm90",
+        "scout_id": "N/A",
+        "team_id": 620,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm89, 8726 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm89",
+        "scout_id": "N/A",
+        "team_id": 8726,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 0,
+        "message": "In qm89, a cumulative amount of 20 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm89",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm89, the RED alliance was said to have scored 1 CONES and 1 CUBES during AUTO but actually scored 1 CONES and 2 CUBES.",
+        "match": "qm89",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm89, the RED alliance was said to have scored 5 CONES and 5 CUBES during TELEOP but actually scored 7 CONES and 8 CUBES.",
+        "match": "qm89",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm89, 1086 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm89",
+        "scout_id": "N/A",
+        "team_id": 1086,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm88, the RED alliance was said to have scored 2 CONES and 1 CUBES during AUTO but actually scored 2 CONES and 0 CUBES.",
+        "match": "qm88",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 0,
+        "message": "In qm88, a cumulative amount of 20 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm88",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm88, the BLUE alliance was said to have scored 6 CONES and 5 CUBES during TELEOP but actually scored 8 CONES and 9 CUBES.",
+        "match": "qm88",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm88, 6326 has an incorrect DOCKED state during AUTO based on TBA data.",
+        "match": "qm88",
+        "scout_id": "N/A",
+        "team_id": 6326,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm88, 6326 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm88",
+        "scout_id": "N/A",
+        "team_id": 6326,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm87, the BLUE alliance was said to have scored 4 CONES and 6 CUBES during TELEOP but actually scored 4 CONES and 9 CUBES.",
+        "match": "qm87",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm87, the RED alliance was said to have scored 1 CONES and 0 CUBES during AUTO but actually scored 1 CONES and 1 CUBES.",
+        "match": "qm87",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm87, the RED alliance was said to have scored 5 CONES and 3 CUBES during TELEOP but actually scored 9 CONES and 5 CUBES.",
+        "match": "qm87",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm86, the RED alliance was said to have scored 10 CONES and 5 CUBES during TELEOP but actually scored 15 CONES and 7 CUBES.",
+        "match": "qm86",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm86, the BLUE alliance was said to have scored 7 CONES and 3 CUBES during TELEOP but actually scored 12 CONES and 5 CUBES.",
+        "match": "qm86",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm86, 2363 has an incorrect ENGAGED state during AUTO based on TBA data.",
+        "match": "qm86",
+        "scout_id": "N/A",
+        "team_id": 2363,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm85, the BLUE alliance was said to have scored 9 CONES and 10 CUBES during TELEOP but actually scored 11 CONES and 15 CUBES.",
+        "match": "qm85",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm85, the RED alliance was said to have scored 2 CONES and 6 CUBES during TELEOP but actually scored 6 CONES and 7 CUBES.",
+        "match": "qm85",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm84, the BLUE alliance was said to have scored 7 CONES and 5 CUBES during TELEOP but actually scored 9 CONES and 7 CUBES.",
+        "match": "qm84",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm84, 401 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm84",
+        "scout_id": "N/A",
+        "team_id": 401,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm84, the RED alliance was said to have scored 4 CONES and 7 CUBES during TELEOP but actually scored 8 CONES and 7 CUBES.",
+        "match": "qm84",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm83, 8592 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm83",
+        "scout_id": "N/A",
+        "team_id": 8592,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm83, 612 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm83",
+        "scout_id": "N/A",
+        "team_id": 612,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm83, the RED alliance was said to have scored 3 CONES and 3 CUBES during TELEOP but actually scored 5 CONES and 5 CUBES.",
+        "match": "qm83",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 0,
+        "message": "In qm83, a cumulative amount of 20 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm83",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm83, the BLUE alliance was said to have scored 5 CONES and 7 CUBES during TELEOP but actually scored 6 CONES and 12 CUBES.",
+        "match": "qm83",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm82, 8230 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm82",
+        "scout_id": "N/A",
+        "team_id": 8230,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm82, the RED alliance was said to have scored 4 CONES and 3 CUBES during TELEOP but actually scored 4 CONES and 10 CUBES.",
+        "match": "qm82",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm82, the BLUE alliance was said to have scored 2 CONES and 2 CUBES during AUTO but actually scored 2 CONES and 1 CUBES.",
+        "match": "qm82",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 0,
+        "message": "In qm82, a cumulative amount of 30 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm82",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm82, the RED alliance was said to have scored 0 CONES and 3 CUBES during AUTO but actually scored 0 CONES and 4 CUBES.",
+        "match": "qm82",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm82, 8592 has an incorrect ENGAGED state during ENDGAME based on TBA data.",
+        "match": "qm82",
+        "scout_id": "N/A",
+        "team_id": 8592,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm82, 4456 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm82",
+        "scout_id": "N/A",
+        "team_id": 4456,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm81, 1731 has an incorrect ENGAGED state during ENDGAME based on TBA data.",
+        "match": "qm81",
+        "scout_id": "N/A",
+        "team_id": 1731,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm81, the RED alliance was said to have scored 5 CONES and 7 CUBES during TELEOP but actually scored 8 CONES and 10 CUBES.",
+        "match": "qm81",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm80, 1262 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm80",
+        "scout_id": "N/A",
+        "team_id": 1262,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm80, the RED alliance was said to have scored 7 CONES and 4 CUBES during TELEOP but actually scored 7 CONES and 7 CUBES.",
+        "match": "qm80",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm79, the BLUE alliance was said to have scored 6 CONES and 10 CUBES during TELEOP but actually scored 8 CONES and 11 CUBES.",
+        "match": "qm79",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm79, the RED alliance was said to have scored 4 CONES and 5 CUBES during TELEOP but actually scored 6 CONES and 7 CUBES.",
+        "match": "qm79",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm78, the BLUE alliance was said to have scored 2 CONES and 1 CUBES during AUTO but actually scored 2 CONES and 2 CUBES.",
+        "match": "qm78",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm78, the BLUE alliance was said to have scored 11 CONES and 6 CUBES during TELEOP but actually scored 14 CONES and 7 CUBES.",
+        "match": "qm78",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm78, the RED alliance was said to have scored 2 CONES and 7 CUBES during TELEOP but actually scored 2 CONES and 11 CUBES.",
+        "match": "qm78",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm77, 2421 has an incorrect ENGAGED state during AUTO based on TBA data.",
+        "match": "qm77",
+        "scout_id": "N/A",
+        "team_id": 2421,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm77, the RED alliance was said to have scored 2 CONES and 6 CUBES during TELEOP but actually scored 4 CONES and 9 CUBES.",
+        "match": "qm77",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm77, the BLUE alliance was said to have scored 9 CONES and 2 CUBES during TELEOP but actually scored 10 CONES and 4 CUBES.",
+        "match": "qm77",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 0,
+        "message": "In qm77, a cumulative amount of 20 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm77",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm77, the RED alliance was said to have scored 0 CONES and 2 CUBES during AUTO but actually scored 0 CONES and 4 CUBES.",
+        "match": "qm77",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm76, the BLUE alliance was said to have scored 9 CONES and 1 CUBES during TELEOP but actually scored 11 CONES and 4 CUBES.",
+        "match": "qm76",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm76, the RED alliance was said to have scored 4 CONES and 5 CUBES during TELEOP but actually scored 6 CONES and 10 CUBES.",
+        "match": "qm76",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm75, the BLUE alliance was said to have scored 11 CONES and 9 CUBES during TELEOP but actually scored 15 CONES and 10 CUBES.",
+        "match": "qm75",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm75, the RED alliance was said to have scored 8 CONES and 5 CUBES during TELEOP but actually scored 8 CONES and 9 CUBES.",
+        "match": "qm75",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm75, the BLUE alliance was said to have scored 4 CONES and 1 CUBES during AUTO but actually scored 3 CONES and 1 CUBES.",
+        "match": "qm75",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm74, the RED alliance was said to have scored 4 CONES and 7 CUBES during TELEOP but actually scored 6 CONES and 8 CUBES.",
+        "match": "qm74",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm73, the RED alliance was said to have scored 7 CONES and 7 CUBES during TELEOP but actually scored 8 CONES and 10 CUBES.",
+        "match": "qm73",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm73, the BLUE alliance was said to have scored 3 CONES and 0 CUBES during AUTO but actually scored 2 CONES and 0 CUBES.",
+        "match": "qm73",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm73, the BLUE alliance was said to have scored 8 CONES and 6 CUBES during TELEOP but actually scored 10 CONES and 7 CUBES.",
+        "match": "qm73",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm72, the BLUE alliance was said to have scored 3 CONES and 1 CUBES during AUTO but actually scored 2 CONES and 1 CUBES.",
+        "match": "qm72",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm72, the RED alliance was said to have scored 10 CONES and 6 CUBES during TELEOP but actually scored 13 CONES and 7 CUBES.",
+        "match": "qm72",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm72, the BLUE alliance was said to have scored 11 CONES and 7 CUBES during TELEOP but actually scored 11 CONES and 4 CUBES.",
+        "match": "qm72",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm72, 5504 has an incorrect ENGAGED state during AUTO based on TBA data.",
+        "match": "qm72",
+        "scout_id": "N/A",
+        "team_id": 5504,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm72, the RED alliance was said to have scored 3 CONES and 1 CUBES during AUTO but actually scored 2 CONES and 1 CUBES.",
+        "match": "qm72",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 0,
+        "message": "In qm72, a cumulative amount of 30 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm72",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm72, 4456 has an incorrect ENGAGED state during ENDGAME based on TBA data.",
+        "match": "qm72",
+        "scout_id": "N/A",
+        "team_id": 4456,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm71, the BLUE alliance was said to have scored 4 CONES and 8 CUBES during TELEOP but actually scored 6 CONES and 11 CUBES.",
+        "match": "qm71",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm71, the RED alliance was said to have scored 14 CONES and 8 CUBES during TELEOP but actually scored 14 CONES and 13 CUBES.",
+        "match": "qm71",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm70, the RED alliance was said to have scored 9 CONES and 7 CUBES during TELEOP but actually scored 10 CONES and 10 CUBES.",
+        "match": "qm70",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm70, the BLUE alliance was said to have scored 7 CONES and 8 CUBES during TELEOP but actually scored 8 CONES and 10 CUBES.",
+        "match": "qm70",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm69, 8622 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm69",
+        "scout_id": "N/A",
+        "team_id": 8622,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm69, 1610 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm69",
+        "scout_id": "N/A",
+        "team_id": 1610,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm69, the BLUE alliance was said to have scored 7 CONES and 5 CUBES during TELEOP but actually scored 8 CONES and 10 CUBES.",
+        "match": "qm69",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 0,
+        "message": "In qm69, a cumulative amount of 25 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm69",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm69, the RED alliance was said to have scored 0 CONES and 2 CUBES during AUTO but actually scored 0 CONES and 1 CUBES.",
+        "match": "qm69",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm69, 5115 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm69",
+        "scout_id": "N/A",
+        "team_id": 5115,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm68, the BLUE alliance was said to have scored 9 CONES and 5 CUBES during TELEOP but actually scored 12 CONES and 6 CUBES.",
+        "match": "qm68",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm68, 5587 has an incorrect ENGAGED state during ENDGAME based on TBA data.",
+        "match": "qm68",
+        "scout_id": "N/A",
+        "team_id": 5587,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm68, the RED alliance was said to have scored 7 CONES and 4 CUBES during TELEOP but actually scored 8 CONES and 7 CUBES.",
+        "match": "qm68",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm67, the BLUE alliance was said to have scored 11 CONES and 6 CUBES during TELEOP but actually scored 13 CONES and 7 CUBES.",
+        "match": "qm67",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm67, the RED alliance was said to have scored 6 CONES and 5 CUBES during TELEOP but actually scored 7 CONES and 7 CUBES.",
+        "match": "qm67",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm66, the BLUE alliance was said to have scored 9 CONES and 10 CUBES during TELEOP but actually scored 11 CONES and 13 CUBES.",
+        "match": "qm66",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm65, the RED alliance was said to have scored 9 CONES and 5 CUBES during TELEOP but actually scored 13 CONES and 5 CUBES.",
+        "match": "qm65",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm65, the BLUE alliance was said to have scored 4 CONES and 6 CUBES during TELEOP but actually scored 6 CONES and 9 CUBES.",
+        "match": "qm65",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm64, the RED alliance was said to have scored 0 CONES and 0 CUBES during AUTO but actually scored 1 CONES and 0 CUBES.",
+        "match": "qm64",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm64, 5338 has an incorrect ENGAGED state during ENDGAME based on TBA data.",
+        "match": "qm64",
+        "scout_id": "N/A",
+        "team_id": 5338,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm64, the BLUE alliance was said to have scored 5 CONES and 4 CUBES during TELEOP but actually scored 6 CONES and 8 CUBES.",
+        "match": "qm64",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm64, 5549 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm64",
+        "scout_id": "N/A",
+        "team_id": 5549,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 0,
+        "message": "In qm64, a cumulative amount of 30 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm64",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm64, the BLUE alliance was said to have scored 1 CONES and 2 CUBES during AUTO but actually scored 2 CONES and 2 CUBES.",
+        "match": "qm64",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm64, 1262 has an incorrect ENGAGED state during ENDGAME based on TBA data.",
+        "match": "qm64",
+        "scout_id": "N/A",
+        "team_id": 1262,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm63, 1086 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm63",
+        "scout_id": "N/A",
+        "team_id": 1086,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm63, the RED alliance was said to have scored 1 CONES and 0 CUBES during AUTO but actually scored 2 CONES and 2 CUBES.",
+        "match": "qm63",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm63, the RED alliance was said to have scored 8 CONES and 8 CUBES during TELEOP but actually scored 12 CONES and 11 CUBES.",
+        "match": "qm63",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 0,
+        "message": "In qm63, a cumulative amount of 30 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm63",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm63, 422 has an incorrect ENGAGED state during AUTO based on TBA data.",
+        "match": "qm63",
+        "scout_id": "N/A",
+        "team_id": 422,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm63, the BLUE alliance was said to have scored 7 CONES and 3 CUBES during TELEOP but actually scored 10 CONES and 4 CUBES.",
+        "match": "qm63",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm63, 422 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm63",
+        "scout_id": "N/A",
+        "team_id": 422,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm62, the RED alliance was said to have scored 10 CONES and 5 CUBES during TELEOP but actually scored 12 CONES and 6 CUBES.",
+        "match": "qm62",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm62, the RED alliance was said to have scored 1 CONES and 4 CUBES during AUTO but actually scored 1 CONES and 3 CUBES.",
+        "match": "qm62",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm62, 2537 has an incorrect ENGAGED state during AUTO based on TBA data.",
+        "match": "qm62",
+        "scout_id": "N/A",
+        "team_id": 2537,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm61, the BLUE alliance was said to have scored 4 CONES and 12 CUBES during TELEOP but actually scored 7 CONES and 12 CUBES.",
+        "match": "qm61",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm61, the RED alliance was said to have scored 3 CONES and 4 CUBES during TELEOP but actually scored 6 CONES and 5 CUBES.",
+        "match": "qm61",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm60, the RED alliance was said to have scored 4 CONES and 7 CUBES during TELEOP but actually scored 5 CONES and 11 CUBES.",
+        "match": "qm60",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm60, the BLUE alliance was said to have scored 6 CONES and 8 CUBES during TELEOP but actually scored 7 CONES and 10 CUBES.",
+        "match": "qm60",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm59, 5587 has an incorrect DOCKED state during ENDGAME based on TBA data.",
         "match": "qm59",
-        "scout_id": "",
+        "scout_id": "N/A",
+        "team_id": 5587,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm59, the RED alliance was said to have scored 0 CONES and 5 CUBES during AUTO but actually scored 0 CONES and 3 CUBES.",
+        "match": "qm59",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm59, the RED alliance was said to have scored 4 CONES and 2 CUBES during TELEOP but actually scored 4 CONES and 9 CUBES.",
+        "match": "qm59",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm59, the BLUE alliance was said to have scored 6 CONES and 4 CUBES during TELEOP but actually scored 8 CONES and 5 CUBES.",
+        "match": "qm59",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 0,
+        "message": "In qm59, a cumulative amount of 20 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm59",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 0,
+        "message": "In qm58, a cumulative amount of 20 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm58",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm58, 612 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm58",
+        "scout_id": "N/A",
+        "team_id": 612,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm58, the RED alliance was said to have scored 8 CONES and 6 CUBES during TELEOP but actually scored 11 CONES and 8 CUBES.",
+        "match": "qm58",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm58, 1111 has an incorrect ENGAGED state during ENDGAME based on TBA data.",
+        "match": "qm58",
+        "scout_id": "N/A",
+        "team_id": 1111,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm58, 5115 has an incorrect ENGAGED state during ENDGAME based on TBA data.",
+        "match": "qm58",
+        "scout_id": "N/A",
+        "team_id": 5115,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm57, the BLUE alliance was said to have scored 5 CONES and 4 CUBES during TELEOP but actually scored 6 CONES and 7 CUBES.",
+        "match": "qm57",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm57, the RED alliance was said to have scored 6 CONES and 6 CUBES during TELEOP but actually scored 10 CONES and 8 CUBES.",
+        "match": "qm57",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm56, the RED alliance was said to have scored 12 CONES and 7 CUBES during TELEOP but actually scored 13 CONES and 10 CUBES.",
+        "match": "qm56",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm56, the BLUE alliance was said to have scored 2 CONES and 2 CUBES during AUTO but actually scored 1 CONES and 2 CUBES.",
+        "match": "qm56",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm55, the BLUE alliance was said to have scored 7 CONES and 4 CUBES during TELEOP but actually scored 11 CONES and 7 CUBES.",
+        "match": "qm55",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm55, 122 has an incorrect ENGAGED state during ENDGAME based on TBA data.",
+        "match": "qm55",
+        "scout_id": "N/A",
+        "team_id": 122,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm55, the RED alliance was said to have scored 7 CONES and 3 CUBES during TELEOP but actually scored 10 CONES and 6 CUBES.",
+        "match": "qm55",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm54, the RED alliance was said to have scored 4 CONES and 5 CUBES during TELEOP but actually scored 5 CONES and 8 CUBES.",
+        "match": "qm54",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm54, the BLUE alliance was said to have scored 11 CONES and 3 CUBES during TELEOP but actually scored 13 CONES and 5 CUBES.",
+        "match": "qm54",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm53, the RED alliance was said to have scored 10 CONES and 2 CUBES during TELEOP but actually scored 11 CONES and 5 CUBES.",
+        "match": "qm53",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm53, the BLUE alliance was said to have scored 7 CONES and 5 CUBES during TELEOP but actually scored 9 CONES and 8 CUBES.",
+        "match": "qm53",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm52, the RED alliance was said to have scored 6 CONES and 7 CUBES during TELEOP but actually scored 8 CONES and 9 CUBES.",
+        "match": "qm52",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 0,
+        "message": "In qm52, a cumulative amount of 25 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm52",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm52, the BLUE alliance was said to have scored 1 CONES and 0 CUBES during AUTO but actually scored 1 CONES and 1 CUBES.",
+        "match": "qm52",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm52, 1731 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm52",
+        "scout_id": "N/A",
+        "team_id": 1731,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm52, the RED alliance was said to have scored 2 CONES and 2 CUBES during AUTO but actually scored 2 CONES and 1 CUBES.",
+        "match": "qm52",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm52, the BLUE alliance was said to have scored 4 CONES and 5 CUBES during TELEOP but actually scored 6 CONES and 6 CUBES.",
+        "match": "qm52",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm51, the RED alliance was said to have scored 3 CONES and 6 CUBES during TELEOP but actually scored 6 CONES and 6 CUBES.",
+        "match": "qm51",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm50, the BLUE alliance was said to have scored 9 CONES and 6 CUBES during TELEOP but actually scored 10 CONES and 9 CUBES.",
+        "match": "qm50",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 0,
+        "message": "In qm50, a cumulative amount of 20 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm50",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm50, 5587 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm50",
+        "scout_id": "N/A",
+        "team_id": 5587,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm50, the RED alliance was said to have scored 7 CONES and 6 CUBES during TELEOP but actually scored 11 CONES and 6 CUBES.",
+        "match": "qm50",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm50, 5338 has an incorrect ENGAGED state during ENDGAME based on TBA data.",
+        "match": "qm50",
+        "scout_id": "N/A",
+        "team_id": 5338,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm49, the RED alliance was said to have scored 7 CONES and 4 CUBES during TELEOP but actually scored 7 CONES and 7 CUBES.",
+        "match": "qm49",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm47, 977 has an incorrect DOCKED state during AUTO based on TBA data.",
+        "match": "qm47",
+        "scout_id": "N/A",
+        "team_id": 977,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 0,
+        "message": "In qm47, a cumulative amount of 35 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm47",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm47, the BLUE alliance was said to have scored 3 CONES and 1 CUBES during AUTO but actually scored 2 CONES and 1 CUBES.",
+        "match": "qm47",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm47, the RED alliance was said to have scored 8 CONES and 3 CUBES during TELEOP but actually scored 11 CONES and 5 CUBES.",
+        "match": "qm47",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm47, 8592 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm47",
+        "scout_id": "N/A",
+        "team_id": 8592,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm47, the RED alliance was said to have scored 1 CONES and 2 CUBES during AUTO but actually scored 1 CONES and 3 CUBES.",
+        "match": "qm47",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm47, 1599 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm47",
+        "scout_id": "N/A",
+        "team_id": 1599,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm47, the BLUE alliance was said to have scored 5 CONES and 6 CUBES during TELEOP but actually scored 8 CONES and 7 CUBES.",
+        "match": "qm47",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm46, 6863 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm46",
+        "scout_id": "N/A",
+        "team_id": 6863,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm46, the RED alliance was said to have scored 6 CONES and 2 CUBES during TELEOP but actually scored 8 CONES and 4 CUBES.",
+        "match": "qm46",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm45, the BLUE alliance was said to have scored 9 CONES and 4 CUBES during TELEOP but actually scored 11 CONES and 5 CUBES.",
+        "match": "qm45",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 0,
+        "message": "In qm45, a cumulative amount of 20 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm45",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm45, 5115 has an incorrect DOCKED state during AUTO based on TBA data.",
+        "match": "qm45",
+        "scout_id": "N/A",
+        "team_id": 5115,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm45, 3939 has an incorrect ENGAGED state during ENDGAME based on TBA data.",
+        "match": "qm45",
+        "scout_id": "N/A",
+        "team_id": 3939,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm45, the RED alliance was said to have scored 9 CONES and 7 CUBES during TELEOP but actually scored 9 CONES and 11 CUBES.",
+        "match": "qm45",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 0,
+        "message": "In qm44, a cumulative amount of 20 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm44",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm44, the RED alliance was said to have scored 1 CONES and 0 CUBES during AUTO but actually scored 3 CONES and 0 CUBES.",
+        "match": "qm44",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm44, 2199 has an incorrect ENGAGED state during AUTO based on TBA data.",
+        "match": "qm44",
+        "scout_id": "N/A",
+        "team_id": 2199,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm44, the RED alliance was said to have scored 7 CONES and 6 CUBES during TELEOP but actually scored 10 CONES and 6 CUBES.",
+        "match": "qm44",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm44, the BLUE alliance was said to have scored 7 CONES and 4 CUBES during TELEOP but actually scored 9 CONES and 6 CUBES.",
+        "match": "qm44",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm43, the RED alliance was said to have scored 6 CONES and 2 CUBES during TELEOP but actually scored 6 CONES and 7 CUBES.",
+        "match": "qm43",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm43, 5724 has an incorrect DOCKED state during AUTO based on TBA data.",
+        "match": "qm43",
+        "scout_id": "N/A",
+        "team_id": 5724,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm43, the BLUE alliance was said to have scored 2 CONES and 1 CUBES during AUTO but actually scored 1 CONES and 0 CUBES.",
+        "match": "qm43",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 0,
+        "message": "In qm43, a cumulative amount of 25 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm43",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm43, the RED alliance was said to have scored 1 CONES and 1 CUBES during AUTO but actually scored 1 CONES and 3 CUBES.",
+        "match": "qm43",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm43, 614 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm43",
+        "scout_id": "N/A",
+        "team_id": 614,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm42, 5804 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm42",
+        "scout_id": "N/A",
+        "team_id": 5804,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm42, 3126 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm42",
+        "scout_id": "N/A",
+        "team_id": 3126,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm41, 888 has an incorrect DOCKED state during AUTO based on TBA data.",
+        "match": "qm41",
+        "scout_id": "N/A",
+        "team_id": 888,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm41, the BLUE alliance was said to have scored 7 CONES and 4 CUBES during TELEOP but actually scored 8 CONES and 6 CUBES.",
+        "match": "qm41",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm40, the RED alliance was said to have scored 8 CONES and 9 CUBES during TELEOP but actually scored 11 CONES and 10 CUBES.",
+        "match": "qm40",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm40, the BLUE alliance was said to have scored 8 CONES and 10 CUBES during TELEOP but actually scored 10 CONES and 11 CUBES.",
+        "match": "qm40",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm38, the BLUE alliance was said to have scored 2 CONES and 1 CUBES during AUTO but actually scored 2 CONES and 0 CUBES.",
+        "match": "qm38",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm38, the RED alliance was said to have scored 2 CONES and 0 CUBES during AUTO but actually scored 3 CONES and 0 CUBES.",
+        "match": "qm38",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 0,
+        "message": "In qm38, a cumulative amount of 25 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm38",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm38, the BLUE alliance was said to have scored 7 CONES and 7 CUBES during TELEOP but actually scored 9 CONES and 8 CUBES.",
+        "match": "qm38",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm38, 1727 has an incorrect DOCKED state during AUTO based on TBA data.",
+        "match": "qm38",
+        "scout_id": "N/A",
+        "team_id": 1727,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm38, the RED alliance was said to have scored 4 CONES and 8 CUBES during TELEOP but actually scored 7 CONES and 8 CUBES.",
+        "match": "qm38",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm37, the BLUE alliance was said to have scored 5 CONES and 7 CUBES during TELEOP but actually scored 7 CONES and 9 CUBES.",
+        "match": "qm37",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm37, the RED alliance was said to have scored 11 CONES and 4 CUBES during TELEOP but actually scored 13 CONES and 6 CUBES.",
+        "match": "qm37",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm36, the RED alliance was said to have scored 1 CONES and 6 CUBES during TELEOP but actually scored 1 CONES and 11 CUBES.",
+        "match": "qm36",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm36, the BLUE alliance was said to have scored 7 CONES and 7 CUBES during TELEOP but actually scored 7 CONES and 10 CUBES.",
+        "match": "qm36",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm36, 977 has an incorrect DOCKED state during AUTO based on TBA data.",
+        "match": "qm36",
+        "scout_id": "N/A",
+        "team_id": 977,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 0,
+        "message": "In qm35, a cumulative amount of 20 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm35",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm35, the BLUE alliance was said to have scored 2 CONES and 1 CUBES during AUTO but actually scored 1 CONES and 1 CUBES.",
+        "match": "qm35",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm35, 8230 has an incorrect ENGAGED state during ENDGAME based on TBA data.",
+        "match": "qm35",
+        "scout_id": "N/A",
+        "team_id": 8230,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm35, the RED alliance was said to have scored 5 CONES and 7 CUBES during TELEOP but actually scored 7 CONES and 12 CUBES.",
+        "match": "qm35",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm35, 620 has an incorrect ENGAGED state during AUTO based on TBA data.",
+        "match": "qm35",
+        "scout_id": "N/A",
+        "team_id": 620,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm34, the BLUE alliance was said to have scored 1 CONES and 2 CUBES during AUTO but actually scored 1 CONES and 1 CUBES.",
+        "match": "qm34",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm34, 5804 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm34",
+        "scout_id": "N/A",
+        "team_id": 5804,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm34, the RED alliance was said to have scored 9 CONES and 6 CUBES during TELEOP but actually scored 11 CONES and 8 CUBES.",
+        "match": "qm34",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 0,
+        "message": "In qm34, a cumulative amount of 25 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm34",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm34, the BLUE alliance was said to have scored 3 CONES and 6 CUBES during TELEOP but actually scored 6 CONES and 8 CUBES.",
+        "match": "qm34",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm34, 1629 has an incorrect DOCKED state during AUTO based on TBA data.",
+        "match": "qm34",
+        "scout_id": "N/A",
+        "team_id": 1629,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 0,
+        "message": "In qm33, a cumulative amount of 25 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm33",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm33, the RED alliance was said to have scored 6 CONES and 5 CUBES during TELEOP but actually scored 8 CONES and 7 CUBES.",
+        "match": "qm33",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm33, 449 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm33",
+        "scout_id": "N/A",
+        "team_id": 449,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm33, 1418 has an incorrect ENGAGED state during AUTO based on TBA data.",
+        "match": "qm33",
+        "scout_id": "N/A",
+        "team_id": 1418,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm33, 2421 has an incorrect ENGAGED state during ENDGAME based on TBA data.",
+        "match": "qm33",
+        "scout_id": "N/A",
+        "team_id": 2421,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm33, the BLUE alliance was said to have scored 7 CONES and 7 CUBES during TELEOP but actually scored 9 CONES and 9 CUBES.",
+        "match": "qm33",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm32, the BLUE alliance was said to have scored 9 CONES and 4 CUBES during TELEOP but actually scored 10 CONES and 6 CUBES.",
+        "match": "qm32",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm32, the RED alliance was said to have scored 4 CONES and 1 CUBES during TELEOP but actually scored 8 CONES and 4 CUBES.",
+        "match": "qm32",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm31, the RED alliance was said to have scored 4 CONES and 5 CUBES during TELEOP but actually scored 6 CONES and 6 CUBES.",
+        "match": "qm31",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm31, 612 has an incorrect DOCKED state during AUTO based on TBA data.",
+        "match": "qm31",
+        "scout_id": "N/A",
+        "team_id": 612,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm31, 9072 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm31",
+        "scout_id": "N/A",
+        "team_id": 9072,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm31, 116 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm31",
+        "scout_id": "N/A",
+        "team_id": 116,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm31, the RED alliance was said to have scored 1 CONES and 0 CUBES during AUTO but actually scored 2 CONES and 0 CUBES.",
+        "match": "qm31",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 0,
+        "message": "In qm31, a cumulative amount of 25 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm31",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm30, 2363 has an incorrect ENGAGED state during AUTO based on TBA data.",
+        "match": "qm30",
+        "scout_id": "N/A",
+        "team_id": 2363,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm30, the BLUE alliance was said to have scored 6 CONES and 6 CUBES during TELEOP but actually scored 9 CONES and 6 CUBES.",
+        "match": "qm30",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm30, the RED alliance was said to have scored 15 CONES and 6 CUBES during TELEOP but actually scored 19 CONES and 7 CUBES.",
+        "match": "qm30",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm29, the RED alliance was said to have scored 6 CONES and 1 CUBES during TELEOP but actually scored 7 CONES and 5 CUBES.",
+        "match": "qm29",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm29, the RED alliance was said to have scored 1 CONES and 4 CUBES during AUTO but actually scored 1 CONES and 2 CUBES.",
+        "match": "qm29",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm28, the RED alliance was said to have scored 1 CONES and 1 CUBES during AUTO but actually scored 1 CONES and 3 CUBES.",
+        "match": "qm28",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm28, the BLUE alliance was said to have scored 6 CONES and 4 CUBES during TELEOP but actually scored 7 CONES and 6 CUBES.",
+        "match": "qm28",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm27, the RED alliance was said to have scored 9 CONES and 8 CUBES during TELEOP but actually scored 9 CONES and 12 CUBES.",
+        "match": "qm27",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm27, the BLUE alliance was said to have scored 8 CONES and 8 CUBES during TELEOP but actually scored 11 CONES and 10 CUBES.",
+        "match": "qm27",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm27, the RED alliance was said to have scored 0 CONES and 2 CUBES during AUTO but actually scored 1 CONES and 2 CUBES.",
+        "match": "qm27",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm26, the BLUE alliance was said to have scored 0 CONES and 3 CUBES during AUTO but actually scored 0 CONES and 2 CUBES.",
+        "match": "qm26",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm26, the BLUE alliance was said to have scored 8 CONES and 4 CUBES during TELEOP but actually scored 5 CONES and 3 CUBES.",
+        "match": "qm26",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 0,
+        "message": "In qm26, a cumulative amount of 35 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm26",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm26, 472 has an incorrect ENGAGED state during ENDGAME based on TBA data.",
+        "match": "qm26",
+        "scout_id": "N/A",
+        "team_id": 472,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm26, the RED alliance was said to have scored 4 CONES and 8 CUBES during TELEOP but actually scored 6 CONES and 10 CUBES.",
+        "match": "qm26",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm26, 2199 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm26",
+        "scout_id": "N/A",
+        "team_id": 2199,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm26, 2421 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm26",
+        "scout_id": "N/A",
+        "team_id": 2421,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm26, 472 has an incorrect ENGAGED state during AUTO based on TBA data.",
+        "match": "qm26",
+        "scout_id": "N/A",
+        "team_id": 472,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm25, 5338 has an incorrect ENGAGED state during AUTO based on TBA data.",
+        "match": "qm25",
+        "scout_id": "N/A",
+        "team_id": 5338,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm25, the BLUE alliance was said to have scored 8 CONES and 5 CUBES during TELEOP but actually scored 10 CONES and 6 CUBES.",
+        "match": "qm25",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm25, the RED alliance was said to have scored 8 CONES and 2 CUBES during TELEOP but actually scored 11 CONES and 5 CUBES.",
+        "match": "qm25",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm24, the RED alliance was said to have scored 5 CONES and 9 CUBES during TELEOP but actually scored 9 CONES and 10 CUBES.",
+        "match": "qm24",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm24, the RED alliance was said to have scored 1 CONES and 2 CUBES during AUTO but actually scored 2 CONES and 2 CUBES.",
+        "match": "qm24",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm23, 4456 has an incorrect DOCKED state during AUTO based on TBA data.",
+        "match": "qm23",
+        "scout_id": "N/A",
+        "team_id": 4456,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 0,
+        "message": "In qm23, a cumulative amount of 20 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm23",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm23, the RED alliance was said to have scored 1 CONES and 2 CUBES during AUTO but actually scored 1 CONES and 3 CUBES.",
+        "match": "qm23",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm23, the RED alliance was said to have scored 8 CONES and 3 CUBES during TELEOP but actually scored 9 CONES and 7 CUBES.",
+        "match": "qm23",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm23, the BLUE alliance was said to have scored 9 CONES and 3 CUBES during TELEOP but actually scored 10 CONES and 5 CUBES.",
+        "match": "qm23",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm22, the RED alliance was said to have scored 3 CONES and 4 CUBES during TELEOP but actually scored 5 CONES and 10 CUBES.",
+        "match": "qm22",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm22, the RED alliance was said to have scored 1 CONES and 1 CUBES during AUTO but actually scored 1 CONES and 2 CUBES.",
+        "match": "qm22",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm22, 9072 has an incorrect ENGAGED state during AUTO based on TBA data.",
+        "match": "qm22",
+        "scout_id": "N/A",
+        "team_id": 9072,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm22, 8230 has an incorrect ENGAGED state during AUTO based on TBA data.",
+        "match": "qm22",
+        "scout_id": "N/A",
+        "team_id": 8230,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 0,
+        "message": "In qm22, a cumulative amount of 35 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm22",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm22, the BLUE alliance was said to have scored 5 CONES and 7 CUBES during TELEOP but actually scored 7 CONES and 8 CUBES.",
+        "match": "qm22",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm22, 4541 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm22",
+        "scout_id": "N/A",
+        "team_id": 4541,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm22, 8230 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm22",
+        "scout_id": "N/A",
+        "team_id": 8230,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm21, 384 has an incorrect DOCKED state during AUTO based on TBA data.",
+        "match": "qm21",
+        "scout_id": "N/A",
+        "team_id": 384,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm21, the RED alliance was said to have scored 5 CONES and 5 CUBES during TELEOP but actually scored 7 CONES and 6 CUBES.",
+        "match": "qm21",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm20, the BLUE alliance was said to have scored 6 CONES and 3 CUBES during TELEOP but actually scored 9 CONES and 5 CUBES.",
+        "match": "qm20",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 0,
+        "message": "In qm20, a cumulative amount of 20 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm20",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm20, the RED alliance was said to have scored 5 CONES and 6 CUBES during TELEOP but actually scored 6 CONES and 8 CUBES.",
+        "match": "qm20",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm20, 4472 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm20",
+        "scout_id": "N/A",
+        "team_id": 4472,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm20, 977 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm20",
+        "scout_id": "N/A",
+        "team_id": 977,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm19, the RED alliance was said to have scored 2 CONES and 7 CUBES during TELEOP but actually scored 3 CONES and 11 CUBES.",
+        "match": "qm19",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm19, the BLUE alliance was said to have scored 6 CONES and 6 CUBES during TELEOP but actually scored 9 CONES and 6 CUBES.",
+        "match": "qm19",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm19, 2421 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm19",
+        "scout_id": "N/A",
+        "team_id": 2421,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 0,
+        "message": "In qm19, a cumulative amount of 20 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm19",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm19, the BLUE alliance was said to have scored 2 CONES and 3 CUBES during AUTO but actually scored 2 CONES and 1 CUBES.",
+        "match": "qm19",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm18, the RED alliance was said to have scored 4 CONES and 5 CUBES during TELEOP but actually scored 5 CONES and 9 CUBES.",
+        "match": "qm18",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm18, the BLUE alliance was said to have scored 6 CONES and 4 CUBES during TELEOP but actually scored 8 CONES and 5 CUBES.",
+        "match": "qm18",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm17, the BLUE alliance was said to have scored 1 CONES and 2 CUBES during AUTO but actually scored 1 CONES and 1 CUBES.",
+        "match": "qm17",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm17, the BLUE alliance was said to have scored 7 CONES and 5 CUBES during TELEOP but actually scored 10 CONES and 6 CUBES.",
+        "match": "qm17",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm17, the RED alliance was said to have scored 7 CONES and 5 CUBES during TELEOP but actually scored 10 CONES and 5 CUBES.",
+        "match": "qm17",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm16, 5338 has an incorrect ENGAGED state during ENDGAME based on TBA data.",
+        "match": "qm16",
+        "scout_id": "N/A",
+        "team_id": 5338,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm16, the RED alliance was said to have scored 4 CONES and 6 CUBES during TELEOP but actually scored 8 CONES and 9 CUBES.",
+        "match": "qm16",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 0,
+        "message": "In qm16, a cumulative amount of 20 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm16",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm16, the BLUE alliance was said to have scored 7 CONES and 6 CUBES during TELEOP but actually scored 8 CONES and 8 CUBES.",
+        "match": "qm16",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm16, 3136 has an incorrect ENGAGED state during ENDGAME based on TBA data.",
+        "match": "qm16",
+        "scout_id": "N/A",
+        "team_id": 3136,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm15, the RED alliance was said to have scored 6 CONES and 6 CUBES during TELEOP but actually scored 9 CONES and 7 CUBES.",
+        "match": "qm15",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm15, the BLUE alliance was said to have scored 6 CONES and 8 CUBES during TELEOP but actually scored 9 CONES and 9 CUBES.",
+        "match": "qm15",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm15, 2199 has an incorrect ENGAGED state during AUTO based on TBA data.",
+        "match": "qm15",
+        "scout_id": "N/A",
+        "team_id": 2199,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm14, the RED alliance was said to have scored 11 CONES and 6 CUBES during TELEOP but actually scored 14 CONES and 9 CUBES.",
+        "match": "qm14",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm14, the RED alliance was said to have scored 1 CONES and 2 CUBES during AUTO but actually scored 1 CONES and 3 CUBES.",
+        "match": "qm14",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm14, the BLUE alliance was said to have scored 2 CONES and 3 CUBES during AUTO but actually scored 1 CONES and 1 CUBES.",
+        "match": "qm14",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm14, 1123 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm14",
+        "scout_id": "N/A",
+        "team_id": 1123,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 0,
+        "message": "In qm14, a cumulative amount of 25 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm14",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm14, the BLUE alliance was said to have scored 6 CONES and 6 CUBES during TELEOP but actually scored 7 CONES and 8 CUBES.",
+        "match": "qm14",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm13, 2106 has an incorrect DOCKED state during AUTO based on TBA data.",
+        "match": "qm13",
+        "scout_id": "N/A",
+        "team_id": 2106,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm13, the RED alliance was said to have scored 4 CONES and 1 CUBES during TELEOP but actually scored 5 CONES and 6 CUBES.",
+        "match": "qm13",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 0,
+        "message": "In qm13, a cumulative amount of 20 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm13",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm13, the BLUE alliance was said to have scored 5 CONES and 7 CUBES during TELEOP but actually scored 9 CONES and 6 CUBES.",
+        "match": "qm13",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm13, the BLUE alliance was said to have scored 4 CONES and 0 CUBES during AUTO but actually scored 3 CONES and 0 CUBES.",
+        "match": "qm13",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm12, the BLUE alliance was said to have scored 8 CONES and 3 CUBES during TELEOP but actually scored 10 CONES and 4 CUBES.",
+        "match": "qm12",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm12, 686 has an incorrect DOCKED state during AUTO based on TBA data.",
+        "match": "qm12",
+        "scout_id": "N/A",
+        "team_id": 686,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm12, the RED alliance was said to have scored 2 CONES and 5 CUBES during TELEOP but actually scored 7 CONES and 4 CUBES.",
+        "match": "qm12",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm12, the BLUE alliance was said to have scored 3 CONES and 1 CUBES during AUTO but actually scored 1 CONES and 2 CUBES.",
+        "match": "qm12",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm12, the RED alliance was said to have scored 1 CONES and 0 CUBES during AUTO but actually scored 1 CONES and 1 CUBES.",
+        "match": "qm12",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 0,
+        "message": "In qm12, a cumulative amount of 25 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm12",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm11, 1610 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm11",
+        "scout_id": "N/A",
+        "team_id": 1610,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm11, the RED alliance was said to have scored 6 CONES and 3 CUBES during TELEOP but actually scored 6 CONES and 7 CUBES.",
+        "match": "qm11",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm11, the RED alliance was said to have scored 0 CONES and 2 CUBES during AUTO but actually scored 0 CONES and 3 CUBES.",
+        "match": "qm11",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm11, 4456 has an incorrect ENGAGED state during AUTO based on TBA data.",
+        "match": "qm11",
+        "scout_id": "N/A",
+        "team_id": 4456,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 0,
+        "message": "In qm11, a cumulative amount of 20 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm11",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm10, 1418 has an incorrect ENGAGED state during ENDGAME based on TBA data.",
+        "match": "qm10",
+        "scout_id": "N/A",
+        "team_id": 1418,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm10, the RED alliance was said to have scored 6 CONES and 8 CUBES during TELEOP but actually scored 10 CONES and 8 CUBES.",
+        "match": "qm10",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm9, the RED alliance was said to have scored 1 CONES and 2 CUBES during AUTO but actually scored 1 CONES and 1 CUBES.",
+        "match": "qm9",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm9, the RED alliance was said to have scored 4 CONES and 2 CUBES during TELEOP but actually scored 7 CONES and 4 CUBES.",
+        "match": "qm9",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm9, the BLUE alliance was said to have scored 7 CONES and 7 CUBES during TELEOP but actually scored 7 CONES and 10 CUBES.",
+        "match": "qm9",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm8, 2068 has an incorrect ENGAGED state during AUTO based on TBA data.",
+        "match": "qm8",
+        "scout_id": "N/A",
         "team_id": 2068,
         "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm8, the BLUE alliance was said to have scored 8 CONES and 7 CUBES during TELEOP but actually scored 10 CONES and 8 CUBES.",
+        "match": "qm8",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm8, the RED alliance was said to have scored 6 CONES and 2 CUBES during TELEOP but actually scored 8 CONES and 5 CUBES.",
+        "match": "qm8",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm7, the RED alliance was said to have scored 10 CONES and 7 CUBES during TELEOP but actually scored 10 CONES and 12 CUBES.",
+        "match": "qm7",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm6, the BLUE alliance was said to have scored 9 CONES and 13 CUBES during TELEOP but actually scored 12 CONES and 14 CUBES.",
+        "match": "qm6",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm6, the RED alliance was said to have scored 5 CONES and 4 CUBES during TELEOP but actually scored 8 CONES and 4 CUBES.",
+        "match": "qm6",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm5, 3136 has an incorrect ENGAGED state during AUTO based on TBA data.",
+        "match": "qm5",
+        "scout_id": "N/A",
+        "team_id": 3136,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm5, the RED alliance was said to have scored 9 CONES and 6 CUBES during TELEOP but actually scored 10 CONES and 8 CUBES.",
+        "match": "qm5",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "RESCOUT MATCH",
+        "error_number": 0,
+        "message": "In qm5, a cumulative amount of 20 gathered from ERRORS were found, this match should be RESCOUTED.",
+        "match": "qm5",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm5, 3136 has an incorrect ENGAGED state during ENDGAME based on TBA data.",
+        "match": "qm5",
+        "scout_id": "N/A",
+        "team_id": 3136,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm5, 1999 has an incorrect ENGAGED state during ENDGAME based on TBA data.",
+        "match": "qm5",
+        "scout_id": "N/A",
+        "team_id": 1999,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm4, 2537 has an incorrect ENGAGED state during ENDGAME based on TBA data.",
+        "match": "qm4",
+        "scout_id": "N/A",
+        "team_id": 2537,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm4, the BLUE alliance was said to have scored 9 CONES and 8 CUBES during TELEOP but actually scored 11 CONES and 10 CUBES.",
+        "match": "qm4",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm3, the RED alliance was said to have scored 1 CONES and 0 CUBES during AUTO but actually scored 2 CONES and 0 CUBES.",
+        "match": "qm3",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm3, 8622 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm3",
+        "scout_id": "N/A",
+        "team_id": 8622,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm2, 1610 has an incorrect DOCKED state during ENDGAME based on TBA data.",
+        "match": "qm2",
+        "scout_id": "N/A",
+        "team_id": 1610,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm2, the BLUE alliance was said to have scored 7 CONES and 4 CUBES during TELEOP but actually scored 11 CONES and 5 CUBES.",
+        "match": "qm2",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "blue"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm1, the RED alliance was said to have scored 3 CONES and 5 CUBES during TELEOP but actually scored 3 CONES and 11 CUBES.",
+        "match": "qm1",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm1, 1262 has an incorrect ENGAGED state during AUTO based on TBA data.",
+        "match": "qm1",
+        "scout_id": "N/A",
+        "team_id": 1262,
+        "alliance": "N/A"
+    },
+    {
+        "error_type": "INCORRECT DATA",
+        "error_number": 5,
+        "message": "In qm1, the RED alliance was said to have scored 0 CONES and 1 CUBES during AUTO but actually scored 0 CONES and 2 CUBES.",
+        "match": "qm1",
+        "scout_id": "N/A",
+        "team_id": 9999,
+        "alliance": "red"
     }
 ]
