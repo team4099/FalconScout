@@ -27,13 +27,13 @@
             "DriverRating",
             "RatingNotes"
         ],
-        "json_file": "./data/2023chcmp_match_data.json",
-        "csv_file": "./data/2023chcmp_match_data.csv",
+        "json_file": "./data/2023new_match_data.json",
+        "csv_file": "./data/2023new_match_data.csv",
         "error_json": "./data/errors.json"
     },
     "repo_config": {
         "repo": "team4099/ScoutingAppData",
-        "update_csv": "2023chcmp_match_data.csv",
-        "update_json": "2023chcmp_match_data.json"
+        "update_csv": "2023new_match_data.csv",
+        "update_json": "2023new_match_data.json"
     }
 }

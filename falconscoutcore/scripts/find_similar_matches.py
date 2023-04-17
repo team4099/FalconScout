@@ -3,7 +3,7 @@ from operator import itemgetter
 
 from scipy import spatial
 
-MATCH_KEY = "2023chcmp_qm105"
+MATCH_KEY = "2023new_qm105"
 MATCH_NUMBER = 105
 
 TEAM_WANTED = 422

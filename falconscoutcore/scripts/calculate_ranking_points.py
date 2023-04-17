@@ -9,14 +9,14 @@ from numpy.lib.stride_tricks import sliding_window_view
 POSITIONS_TO_INDICES = ["H", "M", "L"]
 rankings = defaultdict(lambda: [0, []])
 
-with open("../data/2023vaale_match_data.json") as file:
+with open("../data/2023new_match_data.json") as file:
     scouting_data = pd.DataFrame.from_dict(load(file))
 
 # Calculate scores
 with ApiClient(
     api_key="6lcmneN5bBDYpC47FolBxp2RZa4AbQCVpmKMSKw9x9btKt7da5yMzVamJYk0XDBm"
 ) as api_client:
-    event_matches = api_client.event("2023vaale").matches()
+    event_matches = api_client.event("2023new").matches()
     total_scores = {
         f"{match.comp_level}{match.match_number}": [
             match.alliances["red"].score,
@@ -166,5 +166,5 @@ rankings = {
 }
 rankings = dict(sorted(rankings.items(), key=lambda pair: pair[1], reverse=True))
 
-with open("../data/2023vaale_calculated_rankings.json", "w") as file:
+with open("../data/2023new_calculated_rankings.json", "w") as file:
     dump(rankings, file, indent=2)

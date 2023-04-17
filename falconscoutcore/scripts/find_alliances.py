@@ -3,7 +3,7 @@ from json import dump, load
 with open("../data/match_schedule.json") as match_schedule_file:
     match_schedule = load(match_schedule_file)
 
-with open("../data/2023chcmp_match_data.json", "r") as file:
+with open("../data/2023new_match_data.json", "r") as file:
     scouting_data = load(file)
     new_scouting_data = []
 
@@ -20,5 +20,5 @@ with open("../data/2023chcmp_match_data.json", "r") as file:
 
         new_scouting_data.append(submission)
 
-with open("../data/2023chcmp_match_data.json", "w") as file:
+with open("../data/2023new_match_data.json", "w") as file:
     dump(new_scouting_data, file, indent=2)

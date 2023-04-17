@@ -2,7 +2,7 @@ from json import dump
 
 import pandas as pd
 
-scouting_rotations = pd.read_csv("../data/2023chcmp_scouting_rotations.csv")
+scouting_rotations = pd.read_csv("../data/2023new_scouting_rotations.csv")
 rotation_json = {}
 
 for _, row in scouting_rotations.iterrows():
@@ -21,5 +21,5 @@ for _, row in scouting_rotations.iterrows():
         ],
     }
 
-with open("../data/2023chcmp_scouting_rotations.json", "w") as file:
+with open("../data/2023new_scouting_rotations.json", "w") as file:
     dump(rotation_json, file, indent=2)
