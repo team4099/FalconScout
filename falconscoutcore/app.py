@@ -92,6 +92,9 @@ def process_scan():
             # Commas in values will cause the CSV to error out
             data_map["AutoGrid"] = data_map["AutoGrid"].replace(",", "|")
             data_map["TeleopGrid"] = data_map["TeleopGrid"].replace(",", "|")
+            # Change true/false to signify whether they tried to engage or not
+            data_map["AutoAttemptedCharge"] = "Engage" if data_map["AutoAttemptedCharge"] else "None"
+            data_map["EndgameAttemptedCharge"] = "Engage" if data_map["EndgameAttemptedCharge"] else "None"
 
             if data_map in file_data:
                 # Check for if the qrcode was already scanned

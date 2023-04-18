@@ -139,6 +139,7 @@ new_headers = [
     "Rating Notes",
     "Attempted Triple Balance",
     "Successful Triple Balance",
+    "Supercharged Nodes"
 ]
 
 with open("../data/2023chcmp_match_data.json") as file:
@@ -160,9 +161,9 @@ with open("../data/2023chcmp_match_data.json") as file:
             if header[::-1] in auto_grid:
                 submission[f"Auto {header}"] = 1
             elif (
-                header.replace("Cone", "").replace("Cube", "")[::-1]
-                + header[1:5].lower()
-                in auto_grid
+                    header.replace("Cone", "").replace("Cube", "")[::-1]
+                    + header[1:5].lower()
+                    in auto_grid
             ):
                 submission[f"Auto {header}"] = 1
             else:
@@ -174,13 +175,15 @@ with open("../data/2023chcmp_match_data.json") as file:
             if header[::-1] in teleop_grid:
                 submission[f"Teleop {header}"] = 1
             elif (
-                header.replace("Cone", "").replace("Cube", "")[::-1]
-                + header[1:5].lower()
-                in teleop_grid
+                    header.replace("Cone", "").replace("Cube", "")[::-1]
+                    + header[1:5].lower()
+                    in teleop_grid
             ):
                 submission[f"Teleop {header}"] = 1
             else:
                 submission[f"Teleop {header}"] = 0
+
+        submission["SuperchargedNodes"] = len(teleop_grid) - len(set(teleop_grid))
 
         submission.pop("AutoGrid")
         submission.pop("TeleopGrid")
@@ -286,6 +289,7 @@ with open("../data/2023chcmp_match_data.json") as file:
             "RatingNotes",
             "AttemptedTripleBalance",
             "SuccessfulTripleBalance",
+            "SuperchargedNodes"
         ]
     ]
 
