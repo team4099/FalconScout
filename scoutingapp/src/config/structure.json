@@ -17,7 +17,8 @@
                 "placeholder": [
                     "Pranav"
                 ],
-                "id": "ScoutId"
+                "id": "ScoutId",
+                "required": true
             },
             {
                 "type": "DropdownTextInput",
@@ -31,7 +32,8 @@
                 "placeholder": [
                     "number"
                 ],
-                "id": "MatchKey"
+                "id": "MatchKey",
+                "required": true
             },
             {
                 "type": "GenericRadioSelect",
@@ -40,7 +42,8 @@
                     "red",
                     "blue"
                 ],
-                "id": "Alliance"
+                "id": "Alliance",
+                "required": true
             },
             {
                 "type": "GenericDropdown",
@@ -50,7 +53,8 @@
                     "2",
                     "3"
                 ],
-                "id": "DriverStation"
+                "id": "DriverStation",
+                "required": true
             },
             {
                 "type": "GenericTextInput",
@@ -58,7 +62,8 @@
                 "placeholder": [
                     "9999"
                 ],
-                "id": "TeamNumber"
+                "id": "TeamNumber",
+                "required": true
             },
             {
                 "type": "Spacing"
@@ -89,11 +94,8 @@
                 "id": "Mobile"
             },
             {
-                "type": "GenericCheckboxSelect",
+                "type": "GenericToggle",
                 "text": "Auto Attempted Charge",
-                "options": [
-                    "Engage"
-                ],
                 "id": "AutoAttemptedCharge"
             },
             {
@@ -149,14 +151,8 @@
                 "text": "Endgame"
             },
             {
-                "type": "Timer"
-            },
-            {
-                "type": "GenericCheckboxSelect",
+                "type": "GenericToggle",
                 "text": "Endgame Attempted Charge",
-                "options": [
-                    "Engage"
-                ],
                 "id": "EndgameAttemptedCharge"
             },
             {

@@ -9,8 +9,11 @@ export function ChargedUpGridSelect(props: ComponentSetup){
         if (location[1] == "L"){
             newValues[location] = hybridMapping[newValues[location]]
         }
+        else if (["1", "3", "4", "6", "7", "9"].includes(location[0])) {
+            newValues[location] = coneNodeMapping[newValues[location]]; 
+        }
         else {
-            newValues[location] = !newValues[location]; 
+            newValues[location] = cubeNodeMapping[newValues[location]]; 
         }
         setGridValues(newValues)
 
@@ -30,7 +33,20 @@ export function ChargedUpGridSelect(props: ComponentSetup){
     var hybridMapping: any = {
         false: "cube",
         cube: "cone",
-        cone: false
+        cone: "supercharge",
+        supercharge: false
+    }
+
+    var coneNodeMapping: any = {
+        false: "cone",
+        cone: "supercharge",
+        supercharge: false
+    }
+
+    var cubeNodeMapping: any = {
+        false: "cube",
+        cube: "supercharge",
+        supercharge: false
     }
 
     const [gridValues, setGridValues] = useState(values)
@@ -50,7 +66,11 @@ export function ChargedUpGridSelect(props: ComponentSetup){
                     values.push(check + newValues[check])
                 }
             }
-            else if (newValues[check] == true) {
+            else if (newValues[check] == "cube" || newValues[check] == "cone") {
+                values.push(check)
+            }
+            else if (newValues[check] == "supercharge"){
+                values.push(check)
                 values.push(check)
             }
         }
@@ -111,8 +131,13 @@ export function ChargedUpGridSelect(props: ComponentSetup){
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">1H</h1>
                             </div>
                         )}
-                        {gridValues["1H"] == true && (
+                        {gridValues["1H"] == "cone" && (
                             <div className="basis-1/3 rounded-lg h-24 bg-yellow-300" onClick={() => {toggle("1H")}}>
+                                <h1 className="text-2xl font-bold text-center mt-8 select-none">1H</h1>
+                            </div>
+                        )}
+                        {gridValues["1H"] == "supercharge" && (
+                            <div className="basis-1/3 rounded-lg h-24 bg-pink-400" onClick={() => {toggle("1H")}}>
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">1H</h1>
                             </div>
                         )}
@@ -121,8 +146,13 @@ export function ChargedUpGridSelect(props: ComponentSetup){
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">2H</h1>
                             </div>
                         )}
-                        {gridValues["2H"] == true && (
+                        {gridValues["2H"] == "cube" && (
                             <div className="basis-1/3 rounded-lg h-24 bg-purple-300" onClick={() => {toggle("2H")}}>
+                                <h1 className="text-2xl font-bold text-center mt-8 select-none">2H</h1>
+                            </div>
+                        )}
+                        {gridValues["2H"] == "supercharge" && (
+                            <div className="basis-1/3 rounded-lg h-24 bg-pink-400" onClick={() => {toggle("2H")}}>
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">2H</h1>
                             </div>
                         )}
@@ -131,8 +161,13 @@ export function ChargedUpGridSelect(props: ComponentSetup){
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">3H</h1>
                             </div>
                         )}
-                        {gridValues["3H"] == true && (
+                        {gridValues["3H"] == "cone" && (
                             <div className="basis-1/3 rounded-lg h-24 bg-yellow-300" onClick={() => {toggle("3H")}}>
+                                <h1 className="text-2xl font-bold text-center mt-8 select-none">3H</h1>
+                            </div>
+                        )}
+                        {gridValues["3H"] == "supercharge" && (
+                            <div className="basis-1/3 rounded-lg h-24 bg-pink-400" onClick={() => {toggle("3H")}}>
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">3H</h1>
                             </div>
                         )}
@@ -143,8 +178,13 @@ export function ChargedUpGridSelect(props: ComponentSetup){
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">1M</h1>
                             </div>
                         )}
-                        {gridValues["1M"] == true && (
+                        {gridValues["1M"] == "cone" && (
                             <div className="basis-1/3 rounded-lg h-24 bg-yellow-300" onClick={() => {toggle("1M")}}>
+                                <h1 className="text-2xl font-bold text-center mt-8 select-none">1M</h1>
+                            </div>
+                        )}
+                        {gridValues["1M"] == "supercharge" && (
+                            <div className="basis-1/3 rounded-lg h-24 bg-pink-400" onClick={() => {toggle("1M")}}>
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">1M</h1>
                             </div>
                         )}
@@ -153,8 +193,13 @@ export function ChargedUpGridSelect(props: ComponentSetup){
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">2M</h1>
                             </div>
                         )}
-                        {gridValues["2M"] == true && (
+                        {gridValues["2M"] == "cube" && (
                             <div className="basis-1/3 rounded-lg h-24 bg-purple-300" onClick={() => {toggle("2M")}}>
+                                <h1 className="text-2xl font-bold text-center mt-8 select-none">2M</h1>
+                            </div>
+                        )}
+                        {gridValues["2M"] == "supercharge" && (
+                            <div className="basis-1/3 rounded-lg h-24 bg-pink-400" onClick={() => {toggle("2M")}}>
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">2M</h1>
                             </div>
                         )}
@@ -163,8 +208,13 @@ export function ChargedUpGridSelect(props: ComponentSetup){
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">3M</h1>
                             </div>
                         )}
-                        {gridValues["3M"] == true && (
+                        {gridValues["3M"] == "cone" && (
                             <div className="basis-1/3 rounded-lg h-24 bg-yellow-300" onClick={() => {toggle("3M")}}>
+                                <h1 className="text-2xl font-bold text-center mt-8 select-none">3M</h1>
+                            </div>
+                        )}
+                        {gridValues["3M"] == "supercharge" && (
+                            <div className="basis-1/3 rounded-lg h-24 bg-pink-400" onClick={() => {toggle("3M")}}>
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">3M</h1>
                             </div>
                         )}
@@ -185,6 +235,11 @@ export function ChargedUpGridSelect(props: ComponentSetup){
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">1L</h1>
                             </div>
                         )}
+                        {gridValues["1L"] == "supercharge" && (
+                            <div className="basis-1/3 rounded-lg h-24 bg-pink-400" onClick={() => {toggle("1L")}}>
+                                <h1 className="text-2xl font-bold text-center mt-8 select-none">1L</h1>
+                            </div>
+                        )}
                         {gridValues["2L"] == false && (
                             <div className="basis-1/3 rounded-lg h-24 bg-gray-100" onClick={() => {toggle("2L")}}>
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">2L</h1>
@@ -197,6 +252,11 @@ export function ChargedUpGridSelect(props: ComponentSetup){
                         )}
                         {gridValues["2L"] == "cube" && (
                             <div className="basis-1/3 rounded-lg h-24 bg-purple-300" onClick={() => {toggle("2L")}}>
+                                <h1 className="text-2xl font-bold text-center mt-8 select-none">2L</h1>
+                            </div>
+                        )}
+                        {gridValues["2L"] == "supercharge" && (
+                            <div className="basis-1/3 rounded-lg h-24 bg-pink-400" onClick={() => {toggle("2L")}}>
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">2L</h1>
                             </div>
                         )}
@@ -215,6 +275,11 @@ export function ChargedUpGridSelect(props: ComponentSetup){
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">3L</h1>
                             </div>
                         )}
+                        {gridValues["3L"] == "supercharge" && (
+                            <div className="basis-1/3 rounded-lg h-24 bg-pink-400" onClick={() => {toggle("3L")}}>
+                                <h1 className="text-2xl font-bold text-center mt-8 select-none">3L</h1>
+                            </div>
+                        )}
                     </div>
                 </div>
             )}
@@ -226,8 +291,13 @@ export function ChargedUpGridSelect(props: ComponentSetup){
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">4H</h1>
                             </div>
                         )}
-                        {gridValues["4H"] == true && (
+                        {gridValues["4H"] == "cone" && (
                             <div className="basis-1/3 rounded-lg h-24 bg-yellow-300" onClick={() => {toggle("4H")}}>
+                                <h1 className="text-2xl font-bold text-center mt-8 select-none">4H</h1>
+                            </div>
+                        )}
+                        {gridValues["4H"] == "supercharge" && (
+                            <div className="basis-1/3 rounded-lg h-24 bg-pink-400" onClick={() => {toggle("4H")}}>
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">4H</h1>
                             </div>
                         )}
@@ -236,8 +306,13 @@ export function ChargedUpGridSelect(props: ComponentSetup){
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">5H</h1>
                             </div>
                         )}
-                        {gridValues["5H"] == true && (
+                        {gridValues["5H"] == "cube" && (
                             <div className="basis-1/3 rounded-lg h-24 bg-purple-300" onClick={() => {toggle("5H")}}>
+                                <h1 className="text-2xl font-bold text-center mt-8 select-none">5H</h1>
+                            </div>
+                        )}
+                        {gridValues["5H"] == "supercharge" && (
+                            <div className="basis-1/3 rounded-lg h-24 bg-pink-400" onClick={() => {toggle("5H")}}>
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">5H</h1>
                             </div>
                         )}
@@ -246,8 +321,13 @@ export function ChargedUpGridSelect(props: ComponentSetup){
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">6H</h1>
                             </div>
                         )}
-                        {gridValues["6H"] == true && (
+                        {gridValues["6H"] == "cone" && (
                             <div className="basis-1/3 rounded-lg h-24 bg-yellow-300" onClick={() => {toggle("6H")}}>
+                                <h1 className="text-2xl font-bold text-center mt-8 select-none">6H</h1>
+                            </div>
+                        )}
+                        {gridValues["6H"] == "supercharge" && (
+                            <div className="basis-1/3 rounded-lg h-24 bg-pink-400" onClick={() => {toggle("6H")}}>
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">6H</h1>
                             </div>
                         )}
@@ -258,8 +338,13 @@ export function ChargedUpGridSelect(props: ComponentSetup){
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">4M</h1>
                             </div>
                         )}
-                        {gridValues["4M"] == true && (
+                        {gridValues["4M"] == "cone" && (
                             <div className="basis-1/3 rounded-lg h-24 bg-yellow-300" onClick={() => {toggle("4M")}}>
+                                <h1 className="text-2xl font-bold text-center mt-8 select-none">4M</h1>
+                            </div>
+                        )}
+                        {gridValues["4M"] == "supercharge" && (
+                            <div className="basis-1/3 rounded-lg h-24 bg-pink-400" onClick={() => {toggle("4M")}}>
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">4M</h1>
                             </div>
                         )}
@@ -268,8 +353,13 @@ export function ChargedUpGridSelect(props: ComponentSetup){
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">5M</h1>
                             </div>
                         )}
-                        {gridValues["5M"] == true && (
+                        {gridValues["5M"] == "cube" && (
                             <div className="basis-1/3 rounded-lg h-24 bg-purple-300" onClick={() => {toggle("5M")}}>
+                                <h1 className="text-2xl font-bold text-center mt-8 select-none">5M</h1>
+                            </div>
+                        )}
+                        {gridValues["5M"] == "supercharge" && (
+                            <div className="basis-1/3 rounded-lg h-24 bg-pink-400" onClick={() => {toggle("5M")}}>
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">5M</h1>
                             </div>
                         )}
@@ -278,8 +368,13 @@ export function ChargedUpGridSelect(props: ComponentSetup){
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">6M</h1>
                             </div>
                         )}
-                        {gridValues["6M"] == true && (
+                        {gridValues["6M"] == "cone" && (
                             <div className="basis-1/3 rounded-lg h-24 bg-yellow-300" onClick={() => {toggle("6M")}}>
+                                <h1 className="text-2xl font-bold text-center mt-8 select-none">6M</h1>
+                            </div>
+                        )}
+                        {gridValues["6M"] == "supercharge" && (
+                            <div className="basis-1/3 rounded-lg h-24 bg-pink-400" onClick={() => {toggle("6M")}}>
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">6M</h1>
                             </div>
                         )}
@@ -300,6 +395,11 @@ export function ChargedUpGridSelect(props: ComponentSetup){
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">4L</h1>
                             </div>
                         )}
+                        {gridValues["4L"] == "supercharge" && (
+                            <div className="basis-1/3 rounded-lg h-24 bg-pink-400" onClick={() => {toggle("4L")}}>
+                                <h1 className="text-2xl font-bold text-center mt-8 select-none">4L</h1>
+                            </div>
+                        )}
                         {gridValues["5L"] == false && (
                             <div className="basis-1/3 rounded-lg h-24 bg-gray-100" onClick={() => {toggle("5L")}}>
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">5L</h1>
@@ -312,6 +412,11 @@ export function ChargedUpGridSelect(props: ComponentSetup){
                         )}
                         {gridValues["5L"] == "cube" && (
                             <div className="basis-1/3 rounded-lg h-24 bg-purple-300" onClick={() => {toggle("5L")}}>
+                                <h1 className="text-2xl font-bold text-center mt-8 select-none">5L</h1>
+                            </div>
+                        )}
+                        {gridValues["5L"] == "supercharge" && (
+                            <div className="basis-1/3 rounded-lg h-24 bg-pink-400" onClick={() => {toggle("5L")}}>
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">5L</h1>
                             </div>
                         )}
@@ -330,6 +435,11 @@ export function ChargedUpGridSelect(props: ComponentSetup){
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">6L</h1>
                             </div>
                         )}
+                        {gridValues["6L"] == "supercharge" && (
+                            <div className="basis-1/3 rounded-lg h-24 bg-pink-400" onClick={() => {toggle("6L")}}>
+                                <h1 className="text-2xl font-bold text-center mt-8 select-none">6L</h1>
+                            </div>
+                        )}
                     </div>
                 </div>
             )}
@@ -341,8 +451,13 @@ export function ChargedUpGridSelect(props: ComponentSetup){
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">7H</h1>
                             </div>
                         )}
-                        {gridValues["7H"] == true && (
+                        {gridValues["7H"] == "cone" && (
                             <div className="basis-1/3 rounded-lg h-24 bg-yellow-300" onClick={() => {toggle("7H")}}>
+                                <h1 className="text-2xl font-bold text-center mt-8 select-none">7H</h1>
+                            </div>
+                        )}
+                        {gridValues["7H"] == "supercharge" && (
+                            <div className="basis-1/3 rounded-lg h-24 bg-pink-400" onClick={() => {toggle("7H")}}>
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">7H</h1>
                             </div>
                         )}
@@ -351,8 +466,13 @@ export function ChargedUpGridSelect(props: ComponentSetup){
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">8H</h1>
                             </div>
                         )}
-                        {gridValues["8H"] == true && (
+                        {gridValues["8H"] == "cube" && (
                             <div className="basis-1/3 rounded-lg h-24 bg-purple-300" onClick={() => {toggle("8H")}}>
+                                <h1 className="text-2xl font-bold text-center mt-8 select-none">8H</h1>
+                            </div>
+                        )}
+                        {gridValues["8H"] == "supercharge" && (
+                            <div className="basis-1/3 rounded-lg h-24 bg-pink-400" onClick={() => {toggle("8H")}}>
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">8H</h1>
                             </div>
                         )}
@@ -361,8 +481,13 @@ export function ChargedUpGridSelect(props: ComponentSetup){
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">9H</h1>
                             </div>
                         )}
-                        {gridValues["9H"] == true && (
+                        {gridValues["9H"] == "cone" && (
                             <div className="basis-1/3 rounded-lg h-24 bg-yellow-300" onClick={() => {toggle("9H")}}>
+                                <h1 className="text-2xl font-bold text-center mt-8 select-none">9H</h1>
+                            </div>
+                        )}
+                        {gridValues["9H"] == "supercharge" && (
+                            <div className="basis-1/3 rounded-lg h-24 bg-pink-400" onClick={() => {toggle("9H")}}>
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">9H</h1>
                             </div>
                         )}
@@ -373,8 +498,13 @@ export function ChargedUpGridSelect(props: ComponentSetup){
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">7M</h1>
                             </div>
                         )}
-                        {gridValues["7M"] == true && (
+                        {gridValues["7M"] == "cone" && (
                             <div className="basis-1/3 rounded-lg h-24 bg-yellow-300" onClick={() => {toggle("7M")}}>
+                                <h1 className="text-2xl font-bold text-center mt-8 select-none">7M</h1>
+                            </div>
+                        )}
+                        {gridValues["7M"] == "supercharge" && (
+                            <div className="basis-1/3 rounded-lg h-24 bg-pink-400" onClick={() => {toggle("7M")}}>
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">7M</h1>
                             </div>
                         )}
@@ -383,8 +513,13 @@ export function ChargedUpGridSelect(props: ComponentSetup){
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">8M</h1>
                             </div>
                         )}
-                        {gridValues["8M"] == true && (
+                        {gridValues["8M"] == "cube" && (
                             <div className="basis-1/3 rounded-lg h-24 bg-purple-300" onClick={() => {toggle("8M")}}>
+                                <h1 className="text-2xl font-bold text-center mt-8 select-none">8M</h1>
+                            </div>
+                        )}
+                        {gridValues["8M"] == "supercharge" && (
+                            <div className="basis-1/3 rounded-lg h-24 bg-pink-400" onClick={() => {toggle("8M")}}>
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">8M</h1>
                             </div>
                         )}
@@ -393,8 +528,13 @@ export function ChargedUpGridSelect(props: ComponentSetup){
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">9M</h1>
                             </div>
                         )}
-                        {gridValues["9M"] == true && (
+                        {gridValues["9M"] == "cone" && (
                             <div className="basis-1/3 rounded-lg h-24 bg-yellow-300" onClick={() => {toggle("9M")}}>
+                                <h1 className="text-2xl font-bold text-center mt-8 select-none">9M</h1>
+                            </div>
+                        )}
+                        {gridValues["9M"] == true && (
+                            <div className="basis-1/3 rounded-lg h-24 bg-pink-400" onClick={() => {toggle("9M")}}>
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">9M</h1>
                             </div>
                         )}
@@ -415,6 +555,11 @@ export function ChargedUpGridSelect(props: ComponentSetup){
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">7L</h1>
                             </div>
                         )}
+                        {gridValues["7L"] == "supercharge" && (
+                            <div className="basis-1/3 rounded-lg h-24 bg-pink-400" onClick={() => {toggle("7L")}}>
+                                <h1 className="text-2xl font-bold text-center mt-8 select-none">7L</h1>
+                            </div>
+                        )}
                         {gridValues["8L"] == false && (
                             <div className="basis-1/3 rounded-lg h-24 bg-gray-100" onClick={() => {toggle("8L")}}>
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">8L</h1>
@@ -430,6 +575,11 @@ export function ChargedUpGridSelect(props: ComponentSetup){
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">8L</h1>
                             </div>
                         )}
+                        {gridValues["8L"] == "supercharge" && (
+                            <div className="basis-1/3 rounded-lg h-24 bg-pink-400" onClick={() => {toggle("8L")}}>
+                                <h1 className="text-2xl font-bold text-center mt-8 select-none">8L</h1>
+                            </div>
+                        )}
                         {gridValues["9L"] == false && (
                             <div className="basis-1/3 rounded-lg h-24 bg-gray-100" onClick={() => {toggle("9L")}}>
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">9L</h1>
@@ -442,6 +592,11 @@ export function ChargedUpGridSelect(props: ComponentSetup){
                         )}
                         {gridValues["9L"] == "cube" && (
                             <div className="basis-1/3 rounded-lg h-24 bg-purple-300" onClick={() => {toggle("9L")}}>
+                                <h1 className="text-2xl font-bold text-center mt-8 select-none">9L</h1>
+                            </div>
+                        )}
+                        {gridValues["9L"] == "supercharge" && (
+                            <div className="basis-1/3 rounded-lg h-24 bg-pink-400" onClick={() => {toggle("9L")}}>
                                 <h1 className="text-2xl font-bold text-center mt-8 select-none">9L</h1>
                             </div>
                         )}

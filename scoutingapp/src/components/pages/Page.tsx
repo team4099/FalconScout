@@ -46,6 +46,8 @@ export function Page(props: PageSetup){
         delimiter: props?.config?.export.delimiter
     }
 
+    const requiredComponents: String[] = []
+
     const [pageComponents, setPageComponents] = useState(componentSetup)
     const propsSetPageComponent = (state: any) => {
         setPageComponents(state)
@@ -74,6 +76,10 @@ export function Page(props: PageSetup){
             </Link>
             {
                 props?.config?.components?.map((component: ImportedComponentSetup) => {
+                    if (component.required == true){
+                        requiredComponents.push(component.id)
+                    }
+
                     if (component.type == "Spacing"){
                         return (
                             <div className="h-[1px]"/>
@@ -84,7 +90,8 @@ export function Page(props: PageSetup){
                             text: component.text,
                             route: component.route,
                             options: component.options,
-                            placeholder: component.placeholder
+                            placeholder: component.placeholder,
+                            required: component.required
                         }
 
                         const FoundComponent = (ComponentLibrary as any)[component.type][0];
@@ -96,7 +103,7 @@ export function Page(props: PageSetup){
                     }
                 })
             }
-            <QRCodeModal getValue={pageComponents} setValue={propsSetPageComponent}/>
+            <QRCodeModal getValue={pageComponents} setValue={propsSetPageComponent} required={requiredComponents}/>
         </div>
     )
 }

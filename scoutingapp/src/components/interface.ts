@@ -6,6 +6,7 @@ export interface ComponentSetup {
     getValue?: any;
     setValue?: any;
     id?: any;
+    required?: any
 }
 
 export interface PageSetup {
