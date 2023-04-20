@@ -174,7 +174,7 @@ def process_scan():
                 data_map["TeleopGrid"] = "|".join(teleop_grid_reversed)
 
             # Remove escape characters + commas
-            data_map["MatchKey"] = f'qm{data_map["MatchKey"].replace(",", "")}'
+            data_map["MatchKey"] = data_map["MatchKey"].replace(",", "")
             data_map = {
                 key: remove_escape_characters(value).replace(",", "|")
                 if isinstance(value, str)

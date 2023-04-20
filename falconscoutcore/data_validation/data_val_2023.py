@@ -73,6 +73,13 @@ class DataValidation2023(BaseDataValidation):
         #     driver_station=submission[self.config["driver_station"]],
         # )
 
+        self.check_team_info_with_match_schedule(
+            match_key=submission[self.config["match_key"]],
+            team_number=submission[self.config["team_number"]],
+            alliance=submission[self.config["alliance"]],
+            driver_station=submission[self.config["driver_station"]],
+        )
+
         self.validate_auto_attempted_game_pieces(
             match_key=submission[self.config["match_key"]],
             team_number=submission[self.config["team_number"]],

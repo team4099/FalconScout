@@ -16,7 +16,7 @@ with open("../data/2023new_match_data.json") as file:
 with ApiClient(
     api_key="6lcmneN5bBDYpC47FolBxp2RZa4AbQCVpmKMSKw9x9btKt7da5yMzVamJYk0XDBm"
 ) as api_client:
-    event_matches = api_client.event("2023new").matches()
+    event_matches = api_client.event("2023new_match_data.json").matches()
     total_scores = {
         f"{match.comp_level}{match.match_number}": [
             match.alliances["red"].score,

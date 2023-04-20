@@ -150,6 +150,8 @@ with open("../data/2023chcmp_match_data.json") as file:
         submission["Mobile"] = int(submission["Mobile"] == 1.0)
         submission["Disable"] = int(submission["Disable"] == 1.0)
         submission["Tippy"] = int(submission["Tippy"] == 1.0)
+        submission["AutoAttemptedCHarge"] = submission["AutoAttemptedCharge"] == "Engage"
+        submission["EndgameAttemptedCHarge"] = submission["EndgameAttemptedCharge"] == "Engage"
         # submission["AttemptedTripleBalance"] = int(submission["AttemptedTripleBalance"])
         # submission["SuccessfulTripleBalance"] = int(
         #     submission["SuccessfulTripleBalance"]
