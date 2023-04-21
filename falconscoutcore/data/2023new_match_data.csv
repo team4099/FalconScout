@@ -453,3 +453,31 @@
 451,paul,qm98,blue,3,9023,false,5M,0.0,true,Engage,Engage,,,0.0,,Engage,,,,false,true,80.0,3.0,2.0,
 452,Sophia T,qm98,blue,2,7285,false,2M|3M,0.0,true,None,None,,1M|4M|4H|5H,2.0,can easily climb the charge station,Engage,None,,was pushed off the charge station by 1538,false,false,0.0,0.0,4.0,
 453,Olivia,qm98,blue,1,1538,true,8H|9H,1.0,true,None,,cone fell on the mid row ,1M|3H|4M|4H|7M|7H|8Lcone|9Lcone|9M,0.0,,Engage,Dock,,,false,false,0.0,0.0,5.0,
+454,Amogh,qm99,red,2,4663,true,,0.0,false,None,,,9M|7H|6H|4H,0.0,,Engage,Park,,,false,false,0.0,0.0,2.0,
+455,Aran,qm99,red,1,3005,true,5Lcube,1.0,true,None,None,,3H|2M|1Lcone|1M|1H,1.0,,Engage,Dock,,,false,false,0.0,0.0,0.0,
+456,Arav,qm99,blue,2,1746,true,2H,0.0,true,None,None,,1H|3H|4H|6M|8Lcone,1.0,,None,None,,,false,false,0.0,0.0,4.0,
+457,Ryan Zhao,qm99,blue,1,6657,true,5M,0.0,true,Engage,Engage,,2Lcube|3Lcube|5Lcube|8Lcube,0.0,pretty solid hybrid,Engage,Engage,8,,false,false,0.0,0.0,0.0,
+458,Owen,qm99,blue,2,1746,false,2H,0.0,false,None,,,1M|1H|3Lcone|3H|4M|4H|5H|8H,0.0,,None,,,,false,false,20.0,1.0,4.0,
+459,Joshua ,qm99,blue,3,6657,false,2Lcube|2H,0.0,true,None,,,3Lcube|4Lcube|5Lcube|8Lcube|8M|9Lcube,0.0,Good cycle speed and focus on scoring,Engage,Engage,7,Double ,false,false,0.0,0.0,4.0,
+460,Aran,qm100,red,1,1466,true,5H,0.0,true,Engage,Engage,,3Lcone|3M|3H|2M|1Lcube|1M,0.0,,Engage,Engage,,,false,false,0.0,0.0,4.0,
+461,Amogh,qm100,red,2,2960,false,6H,0.0,true,None,None,,9H,0.0,,Engage,Engage,,,false,false,0.0,3.0,0.0,
+462,Suzy,qm100,blue,1,9140,true,5H,0.0,false,Engage,Engage,,5Lcube|6M|7M|8M|9M,0.0,,Engage,Engage,4,,false,false,0.0,0.0,4.0,Played well counter defense
+463,Arav,qm100,blue,2,1757,true,1H|2M,0.0,true,None,None,,4M|4H|7H|8H|9M|9H,0.0,,Engage,Engage,2,,false,false,0.0,0.0,5.0,Counter defense kinda mid tho 
+464,Owen,qm100,blue,2,1757,true,1H|2M,0.0,false,None,,,4M|4H|6H|7H|9Lcube|9H,0.0,,Engage,Dock,,,false,false,20.0,2.0,4.0,We
+465,Joshua,qm100,blue,3,1468,true,9Lcone,1.0,true,None,,,1M|3Lcone|3M|4H|5H|6H,0.0,Struggles against defense,Engage,Engage,10,Triple dock,false,false,0.0,0.0,0.0,Poor counter defense
+466,Aran,qm101,red,1,3184,true,2H|1H,0.0,true,None,None,,7M|6H|3M|3H|1M,0.0,Got tipped two times,None,None,,,false,false,20.0,0.0,2.0,
+467,Arav,qm101,blue,2,5553,true,,0.0,false,None,None,,,0.0,,None,None,,,true,false,0.0,0.0,1.0,
+468,Amogh,qm101,red,2,5990,true,9H|8H,0.0,true,Engage,Engage,,9Lcone|8Lcube|6Lcube|5Lcube|5M|3H|1Lcube,0.0,,Engage,Engage,,,false,false,0.0,0.0,0.0,
+469,Suzy,qm101,blue,1,857,true,4H|5H|6H|8H,0.0,false,None,None,,4H|5H|6H|7H|9M|9H,0.0,,Engage,Engage,6,,false,false,0.0,0.0,4.0,Moved opposite robot off of charge station
+470,Joshua,qm101,blue,3,1123,true,8M|8H|9Lcone,0.0,true,None,,Triple auto,3Lcone|4Lcone|6H,2.0,Causes 3184 to fall over =DQ,None,Park,,,false,false,80.0,4.0,5.0,Had really strong defense| but went too aggressive with it and got disqualified
+471,Owen,qm101,blue,2,5553,true,,0.0,false,None,,Did not move on auto,,0.0,Did not move on teleop,None,,,Didnt move all game,false,false,0.0,0.0,1.0,
+472,Joshua,qm51,red,1,195,true,2H,2.0,true,None,,Very interesting strategy: throws away the cube in its poses soon towards the grid| then drives out to collect another cube. It starts in the front most area next to the charge station. Attempted triple auto with this,6Lcone|5H|4Lcone|4H|3M|3H|2H|1M|1H,0.0,Very good cycling speed ,Engage,Dock,5,Tried to jump on with 5 seconds left| team could not adjust properly,false,true,40.0,3.0,5.0,
+473,Joshua,qm51,blue,2,177,true,1Lcone,1.0,true,None,,Shoots in autoMissed triple auto,4M|4H|5Lcube|5M|6Lcube|6M|6H|8Lcube,0.0,,Engage,Engage,13,Triple dock,false,false,60.0,4.0,5.0,High cycle rate| intake optimized only for cubes or anything from slanted load station
+474,Joshua,qm51,blue,3,9084,true,6H,0.0,true,Engage,Engage,Impressive auto ,1Lcube|1M|1H|2M|2H|3Lcone|3H,1.0,Good driving and opportunistic defense ,None,,,Did not help w endgame,false,false,60.0,4.0,4.0,Good team overall 
+475,Joshua,qm51,red,2,9084,true,6H,0.0,true,Engage,Engage,,6Lcube|3Lcube|2Lcube,0.0,Intake is sticking out so during defense it causes penalties from rams,Engage,Dock,3,Went on charge station at 70ish seconds left due to a penalty| did the equivalent of a disable after balancing on it,true,true,60.0,1.0,4.0,Defense was rather counter effective this match
+476,Suzy,qm103,blue,1,4145,true,2H,0.0,true,None,None,,3Lcone|7H|8H|9H,0.0,,Engage,Dock,7,,false,false,0.0,0.0,4.0,Very sturdy
+477,Amogh,qm102,red,2,8847,true,2Lcube,0.0,true,None,,,7Lcube|6Lcube|5Lcone|4Lcube|3Lcube|3H|1Lcube,0.0,,Engage,Engage,,,false,false,0.0,0.0,0.0,
+478,Aran,qm102,red,1,2992,true,9H|8H|1M|1M,0.0,true,None,None,,3M|3H|2M|2H|1M|1H,1.0,,Engage,Engage,,,false,false,0.0,0.0,0.0,
+479,Arav,qm102,blue,2,7428,true,5H,0.0,true,Engage,Dock,,4M|5M|6M|7M,0.0,,Engage,Dock,,,false,false,0.0,0.0,3.0,
+480,Owen,qm102,blue,2,7428,true,2H,0.0,false,None,,,3M|5M|7M|8H,0.0,,Engage,,,,false,false,20.0,1.0,2.0,
+481,Joshua,qm3161,blue,3,3161,true,9M,0.0,true,None,,,1M|2M|3M|4M|8Lcube,0.0,,Engage,Dock,15,Poor communication ,false,false,20.0,2.0,0.0,
