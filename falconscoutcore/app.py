@@ -8,7 +8,7 @@ from datetime import datetime
 import yaml
 from data_validation.data_val_2023 import DataValidation2023
 from flask import Flask, jsonify, render_template, request
-from github import Github
+from github import Github, UnknownObjectException
 from pandas import DataFrame
 
 g = Github(os.getenv("GITHUB_KEY"))
@@ -264,12 +264,21 @@ def sync_github():
 
             repo = g.get_repo(config["repo_config"]["repo"])
             contents = repo.get_contents(config["repo_config"]["update_json"])
-            repo.update_file(
-                contents.path,
-                f'updated data @ {datetime.now().strftime("%m/%d/%Y, %H:%M:%S")}',
-                json.dumps(file_json_data),
-                contents.sha,
-            )
+
+            try:
+                repo.update_file(
+                    contents.path,
+                    f'updated data @ {datetime.now().strftime("%m/%d/%Y, %H:%M:%S")}',
+                    json.dumps(file_json_data),
+                    contents.sha,
+                )
+            except UnknownObjectException:
+                repo.create_file(
+                    contents.path,
+                    f'updated data @ {datetime.now().strftime("%m/%d/%Y, %H:%M:%S")}',
+                    json.dumps(file_json_data),
+                    contents.sha
+                )
 
             contents = repo.get_contents(config["repo_config"]["update_csv"])
             repo.update_file(
