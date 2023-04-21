@@ -269,14 +269,14 @@ def sync_github():
                 repo.update_file(
                     contents.path,
                     f'updated data @ {datetime.now().strftime("%m/%d/%Y, %H:%M:%S")}',
-                    json.dumps(file_json_data),
+                    json.dumps(file_json_data, indent=2),
                     contents.sha,
                 )
             except UnknownObjectException:
                 repo.create_file(
                     contents.path,
                     f'updated data @ {datetime.now().strftime("%m/%d/%Y, %H:%M:%S")}',
-                    json.dumps(file_json_data),
+                    json.dumps(file_json_data, indent=2),
                     contents.sha
                 )
 
