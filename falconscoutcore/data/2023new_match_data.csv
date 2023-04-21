@@ -215,158 +215,172 @@
 213,Arav,qm50,red,2,4069,true,2M,1.0,1.0,None,None,,6H|5M|4H|3M|3H|1H,0.0,,Engage,Engage,10,,0.0,0.0,0.0,0.0,4.0,
 214,Sydney,qm50,red,1,4905,true,8H,0.0,1.0,None,None,,3M|2Lcone|2H|1M|1H,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,3.0,
 215,Eckart,qm51,blue,1,3572,true,8M,0.0,1.0,None,None,,7Lcone|7H|8H|9H,0.0,,Engage,Engage,11.0,,0.0,0.0,0.0,0.0,4.0,
-216,Nicole,qm52,blue,2,4522,true,8M|8H|9H,0.0,1.0,None,,,1H|3M|3H|4H|6H|7M|9M,1.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,5.0,
-217,Eckart,qm52,blue,1,7072,true,5M,0.0,1.0,Engage,Engage,,,0.0,Defense only,Engage,Engage,5.7,,0.0,0.0,100.0,2.0,0.0,No fouls but can't cause any change in cycle times
-218,paul,qm52,blue,3,7428,true,8H,0.0,0.0,None,,,4M|5H|6M,0.0,issues at double substation ,None,Park,,,0.0,0.0,0.0,0.0,2.0,
-219,darren,qm52,red,3,955,true,9H|8H,0.0,1.0,None,,,9M|8M|7M|7H|6Lcone|4Lcube|1Lcone,0.0,better high than middle,Engage,Engage,,,0.0,0.0,0.0,0.0,2.0,
-220,Agneya,qm52,red,2,3538,true,2H|1H,0.0,1.0,None,None,,6M|6H|5M|4Lcube|4M|4H|2M,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,5.0,
-221,aarav,qm52,red,1,5665,true,5H,0.0,1.0,Engage,Engage,,5H|5H|3H,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,4.0,
-222,Nicole,qm53,blue,2,4143,true,6Lcube,0.0,1.0,None,,I def missed something from auto,4Lcone|4H|5Lcone|5M|6M|6H|7M|9Lcube,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,4.0,
-223,Eckart,qm53,blue,1,4944,true,6H,0.0,1.0,Engage,Engage,,6Lcube|7H|8Lcone|8M|9Lcube|9M,4.0,,Engage,Engage,4.3,,0.0,0.0,0.0,0.0,5.0,
-224,paul,qm53,blue,3,8592,true,2H|3H,0.0,0.0,None,,,1M|1H|2Lcube|4M|5H|6M,0.0,,None,,,,0.0,0.0,0.0,0.0,5.0,
-225,aarav,qm53,red,1,179,false,,0.0,0.0,None,,,6M|6H|4H|3H|1H,1.0,,Engage,Park,,,0.0,0.0,0.0,0.0,5.0,fast dt| scoring takes a bit to align 
-226,Agneya,qm53,red,2,8808,true,8H,0.0,1.0,None,None,,8M|8H|2M,0.0,very slow robot,Engage,Park,,,0.0,0.0,0.0,0.0,0.0,
-227,paul,qm54,blue,3,5338,true,9H,0.0,1.0,None,,,1H|3H|4H|6H|7H,0.0,,Engage,Engage,3,,0.0,0.0,0.0,0.0,0.0,
-228,Nicole,qm54,blue,2,8847,false,2Lcube|3Lcube|5Lcube|7Lcube|8Lcube|9Lcube,0.0,1.0,Engage,Engage,,2Lcube|3Lcube|4Lcube|6Lcube|7Lcube|8Lcube|9Lcube,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,4.0,
-229,Eckart,qm54,blue,1,9126,true,,0.0,0.0,None,None,Nothing happened ,2M|2H|5H|7Lcube|8H,0.0,,Engage,Engage,8,,0.0,0.0,0.0,0.0,4.0,
-230,Agneya,qm54,red,2,503,true,2M|2H,0.0,1.0,None,None,,8H|3M|1Lcone|1H,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,4.0,
-231,aarav,qm54,red,1,1757,true,4H,0.0,1.0,Engage,None,,5H|4H|3H|1M|1M|1H,0.0,got disabled after hitting double sub hard,None,,,,0.0,0.0,0.0,0.0,5.0,
-232,darren,qm54,red,3,6431,true,,0.0,1.0,None,,nothing scored,,0.0,got stuck essentially disabled the entire game,None,,,,0.0,0.0,0.0,0.0,1.0,
-233,Eckart,qm55,blue,1,9030,true,8H,0.0,1.0,None,None,,2M|2H|8M,1.0,,Engage,Park,5.4,,0.0,0.0,0.0,0.0,0.0,
-234,darren,qm55,red,3,6909,true,,0.0,1.0,None,,didnt drop because gripper missed,9Lcube|9M|7Lcone|7M,1.0,,None,Park,,,0.0,0.0,0.0,0.0,1.0,
-235,Eckart,qm56,blue,1,3932,true,,1.0,1.0,Engage,Engage,,5Lcone|7Lcone|7H|8Lcube|8H|9Lcone|9H,0.0,,None,Park,,Had no need to engage,0.0,0.0,0.0,0.0,4.0,
-236,darren,qm56,red,3,6606,true,,1.0,1.0,None,,,,0.0,did pretty much nothing,Engage,Engage,,,0.0,0.0,0.0,0.0,1.0,do not pick
-237,Eckart,qm57,blue,1,9023,true,1M,0.0,1.0,None,None,,1Lcube|2M|3M|3H|4Lcube,0.0,Struggles intaking cones from double sub,Engage,Dock,2.2,,0.0,0.0,0.0,0.0,0.0,
-238,darren,qm57,red,3,5804,true,9Lcone|9H,0.0,1.0,None,,,9M|8Lcube|8M|8H|7Lcube|7H|6H|5H|4Lcube,2.0,,None,Park,,,0.0,0.0,0.0,0.0,4.0,
-239,Eckart,qm58,blue,1,1468,true,5H,0.0,1.0,Engage,None,,4Lcone|5Lcone|6M|6H|7M|8M|9M,0.0,,Engage,Engage,6,,0.0,0.0,0.0,0.0,5.0,
-240,darren,qm58,red,3,1501,true,2H|1H,0.0,1.0,None,,,9M|9H|8Lcone|7H|3H,0.0,,Engage,Dock,,,0.0,0.0,0.0,0.0,0.0,
-241,Olivia,qm59,blue,1,494,true,1H|2H,0.0,1.0,None,,,1Lcone|3H|6Lcone|7Lcone|9Lcone|9M|9H,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,5.0,
-242,Eckart,qm59,blue,3,3184,true,8H,0.0,1.0,None,None,Picked up a cube but missed one,1M|2Lcone|2M|3Lcone|3M|7M|7H,1.0,Seems like PID issues,None,Park,,No point in engaging ,0.0,0.0,0.0,0.0,0.0,
-243,Adrian,qm59,red,2,4145,true,9Lcone,1.0,1.0,None,,,,0.0,,Engage,Engage,3.2,,0.0,0.0,0.0,0.0,2.0,Claw broke so they did basically nothing
-244,Blen,qm59,red,1,4419,true,6H,0.0,0.0,None,,,5H|4H|3Lcone|3M|2M|2M|1H,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,0.0,paused for a while when placing cone on high node then missed it 
-245,Owen,qm6,blue,2,955,true,2H,0.0,0.0,None,,,3H|4H|5Lcone|5M|5H|8Lcone,0.0,,Engage,Dock,,,0.0,0.0,0.0,0.0,0.0,
-246,Joshua,qm6,blue,3,2642,false,7H,1.0,1.0,None,,Attempted double but didnt collect second.,1H|2H|3H|7H|8H,0.0,Solid opportunistic defense| overshot loading station a couple times,Engage,Engage,8,,0.0,0.0,40.0,4.0,4.0,very good opportunistic defense| I approve
-247,Suzy,qm6,blue,1,6606,false,,0.0,1.0,None,,,8M,1.0,,None,None,,,0.0,1.0,0.0,0.0,2.0,Very tall and tippy tank very slow cycles
-248,Arav,qm6,red,3,3572,true,7Lcube,0.0,1.0,None,None,,9H|8H|7H|6M,1.0,,Engage,Engage,4,,0.0,0.0,0.0,0.0,4.0,
-249,Aran,qm6,red,1,4143,true,2M|2H|1H,0.0,0.0,None,,,6H|4H|3M|3H|2Lcube|1Lcone|1M,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,5.0,
-250,Amogh,qm6,red,2,5274,false,5H,0.0,1.0,Engage,Engage,,9H|6M|3M|3H|1M,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,4.0,
-251,Eckart,qm60,blue,3,3478,false,1H,0.0,0.0,None,None,Didn't go over protector,1M|2M|2H|3Lcone|3M|3H,0.0,,Engage,Engage,5.0,,0.0,0.0,0.0,0.0,0.0,
-252,Olivia,qm60,blue,1,5172,true,,1.0,0.0,Engage,Engage,,8H,0.0,,Engage,Dock,,,0.0,0.0,100.0,4.0,3.0,
-253,Blen,qm60,red,1,900,true,1H,0.0,1.0,None,,,3Lcone|3H|2Lcube|2M|2H|1Lcube,1.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,4.0,
-254,Adrian,qm60,red,2,2992,true,9H|8H,0.0,1.0,None,,,7Lcone|7H|6H|4M|4H|3M|1M,0.0,,Engage,Engage,4.9,,0.0,0.0,0.0,0.0,4.0,
-255,Olivia,qm61,blue,1,955,true,9H,0.0,1.0,None,,tried to get a second piece ,1H|3H|4H|6H|7H|8H,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,4.0,
-256,Eckart,qm61,blue,3,1156,false,5Lcone,0.0,1.0,Engage,Engage,,1Lcube|2M|2H|5H,2.0,,None,Engage,5,,0.0,0.0,0.0,0.0,3.0,
-257,Blen,qm61,red,1,1629,true,8H,0.0,1.0,None,,started spinning uncontrollably ,6H|4H,0.0,struggles to pick up cones from double sub ,Engage,Engage,,,0.0,0.0,0.0,0.0,2.0,started going very slow and staggered at beginning of tele op 
-258,Adrian,qm61,red,2,4112,true,1H,0.0,1.0,None,,,3Lcube|3H,0.0,,None,None,,,0.0,0.0,60.0,2.0,0.0,Intake broke
-259,Joshua and Joshua,qm68,blue,3,2992,true,8H|9H,0.0,1.0,None,, | ,1Lcone|2Lcone|3Lcone|3H|7Lcone|7H,3.0,Solid driving and avoiding defense| but very tippy robot wasted a lot of time Highly unreliable scoring methods| intake fails wasted a lot of time | Solid driving and avoiding defense| but very tippy robot wasted a lot of time Highly unreliable scoring methods| intake fails wasted a lot of time,Engage,Engage,,Engage attempt at 10s | Engage attempt at 10s,0.0,1.0,0.0,0.0,4.0,Good swerving but poor scoring reliability| intake from station is unreliable  | Good swerving but poor scoring reliability| intake from station is unreliable 
-260,Suzy,qm68,blue,1,5665,true,2H,0.0,1.0,None,,,,0.0,,Engage,Engage,19,,0.0,0.0,100.0,3.0,0.0,
-261,Owen,qm68,blue,2,9023,true,5M,0.0,0.0,None,,,7Lcube|8Lcube|9Lcube,0.0,,Engage,Dock,,,0.0,0.0,20.0,1.0,1.0,
-262,Shashwat,qm68,red,3,3039,false,9H,2.0,1.0,None,None,,9M|8Lcube|8H|7M|7H|6Lcube|6M|6H|5Lcube|5M,0.0,,Engage,None,,,0.0,0.0,0.0,0.0,4.0,
-263,Chris,qm68,red,1,3184,true,5H,1.0,1.0,Engage,Engage,,4M|4H|3H|2H|1H,0.0,,Engage,None,,,0.0,0.0,0.0,0.0,0.0,
-264,sarah,qm68,red,2,6606,true,,0.0,1.0,None,None,,2Lcube,0.0,,Engage,Dock,5,,0.0,0.0,0.0,0.0,1.0,end effector broke and looked like had trouble driving
-265,Owen,qm69,blue,2,1156,true,,1.0,0.0,Engage,Dock,,1Lcone|2M|3M|4M|5M|5H,0.0,,Engage,Dock,,,0.0,0.0,20.0,1.0,4.0,
-266,Joshua ,qm69,blue,3,3940,false,2H,0.0,1.0,None,,,1H|3H|4H|6H|7H|9H,0.0,Very bulky tank driving but respectable cycle rate,Engage,Engage,3,,0.0,1.0,0.0,0.0,4.0,Good driving and avoiding defense for a tank driveBy using a swerve they could cycle much faster 
-267,Suzy,qm69,blue,1,4329,true,,1.0,1.0,None,None,,1M|7Lcube|7M|8Lcone|8M|8H|9Lcube|9M,1.0,,None,None,,,0.0,0.0,0.0,0.0,4.0,Intake is slow
-268,Chris,qm69,red,1,1123,true,9Lcone|8M|8H,0.0,1.0,None,,,3Lcone|3H|2Lcone|1Lcone|1H,0.0,,Engage,Dock,,,0.0,0.0,0.0,0.0,0.0,
-269,Shashwat,qm69,red,3,7428,false,2H,0.0,0.0,None,None,,9M|7M|6M|4M,0.0,,Engage,None,,,0.0,0.0,0.0,0.0,0.0,
-270,sarah,qm69,red,2,8717,true,5H,0.0,0.0,Engage,None,slid off,5M|4Lcube|2M|1M|1M,0.0,,Engage,Park,,,0.0,1.0,0.0,0.0,2.0,
-271,Owen,qm7,blue,2,177,false,2M|9M|9M,0.0,0.0,None,,,1Lcone|2Lcube|3H|4H|6H|7M|7H|8M|9M,0.0,,Engage,Dock,,,0.0,0.0,20.0,1.0,5.0,
-272,Joshua,qm7,blue,3,3767,true,5H,0.0,0.0,Engage,Engage,Careful engage ,1H|3H|5M|7H,0.0,Slow tippy driving| vulnerable to defenseGood use of air traffic control sticks to efficiently do collection from station,Engage,Engage,5,,0.0,1.0,20.0,1.0,4.0,
-273,Suzy,qm7,blue,1,5665,true,8H,0.0,1.0,None,None,,9Lcone,2.0,,None,None,,,0.0,1.0,0.0,0.0,0.0,Tipped over
-274,Aran and Aran,qm7,red,1,11,true,8H|7H,0.0,1.0,None,None, | ,9H|4H,0.0,Disabled mid match  | Disabled mid match ,None,None,, | ,1.0,0.0,0.0,0.0,4.0, | 
-275,Amogh,qm7,red,2,1466,true,5H,0.0,0.0,Engage,Engage,,9M|9H|8H|6Lcone|5M|4Lcone,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,2.0,
-276,Arav and Arav,qm7,red,3,8015,false,2Lcone,0.0,1.0,None,None, | ,1Lcube,0.0, | ,Engage,Engage,, | ,1.0,0.0,0.0,0.0,2.0, | 
-277,Suzy,qm70,blue,1,4112,false,1Lcone,0.0,0.0,None,None,,,0.0,,Engage,Engage,,,1.0,0.0,0.0,0.0,3.0,Battery issues and disable
-278,Joshua,qm70,blue,3,5172,true,5Lcube,0.0,0.0,Engage,Engage,,3H|4H,0.0,Intake broke down switched to defense ,Engage,Engage,10,,0.0,0.0,80.0,5.0,5.0,Good driving and would be a good teammate to have for defense In picklist
-279,Owen,qm70,blue,2,8808,true,,1.0,0.0,None,,,2Lcube|2M|5M|8M,1.0,,Engage,Dock,,,0.0,0.0,0.0,0.0,1.0,
-280,Chris,qm70,red,1,857,true,7H|6Lcube,1.0,0.0,None,,,6M|3M|3H|1M|1H,0.0,,Engage,None,,,1.0,0.0,0.0,0.0,0.0,
-281,Shashwat,qm70,red,3,2960,false,5H,0.0,1.0,Engage,Engage,,8H|7H|6H|4M|4H|2H,0.0,,Engage,Park,,Another robot disabled on charge station which is why they couldnt engage,0.0,0.0,0.0,0.0,0.0,
-282,sarah,qm70,red,2,6817,true,,0.0,0.0,None,None,,2M,0.0,,None,,,,0.0,1.0,100.0,1.0,1.0,they just got pushed around
-283,Owen,qm71,blue,2,955,true,,2.0,0.0,None,,,3H|4H|5H,0.0,,Engage,Dock,,,0.0,1.0,0.0,0.0,1.0,
-284,Suzy,qm71,blue,1,8847,true,,0.0,0.0,None,,,1Lcube|2Lcube|3Lcube|4Lcube|8Lcube,0.0,,Engage,Engage,,,0.0,0.0,20.0,2.0,0.0,Intakes electrical broke
-285,Joshua,qm71,blue,3,9084,true,6H,0.0,1.0,Engage,Engage,Impressive auto ,1Lcube|1M|1H|2M|2H|3Lcone|3H,1.0,Good driving and opportunistic defense ,None,,,Did not help w endgame,0.0,0.0,60.0,4.0,4.0,Good team overall 
-286,Chris,qm71,red,1,1816,false,6H,0.0,1.0,Engage,Engage,,4Lcone|3M|3H|2M|2H|1M,0.0,,Engage,Engage,2,,0.0,1.0,0.0,0.0,0.0,
-287,sarah,qm71,red,2,3478,true,1H,0.0,1.0,None,,,6M|5M|5H|4M|4H,1.0,,Engage,Engage,4,,0.0,0.0,0.0,0.0,3.0,
-288,Shashwat,qm71,red,3,5553,true,9Lcube,0.0,1.0,None,None,,9H|7H,0.0,,None,None,,,1.0,0.0,0.0,0.0,3.0,
-289,Suzy,qm72,blue,1,4069,true,2H,1.0,0.0,None,None,,6Lcone|7M|8M|8H|9Lcone|9M,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,0.0,
-290,Owen,qm72,blue,2,4099,true,9H,0.0,0.0,None,,,2Lcone|6H|7H,1.0,,None,,,,0.0,0.0,80.0,4.0,0.0,
-291,Joshua,qm72,blue,3,4909,true,5H,0.0,1.0,Engage,Engage,,1Lcube|1M|1H|2Lcube|2M|3M|3H|4Lcube,0.0,,Engage,Engage,5,,0.0,0.0,20.0,3.0,4.0,Good driving 
-292,sarah,qm72,red,2,1538,true,9H|8Lcone|8H,0.0,1.0,None,None,,8H|7Lcone|7M|7H|6H|4H,1.0,,Engage,Engage,6,,0.0,0.0,0.0,0.0,5.0,
-293,Chris,qm72,red,1,4522,true,,0.0,0.0,None,,,4M|3M|3H|2H|1M|1H,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,0.0,
-294,Shashwat,qm72,red,3,9030,true,,0.0,0.0,None,None,,5H,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,0.0,
-295,Owen,qm73,blue,2,5135,true,2H,0.0,0.0,None,,,1H|2Lcone|3H|4H|6H|7H|9H,0.0,,None,,,,0.0,0.0,0.0,0.0,4.0,
-296,Suzy,qm73,blue,1,8016,false,8H,0.0,1.0,None,None,,1M|2M|3M|5H,0.0,,Engage,Dock,,,0.0,0.0,0.0,0.0,0.0,
-297,Rachel,qm73,red,2,2642,true,8H|7H,0.0,1.0,None,None,,9M|9H|8M|7Lcone|7M|6M,0.0,,None,Dock,,,0.0,0.0,0.0,0.0,0.0,
-298,Shashwat,qm73,red,3,3932,false,6H,0.0,1.0,None,None,,5Lcube|4Lcube|4H|3M,0.0,,Engage,None,,,0.0,0.0,0.0,0.0,0.0,
-299,Chris,qm73,red,1,8592,true,3H|2H,0.0,1.0,None,,,6H|5M|5H|3M|2M|1Lcone|1M|1M|1H,1.0,,Engage,None,,,0.0,0.0,0.0,0.0,0.0,
-300,Suzy,qm74,blue,1,1501,true,1H|2M,0.0,1.0,None,None,,6M|7H|8Lcube|9M|9H,0.0,,None,None,,,0.0,0.0,0.0,0.0,4.0,
-301,Owen,qm74,blue,2,4905,true,,1.0,0.0,None,,,4M|6Lcube|6M|8M|8H,0.0,,Engage,Dock,,,0.0,0.0,20.0,2.0,0.0,
-302,Joshua,qm74,blue,3,5804,true,4H,0.0,1.0,Engage,Engage,,1M|2M|2H|3H|4Lcube|5H|6M|6H,0.0,Avoids charge station whileCycling ,Engage,Engage,6,,0.0,0.0,0.0,0.0,5.0,Completely avoids defense 
-303,Shashwat,qm74,red,3,1466,true,5H,0.0,1.0,Engage,Engage,,8M|6Lcube|6M|6H,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,0.0,
-304,Chris,qm74,red,1,1746,false,2H|1Lcube,0.0,1.0,None,,,6H|4H|3Lcone|3M|3H|2M|1M|1H,0.0,,Engage,Engage,5,,0.0,0.0,0.0,0.0,0.0,
-305,sarah,qm74,red,2,6909,true,,0.0,1.0,None,,,5Lcube|2Lcube,0.0,,None,Park,,,0.0,0.0,0.0,0.0,1.0,
-306,Owen,qm75,blue,2,4145,true,1H,0.0,0.0,None,,,2H|4H|5H|6H|7H|9H,0.0,,Engage,Dock,,,0.0,0.0,20.0,1.0,4.0,
-307,Suzy,qm75,blue,1,5274,true,5Lcube,0.0,0.0,Engage,Engage,,4M|7M|8H|9M,0.0,,Engage,Engage,12,,0.0,0.0,0.0,0.0,4.0,
-308,Joshua,qm75,blue,3,7285,true,8M,0.0,1.0,None,,,1M|2M|3M|3H|4M,0.0,Good cycling speed paired with opportunistic defense on the lighter side,Engage,Engage,5,,0.0,0.0,40.0,4.0,5.0,Very efficient Prioritized cycling speed 
-309,Shashwat,qm75,red,3,195,false,9Lcube|8M,1.0,1.0,None,None,,9M|9H|8H|7M|7H|6M|6H|5M|3M,0.0,,Engage,None,,,0.0,0.0,0.0,0.0,0.0,
-310,sarah,qm75,red,2,3767,true,5H,0.0,1.0,Engage,Engage,,4Lcone|4M|4H|3H|2M|1M,0.0,,Engage,Park,,,0.0,0.0,0.0,0.0,0.0,
-311,Chris,qm75,red,1,5338,true,1H,0.0,1.0,None,,,8H,0.0,,Engage,Dock,,,0.0,0.0,80.0,2.0,0.0,
-312,Nikhil,qm76,blue,1,900,true,1H,0.0,1.0,None,,,5M|7Lcone|7H|8H|9M|9M,0.0,,None,Park,,,0.0,0.0,0.0,0.0,3.0,
-313,Arav,qm76,blue,2,1468,true,9M|9H,0.0,1.0,None,None,,2Lcone|4M|5M|5H|6H,1.0,,Engage,Engage,6,,0.0,0.0,0.0,0.0,4.0,
-314,Amogh,qm76,blue,3,3003,false,3H,0.0,1.0,Engage,Engage,,1M|2H|3M|3H|4H,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,2.0,
-315,Blen,qm76,red,2,1023,true,2M|1M,0.0,1.0,None,,,9Lcube|9M|8Lcube|7M|6Lcube|6M|3M,0.0,quick when intaking from double substation ,Engage,Dock,,,0.0,0.0,0.0,0.0,5.0,good at maneuvering through robots and overall fast 
-316,Aran,qm76,red,1,4419,true,4H,0.0,1.0,Engage,Dock,,5M|3H|2H|1H,0.0,,None,Park,,,0.0,0.0,0.0,0.0,0.0,
-317,alexander,qm76,red,3,5990,true,9H|8H,0.0,1.0,None,None,,8M|7H|6Lcube|6H|5Lcube|5H|3Lcone,0.0,,Engage,Dock,,,0.0,0.0,0.0,0.0,4.0,
-318,Amogh,qm77,blue,3,11,true,4H,0.0,1.0,Engage,Dock,,1Lcube|1M|1H|3M|3H|5M|5H,0.0,,None,None,,,0.0,0.0,0.0,0.0,4.0,
-319,Nikhil,qm77,blue,1,1629,true,2H,0.0,1.0,None,None,,3M|4M|4H|6M|7H|8M,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,4.0,
-320,Arav,qm77,blue,2,5006,true,9H,0.0,1.0,None,None,,2Lcube|2M|4Lcube|5H|9M,0.0,,Engage,Engage,3,,0.0,1.0,0.0,0.0,0.0,
-321,alexander,qm77,red,3,3572,true,,2.0,1.0,None,None,,9M|9H|7M|7H,0.0,,Engage,Engage,,Double Engage,0.0,0.0,0.0,0.0,2.0,Didnt do too well in the charge station
-322,Aran,qm77,red,1,6657,true,5H,0.0,1.0,Engage,Engage,,5Lcube|4Lcube|3Lcube|2Lcube|2H|1Lcube,0.0,,None,Park,,,0.0,0.0,0.0,0.0,0.0,
-323,Blen,qm77,red,2,7072,true,,1.0,1.0,None,,,8Lcube|6Lcube|5Lcube|5M|4Lcube|2M|1Lcube,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,0.0,
-324,Arav,qm78,blue,2,857,true,1H|2H,1.0,1.0,None,None,,3M|3H|5Lcone|6M|6H,0.0,,Engage,Engage,5,,0.0,0.0,0.0,0.0,4.0,
-325,Amogh,qm78,blue,3,3161,true,8M|9M,0.0,0.0,None,,,1Lcube|1M|2M|5M|5H|8H,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,2.0,
-326,Nikhil,qm78,blue,1,4944,true,4H,0.0,0.0,Engage,Engage,,5Lcube|6Lcone|6M|7H|9M,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,4.0,
-327,Aran,qm78,red,1,3039,false,9H|8H|1M,0.0,1.0,None,None,,5M|3H|2Lcube|2M|1Lcube,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,0.0,
-328,Blen,qm78,red,2,4143,true,4H,0.0,1.0,Engage,Engage,,8Lcube|7Lcube|7M|6M|6H|4M|1H,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,4.0,
-329,alexander,qm78,red,3,4663,true,2H,0.0,1.0,None,None,Slow,9M|8M|7H,0.0,,Engage,Engage,,Triple Engage,0.0,0.0,0.0,0.0,4.0,Pushed into foul by 4944| otherwise was good at driving
-330,Amogh,qm79,blue,3,3218,true,,0.0,0.0,None,,,1Lcube|2Lcube|2H|3Lcube|3H,1.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,4.0,
-331,Nikhil,qm79,blue,1,4112,true,1H,0.0,1.0,None,None,,7Lcube|7H|8Lcube|9Lcone,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,4.0,
-332,Arav,qm79,blue,2,7428,true,5H,0.0,1.0,Engage,Engage,,2Lcube|5M|6Lcone|8H,0.0,,Engage,Engage,6,,0.0,0.0,0.0,0.0,2.0,
-333,Aran,qm79,red,1,494,true,9H|8Lcube,0.0,1.0,None,None,,5M|3Lcube|3H|2M|1M|1H,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,0.0,
-334,alexander,qm79,red,3,503,true,2H|1Lcube,0.0,1.0,None,None,,9Lcube|9M|8M|8H|7M|7H|6Lcube,0.0,,Engage,Engage,,Triple Engage,0.0,0.0,0.0,0.0,4.0,
-335,Blen,qm79,red,2,3478,true,4H,0.0,1.0,Engage,Engage,,6M|6H|5Lcone|5M|5H,1.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,4.0,
-336,Nikhil ,qm8,blue,1,2960,true,5H,0.0,0.0,Engage,Engage,,1Lcone|1H|4H|6H|7H|9M|9M,1.0,,Engage,Engage,3,,0.0,0.0,0.0,0.0,4.0,
-337,Shashwat ,qm8,blue,2,6431,true,,0.0,0.0,None,None,Crossed centerline,,0.0,Intake broken,None,Park,,,0.0,0.0,0.0,0.0,2.0,
-338,sarah,qm8,blue,3,8016,true,2H,0.0,0.0,None,None,,1M|2Lcube|2M|3M,0.0,,Engage,,9,,0.0,0.0,0.0,0.0,2.0,
-339,Sydney,qm8,red,1,3218,true,4Lcube|1H,0.0,1.0,None,None,,5M|5H|4M|4H|3H|2H,0.0,,Engage,Engage,5,,0.0,0.0,0.0,0.0,4.0,
-340,Blen,qm8,red,2,4419,true,9H|6Lcube,0.0,1.0,None,,,|8Lcube|8H|7H|6H|3Lcube|1Lcube,0.0,,Engage,Engage,4,,0.0,0.0,0.0,0.0,0.0,deflated a cube 
-341,alexander,qm8,red,3,7072,true,,1.0,1.0,Engage,Dock,,9Lcube|6Lcube|5Lcube,0.0,,Engage,Engage,,Triple Engage,0.0,0.0,20.0,3.0,2.0,
-342,Shashwat,qm9,blue,2,1836,false,1Lcube,1.0,1.0,None,None,,2Lcube|3Lcube|4Lcube|5Lcube|6Lcube|7Lcube|8Lcube,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,3.0,
-343,Nikhil,qm9,blue,1,4522,true,8Lcube|9Lcone,2.0,1.0,None,,,1H|3H|4M|4H|6H|7H,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,3.0,
-344,sarah,qm9,blue,3,5135,true,5H,0.0,1.0,Engage,Engage,,1Lcube|2M|2H|5M|8Lcube|8M|8H,2.0,,Engage,Engage,8,,0.0,0.0,0.0,0.0,0.0,
-345,Sydney,qm9,red,1,1746,true,2H,0.0,1.0,None,None,,5M|4H|3H|2Lcube|2M|1Lcube|1M|1H,0.0,,Engage,Engage,5,,0.0,0.0,0.0,0.0,4.0,
-346,alexander,qm9,red,3,3039,true,9H|8H,0.0,1.0,None,None,,9Lcone|9M|9H|9H|8Lcube|8M|7Lcube|7M|7H|6Lcube|6H|4Lcone,0.0,,None,None,,,0.0,0.0,0.0,0.0,4.0,
-347,Nikhil,qm80,blue,1,179,true,,1.0,true,None,None,,1M|4M|6M|7H|8Lcone|9M|9H,0.0,,Engage,Engage,,,false,false,0.0,0.0,5.0,
-348,alexander,qm80,red,3,8717,true,8H,0.0,true,None,None,,9Lcube|8Lcube,1.0,,Engage,None,,,false,true,0.0,0.0,2.0,
-349,Arav,qm80,blue,2,4099,true,1H,1.0,false,None,None,,2M|2H|3H|5Lcube|5M|7Lcube|8Lcube|8M|8H,0.0,,Engage,Engage,2,,false,false,0.0,0.0,5.0,
-350,Amogh,qm80,blue,3,4099,true,1H,0.0,true,None,,,2M|2H|3Lcube|3H|4Lcube|5Lcube|7Lcube|8M|8H,0.0,,None,,,,false,false,0.0,0.0,0.0,
-351,Aran,qm80,red,1,177,true,2Lcone,2.0,true,None,None,,6Lcube|6M|4M|4H|2H|1H,0.0,,Engage,Engage,,,false,false,0.0,0.0,0.0,
-352,Blen,qm80,red,2,1816,true,6H,0.0,true,Engage,,,7M|7H|6M|5H|4H,0.0,takes a while to align cone ,Engage,Park,,,false,false,0.0,0.0,0.0,
-353,Arav,qm81,blue,2,3184,true,1H,1.0,true,None,None,,1M|2M|2H|3M|3H|4H,0.0,,Engage,Park,,,false,true,0.0,0.0,4.0,
-354,Nikhil ,qm81,blue,1,8592,true,6H,0.0,false,Engage,Engage,,5Lcube|5H|7M|7H|8H|9M|9M,0.0,,Engage,None,,,false,false,0.0,0.0,3.0,
-355,Blen,qm81,red,2,9140,true,5H,0.0,true,Engage,Engage,,9M|8M|7M|6M,0.0,,Engage,Engage,,,false,false,0.0,0.0,0.0,
-356,alexander,qm81,red,3,6817,true,8H,0.0,true,None,None,Slow,,0.0,,Engage,Engage,,Double Engage,false,true,100.0,1.0,1.0,
-357,Amogh,qm81,blue,3,6431,true,2Lcube,0.0,true,None,None,,,0.0,,None,None,,,false,false,60.0,2.0,2.0,
-358,Aran,qm81,red,1,4909,true,1Lcube|1H,0.0,true,None,None,,5H|4M|4H|3M|3H|2M|2H|1M,0.0,,None,Park,,,false,false,0.0,0.0,0.0,
-359,Amogh,qm82,blue,3,9030,false,8H,0.0,true,None,,,2Lcube|5Lcube|6Lcube,0.0,,Engage,Engage,,,false,false,0.0,0.0,0.0,
-360,Aran,qm82,red,1,9126,true,1H,0.0,true,None,None,,5Lcube|5M|2M|1Lcube,1.0,,Engage,Engage,,,false,false,0.0,0.0,0.0,
-361,Arav,qm82,blue,2,8015,true,,1.0,true,None,None,,1Lcube|3Lcone|5Lcone|6Lcone,0.0,,Engage,Engage,7,,false,true,0.0,0.0,0.0,
-362,Nikhil,qm82,blue,1,5135,true,2H,0.0,false,Engage,Engage,,7Lcone|9Lcone,0.0,,Engage,Engage,,,false,false,0.0,0.0,2.0,
-363,alexander,qm82,red,3,9023,false,,0.0,false,None,None,,,0.0,,None,,,,false,false,0.0,0.0,0.0,Robot was not on the field
-364,Blen,qm82,red,2,5172,true,5Lcube,0.0,false,None,,,6M|6H|4M|3M,1.0,struggles with realigning cones to place on high nodes ,None,Park,,,false,false,0.0,0.0,0.0,
-365,Nikhil,qm83,blue,1,9062,true,5Lcone,0.0,false,None,None,,,0.0,Didn't play much this round tried helping teammate 195 back up and radio lost connection ,None,None,,,true,false,0.0,0.0,1.0,
-366,Arav,qm83,blue,2,195,true,5H|9H,0.0,true,Engage,None,,,0.0,Tipped,None,None,,,false,true,0.0,0.0,2.0,
-367,Aran,qm83,red,1,4905,true,2M|2H,0.0,true,None,None,,6H|4H|3Lcone|3H|1H,0.0,,Engage,Dock,,,false,false,0.0,0.0,4.0,
-368,alexander,qm83,red,3,1836,true,9Lcube|8Lcube,0.0,true,None,None,,7Lcube|6Lcube|5Lcube|4Lcube|2Lcube,0.0,,Engage,None,,,false,false,0.0,0.0,2.0,Disabled 195
-369,Blen,qm83,red,2,1466,true,5H,0.0,true,Engage,Engage,,6M|5M|4M|3M|1Lcone|1M,0.0,,None,Park,,,false,false,0.0,0.0,0.0,
-370,Amogh,83,blue,3,4069,true,1H|2H,0.0,true,None,None,,3H|4H|5H|6H|7H,0.0,,None,,,,false,false,0.0,0.0,0.0,
+216,Joshua,qm51,blue,3,3940,true,5H,0.0,1.0,Engage,Engage,,1Lcone|2Lcube|2H|3Lcube|3H|4H,0.0,Good driving and prioritizing cycle rate over slowing enemy team as they recognized it wasnt worth it,Engage,Engage,12,Triple dock,0.0,0.0,60.0,4.0,4.0,Valid opportunistic defense incorporation 
+217,Nicole,qm52,blue,2,4522,true,8M|8H|9H,0.0,1.0,None,,,1H|3M|3H|4H|6H|7M|9M,1.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,5.0,
+218,Eckart,qm52,blue,1,7072,true,5M,0.0,1.0,Engage,Engage,,,0.0,Defense only,Engage,Engage,5.7,,0.0,0.0,100.0,2.0,0.0,No fouls but can't cause any change in cycle times
+219,paul,qm52,blue,3,7428,true,8H,0.0,0.0,None,,,4M|5H|6M,0.0,issues at double substation ,None,Park,,,0.0,0.0,0.0,0.0,2.0,
+220,darren,qm52,red,3,955,true,9H|8H,0.0,1.0,None,,,9M|8M|7M|7H|6Lcone|4Lcube|1Lcone,0.0,better high than middle,Engage,Engage,,,0.0,0.0,0.0,0.0,2.0,
+221,Agneya,qm52,red,2,3538,true,2H|1H,0.0,1.0,None,None,,6M|6H|5M|4Lcube|4M|4H|2M,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,5.0,
+222,aarav,qm52,red,1,5665,true,5H,0.0,1.0,Engage,Engage,,5H|5H|3H,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,4.0,
+223,Nicole,qm53,blue,2,4143,true,6Lcube,0.0,1.0,None,,I def missed something from auto,4Lcone|4H|5Lcone|5M|6M|6H|7M|9Lcube,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,4.0,
+224,Eckart,qm53,blue,1,4944,true,6H,0.0,1.0,Engage,Engage,,6Lcube|7H|8Lcone|8M|9Lcube|9M,4.0,,Engage,Engage,4.3,,0.0,0.0,0.0,0.0,5.0,
+225,paul,qm53,blue,3,8592,true,2H|3H,0.0,0.0,None,,,1M|1H|2Lcube|4M|5H|6M,0.0,,None,,,,0.0,0.0,0.0,0.0,5.0,
+226,aarav,qm53,red,1,179,false,,0.0,0.0,None,,,6M|6H|4H|3H|1H,1.0,,Engage,Park,,,0.0,0.0,0.0,0.0,5.0,fast dt| scoring takes a bit to align 
+227,Agneya,qm53,red,2,8808,true,8H,0.0,1.0,None,None,,8M|8H|2M,0.0,very slow robot,Engage,Park,,,0.0,0.0,0.0,0.0,0.0,
+228,paul,qm54,blue,3,5338,true,9H,0.0,1.0,None,,,1H|3H|4H|6H|7H,0.0,,Engage,Engage,3,,0.0,0.0,0.0,0.0,0.0,
+229,Nicole,qm54,blue,2,8847,false,2Lcube|3Lcube|5Lcube|7Lcube|8Lcube|9Lcube,0.0,1.0,Engage,Engage,,2Lcube|3Lcube|4Lcube|6Lcube|7Lcube|8Lcube|9Lcube,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,4.0,
+230,Eckart,qm54,blue,1,9126,true,,0.0,0.0,None,None,Nothing happened ,2M|2H|5H|7Lcube|8H,0.0,,Engage,Engage,8,,0.0,0.0,0.0,0.0,4.0,
+231,Agneya,qm54,red,2,503,true,2M|2H,0.0,1.0,None,None,,8H|3M|1Lcone|1H,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,4.0,
+232,aarav,qm54,red,1,1757,true,4H,0.0,1.0,Engage,None,,5H|4H|3H|1M|1M|1H,0.0,got disabled after hitting double sub hard,None,,,,0.0,0.0,0.0,0.0,5.0,
+233,darren,qm54,red,3,6431,true,,0.0,1.0,None,,nothing scored,,0.0,got stuck essentially disabled the entire game,None,,,,0.0,0.0,0.0,0.0,1.0,
+234,Eckart,qm55,blue,1,9030,true,8H,0.0,1.0,None,None,,2M|2H|8M,1.0,,Engage,Park,5.4,,0.0,0.0,0.0,0.0,0.0,
+235,darren,qm55,red,3,6909,true,,0.0,1.0,None,,didnt drop because gripper missed,9Lcube|9M|7Lcone|7M,1.0,,None,Park,,,0.0,0.0,0.0,0.0,1.0,
+236,Eckart,qm56,blue,1,3932,true,,1.0,1.0,Engage,Engage,,5Lcone|7Lcone|7H|8Lcube|8H|9Lcone|9H,0.0,,None,Park,,Had no need to engage,0.0,0.0,0.0,0.0,4.0,
+237,darren,qm56,red,3,6606,true,,1.0,1.0,None,,,,0.0,did pretty much nothing,Engage,Engage,,,0.0,0.0,0.0,0.0,1.0,do not pick
+238,Eckart,qm57,blue,1,9023,true,1M,0.0,1.0,None,None,,1Lcube|2M|3M|3H|4Lcube,0.0,Struggles intaking cones from double sub,Engage,Dock,2.2,,0.0,0.0,0.0,0.0,0.0,
+239,darren,qm57,red,3,5804,true,9Lcone|9H,0.0,1.0,None,,,9M|8Lcube|8M|8H|7Lcube|7H|6H|5H|4Lcube,2.0,,None,Park,,,0.0,0.0,0.0,0.0,4.0,
+240,Eckart,qm58,blue,1,1468,true,5H,0.0,1.0,Engage,None,,4Lcone|5Lcone|6M|6H|7M|8M|9M,0.0,,Engage,Engage,6,,0.0,0.0,0.0,0.0,5.0,
+241,darren,qm58,red,3,1501,true,2H|1H,0.0,1.0,None,,,9M|9H|8Lcone|7H|3H,0.0,,Engage,Dock,,,0.0,0.0,0.0,0.0,0.0,
+242,Olivia,qm59,blue,1,494,true,1H|2H,0.0,1.0,None,,,1Lcone|3H|6Lcone|7Lcone|9Lcone|9M|9H,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,5.0,
+243,Eckart,qm59,blue,3,3184,true,8H,0.0,1.0,None,None,Picked up a cube but missed one,1M|2Lcone|2M|3Lcone|3M|7M|7H,1.0,Seems like PID issues,None,Park,,No point in engaging ,0.0,0.0,0.0,0.0,0.0,
+244,Adrian,qm59,red,2,4145,true,9Lcone,1.0,1.0,None,,,,0.0,,Engage,Engage,3.2,,0.0,0.0,0.0,0.0,2.0,Claw broke so they did basically nothing
+245,Blen,qm59,red,1,4419,true,6H,0.0,0.0,None,,,5H|4H|3Lcone|3M|2M|2M|1H,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,0.0,paused for a while when placing cone on high node then missed it 
+246,Owen,qm6,blue,2,955,true,2H,0.0,0.0,None,,,3H|4H|5Lcone|5M|5H|8Lcone,0.0,,Engage,Dock,,,0.0,0.0,0.0,0.0,0.0,
+247,Joshua,qm6,blue,3,2642,false,7H,1.0,1.0,None,,Attempted double but didnt collect second.,1H|2H|3H|7H|8H,0.0,Solid opportunistic defense| overshot loading station a couple times,Engage,Engage,8,,0.0,0.0,40.0,4.0,4.0,very good opportunistic defense| I approve
+248,Suzy,qm6,blue,1,6606,false,,0.0,1.0,None,,,8M,1.0,,None,None,,,0.0,1.0,0.0,0.0,2.0,Very tall and tippy tank very slow cycles
+249,Arav,qm6,red,3,3572,true,7Lcube,0.0,1.0,None,None,,9H|8H|7H|6M,1.0,,Engage,Engage,4,,0.0,0.0,0.0,0.0,4.0,
+250,Aran,qm6,red,1,4143,true,2M|2H|1H,0.0,0.0,None,,,6H|4H|3M|3H|2Lcube|1Lcone|1M,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,5.0,
+251,Amogh,qm6,red,2,5274,false,5H,0.0,1.0,Engage,Engage,,9H|6M|3M|3H|1M,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,4.0,
+252,Eckart,qm60,blue,3,3478,false,1H,0.0,0.0,None,None,Didn't go over protector,1M|2M|2H|3Lcone|3M|3H,0.0,,Engage,Engage,5.0,,0.0,0.0,0.0,0.0,0.0,
+253,Olivia,qm60,blue,1,5172,true,,1.0,0.0,Engage,Engage,,8H,0.0,,Engage,Dock,,,0.0,0.0,100.0,4.0,3.0,
+254,Blen,qm60,red,1,900,true,1H,0.0,1.0,None,,,3Lcone|3H|2Lcube|2M|2H|1Lcube,1.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,4.0,
+255,Adrian,qm60,red,2,2992,true,9H|8H,0.0,1.0,None,,,7Lcone|7H|6H|4M|4H|3M|1M,0.0,,Engage,Engage,4.9,,0.0,0.0,0.0,0.0,4.0,
+256,Olivia,qm61,blue,1,955,true,9H,0.0,1.0,None,,tried to get a second piece ,1H|3H|4H|6H|7H|8H,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,4.0,
+257,Eckart,qm61,blue,3,1156,false,5Lcone,0.0,1.0,Engage,Engage,,1Lcube|2M|2H|5H,2.0,,None,Engage,5,,0.0,0.0,0.0,0.0,3.0,
+258,Blen,qm61,red,1,1629,true,8H,0.0,1.0,None,,started spinning uncontrollably ,6H|4H,0.0,struggles to pick up cones from double sub ,Engage,Engage,,,0.0,0.0,0.0,0.0,2.0,started going very slow and staggered at beginning of tele op 
+259,Adrian,qm61,red,2,4112,true,1H,0.0,1.0,None,,,3Lcube|3H,0.0,,None,None,,,0.0,0.0,60.0,2.0,0.0,Intake broke
+260,Joshua and Joshua,qm68,blue,3,2992,true,8H|9H,0.0,1.0,None,, | ,1Lcone|2Lcone|3Lcone|3H|7Lcone|7H,3.0,Solid driving and avoiding defense| but very tippy robot wasted a lot of time Highly unreliable scoring methods| intake fails wasted a lot of time | Solid driving and avoiding defense| but very tippy robot wasted a lot of time Highly unreliable scoring methods| intake fails wasted a lot of time,Engage,Engage,,Engage attempt at 10s | Engage attempt at 10s,0.0,1.0,0.0,0.0,4.0,Good swerving but poor scoring reliability| intake from station is unreliable  | Good swerving but poor scoring reliability| intake from station is unreliable 
+261,Suzy,qm68,blue,1,5665,true,2H,0.0,1.0,None,,,,0.0,,Engage,Engage,19,,0.0,0.0,100.0,3.0,0.0,
+262,Owen,qm68,blue,2,9023,true,5M,0.0,0.0,None,,,7Lcube|8Lcube|9Lcube,0.0,,Engage,Dock,,,0.0,0.0,20.0,1.0,1.0,
+263,Shashwat,qm68,red,3,3039,false,9H,2.0,1.0,None,None,,9M|8Lcube|8H|7M|7H|6Lcube|6M|6H|5Lcube|5M,0.0,,Engage,None,,,0.0,0.0,0.0,0.0,4.0,
+264,Chris,qm68,red,1,3184,true,5H,1.0,1.0,Engage,Engage,,4M|4H|3H|2H|1H,0.0,,Engage,None,,,0.0,0.0,0.0,0.0,0.0,
+265,sarah,qm68,red,2,6606,true,,0.0,1.0,None,None,,2Lcube,0.0,,Engage,Dock,5,,0.0,0.0,0.0,0.0,1.0,end effector broke and looked like had trouble driving
+266,Owen,qm69,blue,2,1156,true,,1.0,0.0,Engage,Dock,,1Lcone|2M|3M|4M|5M|5H,0.0,,Engage,Dock,,,0.0,0.0,20.0,1.0,4.0,
+267,Joshua ,qm69,blue,3,3940,false,2H,0.0,1.0,None,,,1H|3H|4H|6H|7H|9H,0.0,Very bulky tank driving but respectable cycle rate,Engage,Engage,3,,0.0,1.0,0.0,0.0,4.0,Good driving and avoiding defense for a tank driveBy using a swerve they could cycle much faster 
+268,Suzy,qm69,blue,1,4329,true,,1.0,1.0,None,None,,1M|7Lcube|7M|8Lcone|8M|8H|9Lcube|9M,1.0,,None,None,,,0.0,0.0,0.0,0.0,4.0,Intake is slow
+269,Chris,qm69,red,1,1123,true,9Lcone|8M|8H,0.0,1.0,None,,,3Lcone|3H|2Lcone|1Lcone|1H,0.0,,Engage,Dock,,,0.0,0.0,0.0,0.0,0.0,
+270,Shashwat,qm69,red,3,7428,false,2H,0.0,0.0,None,None,,9M|7M|6M|4M,0.0,,Engage,None,,,0.0,0.0,0.0,0.0,0.0,
+271,sarah,qm69,red,2,8717,true,5H,0.0,0.0,Engage,None,slid off,5M|4Lcube|2M|1M|1M,0.0,,Engage,Park,,,0.0,1.0,0.0,0.0,2.0,
+272,Owen,qm7,blue,2,177,false,2M|9M|9M,0.0,0.0,None,,,1Lcone|2Lcube|3H|4H|6H|7M|7H|8M|9M,0.0,,Engage,Dock,,,0.0,0.0,20.0,1.0,5.0,
+273,Joshua,qm7,blue,3,3767,true,5H,0.0,0.0,Engage,Engage,Careful engage ,1H|3H|5M|7H,0.0,Slow tippy driving| vulnerable to defenseGood use of air traffic control sticks to efficiently do collection from station,Engage,Engage,5,,0.0,1.0,20.0,1.0,4.0,
+274,Suzy,qm7,blue,1,5665,true,8H,0.0,1.0,None,None,,9Lcone,2.0,,None,None,,,0.0,1.0,0.0,0.0,0.0,Tipped over
+275,Aran and Aran,qm7,red,1,11,true,8H|7H,0.0,1.0,None,None, | ,9H|4H,0.0,Disabled mid match  | Disabled mid match ,None,None,, | ,1.0,0.0,0.0,0.0,4.0, | 
+276,Amogh,qm7,red,2,1466,true,5H,0.0,0.0,Engage,Engage,,9M|9H|8H|6Lcone|5M|4Lcone,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,2.0,
+277,Arav and Arav,qm7,red,3,8015,false,2Lcone,0.0,1.0,None,None, | ,1Lcube,0.0, | ,Engage,Engage,, | ,1.0,0.0,0.0,0.0,2.0, | 
+278,Suzy,qm70,blue,1,4112,false,1Lcone,0.0,0.0,None,None,,,0.0,,Engage,Engage,,,1.0,0.0,0.0,0.0,3.0,Battery issues and disable
+279,Joshua,qm70,blue,3,5172,true,5Lcube,0.0,0.0,Engage,Engage,,3H|4H,0.0,Intake broke down switched to defense ,Engage,Engage,10,,0.0,0.0,80.0,5.0,5.0,Good driving and would be a good teammate to have for defense In picklist
+280,Owen,qm70,blue,2,8808,true,,1.0,0.0,None,,,2Lcube|2M|5M|8M,1.0,,Engage,Dock,,,0.0,0.0,0.0,0.0,1.0,
+281,Chris,qm70,red,1,857,true,7H|6Lcube,1.0,0.0,None,,,6M|3M|3H|1M|1H,0.0,,Engage,None,,,1.0,0.0,0.0,0.0,0.0,
+282,Shashwat,qm70,red,3,2960,false,5H,0.0,1.0,Engage,Engage,,8H|7H|6H|4M|4H|2H,0.0,,Engage,Park,,Another robot disabled on charge station which is why they couldnt engage,0.0,0.0,0.0,0.0,0.0,
+283,sarah,qm70,red,2,6817,true,,0.0,0.0,None,None,,2M,0.0,,None,,,,0.0,1.0,100.0,1.0,1.0,they just got pushed around
+284,Owen,qm71,blue,2,955,true,,2.0,0.0,None,,,3H|4H|5H,0.0,,Engage,Dock,,,0.0,1.0,0.0,0.0,1.0,
+285,Suzy,qm71,blue,1,8847,true,,0.0,0.0,None,,,1Lcube|2Lcube|3Lcube|4Lcube|8Lcube,0.0,,Engage,Engage,,,0.0,0.0,20.0,2.0,0.0,Intakes electrical broke
+286,Joshua,qm71,blue,3,9084,true,6H,0.0,1.0,Engage,Engage,Impressive auto ,1Lcube|1M|1H|2M|2H|3Lcone|3H,1.0,Good driving and opportunistic defense ,None,,,Did not help w endgame,0.0,0.0,60.0,4.0,4.0,Good team overall 
+287,Chris,qm71,red,1,1816,false,6H,0.0,1.0,Engage,Engage,,4Lcone|3M|3H|2M|2H|1M,0.0,,Engage,Engage,2,,0.0,1.0,0.0,0.0,0.0,
+288,sarah,qm71,red,2,3478,true,1H,0.0,1.0,None,,,6M|5M|5H|4M|4H,1.0,,Engage,Engage,4,,0.0,0.0,0.0,0.0,3.0,
+289,Shashwat,qm71,red,3,5553,true,9Lcube,0.0,1.0,None,None,,9H|7H,0.0,,None,None,,,1.0,0.0,0.0,0.0,3.0,
+290,Suzy,qm72,blue,1,4069,true,2H,1.0,0.0,None,None,,6Lcone|7M|8M|8H|9Lcone|9M,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,0.0,
+291,Owen,qm72,blue,2,4099,true,9H,0.0,0.0,None,,,2Lcone|6H|7H,1.0,,None,,,,0.0,0.0,80.0,4.0,0.0,
+292,Joshua,qm72,blue,3,4909,true,5H,0.0,1.0,Engage,Engage,,1Lcube|1M|1H|2Lcube|2M|3M|3H|4Lcube,0.0,,Engage,Engage,5,,0.0,0.0,20.0,3.0,4.0,Good driving 
+293,sarah,qm72,red,2,1538,true,9H|8Lcone|8H,0.0,1.0,None,None,,8H|7Lcone|7M|7H|6H|4H,1.0,,Engage,Engage,6,,0.0,0.0,0.0,0.0,5.0,
+294,Chris,qm72,red,1,4522,true,,0.0,0.0,None,,,4M|3M|3H|2H|1M|1H,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,0.0,
+295,Shashwat,qm72,red,3,9030,true,,0.0,0.0,None,None,,5H,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,0.0,
+296,Owen,qm73,blue,2,5135,true,2H,0.0,0.0,None,,,1H|2Lcone|3H|4H|6H|7H|9H,0.0,,None,,,,0.0,0.0,0.0,0.0,4.0,
+297,Suzy,qm73,blue,1,8016,false,8H,0.0,1.0,None,None,,1M|2M|3M|5H,0.0,,Engage,Dock,,,0.0,0.0,0.0,0.0,0.0,
+298,Rachel,qm73,red,2,2642,true,8H|7H,0.0,1.0,None,None,,9M|9H|8M|7Lcone|7M|6M,0.0,,None,Dock,,,0.0,0.0,0.0,0.0,0.0,
+299,Shashwat,qm73,red,3,3932,false,6H,0.0,1.0,None,None,,5Lcube|4Lcube|4H|3M,0.0,,Engage,None,,,0.0,0.0,0.0,0.0,0.0,
+300,Chris,qm73,red,1,8592,true,3H|2H,0.0,1.0,None,,,6H|5M|5H|3M|2M|1Lcone|1M|1M|1H,1.0,,Engage,None,,,0.0,0.0,0.0,0.0,0.0,
+301,Suzy,qm74,blue,1,1501,true,1H|2M,0.0,1.0,None,None,,6M|7H|8Lcube|9M|9H,0.0,,None,None,,,0.0,0.0,0.0,0.0,4.0,
+302,Owen,qm74,blue,2,4905,true,,1.0,0.0,None,,,4M|6Lcube|6M|8M|8H,0.0,,Engage,Dock,,,0.0,0.0,20.0,2.0,0.0,
+303,Joshua,qm74,blue,3,5804,true,4H,0.0,1.0,Engage,Engage,,1M|2M|2H|3H|4Lcube|5H|6M|6H,0.0,Avoids charge station whileCycling ,Engage,Engage,6,,0.0,0.0,0.0,0.0,5.0,Completely avoids defense 
+304,Shashwat,qm74,red,3,1466,true,5H,0.0,1.0,Engage,Engage,,8M|6Lcube|6M|6H,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,0.0,
+305,Chris,qm74,red,1,1746,false,2H|1Lcube,0.0,1.0,None,,,6H|4H|3Lcone|3M|3H|2M|1M|1H,0.0,,Engage,Engage,5,,0.0,0.0,0.0,0.0,0.0,
+306,sarah,qm74,red,2,6909,true,,0.0,1.0,None,,,5Lcube|2Lcube,0.0,,None,Park,,,0.0,0.0,0.0,0.0,1.0,
+307,Owen,qm75,blue,2,4145,true,1H,0.0,0.0,None,,,2H|4H|5H|6H|7H|9H,0.0,,Engage,Dock,,,0.0,0.0,20.0,1.0,4.0,
+308,Suzy,qm75,blue,1,5274,true,5Lcube,0.0,0.0,Engage,Engage,,4M|7M|8H|9M,0.0,,Engage,Engage,12,,0.0,0.0,0.0,0.0,4.0,
+309,Joshua,qm75,blue,3,7285,true,8M,0.0,1.0,None,,,1M|2M|3M|3H|4M,0.0,Good cycling speed paired with opportunistic defense on the lighter side,Engage,Engage,5,,0.0,0.0,40.0,4.0,5.0,Very efficient Prioritized cycling speed 
+310,Shashwat,qm75,red,3,195,false,9Lcube|8M,1.0,1.0,None,None,,9M|9H|8H|7M|7H|6M|6H|5M|3M,0.0,,Engage,None,,,0.0,0.0,0.0,0.0,0.0,
+311,sarah,qm75,red,2,3767,true,5H,0.0,1.0,Engage,Engage,,4Lcone|4M|4H|3H|2M|1M,0.0,,Engage,Park,,,0.0,0.0,0.0,0.0,0.0,
+312,Chris,qm75,red,1,5338,true,1H,0.0,1.0,None,,,8H,0.0,,Engage,Dock,,,0.0,0.0,80.0,2.0,0.0,
+313,Nikhil,qm76,blue,1,900,true,1H,0.0,1.0,None,,,5M|7Lcone|7H|8H|9M|9M,0.0,,None,Park,,,0.0,0.0,0.0,0.0,3.0,
+314,Arav,qm76,blue,2,1468,true,9M|9H,0.0,1.0,None,None,,2Lcone|4M|5M|5H|6H,1.0,,Engage,Engage,6,,0.0,0.0,0.0,0.0,4.0,
+315,Amogh,qm76,blue,3,3003,false,3H,0.0,1.0,Engage,Engage,,1M|2H|3M|3H|4H,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,2.0,
+316,Blen,qm76,red,2,1023,true,2M|1M,0.0,1.0,None,,,9Lcube|9M|8Lcube|7M|6Lcube|6M|3M,0.0,quick when intaking from double substation ,Engage,Dock,,,0.0,0.0,0.0,0.0,5.0,good at maneuvering through robots and overall fast 
+317,Aran,qm76,red,1,4419,true,4H,0.0,1.0,Engage,Dock,,5M|3H|2H|1H,0.0,,None,Park,,,0.0,0.0,0.0,0.0,0.0,
+318,alexander,qm76,red,3,5990,true,9H|8H,0.0,1.0,None,None,,8M|7H|6Lcube|6H|5Lcube|5H|3Lcone,0.0,,Engage,Dock,,,0.0,0.0,0.0,0.0,4.0,
+319,Amogh,qm77,blue,3,11,true,4H,0.0,1.0,Engage,Dock,,1Lcube|1M|1H|3M|3H|5M|5H,0.0,,None,None,,,0.0,0.0,0.0,0.0,4.0,
+320,Nikhil,qm77,blue,1,1629,true,2H,0.0,1.0,None,None,,3M|4M|4H|6M|7H|8M,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,4.0,
+321,Arav,qm77,blue,2,5006,true,9H,0.0,1.0,None,None,,2Lcube|2M|4Lcube|5H|9M,0.0,,Engage,Engage,3,,0.0,1.0,0.0,0.0,0.0,
+322,alexander,qm77,red,3,3572,true,,2.0,1.0,None,None,,9M|9H|7M|7H,0.0,,Engage,Engage,,Double Engage,0.0,0.0,0.0,0.0,2.0,Didnt do too well in the charge station
+323,Aran,qm77,red,1,6657,true,5H,0.0,1.0,Engage,Engage,,5Lcube|4Lcube|3Lcube|2Lcube|2H|1Lcube,0.0,,None,Park,,,0.0,0.0,0.0,0.0,0.0,
+324,Blen,qm77,red,2,7072,true,,1.0,1.0,None,,,8Lcube|6Lcube|5Lcube|5M|4Lcube|2M|1Lcube,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,0.0,
+325,Arav,qm78,blue,2,857,true,1H|2H,1.0,1.0,None,None,,3M|3H|5Lcone|6M|6H,0.0,,Engage,Engage,5,,0.0,0.0,0.0,0.0,4.0,
+326,Amogh,qm78,blue,3,3161,true,8M|9M,0.0,0.0,None,,,1Lcube|1M|2M|5M|5H|8H,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,2.0,
+327,Nikhil,qm78,blue,1,4944,true,4H,0.0,0.0,Engage,Engage,,5Lcube|6Lcone|6M|7H|9M,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,4.0,
+328,Aran,qm78,red,1,3039,false,9H|8H|1M,0.0,1.0,None,None,,5M|3H|2Lcube|2M|1Lcube,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,0.0,
+329,Blen,qm78,red,2,4143,true,4H,0.0,1.0,Engage,Engage,,8Lcube|7Lcube|7M|6M|6H|4M|1H,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,4.0,
+330,alexander,qm78,red,3,4663,true,2H,0.0,1.0,None,None,Slow,9M|8M|7H,0.0,,Engage,Engage,,Triple Engage,0.0,0.0,0.0,0.0,4.0,Pushed into foul by 4944| otherwise was good at driving
+331,Amogh,qm79,blue,3,3218,true,,0.0,0.0,None,,,1Lcube|2Lcube|2H|3Lcube|3H,1.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,4.0,
+332,Nikhil,qm79,blue,1,4112,true,1H,0.0,1.0,None,None,,7Lcube|7H|8Lcube|9Lcone,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,4.0,
+333,Arav,qm79,blue,2,7428,true,5H,0.0,1.0,Engage,Engage,,2Lcube|5M|6Lcone|8H,0.0,,Engage,Engage,6,,0.0,0.0,0.0,0.0,2.0,
+334,Aran,qm79,red,1,494,true,9H|8Lcube,0.0,1.0,None,None,,5M|3Lcube|3H|2M|1M|1H,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,0.0,
+335,alexander,qm79,red,3,503,true,2H|1Lcube,0.0,1.0,None,None,,9Lcube|9M|8M|8H|7M|7H|6Lcube,0.0,,Engage,Engage,,Triple Engage,0.0,0.0,0.0,0.0,4.0,
+336,Blen,qm79,red,2,3478,true,4H,0.0,1.0,Engage,Engage,,6M|6H|5Lcone|5M|5H,1.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,4.0,
+337,Nikhil ,qm8,blue,1,2960,true,5H,0.0,0.0,Engage,Engage,,1Lcone|1H|4H|6H|7H|9M|9M,1.0,,Engage,Engage,3,,0.0,0.0,0.0,0.0,4.0,
+338,Shashwat ,qm8,blue,2,6431,true,,0.0,0.0,None,None,Crossed centerline,,0.0,Intake broken,None,Park,,,0.0,0.0,0.0,0.0,2.0,
+339,sarah,qm8,blue,3,8016,true,2H,0.0,0.0,None,None,,1M|2Lcube|2M|3M,0.0,,Engage,,9,,0.0,0.0,0.0,0.0,2.0,
+340,Sydney,qm8,red,1,3218,true,4Lcube|1H,0.0,1.0,None,None,,5M|5H|4M|4H|3H|2H,0.0,,Engage,Engage,5,,0.0,0.0,0.0,0.0,4.0,
+341,Blen,qm8,red,2,4419,true,9H|6Lcube,0.0,1.0,None,,,|8Lcube|8H|7H|6H|3Lcube|1Lcube,0.0,,Engage,Engage,4,,0.0,0.0,0.0,0.0,0.0,deflated a cube 
+342,alexander,qm8,red,3,7072,true,,1.0,1.0,Engage,Dock,,9Lcube|6Lcube|5Lcube,0.0,,Engage,Engage,,Triple Engage,0.0,0.0,20.0,3.0,2.0,
+343,Nikhil,qm80,blue,1,179,true,,1.0,1.0,None,None,,1M|4M|6M|7H|8Lcone|9M|9H,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,5.0,
+344,Arav and Amogh,qm80,blue,2,4099,true,1H,0.5,0.0,None,None, | ,2M|2H|3H|5Lcube|5M|7Lcube|8Lcube|8M|8H,0.0, | ,Engage,Engage,, | ,0.0,0.0,0.0,0.0,2.5, | 
+345,Aran,qm80,red,1,177,true,2Lcone,2.0,1.0,None,None,,6Lcube|6M|4M|4H|2H|1H,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,0.0,
+346,Blen,qm80,red,2,1816,true,6H,0.0,1.0,Engage,,,7M|7H|6M|5H|4H,0.0,takes a while to align cone ,Engage,Park,,,0.0,0.0,0.0,0.0,0.0,
+347,alexander,qm80,red,3,8717,true,8H,0.0,1.0,None,None,,9Lcube|8Lcube,1.0,,Engage,None,,,0.0,1.0,0.0,0.0,2.0,
+348,Arav,qm81,blue,2,3184,true,1H,1.0,1.0,None,None,,1M|2M|2H|3M|3H|4H,0.0,,Engage,Park,,,0.0,1.0,0.0,0.0,4.0,
+349,Amogh,qm81,blue,3,6431,true,2Lcube,0.0,1.0,None,None,,,0.0,,None,None,,,0.0,0.0,60.0,2.0,2.0,
+350,Nikhil ,qm81,blue,1,8592,true,6H,0.0,0.0,Engage,Engage,,5Lcube|5H|7M|7H|8H|9M|9M,0.0,,Engage,None,,,0.0,0.0,0.0,0.0,3.0,
+351,Aran,qm81,red,1,4909,true,1Lcube|1H,0.0,1.0,None,None,,5H|4M|4H|3M|3H|2M|2H|1M,0.0,,None,Park,,,0.0,0.0,0.0,0.0,0.0,
+352,alexander,qm81,red,3,6817,true,8H,0.0,1.0,None,None,Slow,,0.0,,Engage,Engage,,Double Engage,0.0,1.0,100.0,1.0,1.0,
+353,Blen,qm81,red,2,9140,true,5H,0.0,1.0,Engage,Engage,,9M|8M|7M|6M,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,0.0,
+354,Nikhil,qm82,blue,1,5135,true,2H,0.0,0.0,Engage,Engage,,7Lcone|9Lcone,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,2.0,
+355,Arav,qm82,blue,2,8015,true,,1.0,1.0,None,None,,1Lcube|3Lcone|5Lcone|6Lcone,0.0,,Engage,Engage,7,,0.0,1.0,0.0,0.0,0.0,
+356,Amogh,qm82,blue,3,9030,false,8H,0.0,1.0,None,,,2Lcube|5Lcube|6Lcube,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,0.0,
+357,Blen,qm82,red,2,5172,true,5Lcube,0.0,0.0,None,,,6M|6H|4M|3M,1.0,struggles with realigning cones to place on high nodes ,None,Park,,,0.0,0.0,0.0,0.0,0.0,
+358,alexander,qm82,red,3,9023,false,,0.0,0.0,None,None,,,0.0,,None,,,,0.0,0.0,0.0,0.0,0.0,Robot was not on the field
+359,Aran,qm82,red,1,9126,true,1H,0.0,1.0,None,None,,5Lcube|5M|2M|1Lcube,1.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,0.0,
+360,Arav,qm83,blue,2,195,true,5H|9H,0.0,1.0,Engage,None,,,0.0,Tipped,None,None,,,0.0,1.0,0.0,0.0,2.0,
+361,Amogh,qm83,blue,3,4069,true,1H|2H,0.0,1.0,None,None,,3H|4H|5H|6H|7H,0.0,,None,,,,0.0,0.0,0.0,0.0,0.0,
+362,Nikhil,qm83,blue,1,9062,true,5Lcone,0.0,0.0,None,None,,,0.0,Didn't play much this round tried helping teammate 195 back up and radio lost connection ,None,None,,,1.0,0.0,0.0,0.0,1.0,
+363,Blen,qm83,red,2,1466,true,5H,0.0,1.0,Engage,Engage,,6M|5M|4M|3M|1Lcone|1M,0.0,,None,Park,,,0.0,0.0,0.0,0.0,0.0,
+364,alexander,qm83,red,3,1836,true,9Lcube|8Lcube,0.0,1.0,None,None,,7Lcube|6Lcube|5Lcube|4Lcube|2Lcube,0.0,,Engage,None,,,0.0,0.0,0.0,0.0,2.0,Disabled 195
+365,Aran,qm83,red,1,4905,true,2M|2H,0.0,1.0,None,None,,6H|4H|3Lcone|3H|1H,0.0,,Engage,Dock,,,0.0,0.0,0.0,0.0,4.0,
+366,Joshua,qm84,blue,2,3538,true,1Lcone|2Lcube|5M,0.0,1.0,None,,,1M|1H|3H|4H|5H|6M|6H|7M|7H,0.0,,Engage,Engage,5,Double engage ,0.0,0.0,0.0,0.0,5.0,Needs space to cycle quickly
+367,paul,qm84,blue,3,8016,true,8H,0.0,1.0,None,,,1M|2Lcone|2H|3M,0.0,,Engage,Engage,3,,0.0,0.0,0.0,0.0,2.0,
+368,darren,qm84,red,3,900,true,1Lcone,1.0,1.0,None,,1 cone aimed for high and missed,9Lcube|9H|8Lcube|7Lcone|7H|6Lcone|3Lcube,1.0,1 cone high missed,Engage,Engage,,,0.0,0.0,0.0,0.0,4.0,
+369,Blen,qm84,red,1,3940,true,8H,0.0,1.0,None,,,3H|2H|1Lcone|1H,1.0,cubes and cones fell out of intake arm,Engage,Engage,,their intake  dropped game pieces multiple times ,0.0,0.0,0.0,0.0,0.0,
+370,Adrian,qm84,red,2,9084,true,6H,0.0,1.0,Engage,Engage,,6M|5Lcube|5M|5H|4Lcube|4M|4H,0.0,,Engage,Engage,3.9,,0.0,0.0,0.0,0.0,5.0,
+371,Shashwat,qm9,blue,2,1836,false,1Lcube,1.0,1.0,None,None,,2Lcube|3Lcube|4Lcube|5Lcube|6Lcube|7Lcube|8Lcube,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,3.0,
+372,Nikhil,qm9,blue,1,4522,true,8Lcube|9Lcone,2.0,1.0,None,,,1H|3H|4M|4H|6H|7H,0.0,,Engage,Engage,,,0.0,0.0,0.0,0.0,3.0,
+373,sarah,qm9,blue,3,5135,true,5H,0.0,1.0,Engage,Engage,,1Lcube|2M|2H|5M|8Lcube|8M|8H,2.0,,Engage,Engage,8,,0.0,0.0,0.0,0.0,0.0,
+374,Sydney,qm9,red,1,1746,true,2H,0.0,1.0,None,None,,5M|4H|3H|2Lcube|2M|1Lcube|1M|1H,0.0,,Engage,Engage,5,,0.0,0.0,0.0,0.0,4.0,
+375,alexander,qm9,red,3,3039,true,9H|8H,0.0,1.0,None,None,,9Lcone|9M|9H|9H|8Lcube|8M|7Lcube|7M|7H|6Lcube|6H|4Lcone,0.0,,None,None,,,0.0,0.0,0.0,0.0,4.0,
+376,Eckart,qm85,blue,1,5338,true,1H,0.0,false,None,None,,3M|6Lcone|6M|7M|9M,0.0,,Engage,Park,,Not enough time to dock,false,false,0.0,0.0,0.0,
+377,Eckart,qm84,blue,1,5274,true,5M,0.0,true,Engage,Engage,,6Lcube|7Lcube|7M|8Lcube|8M|9M,0.0,,None,None,,Easily had time to park but for some reason did not even though space available ,false,false,0.0,0.0,0.0,
+378,paul,qm85,blue,3,6657,true,5H,0.0,true,Engage,Engage,,2M|5M|8M|8H,2.0,,None,,,,false,false,0.0,0.0,0.0,
+379,paul,qm55,blue,3,5553,true,,0.0,false,None,,,1H|3H|4H|5H|6H,0.0,,Engage,Dock,5,,false,false,0.0,0.0,1.0,
+380,Adrian,qm85,red,2,1538,true,8H,0.0,true,None,,,9H|7H|6Lcone|6H|5Lcone|4M|3M|3H|1H,0.0,,None,None,,,false,false,0.0,0.0,5.0,
+381,aarav,qm85,red,1,1156,true,,0.0,true,Engage,Engage,,8M|5M|5H|2Lcube|2M,0.0,,None,None,,,false,false,0.0,0.0,4.0,
+382,Joshua,qm85,blue,2,5990,true,9H,1.0,true,None,,attempted double auto,3H|4H|6H|7H|8H|9M,0.0,Bumps into teammates while traversing field Takes some time to score,Engage,Dock,6,,false,false,20.0,3.0,4.0,Sloppy driving
+383,Agneya,qm85,red,2,1538,true,8H|7H,0.0,true,None,None,,7H|6Lcone|6H|4M|4H|3M|3H|1H,0.0,,None,None,,,false,false,0.0,0.0,5.0,
+384,darren,qm85,red,3,7617,true,1M,0.0,true,None,,failed 1+1,9M|7M|6M|2H,1.0,,Engage,Engage,,,false,false,0.0,0.0,2.0,
