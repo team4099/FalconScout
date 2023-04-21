@@ -624,7 +624,7 @@ class DataValidation2023(BaseDataValidation):
         """
         Validates if the amount of game pieces that were said to have been scored during autonomous are correct w/ TBA.
 
-        :param scouting_data: A Pandas dataframe containing all the submissions scouting-data wise.
+        :param scouting_data: A Pandas dataframe containing all the submissions 2023new_qr_codes wise.
         :return:
         """
         for (match_key, alliance), submissions_by_alliance in scouting_data.groupby(
@@ -683,7 +683,7 @@ class DataValidation2023(BaseDataValidation):
         """
         Validates if the amount of game pieces that were said to have been scored during teleop are correct w/ TBA.
 
-        :param scouting_data: A Pandas dataframe containing all the submissions scouting-data wise.
+        :param scouting_data: A Pandas dataframe containing all the submissions 2023new_qr_codes wise.
         :return:
         """
         for (match_key, alliance), submissions_by_alliance in scouting_data.groupby(
