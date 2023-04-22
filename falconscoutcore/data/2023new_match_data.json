@@ -1,50 +1,5 @@
 [
   {
-    "ScoutId": "paul",
-    "MatchKey": "119",
-    "Alliance": "blue",
-    "DriverStation": 3,
-    "TeamNumber": 177,
-    "Preloaded": "true",
-    "AutoGrid": "1Lcone",
-    "AutoMissed": 0.0,
-    "Mobile": 1.0,
-    "AutoAttemptedCharge": "None",
-    "AutoChargingState": "",
-    "AutoNotes": "",
-    "TeleopGrid": "1H|2Lcube|2M|2H|3H|4H",
-    "TeleopMissed": 0.0,
-    "TeleopNotes": "",
-    "EndgameAttemptedCharge": "Engage",
-    "EndgameFinalCharge": "Engage",
-    "FinalChargeTime": "",
-    "EndgameNotes": "",
-    "Disable": 0.0,
-    "Tippy": 0.0,
-    "DefenseTime": 0.0,
-    "DefenseRating": 0.0,
-    "DriverRating": 4.0,
-    "RatingNotes": "",
-    "scanRaw": "paul||119|blue|3|177|true|1Lcone|0|true||||1H|2Lcube|2M|2H|3H|4H|0||Engage|Engage|||false|false|0|0|4|",
-    "AutoCones": [
-      "Low"
-    ],
-    "AutoCubes": [],
-    "TeleopCones": [
-      "High",
-      "High",
-      "High"
-    ],
-    "TeleopCubes": [
-      "Low",
-      "Mid",
-      "High"
-    ],
-    "AttemptedTripleBalance": 0,
-    "SuccessfulTripleBalance": 0,
-    "uuid": "575f43d7-3913-4779-b74b-b45a54b2babb"
-  },
-  {
     "ScoutId": "Owen and Joshua",
     "MatchKey": "qm1",
     "Alliance": "blue",
@@ -1400,6 +1355,48 @@
     "uuid": "0a530064-e578-44f3-b5b0-d53cd8e6dfd8"
   },
   {
+    "ScoutId": "Ryan",
+    "MatchKey": "qm103",
+    "Alliance": "blue",
+    "DriverStation": 3,
+    "TeamNumber": 5135,
+    "Preloaded": "true",
+    "AutoGrid": "8H",
+    "AutoMissed": 0.0,
+    "Mobile": 1.0,
+    "AutoAttemptedCharge": "None",
+    "AutoChargingState": "None",
+    "AutoNotes": "",
+    "TeleopGrid": "4M|5H|9H",
+    "TeleopMissed": 0.0,
+    "TeleopNotes": "",
+    "EndgameAttemptedCharge": "Engage",
+    "EndgameFinalCharge": "Engage",
+    "FinalChargeTime": "",
+    "EndgameNotes": "",
+    "Disable": 0.0,
+    "Tippy": 0.0,
+    "DefenseTime": 60.0,
+    "DefenseRating": 3.0,
+    "DriverRating": 4.0,
+    "RatingNotes": "",
+    "scanRaw": "Ryan|qm|103|blue|3|5135|true|8H|0|true||None||4M|5H|9H|0||Engage|Engage|||false|false|60|3|4|",
+    "AutoCones": [],
+    "AutoCubes": [
+      "High"
+    ],
+    "TeleopCones": [
+      "Mid",
+      "High"
+    ],
+    "TeleopCubes": [
+      "High"
+    ],
+    "AttemptedTripleBalance": 0,
+    "SuccessfulTripleBalance": 0,
+    "uuid": "b1ea14f2-c060-4c8d-bf05-0663db034885"
+  },
+  {
     "ScoutId": "Aran",
     "MatchKey": "qm103",
     "Alliance": "red",
@@ -1439,8 +1436,8 @@
       "Mid",
       "Low"
     ],
-    "AttemptedTripleBalance": 0,
-    "SuccessfulTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
+    "SuccessfulTripleBalance": 1,
     "uuid": "3e196f54-6ed2-41c9-82aa-14da1e663ecd"
   },
   {
@@ -1480,9 +1477,58 @@
     "TeleopCubes": [
       "Low"
     ],
-    "AttemptedTripleBalance": 0,
-    "SuccessfulTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
+    "SuccessfulTripleBalance": 1,
     "uuid": "41e6b5fc-b69c-4470-8754-3fe973190631"
+  },
+  {
+    "ScoutId": "Adrian ",
+    "MatchKey": "qm103",
+    "Alliance": "red",
+    "DriverStation": 3,
+    "TeamNumber": 4143,
+    "Preloaded": "true",
+    "AutoGrid": "8M|8H|7H",
+    "AutoMissed": 0.0,
+    "Mobile": 1.0,
+    "AutoAttemptedCharge": "None",
+    "AutoChargingState": "",
+    "AutoNotes": "",
+    "TeleopGrid": "9M|9H|7Lcone|7M|5M|4M|3M",
+    "TeleopMissed": 0.0,
+    "TeleopNotes": "",
+    "EndgameAttemptedCharge": "Engage",
+    "EndgameFinalCharge": "Engage",
+    "FinalChargeTime": 5.1,
+    "EndgameNotes": "",
+    "Disable": 0.0,
+    "Tippy": 0.0,
+    "DefenseTime": 0.0,
+    "DefenseRating": 0.0,
+    "DriverRating": 4.0,
+    "RatingNotes": "",
+    "scanRaw": "Adrian |qm|103|red|3|4143|true|2M|2H|3H|0|true||||1M|1H|3Lcone|3M|5M|6M|7M|0||Engage|Engage|5.1||false|false|0|0|4|",
+    "AutoCones": [
+      "High"
+    ],
+    "AutoCubes": [
+      "Mid",
+      "High"
+    ],
+    "TeleopCones": [
+      "Mid",
+      "High",
+      "Low",
+      "Mid",
+      "Mid",
+      "Mid"
+    ],
+    "TeleopCubes": [
+      "Mid"
+    ],
+    "AttemptedTripleBalance": 1,
+    "SuccessfulTripleBalance": 1,
+    "uuid": "b44a116a-c372-4cff-a528-38094410b0c6"
   },
   {
     "ScoutId": "paul and Joshua",
@@ -3372,6 +3418,47 @@
     "AttemptedTripleBalance": 0,
     "SuccessfulTripleBalance": 0,
     "uuid": "5b3a4c32-e6d3-405f-9b44-8b24640c5f6e"
+  },
+  {
+    "ScoutId": "darren",
+    "MatchKey": "qm110",
+    "Alliance": "red",
+    "DriverStation": 3,
+    "TeamNumber": 8847,
+    "Preloaded": "true",
+    "AutoGrid": "2M",
+    "AutoMissed": 0.0,
+    "Mobile": 1.0,
+    "AutoAttemptedCharge": "None",
+    "AutoChargingState": "",
+    "AutoNotes": "",
+    "TeleopGrid": "8M|5Lcube|4Lcube",
+    "TeleopMissed": 1.0,
+    "TeleopNotes": "",
+    "EndgameAttemptedCharge": "Engage",
+    "EndgameFinalCharge": "Engage",
+    "FinalChargeTime": "",
+    "EndgameNotes": "",
+    "Disable": 0.0,
+    "Tippy": 0.0,
+    "DefenseTime": 0.0,
+    "DefenseRating": 0.0,
+    "DriverRating": 4.0,
+    "RatingNotes": "",
+    "scanRaw": "darren|qm|110|red|3|8847|true|8M|0|true||||2M|5Lcube|6Lcube|1||Engage|Engage|||false|false|0|0|4|",
+    "AutoCones": [],
+    "AutoCubes": [
+      "Mid"
+    ],
+    "TeleopCones": [],
+    "TeleopCubes": [
+      "Mid",
+      "Low",
+      "Low"
+    ],
+    "AttemptedTripleBalance": 0,
+    "SuccessfulTripleBalance": 0,
+    "uuid": "25fc0358-bd61-49be-b149-04bbf3315cf3"
   },
   {
     "ScoutId": "Shashwat",
@@ -5264,7 +5351,7 @@
     "TeleopNotes": " | ",
     "EndgameAttemptedCharge": "None",
     "EndgameFinalCharge": "None",
-    "FinalChargeTime": NaN,
+    "FinalChargeTime": "",
     "EndgameNotes": " | ",
     "Disable": 0.0,
     "Tippy": 0.0,
@@ -5458,6 +5545,51 @@
     "uuid": "baeb9ecd-cb1a-493a-9dbc-52ff0681b692"
   },
   {
+    "ScoutId": "paul and Suzy",
+    "MatchKey": "qm119",
+    "Alliance": "blue",
+    "DriverStation": 3,
+    "TeamNumber": 177,
+    "Preloaded": "true",
+    "AutoGrid": "1Lcone",
+    "AutoMissed": 0.0,
+    "Mobile": 1.0,
+    "AutoAttemptedCharge": "None",
+    "AutoChargingState": "None",
+    "AutoNotes": " | ",
+    "TeleopGrid": "1H|2Lcube|2M|2H|3H|4H",
+    "TeleopMissed": 0.0,
+    "TeleopNotes": " | ",
+    "EndgameAttemptedCharge": "Engage",
+    "EndgameFinalCharge": "Engage",
+    "FinalChargeTime": "",
+    "EndgameNotes": " | ",
+    "Disable": 0.0,
+    "Tippy": 0.0,
+    "DefenseTime": 0.0,
+    "DefenseRating": 0.0,
+    "DriverRating": 2.0,
+    "RatingNotes": " | ",
+    "scanRaw": "paul||119|blue|3|177|true|1Lcone|0|true||||1H|2Lcube|2M|2H|3H|4H|0||Engage|Engage|||false|false|0|0|4|",
+    "AutoCones": [
+      "Low"
+    ],
+    "AutoCubes": [],
+    "TeleopCones": [
+      "High",
+      "High",
+      "High"
+    ],
+    "TeleopCubes": [
+      "Low",
+      "Mid",
+      "High"
+    ],
+    "AttemptedTripleBalance": 0,
+    "SuccessfulTripleBalance": 0,
+    "uuid": "575f43d7-3913-4779-b74b-b45a54b2babb"
+  },
+  {
     "ScoutId": "Sanjay",
     "MatchKey": "qm119",
     "Alliance": "blue",
@@ -5593,6 +5725,44 @@
     "AttemptedTripleBalance": 0,
     "SuccessfulTripleBalance": 0,
     "uuid": "abe67ef5-d633-43c6-a26c-52346fa30f09"
+  },
+  {
+    "ScoutId": "Alex S",
+    "MatchKey": "qm119",
+    "Alliance": "red",
+    "DriverStation": 3,
+    "TeamNumber": 6606,
+    "Preloaded": "false",
+    "AutoGrid": "",
+    "AutoMissed": 0.0,
+    "Mobile": 1.0,
+    "AutoAttemptedCharge": "None",
+    "AutoChargingState": "",
+    "AutoNotes": "",
+    "TeleopGrid": "8M|8H",
+    "TeleopMissed": 0.0,
+    "TeleopNotes": "",
+    "EndgameAttemptedCharge": "None",
+    "EndgameFinalCharge": "",
+    "FinalChargeTime": "",
+    "EndgameNotes": "",
+    "Disable": 0.0,
+    "Tippy": 1.0,
+    "DefenseTime": 0.0,
+    "DefenseRating": 0.0,
+    "DriverRating": 1.0,
+    "RatingNotes": "",
+    "scanRaw": "Alex S|qm|119|red|3|6606|false||0|true||||2M|2H|0||||||false|true|0|0|1|",
+    "AutoCones": [],
+    "AutoCubes": [],
+    "TeleopCones": [],
+    "TeleopCubes": [
+      "Mid",
+      "High"
+    ],
+    "AttemptedTripleBalance": 0,
+    "SuccessfulTripleBalance": 0,
+    "uuid": "38260519-3708-4d61-9382-2d9d664003f3"
   },
   {
     "ScoutId": "aarav",
@@ -5987,7 +6157,55 @@
     "uuid": "c7eff581-0ed9-4140-98f7-e34c61f26524"
   },
   {
-    "ScoutId": "aarav and Agneya",
+    "ScoutId": "sarah",
+    "MatchKey": "qm120",
+    "Alliance": "blue",
+    "DriverStation": 2,
+    "TeamNumber": 7285,
+    "Preloaded": "true",
+    "AutoGrid": "2M",
+    "AutoMissed": 0.0,
+    "Mobile": 1.0,
+    "AutoAttemptedCharge": "None",
+    "AutoChargingState": "None",
+    "AutoNotes": "",
+    "TeleopGrid": "4M|6M|7Lcube|7M|7H|8Lcube|8M|9Lcone|9M",
+    "TeleopMissed": 2.0,
+    "TeleopNotes": "",
+    "EndgameAttemptedCharge": "None",
+    "EndgameFinalCharge": "None",
+    "FinalChargeTime": "",
+    "EndgameNotes": "",
+    "Disable": 0.0,
+    "Tippy": 1.0,
+    "DefenseTime": 0.0,
+    "DefenseRating": 0.0,
+    "DriverRating": 0.0,
+    "RatingNotes": "tippy when extending in community fast",
+    "scanRaw": "sarah|qm|120|blue|2|7285|true|2M|0|true||None||4M|6M|7Lcube|7M|7H|8Lcube|8M|9Lcone|9M|2|||None|||false|true|0|0|0|tippy when extending in community fast",
+    "AutoCones": [],
+    "AutoCubes": [
+      "Mid"
+    ],
+    "TeleopCones": [
+      "Mid",
+      "Mid",
+      "Mid",
+      "High",
+      "Low",
+      "Mid"
+    ],
+    "TeleopCubes": [
+      "Low",
+      "Low",
+      "Mid"
+    ],
+    "AttemptedTripleBalance": 0,
+    "SuccessfulTripleBalance": 0,
+    "uuid": "e8eb82ad-b8cf-43c3-be4f-0f03c9a0a990"
+  },
+  {
+    "ScoutId": "aarav and Agneya and Rachel",
     "MatchKey": "qm120",
     "Alliance": "red",
     "DriverStation": 1,
@@ -5998,20 +6216,20 @@
     "Mobile": 0.0,
     "AutoAttemptedCharge": "None",
     "AutoChargingState": "None",
-    "AutoNotes": " | ",
+    "AutoNotes": " |  | ",
     "TeleopGrid": "8H|7H|4H",
-    "TeleopMissed": 0.5,
-    "TeleopNotes": " | ",
+    "TeleopMissed": 0.25,
+    "TeleopNotes": " |  | ",
     "EndgameAttemptedCharge": "Engage",
     "EndgameFinalCharge": "Engage",
-    "FinalChargeTime": NaN,
-    "EndgameNotes": " | ",
+    "FinalChargeTime": "",
+    "EndgameNotes": " |  | ",
     "Disable": 0.0,
     "Tippy": 0.0,
     "DefenseTime": 0.0,
     "DefenseRating": 0.0,
-    "DriverRating": 2.0,
-    "RatingNotes": " | ",
+    "DriverRating": 3.0,
+    "RatingNotes": " |  | ",
     "scanRaw": "aarav|qm|120|red|1|4909|true|2H|1|false||None||2H|3H|6H|0||Engage|Engage|||false|false|0|0|0|",
     "AutoCones": [],
     "AutoCubes": [
@@ -6068,6 +6286,49 @@
     "AttemptedTripleBalance": 0,
     "SuccessfulTripleBalance": 0,
     "uuid": "5372088b-c981-4eaf-8e7e-b397350a6f1c"
+  },
+  {
+    "ScoutId": "Eugene",
+    "MatchKey": "qm120",
+    "Alliance": "red",
+    "DriverStation": 1,
+    "TeamNumber": 8808,
+    "Preloaded": "true",
+    "AutoGrid": "8H",
+    "AutoMissed": 0.0,
+    "Mobile": 1.0,
+    "AutoAttemptedCharge": "None",
+    "AutoChargingState": "None",
+    "AutoNotes": "",
+    "TeleopGrid": "7Lcube|6M|5M|4M",
+    "TeleopMissed": 0.0,
+    "TeleopNotes": "Slightly slow cycles",
+    "EndgameAttemptedCharge": "Engage",
+    "EndgameFinalCharge": "Engage",
+    "FinalChargeTime": 5,
+    "EndgameNotes": "",
+    "Disable": 0.0,
+    "Tippy": 0.0,
+    "DefenseTime": 0.0,
+    "DefenseRating": 0.0,
+    "DriverRating": 2.0,
+    "RatingNotes": "Served their purpose albeit a bit slow",
+    "scanRaw": "Eugene|qm|120|red|1|8808|true|2H|0|true||None||3Lcube|4M|5M|6M|0|Slightly slow cycles|Engage|Engage|5||false|false|0|0|2|Served their purpose albeit a bit slow",
+    "AutoCones": [],
+    "AutoCubes": [
+      "High"
+    ],
+    "TeleopCones": [
+      "Mid",
+      "Mid"
+    ],
+    "TeleopCubes": [
+      "Low",
+      "Mid"
+    ],
+    "AttemptedTripleBalance": 0,
+    "SuccessfulTripleBalance": 0,
+    "uuid": "1c049634-4834-49e7-9298-0da9dec3e785"
   },
   {
     "ScoutId": "Nicole",
@@ -6661,6 +6922,50 @@
     "uuid": "5fd3e53e-d789-407c-8794-75bef6e4b55c"
   },
   {
+    "ScoutId": "alexander",
+    "MatchKey": "qm123",
+    "Alliance": "blue",
+    "DriverStation": 1,
+    "TeamNumber": 9023,
+    "Preloaded": "true",
+    "AutoGrid": "5M",
+    "AutoMissed": 0.0,
+    "Mobile": 1.0,
+    "AutoAttemptedCharge": "Engage",
+    "AutoChargingState": "Engage",
+    "AutoNotes": "",
+    "TeleopGrid": "1Lcube|3Lcube|5Lcube|5M|8Lcube|9Lcube",
+    "TeleopMissed": 1.0,
+    "TeleopNotes": "",
+    "EndgameAttemptedCharge": "Engage",
+    "EndgameFinalCharge": "Engage",
+    "FinalChargeTime": "",
+    "EndgameNotes": "Double EngageEngaged Quickly| but considered doing another cycle at only ten seconds left.",
+    "Disable": 0.0,
+    "Tippy": 0.0,
+    "DefenseTime": 0.0,
+    "DefenseRating": 0.0,
+    "DriverRating": 4.0,
+    "RatingNotes": "",
+    "scanRaw": "alexander|qm|123|blue|1|9023|true|5M|0|true|Engage|Engage||1Lcube|3Lcube|5Lcube|5M|8Lcube|9Lcube|1||Engage|Engage||Double EngageEngaged Quickly| but considered doing another cycle at only ten seconds left.|false|false|0|0|4|",
+    "AutoCones": [],
+    "AutoCubes": [
+      "Mid"
+    ],
+    "TeleopCones": [],
+    "TeleopCubes": [
+      "Low",
+      "Low",
+      "Low",
+      "Mid",
+      "Low",
+      "Low"
+    ],
+    "AttemptedTripleBalance": 0,
+    "SuccessfulTripleBalance": 0,
+    "uuid": "b1b78f7f-d2ad-4c10-a29f-793c0fa6200c"
+  },
+  {
     "ScoutId": "Agneya",
     "MatchKey": "qm123",
     "Alliance": "red",
@@ -6952,9 +7257,58 @@
     "TeleopCubes": [
       "Mid"
     ],
-    "AttemptedTripleBalance": 0,
-    "SuccessfulTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
+    "SuccessfulTripleBalance": 1,
     "uuid": "3bcbde8c-bdf7-4e9e-9a1b-da9c20cbdb82"
+  },
+  {
+    "ScoutId": "darren",
+    "MatchKey": "qm124",
+    "Alliance": "red",
+    "DriverStation": 1,
+    "TeamNumber": 4143,
+    "Preloaded": "true",
+    "AutoGrid": "8H|7H",
+    "AutoMissed": 1.0,
+    "Mobile": 1.0,
+    "AutoAttemptedCharge": "None",
+    "AutoChargingState": "",
+    "AutoNotes": "",
+    "TeleopGrid": "4Lcone|3Lcone|3M|3H|2Lcone|2M|2H|1M",
+    "TeleopMissed": 0.0,
+    "TeleopNotes": "",
+    "EndgameAttemptedCharge": "Engage",
+    "EndgameFinalCharge": "Engage",
+    "FinalChargeTime": "",
+    "EndgameNotes": "",
+    "Disable": 0.0,
+    "Tippy": 0.0,
+    "DefenseTime": 0.0,
+    "DefenseRating": 0.0,
+    "DriverRating": 4.0,
+    "RatingNotes": "",
+    "scanRaw": "darren|qm|124|red|1|4143|true|2H|3H|1|true||||6Lcone|7Lcone|7M|7H|8Lcone|8M|8H|9M|0||Engage|Engage|||false|false|0|0|4|",
+    "AutoCones": [
+      "High"
+    ],
+    "AutoCubes": [
+      "High"
+    ],
+    "TeleopCones": [
+      "Low",
+      "Low",
+      "Mid",
+      "High",
+      "Low",
+      "Mid"
+    ],
+    "TeleopCubes": [
+      "Mid",
+      "High"
+    ],
+    "AttemptedTripleBalance": 1,
+    "SuccessfulTripleBalance": 1,
+    "uuid": "4e4f42b7-9fc6-433a-8336-7118f11ec2cb"
   },
   {
     "ScoutId": "darre",
@@ -6996,8 +7350,8 @@
       "Low",
       "Low"
     ],
-    "AttemptedTripleBalance": 0,
-    "SuccessfulTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
+    "SuccessfulTripleBalance": 1,
     "uuid": "285a0fde-f78b-408f-888c-8d2fb007186b"
   },
   {
@@ -7389,6 +7743,95 @@
     "uuid": "b4646fa0-4c54-4f0d-a9b6-67632dd88f47"
   },
   {
+    "ScoutId": "sarah",
+    "MatchKey": "qm126",
+    "Alliance": "red",
+    "DriverStation": 2,
+    "TeamNumber": 494,
+    "Preloaded": "true",
+    "AutoGrid": "5H",
+    "AutoMissed": 0.0,
+    "Mobile": 1.0,
+    "AutoAttemptedCharge": "Engage",
+    "AutoChargingState": "Engage",
+    "AutoNotes": "",
+    "TeleopGrid": "4M|4H|3H|2H|1Lcube|1H",
+    "TeleopMissed": 1.0,
+    "TeleopNotes": "",
+    "EndgameAttemptedCharge": "Engage",
+    "EndgameFinalCharge": "Engage",
+    "FinalChargeTime": 6,
+    "EndgameNotes": "",
+    "Disable": 0.0,
+    "Tippy": 0.0,
+    "DefenseTime": 0.0,
+    "DefenseRating": 0.0,
+    "DriverRating": 0.0,
+    "RatingNotes": "",
+    "scanRaw": "sarah|qm|126|red|2|494|true|5H|0|true|Engage|Engage||6M|6H|7H|8H|9Lcube|9H|1||Engage|Engage|6||false|false|0|0|0|",
+    "AutoCones": [],
+    "AutoCubes": [
+      "High"
+    ],
+    "TeleopCones": [
+      "Mid",
+      "High",
+      "High",
+      "High"
+    ],
+    "TeleopCubes": [
+      "High",
+      "Low"
+    ],
+    "AttemptedTripleBalance": 1,
+    "SuccessfulTripleBalance": 1,
+    "uuid": "1e44b4aa-3fc0-4d35-894e-6a75b87e996a"
+  },
+  {
+    "ScoutId": "Rachel",
+    "MatchKey": "qm126",
+    "Alliance": "red",
+    "DriverStation": 1,
+    "TeamNumber": 5274,
+    "Preloaded": "true",
+    "AutoGrid": "2Lcube",
+    "AutoMissed": 0.0,
+    "Mobile": 1.0,
+    "AutoAttemptedCharge": "None",
+    "AutoChargingState": "None",
+    "AutoNotes": "",
+    "TeleopGrid": "6Lcube|5Lcube|4Lcube|1Lcube|1M",
+    "TeleopMissed": 0.0,
+    "TeleopNotes": "",
+    "EndgameAttemptedCharge": "Engage",
+    "EndgameFinalCharge": "Engage",
+    "FinalChargeTime": 6,
+    "EndgameNotes": "",
+    "Disable": 0.0,
+    "Tippy": 0.0,
+    "DefenseTime": 0.0,
+    "DefenseRating": 0.0,
+    "DriverRating": 0.0,
+    "RatingNotes": "",
+    "scanRaw": "Rachel|qm|126|red|1|5274|true|8Lcube|0|true||None||4Lcube|5Lcube|6Lcube|9Lcube|9M|0||Engage|Engage|6||false|false|0|0|0|",
+    "AutoCones": [],
+    "AutoCubes": [
+      "Low"
+    ],
+    "TeleopCones": [
+      "Mid"
+    ],
+    "TeleopCubes": [
+      "Low",
+      "Low",
+      "Low",
+      "Low"
+    ],
+    "AttemptedTripleBalance": 1,
+    "SuccessfulTripleBalance": 1,
+    "uuid": "197ca39a-ee64-4903-bd3c-e2b6a44fe085"
+  },
+  {
     "ScoutId": "darren",
     "MatchKey": "qm126",
     "Alliance": "red",
@@ -7431,8 +7874,8 @@
       "Low",
       "Mid"
     ],
-    "AttemptedTripleBalance": 0,
-    "SuccessfulTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
+    "SuccessfulTripleBalance": 1,
     "uuid": "8f1cfcc2-5542-4448-898e-f6ee807fce9f"
   },
   {
@@ -7606,7 +8049,7 @@
     "TeleopCubes": [
       "Mid"
     ],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 0,
     "uuid": "060a0ee4-2a80-458d-86de-c6a06a33d4d5"
   },
@@ -7648,9 +8091,53 @@
       "High",
       "Low"
     ],
-    "AttemptedTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
     "SuccessfulTripleBalance": 0,
     "uuid": "0e9b2231-453d-4ef8-8bf3-185355842dae"
+  },
+  {
+    "ScoutId": "Suzy",
+    "MatchKey": "qm127",
+    "Alliance": "red",
+    "DriverStation": 3,
+    "TeamNumber": 9140,
+    "Preloaded": "false",
+    "AutoGrid": "5H",
+    "AutoMissed": 0.0,
+    "Mobile": 0.0,
+    "AutoAttemptedCharge": "Engage",
+    "AutoChargingState": "Engage",
+    "AutoNotes": "",
+    "TeleopGrid": "9M|8M|7M|6M|5M",
+    "TeleopMissed": 0.0,
+    "TeleopNotes": "",
+    "EndgameAttemptedCharge": "Engage",
+    "EndgameFinalCharge": "Engage",
+    "FinalChargeTime": 17,
+    "EndgameNotes": "",
+    "Disable": 0.0,
+    "Tippy": 0.0,
+    "DefenseTime": 0.0,
+    "DefenseRating": 0.0,
+    "DriverRating": 4.0,
+    "RatingNotes": "",
+    "scanRaw": "Suzy|qm|127|red|3|9140|false|5H|0|false|Engage|Engage||1M|2M|3M|4M|5M|0||Engage|Engage|17||false|false|0|0|4|",
+    "AutoCones": [],
+    "AutoCubes": [
+      "High"
+    ],
+    "TeleopCones": [
+      "Mid",
+      "Mid",
+      "Mid"
+    ],
+    "TeleopCubes": [
+      "Mid",
+      "Mid"
+    ],
+    "AttemptedTripleBalance": 1,
+    "SuccessfulTripleBalance": 0,
+    "uuid": "a5296a82-ed8d-4db3-9509-809f61b2b236"
   },
   {
     "ScoutId": "paul",
@@ -11771,6 +12258,48 @@
     "uuid": "a59dad1b-bda0-4818-a8e0-f469a3501d09"
   },
   {
+    "ScoutId": "Joshua",
+    "MatchKey": "qm26",
+    "Alliance": "blue",
+    "DriverStation": 2,
+    "TeamNumber": 1501,
+    "Preloaded": "true",
+    "AutoGrid": "2H|4H",
+    "AutoMissed": 0.0,
+    "Mobile": 1.0,
+    "AutoAttemptedCharge": "None",
+    "AutoChargingState": "",
+    "AutoNotes": "",
+    "TeleopGrid": "3H|5Lcone",
+    "TeleopMissed": 2.0,
+    "TeleopNotes": "Can. Not cross station ",
+    "EndgameAttemptedCharge": "Engage",
+    "EndgameFinalCharge": "Engage",
+    "FinalChargeTime": 7,
+    "EndgameNotes": "Teammate left in order for another to get on: counter productive ",
+    "Disable": 0.0,
+    "Tippy": 0.0,
+    "DefenseTime": 40.0,
+    "DefenseRating": 4.0,
+    "DriverRating": 4.0,
+    "RatingNotes": "Robot is kinda slow and takes a while to cycle",
+    "scanRaw": "Joshua|qm|26|blue|2|1501|true|2H|4H|0|true||||3H|5Lcone|2|Can. Not cross station |Engage|Engage|7|Teammate left in order for another to get on: counter productive |false|false|40|4|4|Robot is kinda slow and takes a while to cycle",
+    "AutoCones": [
+      "High"
+    ],
+    "AutoCubes": [
+      "High"
+    ],
+    "TeleopCones": [
+      "High",
+      "Low"
+    ],
+    "TeleopCubes": [],
+    "AttemptedTripleBalance": 0,
+    "SuccessfulTripleBalance": 0,
+    "uuid": "68138162-f8d9-43f8-8a78-31d71be09ba7"
+  },
+  {
     "ScoutId": "Olivia",
     "MatchKey": "qm26",
     "Alliance": "blue",
@@ -11816,6 +12345,49 @@
     "uuid": "06bb07ad-82e4-4bba-83b9-ee35407556bf"
   },
   {
+    "ScoutId": "Joshua",
+    "MatchKey": "qm26",
+    "Alliance": "red",
+    "DriverStation": 1,
+    "TeamNumber": 177,
+    "Preloaded": "true",
+    "AutoGrid": "",
+    "AutoMissed": 0.0,
+    "Mobile": 1.0,
+    "AutoAttemptedCharge": "None",
+    "AutoChargingState": "",
+    "AutoNotes": "Attempted triple",
+    "TeleopGrid": "8Lcube|4Lcube|3M|3H|1M|1H",
+    "TeleopMissed": 1.0,
+    "TeleopNotes": "Works well w teammates| avoids collision w them and waits in station",
+    "EndgameAttemptedCharge": "Engage",
+    "EndgameFinalCharge": "Engage",
+    "FinalChargeTime": 6,
+    "EndgameNotes": "Triple",
+    "Disable": 0.0,
+    "Tippy": 1.0,
+    "DefenseTime": 40.0,
+    "DefenseRating": 3.0,
+    "DriverRating": 4.0,
+    "RatingNotes": "",
+    "scanRaw": "Joshua|qm|26|red|1|177|true||0|true|||Attempted triple|2Lcube|6Lcube|7M|7H|9M|9H|1|Works well w teammates| avoids collision w them and waits in station|Engage|Engage|6|Triple|false|true|40|3|4|",
+    "AutoCones": [],
+    "AutoCubes": [],
+    "TeleopCones": [
+      "Mid",
+      "High",
+      "Mid",
+      "High"
+    ],
+    "TeleopCubes": [
+      "Low",
+      "Low"
+    ],
+    "AttemptedTripleBalance": 1,
+    "SuccessfulTripleBalance": 1,
+    "uuid": "5c7c54e5-b5bf-490c-9a8a-4fc955ebe95a"
+  },
+  {
     "ScoutId": "Adrian ",
     "MatchKey": "qm26",
     "Alliance": "red",
@@ -11854,8 +12426,8 @@
       "Mid",
       "High"
     ],
-    "AttemptedTripleBalance": 0,
-    "SuccessfulTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
+    "SuccessfulTripleBalance": 1,
     "uuid": "7de1a31b-d253-4d2a-874c-f7d333d6dfab"
   },
   {
@@ -11902,8 +12474,8 @@
       "High",
       "Low"
     ],
-    "AttemptedTripleBalance": 0,
-    "SuccessfulTripleBalance": 0,
+    "AttemptedTripleBalance": 1,
+    "SuccessfulTripleBalance": 1,
     "uuid": "f4139b05-69b2-4f1c-be4b-28e931d95a89"
   },
   {
@@ -25838,7 +26410,7 @@
     "TeleopNotes": " | ",
     "EndgameAttemptedCharge": "Engage",
     "EndgameFinalCharge": "Engage",
-    "FinalChargeTime": NaN,
+    "FinalChargeTime": "",
     "EndgameNotes": "tipped in charge station | ",
     "Disable": 0.0,
     "Tippy": 0.5,
@@ -25966,7 +26538,7 @@
     "TeleopNotes": " | ",
     "EndgameAttemptedCharge": "Engage",
     "EndgameFinalCharge": "Engage",
-    "FinalChargeTime": NaN,
+    "FinalChargeTime": "",
     "EndgameNotes": " | ",
     "Disable": 0.0,
     "Tippy": 0.0,
@@ -27259,5 +27831,211 @@
     "AttemptedTripleBalance": 0,
     "SuccessfulTripleBalance": 0,
     "uuid": "f8981d5d-88fa-4024-9cbc-5ba2ea98ccc5"
+  },
+  {
+    "ScoutId": "Abhimanyu Ghosh",
+    "MatchKey": "qm99",
+    "Alliance": "red",
+    "DriverStation": 3,
+    "TeamNumber": 8808,
+    "Preloaded": "true",
+    "AutoGrid": "",
+    "AutoMissed": 1.0,
+    "Mobile": 0.0,
+    "AutoAttemptedCharge": "None",
+    "AutoChargingState": "None",
+    "AutoNotes": "",
+    "TeleopGrid": "8M|8H|5M|5H|2M|1M|1M",
+    "TeleopMissed": 0.0,
+    "TeleopNotes": "",
+    "EndgameAttemptedCharge": "None",
+    "EndgameFinalCharge": "Engage",
+    "FinalChargeTime": "",
+    "EndgameNotes": "",
+    "Disable": 0.0,
+    "Tippy": 0.0,
+    "DefenseTime": 0.0,
+    "DefenseRating": 0.0,
+    "DriverRating": 0.0,
+    "RatingNotes": "Focused only on cubes",
+    "scanRaw": "Abhimanyu Ghosh|qm|99|red|3|8808|true||1|false||None||2M|2H|5M|5H|8M|9M|9M|0|||Engage|||false|false|0|0|0|Focused only on cubes",
+    "AutoCones": [],
+    "AutoCubes": [],
+    "TeleopCones": [
+      "Mid",
+      "Mid"
+    ],
+    "TeleopCubes": [
+      "Mid",
+      "High",
+      "Mid",
+      "High",
+      "Mid"
+    ],
+    "AttemptedTripleBalance": 0,
+    "SuccessfulTripleBalance": 0,
+    "uuid": "bceeb963-f6ea-4a86-aa7d-5065b88a7e65"
+  },
+  {
+    "ScoutId": "Suzy",
+    "MatchKey": "qm110",
+    "Alliance": "red",
+    "DriverStation": 1,
+    "TeamNumber": 3184,
+    "Preloaded": "true",
+    "AutoGrid": "9H",
+    "AutoMissed": 1,
+    "Mobile": "false",
+    "AutoAttemptedCharge": "None",
+    "AutoChargingState": "None",
+    "AutoNotes": "",
+    "TeleopGrid": "8H|7M|6H|4H|3H|2H|1H",
+    "TeleopMissed": 0,
+    "TeleopNotes": "",
+    "EndgameAttemptedCharge": "Engage",
+    "EndgameFinalCharge": "Engage",
+    "FinalChargeTime": 11,
+    "EndgameNotes": "",
+    "Disable": "false",
+    "Tippy": "false",
+    "DefenseTime": 0,
+    "DefenseRating": 0,
+    "DriverRating": 4,
+    "RatingNotes": "Very speedy with double substation",
+    "scanRaw": "Suzy|qm|110|red|1|3184|true|1H|1|false||None||2H|3M|4H|6H|7H|8H|9H|0||Engage|Engage|11||false|false|0|0|4|Very speedy with double substation",
+    "uuid": "76701eff-48b5-4541-a94b-1f26265f0cc9",
+    "AutoCones": [
+      "High"
+    ],
+    "AutoCubes": [],
+    "TeleopCones": [
+      "Mid",
+      "High",
+      "High",
+      "High",
+      "High"
+    ],
+    "TeleopCubes": [
+      "High",
+      "High"
+    ]
+  },
+  {
+    "ScoutId": "Rachel",
+    "MatchKey": "qm104",
+    "Alliance": "red",
+    "DriverStation": 1,
+    "TeamNumber": 8015,
+    "Preloaded": "true",
+    "AutoGrid": "",
+    "AutoMissed": 0,
+    "Mobile": "false",
+    "AutoAttemptedCharge": "None",
+    "AutoChargingState": "None",
+    "AutoNotes": "",
+    "TeleopGrid": "",
+    "TeleopMissed": 0,
+    "TeleopNotes": "",
+    "EndgameAttemptedCharge": "None",
+    "EndgameFinalCharge": "Park",
+    "FinalChargeTime": "",
+    "EndgameNotes": "",
+    "Disable": "true",
+    "Tippy": "false",
+    "DefenseTime": 0,
+    "DefenseRating": 0,
+    "DriverRating": 0,
+    "RatingNotes": "",
+    "scanRaw": "Rachel|qm|104|red|1|8015|true||0|false||None|||0|||Park|||true|false|0|0|0|",
+    "uuid": "1ed359b1-fa41-47e2-93ea-f2385b24b1a0",
+    "AutoCones": [],
+    "AutoCubes": [],
+    "TeleopCones": [],
+    "TeleopCubes": []
+  },
+  {
+    "ScoutId": "sarah",
+    "MatchKey": "qm104",
+    "Alliance": "red",
+    "DriverStation": 3,
+    "TeamNumber": 5338,
+    "Preloaded": "true",
+    "AutoGrid": "9H",
+    "AutoMissed": 0,
+    "Mobile": "true",
+    "AutoAttemptedCharge": "None",
+    "AutoChargingState": "None",
+    "AutoNotes": "",
+    "TeleopGrid": "9M|8M|8H|7M|7H|6M",
+    "TeleopMissed": 0,
+    "TeleopNotes": "",
+    "EndgameAttemptedCharge": "None",
+    "EndgameFinalCharge": "None",
+    "FinalChargeTime": "",
+    "EndgameNotes": "",
+    "Disable": "false",
+    "Tippy": "false",
+    "DefenseTime": 0,
+    "DefenseRating": 0,
+    "DriverRating": 0,
+    "RatingNotes": "",
+    "scanRaw": "sarah|qm|104|red|3|5338|true|1H|0|true||None||1M|2M|2H|3M|3H|4M|0|||None|||false|false|0|0|0|",
+    "uuid": "d4ecb81d-066b-421c-9687-cdf076656842",
+    "AutoCones": [
+      "High"
+    ],
+    "AutoCubes": [],
+    "TeleopCones": [
+      "Mid",
+      "Mid",
+      "High",
+      "Mid"
+    ],
+    "TeleopCubes": [
+      "Mid",
+      "High"
+    ]
+  },
+  {
+    "ScoutId": "Ryan Zhao",
+    "MatchKey": "qm118",
+    "Alliance": "blue",
+    "DriverStation": 3,
+    "TeamNumber": 3184,
+    "Preloaded": "true",
+    "AutoGrid": "5H",
+    "AutoMissed": 1,
+    "Mobile": "true",
+    "AutoAttemptedCharge": "Engage",
+    "AutoChargingState": "Engage",
+    "AutoNotes": "",
+    "TeleopGrid": "1Lcone|1H|3H|4H|6H|7H",
+    "TeleopMissed": 1,
+    "TeleopNotes": "",
+    "EndgameAttemptedCharge": "Engage",
+    "EndgameFinalCharge": "Dock",
+    "FinalChargeTime": 8,
+    "EndgameNotes": "",
+    "Disable": "false",
+    "Tippy": "false",
+    "DefenseTime": 0,
+    "DefenseRating": 0,
+    "DriverRating": 0,
+    "RatingNotes": "",
+    "scanRaw": "Ryan Zhao|qm|118|blue|3|3184|true|5H|1|true|Engage|Engage||1Lcone|1H|3H|4H|6H|7H|1||Engage|Dock|8||false|false|0|0|0|",
+    "uuid": "45f49d3f-7361-421c-bd28-1ef55b0a1e59",
+    "AutoCones": [],
+    "AutoCubes": [
+      "High"
+    ],
+    "TeleopCones": [
+      "Low",
+      "High",
+      "High",
+      "High",
+      "High",
+      "High"
+    ],
+    "TeleopCubes": []
   }
 ]
