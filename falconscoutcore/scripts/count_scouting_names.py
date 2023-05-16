@@ -1,42 +1,26 @@
+from collections import defaultdict
 from json import load
 
-import pandas as pd
-
-
-with open("../data/2023mdbet_match_data.json") as file:
+with open("../data/2023new_match_data.json") as file:
     scouting_data = load(file)
-
-    scoutingCount = {}
+    scouting_count = defaultdict(int)
 
     for submission in scouting_data:
+        scout_id = submission["ScoutId"]
+        specific_scout = scout_id.strip().lower().split()[0]
+        matches_with_scout = set()
 
-        """
-        if "and " in submission["ScoutId"]:
-            names = submission["ScoutId"].split("and ")
-            name1, name2 = names[0].strip().lower(), names[1].strip().lower()
-        else:
-            name1 = submission["ScoutId"].strip().lower()
-            name2 = "Missing second scout"
+        if "and" in scout_id.split():
+            for scout in scout_id.split(" and "):
+                specific_scout = scout.strip().lower().split()[0]
+
+                if specific_scout not in matches_with_scout:
+                    scouting_count[specific_scout] += 1
+
+                matches_with_scout.add(specific_scout)
+
+        scouting_count[specific_scout] += 1
 
 
-
-        if name1 in scoutingCount.keys():
-            scoutingCount[name1] += 1
-        else:
-            scoutingCount[name1] = 1
-
-        if name2 in scoutingCount.keys():
-            scoutingCount[name2] += 1
-        else:
-            scoutingCount[name2] = 1
-        """
-        name = str(submission["ScoutId"]).lower()
-
-        if name in scoutingCount.keys():
-            scoutingCount[name] += 1
-        else:
-            scoutingCount[name] = 1
-
-        
-for key in scoutingCount:
-   print(str(key) + ": " + str(scoutingCount[key]))
+for key in dict(sorted(scouting_count.items(), key=lambda tup: tup[1])):
+    print(str(key) + ": " + str(scouting_count[key]))
