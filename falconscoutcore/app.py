@@ -1,49 +1,63 @@
-from json import load, dump
+from json import dump, load
 
 import cv2
 import numpy as np
 import streamlit as st
-
+from pyzbar.pyzbar import decode
 
 # Load files for global use.
 with open("config.json") as config_file:
     CONFIG = load(config_file)
 
 
-def _process_data(raw_data: str) -> None:
-    """Takes the raw data from a scanned QR code and processes it into a dictionary before writing it back to the data file.
+# Helper functions
+def _process_data(*data: list[str]) -> None:
+    """Takes raw data from a scanned QR code and processes it into a dictionary before writing it back to the data file.
 
-    :param raw_data: A string split by a delimeter containing each data point in the QR code.
+    :param raw_data: A variable amount of strings passed in representing the multiple different QR codes.
     :return:
     """
-    data_labels = CONFIG["data_config"]["data_labels"]
-    split_data = raw_data.split(CONFIG["data_config"]["delimiter"])
+    data_maps = []
 
-    if len(split_data) != len(data_labels):
-        st.error(
-            f"Scanned QR code has {len(split_data)} fields while Core expected {len(data_labels)} fields."
-            f" The scouter is likely using an older version of FalconScout."
-        )
-        return
+    for raw_data in data:
+        data_labels = CONFIG["data_config"]["data_labels"]
+        split_data = raw_data.split(CONFIG["data_config"]["delimiter"])
 
-    data_map = {
-        field: data for field, data in zip(data_labels, split_data)
-    }
+        if len(split_data) != len(data_labels):
+            st.error(
+                f"Scanned QR code from {split_data[0]} has {len(split_data)} fields "
+                f"while Core expected {len(data_labels)} fields."
+                f" The scouter is likely using an older version of FalconScout."
+            )
+            return
+
+        data_maps.append({field: data for field, data in zip(data_labels, split_data)})
 
     with open(CONFIG["data_config"]["json_file"], "r+") as data_file:
         scouting_data = load(data_file)
-        scouting_data.append(data_map)
+        data_maps = [data_map for data_map in data_maps if data_map not in scouting_data]
+
+        # If some QR codes were already scanned
+        if len(data_maps) != len(data):
+            st.warning(f"{len(data) - len(data_maps)} QR code(s) were already scanned.", icon="🚨")
+
+            # If all QR codes were already scanned
+            if len(data_maps) == 0:
+                return
+
+        scouting_data.extend(data_maps)
 
         data_file.seek(0)
         dump(scouting_data, data_file, indent=2)
         data_file.truncate()
 
-        st.success(f"QR code successfully scanned!")
+        st.success(f"{len(data_maps)} QR code(s) successfully scanned!", icon="✅")
 
 
+# Main functions
 def scan_qrcode() -> None:
     """Uses st.camera_input to scan QR codes from the scouting app into backend."""
-    image = st.camera_input("QR Code Scanner")
+    image = st.camera_input("QR Code Scanner", label_visibility="hidden")
 
     if not image:
         return
@@ -51,14 +65,19 @@ def scan_qrcode() -> None:
     # Read QR code
     bytes_data = image.getvalue()
     cv2_img = cv2.imdecode(np.frombuffer(bytes_data, np.uint8), cv2.IMREAD_COLOR)
-    detector = cv2.QRCodeDetector()
-
-    qr_code_content, *_ = detector.detectAndDecode(cv2_img)
+    gray_img = cv2.cvtColor(cv2_img, 0)
+    qr_codes = decode(gray_img)
 
     # Process data and write it to the scouting data file.
-    if qr_code_content:
-        _process_data(qr_code_content)
+    if qr_codes:
+        _process_data(*[qr_code.data.decode("utf-8") for qr_code in qr_codes])
 
 
-if __name__ == '__main__':
-    scan_qrcode()
+if __name__ == "__main__":
+    st.write("# 🦅 FalconScout Core")
+
+    qr_code_tab, data_tab = st.tabs(["📱 QR Code Scanner", "📝 Scouting Data"])
+
+    with qr_code_tab:
+        st.write("### 📱 QR Code Scanner")
+        scan_qrcode()
