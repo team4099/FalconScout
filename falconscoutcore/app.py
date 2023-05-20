@@ -37,11 +37,16 @@ def _process_data(*data: list[str]) -> None:
 
     with open(CONFIG["data_config"]["json_file"], "r+") as data_file:
         scouting_data = load(data_file)
-        data_maps = [data_map for data_map in data_maps if data_map not in scouting_data]
+        data_maps = [
+            data_map for data_map in data_maps if data_map not in scouting_data
+        ]
 
         # If some QR codes were already scanned
         if len(data_maps) != len(data):
-            st.warning(f"{len(data) - len(data_maps)} QR code(s) were already scanned.", icon="🚨")
+            st.warning(
+                f"{len(data) - len(data_maps)} QR code(s) were already scanned.",
+                icon="🚨",
+            )
 
             # If all QR codes were already scanned
             if len(data_maps) == 0:
@@ -85,7 +90,7 @@ def display_data() -> None:
         scouting_df,
         conversion_errors="coerce",
         editable=True,
-        try_to_convert_back_to_original_types=True
+        try_to_convert_back_to_original_types=True,
     )["data"]
     print(resultant_df)
 
