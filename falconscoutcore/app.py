@@ -1,8 +1,8 @@
 from json import dump, load
 
 import cv2
-import pandas as pd
 import numpy as np
+import pandas as pd
 import streamlit as st
 from pyzbar.pyzbar import decode
 from st_aggrid import AgGrid
@@ -74,16 +74,23 @@ def scan_qrcode() -> None:
     if qr_codes:
         _process_data(*[qr_code.data.decode("utf-8") for qr_code in qr_codes])
 
-def display_data():
-    with open(CONFIG["data_config"]["json_file"], "r+") as data_file:
-            scouting_data = load(data_file)
 
-    df = pd.DataFrame.from_dict(scouting_data)
-    new_df = AgGrid(df, editable=True)
+def display_data() -> None:
+    """Displays the scouting data in a table format that can be edited and is paginated."""
+    with open(CONFIG["data_config"]["json_file"]) as data_file:
+        scouting_data = load(data_file)
+        scouting_df = pd.DataFrame.from_dict(scouting_data)
 
-    with open(CONFIG["data_config"]["json_file"], "w+") as data_file:
-            scouting_data = load(data_file)
-            scouting_data.write(new_df)
+    resultant_df = AgGrid(
+        scouting_df,
+        conversion_errors="coerce",
+        editable=True,
+        try_to_convert_back_to_original_types=True
+    )["data"]
+    print(resultant_df)
+
+    resultant_df.to_json(CONFIG["data_config"]["json_file"], orient="records", indent=2)
+
 
 if __name__ == "__main__":
     st.write("# 🦅 FalconScout Core")
