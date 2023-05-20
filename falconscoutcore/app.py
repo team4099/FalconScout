@@ -1,9 +1,11 @@
 from json import dump, load
 
 import cv2
+import pandas as pd
 import numpy as np
 import streamlit as st
 from pyzbar.pyzbar import decode
+from st_aggrid import AgGrid
 
 # Load files for global use.
 with open("config.json") as config_file:
@@ -72,6 +74,11 @@ def scan_qrcode() -> None:
     if qr_codes:
         _process_data(*[qr_code.data.decode("utf-8") for qr_code in qr_codes])
 
+def display_data():
+    with open(CONFIG["data_config"]["json_file"], "r+") as data_file:
+            scouting_data = load(data_file)
+    df = pd.DataFrame.from_dict(scouting_data)
+    AgGrid(df, editable=True)
 
 if __name__ == "__main__":
     st.write("# 🦅 FalconScout Core")
@@ -81,3 +88,7 @@ if __name__ == "__main__":
     with qr_code_tab:
         st.write("### 📱 QR Code Scanner")
         scan_qrcode()
+
+    with qr_code_tab:
+        st.write("### 📝 Scouting Data")
+        display_data()
