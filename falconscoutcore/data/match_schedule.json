@@ -1,4 +1,40 @@
 {
+  "2023new_f1m1": {
+    "red": [
+      "frc0",
+      "frc0",
+      "frc0"
+    ],
+    "blue": [
+      "frc0",
+      "frc0",
+      "frc0"
+    ]
+  },
+  "2023new_f1m2": {
+    "red": [
+      "frc0",
+      "frc0",
+      "frc0"
+    ],
+    "blue": [
+      "frc0",
+      "frc0",
+      "frc0"
+    ]
+  },
+  "2023new_f1m3": {
+    "red": [
+      "frc0",
+      "frc0",
+      "frc0"
+    ],
+    "blue": [
+      "frc0",
+      "frc0",
+      "frc0"
+    ]
+  },
   "2023new_qm1": {
     "red": [
       "frc7428",
@@ -1545,6 +1581,162 @@
       "frc6657",
       "frc1746",
       "frc5274"
+    ]
+  },
+  "2023new_sf10m1": {
+    "red": [
+      "frc0",
+      "frc0",
+      "frc0"
+    ],
+    "blue": [
+      "frc0",
+      "frc0",
+      "frc0"
+    ]
+  },
+  "2023new_sf11m1": {
+    "red": [
+      "frc0",
+      "frc0",
+      "frc0"
+    ],
+    "blue": [
+      "frc0",
+      "frc0",
+      "frc0"
+    ]
+  },
+  "2023new_sf12m1": {
+    "red": [
+      "frc0",
+      "frc0",
+      "frc0"
+    ],
+    "blue": [
+      "frc0",
+      "frc0",
+      "frc0"
+    ]
+  },
+  "2023new_sf13m1": {
+    "red": [
+      "frc0",
+      "frc0",
+      "frc0"
+    ],
+    "blue": [
+      "frc0",
+      "frc0",
+      "frc0"
+    ]
+  },
+  "2023new_sf1m1": {
+    "red": [
+      "frc1538",
+      "frc4143",
+      "frc4909"
+    ],
+    "blue": [
+      "frc177",
+      "frc4522",
+      "frc9084"
+    ]
+  },
+  "2023new_sf2m1": {
+    "red": [
+      "frc195",
+      "frc3039",
+      "frc7285"
+    ],
+    "blue": [
+      "frc179",
+      "frc900",
+      "frc8592"
+    ]
+  },
+  "2023new_sf3m1": {
+    "red": [
+      "frc3538",
+      "frc3940",
+      "frc4099"
+    ],
+    "blue": [
+      "frc1023",
+      "frc2992",
+      "frc3478"
+    ]
+  },
+  "2023new_sf4m1": {
+    "red": [
+      "frc1746",
+      "frc4329",
+      "frc3184"
+    ],
+    "blue": [
+      "frc494",
+      "frc1156",
+      "frc1123"
+    ]
+  },
+  "2023new_sf5m1": {
+    "red": [
+      "frc0",
+      "frc0",
+      "frc0"
+    ],
+    "blue": [
+      "frc0",
+      "frc0",
+      "frc0"
+    ]
+  },
+  "2023new_sf6m1": {
+    "red": [
+      "frc0",
+      "frc0",
+      "frc0"
+    ],
+    "blue": [
+      "frc0",
+      "frc0",
+      "frc0"
+    ]
+  },
+  "2023new_sf7m1": {
+    "red": [
+      "frc0",
+      "frc0",
+      "frc0"
+    ],
+    "blue": [
+      "frc0",
+      "frc0",
+      "frc0"
+    ]
+  },
+  "2023new_sf8m1": {
+    "red": [
+      "frc0",
+      "frc0",
+      "frc0"
+    ],
+    "blue": [
+      "frc0",
+      "frc0",
+      "frc0"
+    ]
+  },
+  "2023new_sf9m1": {
+    "red": [
+      "frc0",
+      "frc0",
+      "frc0"
+    ],
+    "blue": [
+      "frc0",
+      "frc0",
+      "frc0"
     ]
   }
 }

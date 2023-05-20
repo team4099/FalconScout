@@ -3,10 +3,10 @@ from operator import itemgetter
 
 from scipy import spatial
 
-MATCH_KEY = "2023new_qm105"
-MATCH_NUMBER = 105
+MATCH_KEY = "2023new_sf3m1"
+MATCH_NUMBER = 130
 
-TEAM_WANTED = 422
+TEAM_WANTED = 3478
 
 with (
     open("epas.json") as file,
@@ -14,6 +14,7 @@ with (
 ):
     epas = load(file)
     match_schedule = load(match_schedule_file)
+
 
 match_epas = [
     epas[team[3:]]
@@ -23,13 +24,12 @@ match_epas = sorted(match_epas[:3]) + sorted(match_epas[3:])
 similar_matches = {}
 
 for full_match_key, alliances in match_schedule.items():
-    specific_match_number = int(full_match_key.split("_")[-1][2:])
     teams = alliances["red"] + alliances["blue"]
 
     if TEAM_WANTED and f"frc{TEAM_WANTED}" not in teams:
         continue
 
-    if specific_match_number < MATCH_NUMBER:
+    if "m1" not in full_match_key and "sf" not in full_match_key:
         match_specific_epas = [epas[team[3:]] for team in teams]
         match_specific_epas = sorted(match_specific_epas[:3]) + sorted(
             match_specific_epas[3:]

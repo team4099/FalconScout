@@ -77,8 +77,13 @@ def scan_qrcode() -> None:
 def display_data():
     with open(CONFIG["data_config"]["json_file"], "r+") as data_file:
             scouting_data = load(data_file)
+
     df = pd.DataFrame.from_dict(scouting_data)
-    AgGrid(df, editable=True)
+    new_df = AgGrid(df, editable=True)
+
+    with open(CONFIG["data_config"]["json_file"], "w+") as data_file:
+            scouting_data = load(data_file)
+            scouting_data.write(new_df)
 
 if __name__ == "__main__":
     st.write("# 🦅 FalconScout Core")
@@ -89,6 +94,6 @@ if __name__ == "__main__":
         st.write("### 📱 QR Code Scanner")
         scan_qrcode()
 
-    with qr_code_tab:
+    with data_tab:
         st.write("### 📝 Scouting Data")
         display_data()
