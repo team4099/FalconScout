@@ -28,6 +28,12 @@
             "DriverRating",
             "RatingNotes"
         ],
+        "data_types": [
+            "string",
+            "string",
+            "string",
+            "int"
+        ],
         "json_file": "./data/2023new_match_data.json",
         "error_json": "./data/errors.json"
     },
