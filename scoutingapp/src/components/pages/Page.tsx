@@ -4,9 +4,10 @@ import { Link } from "react-router-dom"
 import { DarkButton } from "../buttons"
 import { DropdownTextInput, GenericTextArea, GenericTextInput, IncrementNumberInput, SliderInput } from "../inputs"
 import { ComponentSetup, PageSetup } from "../interface"
-import { GenericCheckboxSelect, GenericDropdown, GenericRadioSelect, GenericToggle, ChargedUpGridSelect } from "../selects"
+import { GenericCheckboxSelect, GenericDropdown, GenericRadioSelect, GenericToggle, ChargedUpGridSelect} from "../selects"
 import { GenericHeaderOne, GenericHeaderTwo, QRCodeModal, Timer } from "../texts"
 import { CycleCounter } from "../monitor"
+import ChargedUpStartingPosition from "../selects/ChargedUpStartingPosition"
 
 interface ImportedComponentSetup extends ComponentSetup {
     type: string;
@@ -28,7 +29,8 @@ export function Page(props: PageSetup){
         "GenericHeaderTwo": [GenericHeaderTwo, ""],
         "CycleCounter": [CycleCounter, ""],
         "Timer": [Timer, ""],
-        "ChargedUpGridSelect": [ChargedUpGridSelect, []]
+        "ChargedUpGridSelect": [ChargedUpGridSelect, []],
+        "ChargedUpStartingPosition":[ChargedUpStartingPosition, ""]
     }
 
     let componentSetup: any = {}
@@ -82,7 +84,7 @@ export function Page(props: PageSetup){
 
                     if (component.type == "Spacing"){
                         return (
-                            <div className="h-[1px]"/>
+                            <div className="h-[2px]"/>
                         )
                     }
                     else {

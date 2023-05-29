@@ -70,44 +70,66 @@
             },
             {
                 "type": "GenericHeaderTwo",
-                "text": "Auto"
+                "text": "Auto Starting Position"
             },
             {
-                "type": "GenericToggle",
-                "text": "Preloaded",
-                "id": "Preloaded"
+                "type": "ChargedUpStartingPosition",
+                "text": "",
+                "id": "StartingPosition"
             },
             {
-                "type": "ChargedUpGridSelect",
-                "text": "Auto Grid",
-                "id": "AutoGrid"
+                "type": "Spacing"
             },
+            {
+                "type": "GenericHeaderTwo",
+                "text": "Auto Game Pieces"
+            },
+
+
+            {
+                "type": "IncrementNumberInput",
+                "text": "Auto High",
+                "placeholder": ["0"],
+                "options": ["bg-green-400"],
+                "id": "AutoHigh"
+            },
+
+            {
+                "type": "IncrementNumberInput",
+                "text": "Auto Mid",
+                "placeholder": ["0"],
+                "options": ["bg-yellow-300"],
+                "id": "AutoMid"
+            },
+
+            {
+                "type": "IncrementNumberInput",
+                "text": "Auto Low",
+                "placeholder": ["0"],
+                "options": ["bg-red-400"],
+                "id": "AutoLow"
+            },
+            
             {
                 "type": "IncrementNumberInput",
                 "text": "Auto Missed",
                 "placeholder": ["0"],
+                "options": [],
                 "id": "AutoMissed"
             },
             {
-                "type": "GenericToggle",
-                "text": "Mobile",
-                "id": "Mobile"
+                "type": "GenericHeaderTwo",
+                "text": "Auto Engage"
             },
             {
                 "type": "GenericToggle",
-                "text": "Auto Attempted Charge",
+                "text": "Auto Engage Attempted",
                 "id": "AutoAttemptedCharge"
             },
             {
-                "type": "GenericRadioSelect",
-                "text": "Robot Charging Pad State",
-                "options": [
-                    "None",
-                    "Dock",
-                    "Engage"
-                ],
-                "placeholder":["None"],
-                "id": "AutoChargingState"
+                "type": "GenericToggle",
+                "text": "Auto Engage Succeeded",
+                "id": "AutoAttemptedCharge"
             },
             {
                 "type": "GenericTextArea",
@@ -122,7 +144,7 @@
             },
             {
                 "type": "GenericHeaderTwo",
-                "text": "Teleop"
+                "text": "Teleop Game Pieces"
             },
             {
                 "type": "ChargedUpGridSelect",
@@ -130,14 +152,8 @@
                 "id": "TeleopGrid"
             },
             {
-                "type": "IncrementNumberInput",
-                "text": "Teleop Missed",
-                "placeholder": ["0"],
-                "id": "TeleopMissed"
-            },
-            {
                 "type": "GenericTextArea",
-                "text": "Teleop Notes",
+                "text": "Teleop or Endgame Notes",
                 "id": "TeleopNotes"
             },
             {
@@ -145,36 +161,6 @@
             },
             {
                 "type": "Spacing"
-            },
-            {
-                "type": "GenericHeaderTwo",
-                "text": "Endgame"
-            },
-            {
-                "type": "GenericToggle",
-                "text": "Endgame Attempted Charge",
-                "id": "EndgameAttemptedCharge"
-            },
-            {
-                "type": "GenericRadioSelect",
-                "text": "Final Charge",
-                "options": [
-                    "None",
-                    "Dock",
-                    "Engage",
-                    "Park"
-                ],
-                "id": "EndgameFinalCharge"
-            },
-            {
-                "type": "GenericTextInput",
-                "text": "Final Charge Time",
-                "id": "EndgameChargeTime"
-            },
-            {
-                "type": "GenericTextArea",
-                "text": "Endgame Notes",
-                "id": "EndgameNotes"
             },
             {
                 "type": "Spacing"
@@ -192,27 +178,6 @@
                 "type": "GenericToggle",
                 "text": "Were they tippy",
                 "id": "Tippy"
-            },
-            {
-                "type": "SliderInput",
-                "text": "How much do they play defense (0-100%)",
-                "options": [
-                    "0",
-                    "100",
-                    "20"
-                ],
-                "placeholder":[0],
-                "id": "DefenseTime"
-            },
-            {
-                "type": "SliderInput",
-                "text": "Defense rating (0 is no defense)",
-                "options": [
-                    "0",
-                    "5"
-                ],
-                "placeholder":[0],
-                "id": "DefenseRating"
             },
             {
                 "type": "SliderInput",
@@ -244,12 +209,10 @@
                 "Alliance",
                 "DriverStation",
                 "TeamNumber",
-                "Preloaded",
                 "AutoGrid",
                 "AutoMissed",
-                "Mobile",
-                "AutoAttemptedCharge",
-                "AutoChargingState",
+                "AutoEngageAttempted",
+                "AutoEngageSuccessful",
                 "AutoNotes",
                 "TeleopGrid",
                 "TeleopMissed",
