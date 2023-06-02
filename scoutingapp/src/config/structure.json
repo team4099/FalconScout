@@ -90,7 +90,7 @@
                 "type": "IncrementNumberInput",
                 "text": "Auto High",
                 "placeholder": ["0"],
-                "options": ["bg-green-400"],
+                "options": ["green"],
                 "id": "AutoHigh"
             },
 
@@ -98,7 +98,7 @@
                 "type": "IncrementNumberInput",
                 "text": "Auto Mid",
                 "placeholder": ["0"],
-                "options": ["bg-yellow-300"],
+                "options": ["yellow"],
                 "id": "AutoMid"
             },
 
@@ -106,7 +106,7 @@
                 "type": "IncrementNumberInput",
                 "text": "Auto Low",
                 "placeholder": ["0"],
-                "options": ["bg-red-400"],
+                "options": ["red"],
                 "id": "AutoLow"
             },
             
