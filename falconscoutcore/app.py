@@ -8,7 +8,6 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 from pyzbar.pyzbar import decode
-from st_aggrid import AgGrid, GridOptionsBuilder
 
 
 # Constants
@@ -116,24 +115,16 @@ def display_data() -> None:
         scouting_data = load(data_file)
         scouting_df = pd.DataFrame.from_dict(scouting_data)
 
-    builder = GridOptionsBuilder.from_dataframe(scouting_df)
-    builder.configure_default_column(editable=True)
-    builder.configure_pagination(
-        paginationAutoPageSize=False,
-        paginationPageSize=SCOUTING_DATA_PAGE_SIZE
-    )
+    data_display_col, status_message_col = st.columns([1.5, 1], gap="medium")
 
-    grid_options = builder.build()
+    data_display_col.write("### 📊 Scouting Data Editor")
+    status_message_col.write("### ✅ Status Messages")
 
-    resultant_df: pd.DataFrame = AgGrid(
-        scouting_df,
-        gridOptions=grid_options,
-        try_to_convert_back_to_original_types=False,
-        theme="streamlit"
-    )["data"]
+    resultant_df = data_display_col.data_editor(scouting_df, num_rows="dynamic")
 
-    # Convert numbers to their original types
-    resultant_df = resultant_df.applymap(partial(pd.to_numeric, errors="ignore"))
+    # Check if the data changed
+    if not scouting_df[~scouting_df.apply(tuple, 1).isin(resultant_df.apply(tuple, 1))].empty:
+        status_message_col.success("Data changed successfully!", icon="✅")
 
     resultant_df.to_json(CONFIG["data_config"]["json_file"], orient="records", indent=2)
 
@@ -153,5 +144,4 @@ if __name__ == "__main__":
         scan_qrcode(qr_code_col, status_message_col)
 
     with data_tab:
-        st.write("### 📝 Scouting Data")
         display_data()
