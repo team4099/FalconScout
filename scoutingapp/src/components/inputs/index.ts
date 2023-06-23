@@ -12,3 +12,6 @@ export {SliderInput}
 
 import IncrementNumberInput from "./IncrementNumberInput";
 export {IncrementNumberInput}
+
+import ConeCubeIncrementInput from "./ConeCubeIncrementInput";
+export {ConeCubeIncrementInput}

@@ -147,9 +147,22 @@
                 "text": "Teleop Game Pieces"
             },
             {
-                "type": "ChargedUpGridSelect",
-                "text": "Teleop Grid",
-                "id": "TeleopGrid"
+                "type": "ConeCubeIncrementInput",
+                "text": "Teleop High",
+                "options":["green"],
+                "id": "TeleopHigh"
+            },
+            {
+                "type": "ConeCubeIncrementInput",
+                "text": "Teleop Mid",
+                "options":["yellow"],
+                "id": "TeleopMid"
+            },
+            {
+                "type": "ConeCubeIncrementInput",
+                "text": "Teleop Low",
+                "options":["red"],
+                "id": "TeleopLow"
             },
             {
                 "type": "GenericTextArea",
@@ -209,12 +222,17 @@
                 "Alliance",
                 "DriverStation",
                 "TeamNumber",
-                "AutoGrid",
+                "StartingPosition",
+                "AutoHigh",
+                "AutoMid",
+                "AutoLow",
                 "AutoMissed",
                 "AutoEngageAttempted",
                 "AutoEngageSuccessful",
                 "AutoNotes",
-                "TeleopGrid",
+                "TeleopHigh",
+                "TeleopMid",
+                "TeleopLow",
                 "TeleopMissed",
                 "TeleopNotes",
                 "EndgameAttemptedCharge",

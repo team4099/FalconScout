@@ -2,7 +2,7 @@ import React from "react"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { DarkButton } from "../buttons"
-import { DropdownTextInput, GenericTextArea, GenericTextInput, IncrementNumberInput, SliderInput } from "../inputs"
+import { DropdownTextInput, GenericTextArea, GenericTextInput, IncrementNumberInput, SliderInput, ConeCubeIncrementInput} from "../inputs"
 import { ComponentSetup, PageSetup } from "../interface"
 import { GenericCheckboxSelect, GenericDropdown, GenericRadioSelect, GenericToggle, ChargedUpGridSelect} from "../selects"
 import { GenericHeaderOne, GenericHeaderTwo, QRCodeModal, Timer } from "../texts"
@@ -30,7 +30,8 @@ export function Page(props: PageSetup){
         "CycleCounter": [CycleCounter, ""],
         "Timer": [Timer, ""],
         "ChargedUpGridSelect": [ChargedUpGridSelect, []],
-        "ChargedUpStartingPosition":[ChargedUpStartingPosition, ""]
+        "ChargedUpStartingPosition":[ChargedUpStartingPosition, ""],
+        "ConeCubeIncrementInput": [ConeCubeIncrementInput, []]
     }
 
     let componentSetup: any = {}
