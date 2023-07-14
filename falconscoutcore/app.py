@@ -1,5 +1,4 @@
 from ast import literal_eval
-from functools import partial
 from json import dump, load
 from typing import Any
 
@@ -8,6 +7,7 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 from pyzbar.pyzbar import decode
+from streamlit.components.v1 import html
 
 
 # Constants
@@ -84,11 +84,10 @@ def _process_data(*data: list[str], status_message_col) -> None:
 
 
 # Main functions
-def scan_qrcode(qr_code_col, status_message_col) -> None:
+def scan_qrcode(qr_code_col) -> None:
     """Uses st.camera_input to scan QR codes from the scouting app into backend.
 
     :param qr_code_col: The Streamlit column passed in for the QR code scanner (camera input).
-    :param status_message_col: The Streamlit column passed in for displaying status messages.
     """
     image = qr_code_col.camera_input("QR Code Scanner", label_visibility="hidden")
 
@@ -105,8 +104,39 @@ def scan_qrcode(qr_code_col, status_message_col) -> None:
     if qr_codes:
         _process_data(
             *[qr_code.data.decode("utf-8") for qr_code in qr_codes],
-            status_message_col=status_message_col
+            status_message_col=qr_code_col
         )
+
+
+def write_dataval_errors(data_val_col) -> None:
+    """Writes the data validation errors contained in `errors.json` into the column."""
+    with (
+        open(CONFIG["data_config"]["error_json"]) as error_file,
+        open("./streamlit_components/error_component.html", "r") as component_file
+    ):
+        scouting_data_errors = load(error_file)
+        error_component = component_file.read()
+
+        errors_by_match = sorted(
+            scouting_data_errors,
+            key=lambda error: int(error["match"][2:]),
+            reverse=True
+        )
+
+        with data_val_col:
+            for error in errors_by_match[:4]:
+                html(
+                    error_component.format(
+                        error_title=error["message"],
+                        error_type=error["error_type"],
+                        match_key=error["match"],
+                        height="140px"
+                    ),
+                    height=140
+                )
+
+
+
 
 
 def display_data() -> None:
@@ -135,13 +165,13 @@ if __name__ == "__main__":
     qr_code_tab, data_tab = st.tabs(["📱 QR Code Scanner", "📝 Scouting Data"])
 
     with qr_code_tab:
-        qr_code_col, status_message_col = st.columns([1.5, 1])
+        qr_code_col, data_val_errors_col = st.columns([1.5, 1])
 
         qr_code_col.write("### 📱 QR Code Scanner")
-        status_message_col.write("### ✅ Status Messages")
+        data_val_errors_col.write("### ✅ DataVal Errors")
 
-        # Two columns passed in where one is for the QR code scanner and the other for status codes.
-        scan_qrcode(qr_code_col, status_message_col)
+        scan_qrcode(qr_code_col)
+        write_dataval_errors(data_val_errors_col)
 
     with data_tab:
         display_data()
