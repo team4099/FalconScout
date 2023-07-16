@@ -1,3 +1,6 @@
+import asyncio
+import datetime
+import os
 from ast import literal_eval
 from json import dump, load
 from typing import Any
@@ -6,12 +9,19 @@ import cv2
 import numpy as np
 import pandas as pd
 import streamlit as st
+from dotenv import load_dotenv
+from github import Github
 from pyzbar.pyzbar import decode
 from streamlit.components.v1 import html
 
+# Hacky solution to work around Streamlit raising an error about "no event loop" - breaks PEP8
+loop = asyncio.new_event_loop()
+asyncio.set_event_loop(loop)
 
-# Constants
-SCOUTING_DATA_PAGE_SIZE = 6 * 5
+from data_validation.data_val_2023 import DataValidation2023
+
+load_dotenv()
+github_instance = Github(os.getenv("GITHUB_KEY"))
 
 # Load files for global use.
 with open("config.json") as config_file:
@@ -130,13 +140,73 @@ def write_dataval_errors(data_val_col) -> None:
                         error_title=error["message"],
                         error_type=error["error_type"],
                         match_key=error["match"],
-                        height="140px"
+                        height="150px"
                     ),
-                    height=140
+                    height=150
                 )
 
 
+def run_dataval(success_col) -> None:
+    """Runs the data validation on the current data and writes the errors to `errors.json`
 
+    :param success_col: The column to write status messages for running the data validator in.
+    """
+    data_validator = DataValidation2023("./data_validation/config.yaml")
+
+    with open(CONFIG["data_config"]["json_file"]) as scouting_data_file:
+        data_validator.validate_data(
+            load(scouting_data_file)
+        )
+
+    # Read how many errors were raised for the status message.
+    with open(CONFIG["data_config"]["error_json"]) as error_file:
+        amount_of_errors = len(load(error_file))
+
+    if amount_of_errors > 0:
+        success_col.warning(
+            f"{amount_of_errors} errors were raised when validating the data.",
+            icon="🚨"
+        )
+    else:
+        success_col.success(
+            "No errors were raised when validating the data!",
+            icon="✅"
+        )
+
+
+def sync_to_github(success_col) -> None:
+    """Syncs the current scouting data JSON and CSV to GitHub with their respective files.
+
+    :param success_col: The column to write success messages into.
+    """
+    with open(CONFIG["data_config"]["json_file"]) as file:
+        file_json_data = load(file)
+
+    file_csv_data = pd.read_csv(
+        CONFIG["data_config"].get(
+            "csv_file",
+            CONFIG["data_config"]["json_file"].replace("json", "csv")
+        )
+    )
+
+    repo = github_instance.get_repo(CONFIG["repo_config"]["repo"])
+    contents = repo.get_contents(CONFIG["repo_config"]["update_json"])
+    repo.update_file(
+        contents.path,
+        f'updated data @ {datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S")}',
+        str(file_json_data),
+        contents.sha,
+    )
+
+    contents = repo.get_contents(CONFIG["repo_config"]["update_csv"])
+    repo.update_file(
+        contents.path,
+        f'updated data @ {datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S")}',
+        str(file_csv_data),
+        contents.sha,
+    )
+
+    success_col.success("Successfully synced to Github", icon="✅")
 
 
 def display_data() -> None:
@@ -164,6 +234,7 @@ if __name__ == "__main__":
 
     qr_code_tab, data_tab = st.tabs(["📱 QR Code Scanner", "📝 Scouting Data"])
 
+    # QR code page
     with qr_code_tab:
         qr_code_col, data_val_errors_col = st.columns([1.5, 1])
 
@@ -173,5 +244,16 @@ if __name__ == "__main__":
         scan_qrcode(qr_code_col)
         write_dataval_errors(data_val_errors_col)
 
+        # Add different buttons (validate data and sync to github).
+        with st.sidebar:
+            st.write("# 🦾 Actions")
+
+            if st.button("Validate Data"):
+                run_dataval(qr_code_col)
+
+            if st.button("Sync Github"):
+                sync_to_github(qr_code_col)
+
+    # Scouting data editor page
     with data_tab:
         display_data()
