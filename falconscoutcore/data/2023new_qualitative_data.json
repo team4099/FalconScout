@@ -1,0 +1,27 @@
+[
+  {
+    "ScoutId":"shayaan",
+    "MatchKey":"qm,1",
+    "Alliance":"red",
+    "DriverStation":"1",
+    "TeamNumber":4099.0,
+    "AutoPieces":2.0,
+    "AutoStartingPosition":"Cable protector side",
+    "AutoEngaged":"true",
+    "AutoIntakeAccuracy":"false",
+    "AutoScoringAccuracy":"Great",
+    "AutoDrivingSkills":"true",
+    "AutoNotes":"",
+    "TeleopPieces":2.0,
+    "TeleopPath":"Cable protector side to loading zone",
+    "TeleopAligningSpeed":"Slow",
+    "TeleopCommunitySkill":"Smoothly",
+    "TeleopIntakingLocation":"Ground",
+    "Disabled":"true",
+    "Tippy":"true",
+    "DriverRating":"Fluid",
+    "ConeIntakingSkill":"Very Good",
+    "CubeIntakingSkill":"Good",
+    "SubstationSpeed":"Poor"
+  }
+]

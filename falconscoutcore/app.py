@@ -51,46 +51,96 @@ def _process_data(*data: list[str], status_message_col) -> None:
     :param status_message_col: The Streamlit column for displaying status messages.
     :return:
     """
-    data_maps = []
+    quantitative_data_maps = []
+    qualitative_data_maps = []
 
     for raw_data in data:
-        data_labels = CONFIG["data_config"]["data_labels"]
+        quantitative_data_labels = CONFIG["data_config"]["quantitative_data_labels"]
+        qualitative_data_labels = CONFIG["data_config"]["qualitative_data_labels"]
         split_data = raw_data.split(CONFIG["data_config"]["delimiter"])
 
-        if len(split_data) != len(data_labels):
+        if len(split_data) == len(quantitative_data_labels):
+            quantitative_data_maps.append(
+                {
+                    field: _convert_string_to_proper_type(data)
+                    for field, data in zip(quantitative_data_labels, split_data)
+                }
+            )
+        elif len(split_data) == len(qualitative_data_labels):
+            qualitative_data_maps.append(
+                {
+                    field: _convert_string_to_proper_type(data)
+                    for field, data in zip(qualitative_data_labels, split_data)
+                }
+            )
+        else:
             status_message_col.error(
                 f"Scanned QR code from {split_data[0]} has {len(split_data)} fields "
-                f"while Core expected {len(data_labels)} fields."
+                f"while Core expected {len(quantitative_data_labels)} fields."
                 f" The scouter is likely using an older version of FalconScout."
             )
             return
 
-        data_maps.append({field: data for field, data in zip(data_labels, split_data)})
+    if quantitative_data_maps:
+        with open(CONFIG["data_config"]["json_file"], "r+") as data_file:
+            scouting_data = load(data_file)
+            data_maps = [
+                data_map
+                for data_map in quantitative_data_maps
+                if data_map not in scouting_data
+            ]
 
-    with open(CONFIG["data_config"]["json_file"], "r+") as data_file:
-        scouting_data = load(data_file)
-        data_maps = [
-            data_map for data_map in data_maps if data_map not in scouting_data
-        ]
+            # If some QR codes were already scanned
+            if len(data_maps) != len(data):
+                status_message_col.warning(
+                    f"{len(data) - len(data_maps)} QR code(s) were already scanned.",
+                    icon="🚨",
+                )
 
-        # If some QR codes were already scanned
-        if len(data_maps) != len(data):
-            status_message_col.warning(
-                f"{len(data) - len(data_maps)} QR code(s) were already scanned.",
-                icon="🚨",
+                # If all QR codes were already scanned
+                if len(data_maps) == 0:
+                    return
+
+            scouting_data.extend(data_maps)
+
+            data_file.seek(0)
+            dump(scouting_data, data_file, indent=2)
+            data_file.truncate()
+
+            status_message_col.success(
+                f"{len(data_maps)} QR code(s) successfully scanned!", icon="✅"
             )
 
-            # If all QR codes were already scanned
-            if len(data_maps) == 0:
-                return
+    if qualitative_data_maps:
+        with open(CONFIG["data_config"]["qualitative_json_file"], "r+") as data_file:
+            scouting_data = load(data_file)
+            data_maps = [
+                data_map
+                for data_map in qualitative_data_maps
+                if data_map not in scouting_data
+            ]
 
-        scouting_data.extend(data_maps)
+            # If some QR codes were already scanned
+            if len(data_maps) != len(data):
+                status_message_col.warning(
+                    f"{len(data) - len(data_maps)} note scouting app QR code(s) were already scanned.",
+                    icon="🚨",
+                )
 
-        data_file.seek(0)
-        dump(scouting_data, data_file, indent=2)
-        data_file.truncate()
+                # If all QR codes were already scanned
+                if len(data_maps) == 0:
+                    return
 
-        status_message_col.success(f"{len(data_maps)} QR code(s) successfully scanned!", icon="✅")
+            scouting_data.extend(data_maps)
+
+            data_file.seek(0)
+            dump(scouting_data, data_file, indent=2)
+            data_file.truncate()
+
+            status_message_col.success(
+                f"{len(data_maps)} note scouting app QR code(s) successfully scanned!",
+                icon="✅",
+            )
 
 
 # Main functions
@@ -114,7 +164,7 @@ def scan_qrcode(qr_code_col) -> None:
     if qr_codes:
         _process_data(
             *[qr_code.data.decode("utf-8") for qr_code in qr_codes],
-            status_message_col=qr_code_col
+            status_message_col=qr_code_col,
         )
 
 
@@ -122,7 +172,7 @@ def write_dataval_errors(data_val_col) -> None:
     """Writes the data validation errors contained in `errors.json` into the column."""
     with (
         open(CONFIG["data_config"]["error_json"]) as error_file,
-        open("./streamlit_components/error_component.html", "r") as component_file
+        open("./streamlit_components/error_component.html", "r") as component_file,
     ):
         scouting_data_errors = load(error_file)
         error_component = component_file.read()
@@ -130,7 +180,7 @@ def write_dataval_errors(data_val_col) -> None:
         errors_by_match = sorted(
             scouting_data_errors,
             key=lambda error: int(error["match"][2:]),
-            reverse=True
+            reverse=True,
         )
 
         with data_val_col:
@@ -140,9 +190,9 @@ def write_dataval_errors(data_val_col) -> None:
                         error_title=error["message"],
                         error_type=error["error_type"],
                         match_key=error["match"],
-                        height="150px"
+                        height="150px",
                     ),
-                    height=150
+                    height=150,
                 )
 
 
@@ -154,9 +204,7 @@ def run_dataval(success_col) -> None:
     data_validator = DataValidation2023("./data_validation/config.yaml")
 
     with open(CONFIG["data_config"]["json_file"]) as scouting_data_file:
-        data_validator.validate_data(
-            load(scouting_data_file)
-        )
+        data_validator.validate_data(load(scouting_data_file))
 
     # Read how many errors were raised for the status message.
     with open(CONFIG["data_config"]["error_json"]) as error_file:
@@ -164,14 +212,10 @@ def run_dataval(success_col) -> None:
 
     if amount_of_errors > 0:
         success_col.warning(
-            f"{amount_of_errors} errors were raised when validating the data.",
-            icon="🚨"
+            f"{amount_of_errors} errors were raised when validating the data.", icon="🚨"
         )
     else:
-        success_col.success(
-            "No errors were raised when validating the data!",
-            icon="✅"
-        )
+        success_col.success("No errors were raised when validating the data!", icon="✅")
 
 
 def sync_to_github(success_col) -> None:
@@ -179,13 +223,16 @@ def sync_to_github(success_col) -> None:
 
     :param success_col: The column to write success messages into.
     """
-    with open(CONFIG["data_config"]["json_file"]) as file:
+    with (
+        open(CONFIG["data_config"]["json_file"]) as file,
+        open(CONFIG["data_config"]["qualitative_json_file"]) as qualitative_file,
+    ):
         file_json_data = load(file)
+        qualitative_json_data = load(qualitative_file)
 
     file_csv_data = pd.read_csv(
         CONFIG["data_config"].get(
-            "csv_file",
-            CONFIG["data_config"]["json_file"].replace("json", "csv")
+            "csv_file", CONFIG["data_config"]["json_file"].replace("json", "csv")
         )
     )
 
@@ -195,6 +242,14 @@ def sync_to_github(success_col) -> None:
         contents.path,
         f'updated data @ {datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S")}',
         str(file_json_data),
+        contents.sha,
+    )
+
+    contents = repo.get_contents(CONFIG["repo_config"]["update_qualitative_json"])
+    repo.update_file(
+        contents.path,
+        f'updated data @ {datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S")}',
+        str(qualitative_json_data),
         contents.sha,
     )
 
@@ -211,22 +266,46 @@ def sync_to_github(success_col) -> None:
 
 def display_data() -> None:
     """Displays the scouting data in a table format that can be edited and is paginated."""
-    with open(CONFIG["data_config"]["json_file"]) as data_file:
+    with (
+        open(CONFIG["data_config"]["json_file"]) as data_file,
+        open(CONFIG["data_config"]["qualitative_json_file"]) as qualitative_data_file,
+    ):
         scouting_data = load(data_file)
+        note_scouting_data = load(qualitative_data_file)
+
         scouting_df = pd.DataFrame.from_dict(scouting_data)
+        note_scouting_df = pd.DataFrame.from_dict(note_scouting_data)
 
     data_display_col, status_message_col = st.columns([1.5, 1], gap="medium")
 
     data_display_col.write("### 📊 Scouting Data Editor")
     status_message_col.write("### ✅ Status Messages")
 
+    # Quantitative scouting data editor
     resultant_df = data_display_col.data_editor(scouting_df, num_rows="dynamic")
 
-    # Check if the data changed
-    if not scouting_df[~scouting_df.apply(tuple, 1).isin(resultant_df.apply(tuple, 1))].empty:
-        status_message_col.success("Data changed successfully!", icon="✅")
+    # Qualitative scouting data editor
+    data_display_col.write("### 📝 Note Scouting Data Editor")
+    resultant_quali_df = data_display_col.data_editor(
+        note_scouting_df, num_rows="dynamic"
+    )
 
-    resultant_df.to_json(CONFIG["data_config"]["json_file"], orient="records", indent=2)
+    # Check if the data changed
+    if not scouting_df[
+        ~scouting_df.apply(tuple, 1).isin(resultant_df.apply(tuple, 1))
+    ].empty:
+        status_message_col.success("Scouting data changed successfully!", icon="✅")
+        resultant_df.to_json(
+            CONFIG["data_config"]["json_file"], orient="records", indent=2
+        )
+
+    if not note_scouting_df[
+        ~note_scouting_df.apply(tuple, 1).isin(resultant_quali_df.apply(tuple, 1))
+    ].empty:
+        status_message_col.success("Note scouting data changed successfully!", icon="✅")
+        resultant_quali_df.to_json(
+            CONFIG["data_config"]["qualitative_json_file"], orient="records", indent=2
+        )
 
 
 if __name__ == "__main__":

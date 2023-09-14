@@ -1,7 +1,7 @@
 {
     "data_config": {
         "delimiter": "|",
-        "data_labels": [
+        "quantitative_data_labels": [
             "ScoutId",
             "MatchKey",
             "Alliance",
@@ -28,17 +28,38 @@
             "DriverRating",
             "RatingNotes"
         ],
-        "data_types": [
-            "string",
-            "string",
-            "string",
-            "int"
+        "qualitative_data_labels": [
+            "ScoutId",
+            "MatchKey",
+            "Alliance",
+            "DriverStation",
+            "TeamNumber",
+            "AutoPieces",
+            "AutoStartingPosition",
+            "AutoEngaged",
+            "AutoIntakeAccuracy",
+            "AutoScoringAccuracy",
+            "AutoDrivingSkills",
+            "AutoNotes",
+            "TeleopPieces",
+            "TeleopPath",
+            "TeleopAligningSpeed",
+            "TeleopCommunitySkill",
+            "TeleopIntakingLocation",
+            "Disabled",
+            "Tippy",
+            "DriverRating",
+            "ConeIntakingSkill",
+            "CubeIntakingSkill",
+            "SubstationSpeed"
         ],
         "json_file": "./data/2023new_match_data.json",
+        "qualitative_json_file": "./data/2023new_qualitative_data.json",
         "error_json": "./data/errors.json"
     },
     "repo_config": {
         "repo": "team4099/ScoutingAppData",
-        "update_json": "2023new_match_data.json"
+        "update_json": "2023new_match_data.json",
+        "update_qualitative_json": "2023new_qualitative_data.json"
     }
 }
