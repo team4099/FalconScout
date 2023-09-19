@@ -44,6 +44,7 @@ def _convert_string_to_proper_type(value: str) -> Any:
         return value
 
 
+
 def _process_data(*data: list[str], status_message_col) -> None:
     """Takes raw data from a scanned QR code and processes it into a dictionary before writing it back to the data file.
 
@@ -241,7 +242,7 @@ def sync_to_github(success_col) -> None:
     repo.update_file(
         contents.path,
         f'updated data @ {datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S")}',
-        str(file_json_data),
+        str(file_json_data).replace("'", '"'),
         contents.sha,
     )
 
@@ -249,15 +250,7 @@ def sync_to_github(success_col) -> None:
     repo.update_file(
         contents.path,
         f'updated data @ {datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S")}',
-        str(qualitative_json_data),
-        contents.sha,
-    )
-
-    contents = repo.get_contents(CONFIG["repo_config"]["update_csv"])
-    repo.update_file(
-        contents.path,
-        f'updated data @ {datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S")}',
-        str(file_csv_data),
+        str(qualitative_json_data).replace("'", '"'),
         contents.sha,
     )
 
