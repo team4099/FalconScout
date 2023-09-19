@@ -18,7 +18,10 @@ class BaseDataValidation(ABC):
     Implements base checks explained below (e.g. checking if the scout scouted the right driver station.)
     """
 
-    RESCOUTING_ERROR_THRESHOLD = 10
+    TBA_GRID_AUTO_ERROR_THRESHOLD = 1
+    TBA_GRID_TELEOP_ERROR_THRESHOLD = 3
+
+    RESCOUTING_ERROR_THRESHOLD = 20
 
     def __init__(self, path_to_config: str = "config.yaml"):
         # Basic attributes
@@ -35,27 +38,48 @@ class BaseDataValidation(ABC):
             "path_to_data",
             f"data/{self.config['year']}{self.config['event_code']}_match_data.json",
         )
+        self.path_to_scouting_rotations = self.config.get("path_to_scouting_rotations")
+
         self.df = read_json(self.path_to_data_file)
 
         self._event_key = str(self.config["year"]) + self.config["event_code"]
-        # Determines both if were using tba for match shedule and whether we're running tba checks
-        self._run_with_tba = self.config.get("run_with_tba", True)
+        # Determines both if were using tba for match schedule and whether we're running tba checks
+        self._run_with_tba = self.config.get("run_with_tba", False)
 
         # Setting up FalconAlliance (our connection to TBA) and retrieving match schedule
         self.api_client = falcon_alliance.ApiClient(
             api_key="6lcmneN5bBDYpC47FolBxp2RZa4AbQCVpmKMSKw9x9btKt7da5yMzVamJYk0XDBm"  # for testing purposes
         )
 
-        with self.api_client:
-            # make sure tba isn't down
-            self._run_with_tba = (
-                self._event_key not in self.api_client.status().down_events
-            )
+        # Retrieve match data from event so far
+        self.match_data = self.get_match_data()
 
-            if self._run_with_tba:
-                self.get_match_schedule_tba()
-            else:
-                self.get_match_schedule_file()
+        if self._run_with_tba:
+            with self.api_client:
+                # make sure tba isn't down
+                self._run_with_tba = (
+                    self._event_key not in self.api_client.status().down_events
+                )
+
+                if self._run_with_tba:
+                    self.get_match_schedule_tba()
+
+        if not self._run_with_tba:
+            self.get_match_schedule_file()
+
+        if self.path_to_scouting_rotations:
+            with open(f"data/{self._event_key}_scouting_rotations.json") as file:
+                self.scouting_rotations = load(file)
+        else:
+            self.scouting_rotations = []
+
+    def get_match_data(self) -> dict:
+        if self._run_with_tba:
+            with self.api_client:
+                event_matches = falcon_alliance.Event(self._event_key).matches()
+                return {match.key: match for match in event_matches}
+        else:
+            return {}
 
     @abstractmethod
     def validate_data(self, scouting_data: list = None) -> None:
@@ -64,6 +88,16 @@ class BaseDataValidation(ABC):
 
         :param scouting_data: Optional parameter containing scouting data mostly for testing purposes.
         :return:
+        """
+        pass
+
+    @abstractmethod
+    def average_out_data(self, scouting_data: list) -> DataFrame:
+        """
+        Averages out data for all submissions that scouted a certain robot during a certain match (allows n-scouting).
+
+        :param scouting_data: Optional parameter containing scouting data mostly for testing purposes.
+        :return: A DataFrame containing the averaged out data.
         """
         pass
 
@@ -125,49 +159,55 @@ class BaseDataValidation(ABC):
         data_by_match_key = defaultdict(lambda: defaultdict(list))
 
         for _, submission in scouting_data.iterrows():
-            if notna(submission["match_key"]):
-                data_by_match_key[submission["match_key"].strip().lower()][
-                    submission["alliance"].lower()
+            if notna(submission[self.config["match_key"]]):
+                data_by_match_key[submission[self.config["match_key"]].strip().lower()][
+                    submission[self.config["alliance"]].lower()
                 ].append(submission)
 
         for match_key, match_data in data_by_match_key.items():
             for alliance in ("red", "blue"):
-                teams = self.match_schedule[f"{self._event_key}_{match_key}"][alliance]
+                try:
+                    teams = self.match_schedule[f"{self._event_key}_{match_key}"][
+                        alliance
+                    ]
+                except KeyError as e:
+                    print(e)
+                    continue
+
                 team_numbers = [
-                    submission["team_number"] for submission in match_data[alliance]
+                    f"frc{submission[self.config['team_number']]}"
+                    for submission in match_data[alliance]
                 ]
 
-                if len(match_data[alliance]) > 3:
-                    for double_scouted in set(
-                        [team for team in team_numbers if team_numbers.count(team) > 1]
-                    ):
-                        self.add_error(
-                            f"In {match_key}, frc{double_scouted} was DOUBLE SCOUTED",
-                            ErrorType.EXTRA_DATA,
-                            match_key,
-                            double_scouted,
-                        )
-                elif len(match_data[alliance]) < 3:
-                    team_numbers = [
-                        f"frc{submission['team_number']}"
-                        for submission in match_data[alliance]
-                    ]
-
-                    for team in teams:
+                if len(match_data[alliance]) < 3:
+                    for driver_station, team in enumerate(teams):
                         if team not in team_numbers:
+                            scout_responsible = (
+                                self.scouting_rotations[match_key][driver_station]
+                                if self.scouting_rotations
+                                else ""
+                            )
                             self.add_error(
                                 f"In {match_key}, {team} was NOT SCOUTED",
                                 ErrorType.MISSING_DATA,
                                 match_key,
-                                team,
+                                int(team.strip("frc")),
+                                scout_id=scout_responsible,
                             )
+
+    def remove_duplicate_errors(self) -> None:
+        """Edits self.errors to remove any duplicate errors found."""
+        self.errors = [
+            dict(error)
+            for error in set([tuple(error.items()) for error in self.errors])
+        ]
 
     def add_error(
         self,
         error_message: str,
         error_type: ErrorType,
         match_key: str,
-        team_id: int = "N/A",
+        team_id: int = 9999,
         scout_id: str = "N/A",
         alliance: str = "N/A",
     ) -> None:
@@ -182,14 +222,15 @@ class BaseDataValidation(ABC):
         :param alliance: The alliance where the error is being raised from.
         :return:
         """
+        # Explicit conversions to string and integers because of NumPy types that might be passed in.
         self.errors.append(
             {
                 "error_type": error_type.name.replace("_", " "),
                 "error_number": error_type.value,
                 "message": error_message,
-                "match": match_key,
+                "match": str(match_key),
                 "scout_id": scout_id,
-                "team_id": team_id,
+                "team_id": int(team_id),
                 "alliance": alliance,
             }
         )
@@ -201,21 +242,43 @@ class BaseDataValidation(ABC):
 
         :return: None
         """
+        self.remove_duplicate_errors()
+
         # Add rescouting flag for matches with a 10 or more cumulative "error amount" (enum value).
         error_dataframe = DataFrame.from_dict(self.errors)
-        for match_key, error_amount in (
-            error_dataframe.groupby("match")["error_number"].sum().iteritems()
-        ):
-            if error_amount >= self.RESCOUTING_ERROR_THRESHOLD:
-                self.add_error(
-                    f"In {match_key}, a cumulative amount of {error_amount} gathered "
-                    f"from ERRORS were found, this match should be RESCOUTED.",
-                    ErrorType.RESCOUT_MATCH,
-                    match_key,
-                )
+
+        if not error_dataframe.empty:
+            for match_key, error_amount in (
+                error_dataframe[error_dataframe["error_type"] != "RESCOUT MATCH"]
+                .groupby("match")["error_number"]
+                .sum()
+                .items()
+            ):
+                if error_amount >= self.RESCOUTING_ERROR_THRESHOLD:
+                    self.add_error(
+                        f"In {match_key}, a cumulative amount of {error_amount} gathered "
+                        f"from ERRORS were found, this match should be RESCOUTED.",
+                        ErrorType.RESCOUT_MATCH,
+                        match_key,
+                    )
+
+        self.remove_duplicate_errors()
 
         with open(self.path_to_output_file, "w") as file:
-            dump(self.errors, file, indent=4)
+            dump(
+                sorted(
+                    self.errors,
+                    key=lambda error: int(
+                        error["match"]
+                        .replace("qm", "")
+                        .replace("sf", "")
+                        .replace("f", "")
+                    ),
+                    reverse=True,
+                ),
+                file,
+                indent=4,
+            )
 
     def get_match_schedule_tba(self) -> None:
         """
@@ -251,7 +314,7 @@ class BaseDataValidation(ABC):
 
         # Writes match schedule to the corresponding JSON
         with open("data/match_schedule.json", "w") as file:
-            dump(self.match_schedule, file, indent=4)
+            dump(self.match_schedule, file, indent=2)
 
     def get_teams(self) -> List[int]:
         """

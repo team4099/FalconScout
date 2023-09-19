@@ -30,13 +30,13 @@ function GenericRadioSelect(props: ComponentSetup) {
                 <div className="flex flex-row gap-2">
                     <div className="basis-1/2 p-1 pt-[8px] h-[3em] border-4 rounded-xl border-[#e5534b]">
                         <div className="mb-1 ml-2">
-                            <input type="radio" id="red" name="Selection" value="red" className={`radio ${"red"}`}/>
+                            <input type="radio" id="red" name="Selection" value="red" className={`radio ${props.id}`}/>
                             <p className="ml-3 inline text-black font-semibold">red</p>
                         </div>
                     </div>
                     <div className="basis-1/2 p-1 pt-[8px] h-[3em] border-4 rounded-xl border-[#529bf5]">
                         <div className="mb-1 ml-2">
-                            <input type="radio" id="blue" name="Selection" value="blue" className={`radio ${"blue"}`}/>
+                            <input type="radio" id="blue" name="Selection" value="blue" className={`radio ${props.id}`}/>
                             <p className="ml-3 inline text-black font-semibold">blue</p>
                         </div>
                     </div>

@@ -13,14 +13,10 @@ def example_scouting_data(
     mobile: bool = True,
     auto_cones: list[str] = [],
     auto_cubes: list[str] = [],
-    auto_misses: list[tuple] = [],
     teleop_cones: list[str] = [],
     teleop_cubes: list[str] = [],
-    teleop_misses: list[tuple] = [],
-    auto_docked: bool = False,
-    auto_engaged: bool = False,
-    docked: bool = False,
-    engaged: bool = False,
+    auto_charging_state: str = "None",
+    teleop_charging_state: str = "None",
     defense_pct: float = 0.5,
     defense_rating: float = 5.0,
     counter_defense_pct: float = 0.5,
@@ -42,14 +38,10 @@ def example_scouting_data(
     :param mobile: Whether or not the robot left the community during auto.
     :param auto_cones: A list containing the type of node where each cone was scored in auto.
     :param auto_cubes: A list containing the type of node where each cube was scored in auto.
-    :param auto_misses: A list containing the type of node and the type of game piece that the robot missed in auto.
     :param teleop_cones: A list containing the type of node where each cone was scored in teleop.
     :param teleop_cubes: A list containing the type of node where each cube was scored in teleop.
-    :param teleop_misses: A list containing the type of node and the type of game piece that the robot missed in teleop.
-    :param auto_docked: A boolean representing whether or not the robot docked to the charge station in auto.
-    :param auto_engaged: A boolean representing whether or not the robot was engaged to the charge station in auto.
-    :param docked: A boolean representing whether or not the robot was docked to the charge station in endgame.
-    :param engaged: A boolean representing whether or not the robot was engaged to the charge station in endgame.
+    :param auto_charging_state: A string representing the state of the robot during Autonomous on the charge station.
+    :param teleop_charging_state: A string representing the state of the robot during Teleop on the charge station.
     :param defense_pct: % representing how much the robot played defense.
     :param defense_rating: Rating on a scale of 1 to 5 on how well the robot played defense.
     :param counter_defense_pct: % representing how much the robot played counter defense.
@@ -70,14 +62,10 @@ def example_scouting_data(
         "mobile": mobile,
         "auto_cones": auto_cones,
         "auto_cubes": auto_cubes,
-        "auto_misses": auto_misses,
         "teleop_cones": teleop_cones,
         "teleop_cubes": teleop_cubes,
-        "teleop_misses": teleop_misses,
-        "auto_docked": auto_docked,
-        "auto_engaged": auto_engaged,
-        "docked": docked,
-        "engaged": engaged,
+        "auto_charging_state": auto_charging_state,
+        "teleop_charging_state": teleop_charging_state,
         "defense_pct": defense_pct,
         "defense_rating": defense_rating,
         "counter_defense_pct": counter_defense_pct,
