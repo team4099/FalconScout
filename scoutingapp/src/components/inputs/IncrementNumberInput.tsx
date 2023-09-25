@@ -6,6 +6,8 @@ function IncrementNumberInput(props: ComponentSetup) {
 
     const [counter, setCounter] = useState(0)
 
+    const color = props?.options?.[0]
+
     const updateStateText = (value: any) => {
 		//console.log(props.getValue)
 		var state = props.getValue
@@ -26,8 +28,8 @@ function IncrementNumberInput(props: ComponentSetup) {
                 >
                     -
                 </button>
-                <div className="flex w-1/3 h-full text-2xl float-left items-center">
-                    <p className="text-center w-full">{counter}</p>
+                <div className={`flex w-1/3 h-full text-2xl float-left items-center ${color == "red" ? "bg-red-400" : color == "yellow" ? "bg-amber-300" : color == "green" ? "bg-green-400" : "bg-white"}`}>
+                    <p className={"text-center w-full"}>{counter}</p>
                 </div>
                 <button
                     type="button"

@@ -17,7 +17,8 @@
                 "placeholder": [
                     "Pranav"
                 ],
-                "id": "ScoutId"
+                "id": "ScoutId",
+                "required": true
             },
             {
                 "type": "DropdownTextInput",
@@ -31,7 +32,8 @@
                 "placeholder": [
                     "number"
                 ],
-                "id": "MatchKey"
+                "id": "MatchKey",
+                "required": true
             },
             {
                 "type": "GenericRadioSelect",
@@ -40,8 +42,8 @@
                     "red",
                     "blue"
                 ],
-                "required": true,
-                "id": "Alliance"
+                "id": "Alliance",
+                "required": true
             },
             {
                 "type": "GenericDropdown",
@@ -51,7 +53,8 @@
                     "2",
                     "3"
                 ],
-                "id": "DriverStation"
+                "id": "DriverStation",
+                "required": true
             },
             {
                 "type": "GenericTextInput",
@@ -59,54 +62,74 @@
                 "placeholder": [
                     "9999"
                 ],
-                "id": "TeamNumber"
+                "id": "TeamNumber",
+                "required": true
             },
             {
                 "type": "Spacing"
             },
             {
                 "type": "GenericHeaderTwo",
-                "text": "Auto"
+                "text": "Auto Starting Position"
             },
             {
-                "type": "GenericToggle",
-                "text": "Preloaded",
-                "id": "Preloaded"
+                "type": "ChargedUpStartingPosition",
+                "text": "",
+                "id": "StartingPosition"
             },
             {
-                "type": "ChargedUpGridSelect",
-                "text": "Auto Grid",
-                "id": "AutoGrid"
+                "type": "Spacing"
             },
+            {
+                "type": "GenericHeaderTwo",
+                "text": "Auto Game Pieces"
+            },
+
+
+            {
+                "type": "IncrementNumberInput",
+                "text": "Auto High",
+                "placeholder": ["0"],
+                "options": ["green"],
+                "id": "AutoHigh"
+            },
+
+            {
+                "type": "IncrementNumberInput",
+                "text": "Auto Mid",
+                "placeholder": ["0"],
+                "options": ["yellow"],
+                "id": "AutoMid"
+            },
+
+            {
+                "type": "IncrementNumberInput",
+                "text": "Auto Low",
+                "placeholder": ["0"],
+                "options": ["red"],
+                "id": "AutoLow"
+            },
+            
             {
                 "type": "IncrementNumberInput",
                 "text": "Auto Missed",
                 "placeholder": ["0"],
+                "options": [],
                 "id": "AutoMissed"
             },
             {
-                "type": "GenericToggle",
-                "text": "Mobile",
-                "id": "Mobile"
+                "type": "GenericHeaderTwo",
+                "text": "Auto Engage"
             },
             {
-                "type": "GenericCheckboxSelect",
-                "text": "Auto Attempted Charge",
-                "options": [
-                    "Dock",
-                    "Engage"
-                ],
+                "type": "GenericToggle",
+                "text": "Auto Engage Attempted",
                 "id": "AutoAttemptedCharge"
             },
             {
-                "type": "GenericRadioSelect",
-                "text": "Robot Charging Pad State",
-                "options": [
-                    "None",
-                    "Docked",
-                    "Engaged"
-                ],
-                "id": "AutoChargingState"
+                "type": "GenericToggle",
+                "text": "Auto Engage Succeeded",
+                "id": "AutoAttemptedCharge"
             },
             {
                 "type": "GenericTextArea",
@@ -121,22 +144,29 @@
             },
             {
                 "type": "GenericHeaderTwo",
-                "text": "Teleop"
+                "text": "Teleop Game Pieces"
             },
             {
-                "type": "ChargedUpGridSelect",
-                "text": "Teleop Grid",
-                "id": "TeleopGrid"
+                "type": "ConeCubeIncrementInput",
+                "text": "Teleop High",
+                "options":["green"],
+                "id": "TeleopHigh"
             },
             {
-                "type": "IncrementNumberInput",
-                "text": "Teleop Missed",
-                "placeholder": ["0"],
-                "id": "TeleopMissed"
+                "type": "ConeCubeIncrementInput",
+                "text": "Teleop Mid",
+                "options":["yellow"],
+                "id": "TeleopMid"
+            },
+            {
+                "type": "ConeCubeIncrementInput",
+                "text": "Teleop Low",
+                "options":["red"],
+                "id": "TeleopLow"
             },
             {
                 "type": "GenericTextArea",
-                "text": "Teleop Notes",
+                "text": "Teleop or Endgame Notes",
                 "id": "TeleopNotes"
             },
             {
@@ -144,46 +174,6 @@
             },
             {
                 "type": "Spacing"
-            },
-            {
-                "type": "GenericHeaderTwo",
-                "text": "Endgame"
-            },
-            {
-                "type": "Timer"
-            },
-            {
-                "type": "GenericCheckboxSelect",
-                "text": "Endgame Attempted Charge",
-                "options": [
-                    "Dock",
-                    "Engage"
-                ],
-                "id": "EndgameAttemptedCharge"
-            },
-            {
-                "type": "GenericRadioSelect",
-                "text": "Final Charge",
-                "options": [
-                    "None",
-                    "Dock",
-                    "Engage",
-                    "Parked"
-                ],
-                "id": "EndgameFinalCharge"
-            },
-            {
-                "type": "GenericTextInput",
-                "text": "Final Charge Time",
-                "options": [
-                    ""
-                ],
-                "id": "EndgameChargeTime"
-            },
-            {
-                "type": "GenericTextArea",
-                "text": "Endgame Notes",
-                "id": "EndgameNotes"
             },
             {
                 "type": "Spacing"
@@ -204,54 +194,12 @@
             },
             {
                 "type": "SliderInput",
-                "text": "How much do they play defense (0-100%)",
-                "options": [
-                    "0",
-                    "100",
-                    "20"
-                ],
-                "placeholder":[0],
-                "id": "DefenseTime"
-            },
-            {
-                "type": "SliderInput",
-                "text": "Defense rating (0 is no defense)",
-                "options": [
-                    "0",
-                    "5"
-                ],
-                "placeholder":[0],
-                "id": "DefenseRating"
-            },
-            {
-                "type": "SliderInput",
-                "text": "How much were they defended (0-100%)",
-                "options": [
-                    "0",
-                    "100",
-                    "20"
-                ],
-                "placeholder":[0],
-                "id": "DefendedTime"
-            },
-            {
-                "type": "SliderInput",
-                "text": "Counter defense rating (0 is no counter defense)",
-                "options": [
-                    "0",
-                    "5"
-                ],
-                "placeholder":[0],
-                "id": "CounterDefenseRating"
-            },
-            {
-                "type": "SliderInput",
                 "text": "How well do they drive",
                 "options": [
-                    "0",
+                    "1",
                     "5"
                 ],
-                "placeholder":[0],
+                "placeholder":[3],
                 "id": "DriverRating"
             },
             {
@@ -274,14 +222,17 @@
                 "Alliance",
                 "DriverStation",
                 "TeamNumber",
-                "Preloaded",
-                "AutoGrid",
+                "StartingPosition",
+                "AutoHigh",
+                "AutoMid",
+                "AutoLow",
                 "AutoMissed",
-                "Mobile",
-                "AutoAttemptedCharge",
-                "AutoChargingState",
+                "AutoEngageAttempted",
+                "AutoEngageSuccessful",
                 "AutoNotes",
-                "TeleopGrid",
+                "TeleopHigh",
+                "TeleopMid",
+                "TeleopLow",
                 "TeleopMissed",
                 "TeleopNotes",
                 "EndgameAttemptedCharge",
@@ -292,8 +243,6 @@
                 "Tippy",
                 "DefenseTime",
                 "DefenseRating",
-                "DefendedTime",
-                "CounterDefenseRating",
                 "DriverRating",
                 "RatingNotes"
             ]
