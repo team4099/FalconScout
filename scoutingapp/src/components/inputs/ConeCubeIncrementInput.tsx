@@ -32,7 +32,7 @@ function ConeCubeIncrementInput(props: ComponentSetup) {
                         -
                     </button>
                     <div className={`flex w-1/3  h-full text-2xl float-left items-center ${color == "red" ? "bg-red-400" : color == "yellow" ? "bg-amber-300" : color == "green" ? "bg-green-400" : "bg-white"}`}>
-                        <p className={"text-center text-white  font-semibold flex items-center pt-2 justify-center text-md h-[80%] w-full  bg-center bg-[url('../public/coneSprite.png')] bg-contain bg-no-repeat"}>{coneCounter}</p>
+                        <p className={"text-center text-white  font-semibold flex items-center pt-1 justify-center text-md h-[80%] w-full  bg-center bg-[url('../public/coneSprite.svg')] bg-contain bg-no-repeat"}>{coneCounter}</p>
                     </div>
                     <button
                         type="button"
@@ -51,7 +51,7 @@ function ConeCubeIncrementInput(props: ComponentSetup) {
                         -
                     </button>
                     <div className={`flex w-1/3  h-full text-2xl float-left items-center ${color == "red" ? "bg-red-400" : color == "yellow" ? "bg-amber-300" : color == "green" ? "bg-green-400" : "bg-white"}`}>
-                        <p className={"text-center text-white font-semibold flex items-center pt-2 justify-center text-md h-[80%] w-full  bg-center bg-[url('../public/cubeSprite.png')] bg-contain bg-no-repeat"}>{cubeCounter}</p>
+                        <p className={"text-center text-white font-semibold flex items-center pt-1 justify-center text-md h-[80%] w-full  bg-center bg-[url('../public/cubeSprite.svg')] bg-contain bg-no-repeat"}>{cubeCounter}</p>
                     </div>
                     <button
                         type="button"
