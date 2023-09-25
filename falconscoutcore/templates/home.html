@@ -2,6 +2,27 @@
 
 {% block content %}
 
+<style>
+  .scrollbar::-webkit-scrollbar {
+    width: 15px;
+    height: 15px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: #e0e0e0;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #a0a0a0;
+    border-radius: 100vh;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #c0c0c0;
+  }
+</style>
+
 <div id="statusContainer" class="container h-10 w-full px-4 md:w-2/3 mx-auto absolute top-0 left-1/2 transform -translate-x-1/2 translate-y-1/2">
 </div>
 
@@ -20,10 +41,11 @@
 		  Scan
 		</h1>
 		<div class="max-w-[600px]">
-			<div class="overflow-x-auto overflow-y-scroll relative rounded-lg md:w-5/6 w-full h-[600px]">
+			<div class="overflow-x-auto overflow-y-scroll relative md:w-5/6 w-full h-[600px] max-h-screen scrollbar">
 				<table class="w-full text-sm text-left text-black">
 					<thead class="text-md text-black bg-gray-200">
 						<tr class="row">
+							<th scope="col" class="py-3 px-6"></th>
 							{% for header in tableHeaderData %}
 								<th scope="col" class="py-3 px-6">
 									{{ header }}
@@ -34,9 +56,16 @@
 					<tbody id='scanTable'>
 						{% for i in tableData %}
 							<tr class="bg-slate-50 border-b row">
+								<td scope="row" class="py-3 px-6 overflow-x-auto">
+									<button class="text-slate-500 hover:animate-bounce active:text-slate-600" onclick='deleteData({{ i|tojson|safe }})'>
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+  											<path fill-rule="evenodd" d="M16.5 4.478v.227a48.816 48.816 0 013.878.512.75.75 0 11-.256 1.478l-.209-.035-1.005 13.07a3 3 0 01-2.991 2.77H8.084a3 3 0 01-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 01-.256-1.478A48.567 48.567 0 017.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 013.369 0c1.603.051 2.815 1.387 2.815 2.951zm-6.136-1.452a51.196 51.196 0 013.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 00-6 0v-.113c0-.794.609-1.428 1.364-1.452zm-.355 5.945a.75.75 0 10-1.5.058l.347 9a.75.75 0 101.499-.058l-.346-9zm5.48.058a.75.75 0 10-1.498-.058l-.347 9a.75.75 0 001.5.058l.345-9z" clip-rule="evenodd" />
+										</svg>
+									</button>
+								</td>
 								{% for header in tableHeaderData %}
 									<td scope="row" class="py-3 px-6 overflow-x-auto">
-										{{ i[header] }}
+										<input class="bg-transparent placeholder-black focus:outline-none focus:text-emerald-700 focus:font-bold" placeholder="{{ i[header] }}">
 									</td>
 								{% endfor %}
 							</tr>
@@ -55,9 +84,14 @@
 		</h1>
 		<div id="errorArea">
 			{% for i in errorData %}
-				<div class='rounded-xl bg-white border-2 border-gray-200 shadow-sm mb-4'>
+				<div class='rounded-xl bg-white border-2 {{ "border-red-800 drop-shadow-xl" if i["error_type"] == "RESCOUT MATCH" else "border-gray-200" }} shadow-sm mb-4'>
 					<div class="bg-white rounded-xl">
 						<h1 class="text-2xl font-semibold pt-4 px-4 w-full">
+							<button class="text-slate-500 mr-2 hover:text-slate-600" onclick='deleteError({{ i|tojson|safe }});'>
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+  									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" />
+								</svg>
+							</button>
 							{{ i["message"] }}
 						</h1>
 						<h2 class="text-md font-regular px-4 pt-2 w-full">
@@ -94,7 +128,7 @@
 
 <script>
 
-	var scanned = JSON.parse(`{{ scanRawData | tojson }}`)
+	var scanned = JSON.parse(`{{ scanRawData | tojson }}`.replaceAll("\n", "").replaceAll("\u0019", "").replaceAll("\t", ""))
 	var tableHeader = JSON.parse(`{{ tableHeaderData | tojson }}`)
 
 	var codeCount = 0
@@ -104,10 +138,57 @@
 		setTimeout(
 			function () {
 				new Dismiss(document.getElementById(`status${id}`), options).hide();
-			}, 
+			},
 			2500
 		)
 		codeCount += 1
+	}
+
+	function deleteData(data) {
+		$.ajax({
+				type: "POST",
+				url: "/delete_data",
+				data: JSON.stringify(data),
+				contentType: "application/json",
+				dataType: "json",
+				success: function (result) {
+					if (result.result[0] == "100") {
+						statusContainer.innerHTML += `
+							<div id="status${codeCount}" class="flex p-4 mb-4 bg-green-100 rounded-lg dark:bg-green-200" role="alert">
+								<svg aria-hidden="true" class="flex-shrink-0 w-5 h-5 text-green-700 dark:text-green-800" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+								<span class="sr-only">Success</span>
+								<div class="ml-3 text-sm font-medium text-green-700 dark:text-green-800">
+									${ result.result[1] }
+								</div>
+							</div>
+						`
+					}
+				}
+		})
+	}
+
+	function deleteError(error) {
+		$.ajax({
+				type: "POST",
+				url: "/delete_error",
+				data: JSON.stringify(error),
+				contentType: "application/json",
+				dataType: "json",
+				success: function (result) {
+					if (result.result[0] == "100") {
+						statusContainer.innerHTML += `
+							<div id="status${codeCount}" class="flex p-4 mb-4 bg-green-100 rounded-lg dark:bg-green-200" role="alert">
+								<svg aria-hidden="true" class="flex-shrink-0 w-5 h-5 text-green-700 dark:text-green-800" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+								<span class="sr-only">Success</span>
+								<div class="ml-3 text-sm font-medium text-green-700 dark:text-green-800">
+									${ result.result[1] }
+								</div>
+							</div>
+						`
+					}
+					getErrors()
+				}
+		})
 	}
 
 	function getErrors(){
@@ -123,9 +204,14 @@
 						errorArea.innerHTML = ""
 						console.log(result.errors)
 						for (const error of result.errors){
-
+							if (error["error_type"] == "RESCOUT MATCH") {
+								var rescoutMatchStyling = "border-red-800 drop-shadow-xl"
+							}
+							else {
+								var rescoutMatchStyling = ""
+							}
 							errorArea.innerHTML += `
-							<div class='w-full rounded-xl bg-white border-2 border-gray-200 shadow-sm mb-4'>
+							<div class='w-full rounded-xl bg-white border-2 border-gray-200 shadow-sm mb-4 ${rescoutMatchStyling}'>
 								<div class="bg-white rounded-xl">
 									<h1 class="text-2xl font-semibold pt-4 px-4 w-full">
 										${ error.message }
@@ -163,6 +249,44 @@
 					}
 				}
 		})
+	}
+
+	function validateData(){
+		$.ajax({
+				type: "POST",
+				url: "/validate_data",
+				data: {},
+				contentType: "application/json",
+				dataType: 'json',
+				success: function (result) {
+					if (result.result[0] == "100"){
+						statusContainer.innerHTML += `
+							<div id="status${codeCount}" class="flex p-4 mb-4 bg-green-100 rounded-lg dark:bg-green-200" role="alert">
+								<svg aria-hidden="true" class="flex-shrink-0 w-5 h-5 text-green-700 dark:text-green-800" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+								<span class="sr-only">Success</span>
+								<div class="ml-3 text-sm font-medium text-green-700 dark:text-green-800">
+									Success: ${result.result[1]}
+								</div>
+							</div>
+						`
+
+						setStatusTimeout(codeCount)
+					}
+					else {
+						statusContainer.innerHTML += `
+							<div id="status${codeCount}" class="flex p-4 mb-4 bg-red-100 rounded-lg dark:bg-red-200" role="alert">
+								<svg aria-hidden="true" class="flex-shrink-0 w-5 h-5 text-red-700 dark:text-red-800" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+								<span class="sr-only">Error</span>
+								<div class="ml-3 text-sm font-medium text-red-700 dark:text-red-800">
+									Error: ${result.result[0]} | ${result.result[1]}
+								</div>
+							</div>
+						`
+
+						setStatusTimeout(codeCount)
+					}
+				}
+			});
 	}
 
 	function syncGithub(){
@@ -217,6 +341,35 @@
 		}
 	};
 
+	$("input").keypress(function (e) {
+		if (e.keyCode == 13) {
+			let submissionRow = $(this).closest("tr").index();
+			let submissionCol = $(this).closest("td").index() - 1;
+			let changedValue = $(this).val()
+
+			$.ajax({
+				type: "POST",
+				url: "/change_submission",
+				data: JSON.stringify({"submissionRow": submissionRow, "submissionCol": submissionCol, "changedValue": changedValue}),
+				contentType: "application/json",
+				dataType: 'json',
+				success: function (result) {
+					if (result.result[0] == "100"){
+						statusContainer.innerHTML += `
+							<div id="status${codeCount}" class="flex p-4 mb-4 bg-green-100 rounded-lg dark:bg-green-200" role="alert">
+								<svg aria-hidden="true" class="flex-shrink-0 w-5 h-5 text-green-700 dark:text-green-800" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+								<span class="sr-only">Success</span>
+								<div class="ml-3 text-sm font-medium text-green-700 dark:text-green-800">
+									${ result.result[1] }
+								</div>
+							</div>
+						`
+					}
+				}
+			});
+		}
+	});
+
 	var errorList = []
 	var runningScan = false
 
@@ -241,6 +394,15 @@
 
 					if (result.result[0] == "100"){
 						var newRow = `<tr class="bg-slate-50 border-b row">`
+						newRow += `
+						<td scope="row" class="py-3 px-6 overflow-x-auto">
+							<button class="text-slate-500 hover:animate-bounce active:text-slate-600" onclick='deleteData(i)'>
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+									<path fill-rule="evenodd" d="M16.5 4.478v.227a48.816 48.816 0 013.878.512.75.75 0 11-.256 1.478l-.209-.035-1.005 13.07a3 3 0 01-2.991 2.77H8.084a3 3 0 01-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 01-.256-1.478A48.567 48.567 0 017.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 013.369 0c1.603.051 2.815 1.387 2.815 2.951zm-6.136-1.452a51.196 51.196 0 013.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 00-6 0v-.113c0-.794.609-1.428 1.364-1.452zm-.355 5.945a.75.75 0 10-1.5.058l.347 9a.75.75 0 101.499-.058l-.346-9zm5.48.058a.75.75 0 10-1.498-.058l-.347 9a.75.75 0 001.5.058l.345-9z" clip-rule="evenodd" />
+								</svg>
+							</button>
+						</td>
+						`
 						for (const header of tableHeader){
 							newRow += `
 							<td scope="row" class="py-3 px-6 overflow-x-auto">
@@ -264,7 +426,7 @@
 						setStatusTimeout(codeCount)
 
 						getErrors()
-						
+
 					}
 					else {
 						statusContainer.innerHTML += `

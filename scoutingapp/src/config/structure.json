@@ -212,7 +212,7 @@
                 "text": "Submit",
                 "id": "result"
             }
-            
+
         ],
         "export": {
             "delimiter": "|",
@@ -245,6 +245,299 @@
                 "DefenseRating",
                 "DriverRating",
                 "RatingNotes"
+            ]
+        }
+    },
+    {
+        "name": "2023 Note Scouting App",
+        "description": "Team 4099: The Falcon's 2023 note scouting app for providing qualitative data.",
+        "components": [
+            {
+                "type": "GenericHeaderOne",
+                "text": "2023 Note Scouting App"
+            },
+            {
+                "type": "GenericHeaderTwo",
+                "text": "Match Info"
+            },
+            {
+                "type": "GenericTextInput",
+                "text": "Scout Name",
+                "placeholder": [
+                    "Pranav"
+                ],
+                "required": true,
+                "id": "ScoutId"
+            },
+            {
+                "type": "DropdownTextInput",
+                "text": "Match Key",
+                "options": [
+                    "qm",
+                    "qf",
+                    "sf",
+                    "f"
+                ],
+                "placeholder": [
+                    "number"
+                ],
+                "required": true,
+                "id": "MatchKey"
+            },
+            {
+                "type": "GenericRadioSelect",
+                "text": "Alliance",
+                "options": [
+                    "red",
+                    "blue"
+                ],
+                "required": true,
+                "id": "Alliance"
+            },
+            {
+                "type": "GenericDropdown",
+                "text": "Driver Station",
+                "options": [
+                    "1",
+                    "2",
+                    "3"
+                ],
+                "required": true,
+                "id": "DriverStation"
+            },
+            {
+                "type": "GenericTextInput",
+                "text": "Team Number",
+                "placeholder": [
+                    "9999"
+                ],
+                "required": true,
+                "id": "TeamNumber"
+            },
+            {
+                "type": "Spacing"
+            },
+            {
+                "type": "GenericHeaderTwo",
+                "text": "Auto"
+            },
+            {
+                "type": "IncrementNumberInput",
+                "text": "Auto Game Pieces Scored",
+                "placeholder": ["0"],
+                "id": "AutoPieces"
+            },
+            {
+                "type": "GenericDropdown",
+                "text": "Where did they start from in the community during autonomous?",
+                "options": [
+                    "—",
+                    "Cable protector side",
+                    "Charging station",
+                    "Loading zone side"
+                ],
+                "required": true,
+                "id": "AutoStartingPosition"
+            },
+            {
+                "type": "GenericToggle",
+                "text": "Did they engage on the charge station?",
+                "id": "AutoEngaged"
+            },
+            {
+                "type": "GenericToggle",
+                "text": "Did they intake all the game pieces they attempted to?",
+                "id": "AutoIntakeAccuracy"
+            },
+            {
+                "type": "GenericDropdown",
+                "text": "How good were they with scoring game pieces?",
+                "options": [
+                    "—",
+                    "Great: Scored all game pieces at their attempted heights.",
+                    "Decent: Scored all game pieces but not at their attempted heights.",
+                    "Okay: Scored some game pieces at their attempted heights.",
+                    "Poor: Scored some game pieces but not at their attempted heights.",
+                    "Lousy: Scored none of their game pieces."
+                ],
+                "id": "AutoScoringAccuracy"
+            },
+            {
+                "type": "GenericToggle",
+                "text": "Did they run into any obstacles while driving autonomously?",
+                "id": "AutoDrivingSkills"
+            },
+            {
+                "type": "GenericTextArea",
+                "text": "Auto Notes",
+                "id": "AutoNotes"
+            },
+            {
+                "type": "Spacing"
+            },
+            {
+                "type": "GenericHeaderTwo",
+                "text": "Teleop"
+            },
+            {
+                "type": "IncrementNumberInput",
+                "text": "Teleop Game Pieces Scored",
+                "placeholder": ["0"],
+                "id": "TeleopPieces"
+            },
+            {
+                "type": "GenericDropdown",
+                "text": "Which path did they often take between the community and loading station?",
+                "options": [
+                    "—",
+                    "Cable protector side to loading zone",
+                    "Over the charging station to loading zone",
+                    "No cable protector side to loading zone",
+                    "No specific path"
+                ],
+                "id": "TeleopPath"
+            },
+            {
+                "type": "GenericDropdown",
+                "text": "How fast were they when lining up to score?",
+                "options": [
+                    "—",
+                    "Quick: Aligned almost immediately.",
+                    "Fast: Took time to align at times but generally fast.",
+                    "Slow: Took lots of time to align, especially further away from their driver station.",
+                    "Very Slow: Clogged the grid and prevented partners from scoring when aligning."
+                ],
+                "id": "TeleopAligningSpeed"
+            },
+            {
+                "type": "GenericDropdown",
+                "text": "How did they enter and exit the community?",
+                "options": [
+                    "—",
+                    "Smoothly: Never pinballed into objects/partners and quick at entering/exiting.",
+                    "Well: Sometimes hit objects/partners, generally quick at entering/exiting.",
+                    "Poor: Often hit objects/partners, takes time to enter/leave community.",
+                    "Very Poor: Hampered their alliance and hit their partners, slow to enter/leave community."
+                ],
+                "id": "TeleopCommunitySkill"
+            },
+            {
+                "type": "GenericDropdown",
+                "text": "Where did they intake from for most of the game?",
+                "options": [
+                    "—",
+                    "Ground",
+                    "Double substation",
+                    "Single substation"
+                ],
+                "id": "TeleopIntakingLocation"
+            },
+            {
+                "type": "GenericTextArea",
+                "text": "Teleop Notes",
+                "id": "TeleopNotes"
+            },
+            {
+                "type": "Spacing"
+            },
+            {
+                "type": "GenericHeaderTwo",
+                "text": "Ratings"
+            },
+            {
+                "type": "GenericToggle",
+                "text": "Did they disable?",
+                "id": "Disabled"
+            },
+            {
+                "type": "GenericToggle",
+                "text": "Were they tippy?",
+                "id": "Tippy"
+            },
+            {
+                "type": "GenericDropdown",
+                "text": "How fluid was their driving?",
+                "options": [
+                    "—",
+                    "Very Fluid: Swerved past obstacles and had no delays when reaching their destination.",
+                    "Fluid: Ran into obstacles at times but generally very fluid & consistent.",
+                    "Average: Vulnerable to defense & would hit obstacles.",
+                    "Poor: Easily impacted by other robots & obstacles and inconsistent when driving.",
+                    "Very Poor: Pinballed into other robots / racked up fouls / hampered their alliance."
+                ],
+                "id": "DriverRating"
+            },
+            {
+                "type": "GenericDropdown",
+                "text": "How good were they at intaking/holding cones?",
+                "options": [
+                    "—",
+                    "Very Good: Fast at intaking cones / strong grip on them.",
+                    "Good: Generally fast at intaking cones / good grip on them.",
+                    "Average: Took time to intake cones / cones could fall out at times.",
+                    "Poor: Took lots of time to intake cones / cones could fall out often.",
+                    "Very Poor: Spent most of their time trying to intake a cone / cones fell out almost immediately."
+                ],
+                "id": "ConeIntakingSkill"
+            },
+            {
+                "type": "GenericDropdown",
+                "text": "How good were they at intaking/holding cubes?",
+                "options": [
+                    "—",
+                    "Very Good: Fast at intaking cubes / strong grip on them.",
+                    "Good: Generally fast at intaking cubes / good grip on them.",
+                    "Average: Took time to intake cubes / cubes could fall out at times.",
+                    "Poor: Took lots of time to intake cubes / cubes could fall out often.",
+                    "Very Poor: Spent most of their time trying to intake a cube / cubes fell out almost immediately."
+                ],
+                "id": "CubeIntakingSkill"
+            },
+            {
+                "type": "GenericDropdown",
+                "text": "How fast were they at intaking from the loading zone?",
+                "options": [
+                    "—",
+                    "Very Good: Barely took time to align and intakes almost immediately.",
+                    "Good: Generally fast at aligning and intakes quickly.",
+                    "Average: Takes time to align and intake.",
+                    "Poor: Took lots of time to align and often had to spend multiple tries intaking.",
+                    "Very Poor: Clogged the loading zone trying to align and intaking was rarely successful."
+                ],
+                "id": "SubstationSpeed"
+            },
+            {
+                "type": "DarkButton",
+                "text": "Submit",
+                "id": "result"
+            }
+        ],
+        "export": {
+            "delimiter": "|",
+            "order": [
+                "ScoutId",
+                "MatchKey",
+                "Alliance",
+                "DriverStation",
+                "TeamNumber",
+                "AutoPieces",
+                "AutoStartingPosition",
+                "AutoEngaged",
+                "AutoIntakeAccuracy",
+                "AutoScoringAccuracy",
+                "AutoDrivingSkills",
+                "AutoNotes",
+                "TeleopPieces",
+                "TeleopPath",
+                "TeleopAligningSpeed",
+                "TeleopCommunitySkill",
+                "TeleopIntakingLocation",
+                "Disabled",
+                "Tippy",
+                "DriverRating",
+                "ConeIntakingSkill",
+                "CubeIntakingSkill",
+                "SubstationSpeed"
             ]
         }
     }

@@ -157,7 +157,7 @@ npm run dev
 
 Build the app to deploy to [netlify](https://app.netlify.com/drop). Running this command will generate a `dist` folder.
 ```
-npm run dist
+npm run build
 ```
 
 ### Setting up config files

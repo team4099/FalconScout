@@ -1,0 +1,421 @@
+,ScoutId,MatchKey,Alliance,DriverStation,TeamNumber,Preloaded,AutoGrid,AutoMissed,Mobile,AutoAttemptedCharge,AutoChargingState,AutoNotes,TeleopGrid,TeleopMissed,TeleopNotes,EndgameAttemptedCharge,EndgameFinalCharge,EndgameChargeTime,EndgameNotes,Disable,Tippy,DefenseTime,DefenseRating,DefendedTime,CounterDefenseRating,DriverRating,RatingNotes
+0,Sydney,qm1,red,3,1389,true,,1,true,,None,,9M,1,Fell over,,None,,,false,,0,0,0,0,25,They fell over and struggled with placing cones
+1,paul,qm1,blue,3,6863,true,,1,true,,None,,1Lcone|2Lcube|2H,0,,Engage,Engage,,,false,,0,0,0,0,12,
+2,Blen Shiferaw,qm1,red,2,611,false,,0,false,,,No auto ,8M|2M,1,Got stuck on substation ,,None,,Still stuck on substation ,true,,0,0,21,0,27,No auto and got stuck in Teleop
+3,Palak,qm1,blue,,6326,true,9H,0,true,,None,,5H|7H|8H,0,Got stuck on the substationHad trouble lining gup with the substation for intakeVery tippy,,None,,They were stuck the entire time,false,,0,0,0,0,27,
+4,Aanshi,qm1,red,,1731,true,3H,0,true,,None,preloaded a cone,6H|5H|3H|2M|2H|1H,1,,Dock|Engage,Engage,less than 2 seconds ,,false,,10,55,0,0,80,- struggled with intake cone at one point- fought for a cone with another robot| was able to get it
+5,Rachel,qm2,blue,2,8622,false,,0,false,,None,,,0,,,None,,,true,,0,0,0,0,0,
+6,Aran,qm2,red,2,1446,false,,0,false,,,,,0,Didnt move until end game,,,,,true,,0,0,0,0,0,
+7,paul,qm2,blue,3,8326,false,,0,true,,None,,1H|2Lcone,0,,Dock,None,,,false,,0,0,0,0,0,bad driving bad intake bad gripper 
+8,Sydney,qm2,red,3,4099,true,1H,0,true,,None,,2Lcube|2M|2H|5Lcube|5M,0,,Dock|Engage,Dock,5,Quick,false,,0,0,0,0,68,Crashed into walls a lot| missed taking cones a few times 
+9,Hannah ,qm2,blue,,449,true,,1,true,,,missed game piece ,7Lcube|8H,2,game piece got stuck in robot ,Engage,Engage,15.2,,false,,75,50,0,0,50,had to defend bc game once got stuck 
+10,Aanshi,qm2,red,,1895,true,2Lcone,0,true,,Engaged,preloaded a cone,3Lcube|1Lcube,0,wobblymoved the disabled robot out the wayput two cubes in 9Lpushed pieces only| no picking up,Dock|Engage,Engage,6.3 seconds,moved the disabled robot out the way very quickly,false,,0,0,0,0,25,Their driving was kind of random looking| and they didnt spin much
+11,Ryan,qm3,blue,2,6239,true,,0,false,,None,,8Lcube|9Lcube,0,,,None,,,false,,0,0,0,0,18,
+12,Sydney,qm3,red,3,888,true,9M,0,true,,None,,7M|6M|4M,0,,Engage,Engage,5,,false,,0,0,0,0,70,
+13,Blen Shiferaw,qm3,red,2,5830,true,,1,true,,,,8H|7H,0,,,,,Didnt attempt to enagage ,false,,30,10,61,10,37,
+14,Palak,qm3,blue,,1123,true,2H,1,true,,Engaged,,6H|8H,0,Put cube in 8H twice,Engage,Engage,,,false,,0,0,0,0,71,
+15,paul,qm3,blue,3,5587,true,,0,false,,None,did not move ,,0,gripper did not work,Engage,Engage,1.1,,false,,5,19,0,0,13,choppy driving
+16,Aanshi,qm3,red,,2199,true,,1,false,,Engaged,,6H|5H|4H,0,had trouble picking up cones ,Dock|Engage,Engage,2.1,,false,,0,0,0,0,20,- driving is pretty mid| but picking up is bad.- their end game driving is really good
+17,Blen Shiferaw,qm4,red,2,4456,true,8H,0,true,,None,,,0,,,None,,,false,,0,0,0,0,8,
+18,Rachel,qm4,blue,2,4638,false,,0,false,,None,,1Lcone|6Lcone,2,,Dock|Engage,Engage,6.4,,false,,0,0,0,0,34,
+19,paul,qm4,blue,3,2377,true,5Lcone,1,true,,None,,5H,0,,Engage,Engage,14.8,,false,,0,0,0,0,32,decent driving| sluggish gripping| wouldnt choose for an alliance
+20,Sydney,qm4,red,3,5549,true,,0,false,,None,Cone was dropped and got stuck on their drivetrain,,0,Disconnected| potentially lost a bolt,,None,,,true,,0,0,0,0,20,
+21,Hannah,qm4,blue,,5338,true,,0,true,,None,,4H|6H,1,can only pick up standing cones helped tip robot over ,,None,,didnt have space to engage ,false,,0,0,0,0,66,
+22,Ryan,qm5,blue,2,2914,true,,0,false,,None,,2M|5M|8M,0,,,Parked,,,false,,0,0,0,0,29,
+23,Palak,qm5,blue,,836,true,9H,0,true,,None,,,0,Cone got stuck in outake,Engage,Engage,,,false,,31,7,0,0,51,
+24,Blen ,qm5,red,2,4821,true,8M,0,true,,,,,1,Shaky ,Engage,Engage,4.4,,false,,16,19,0,0,47,
+25,paul,qm5,blue,3,620,true,,0,true,,Engaged,,2H|4Lcone,1,bad gripper ,Engage,Engage,3.1,,false,,0,0,0,0,32,choppy driving
+26,Sydney,qm5,red,3,2900,false,,0,false,,Engaged,,9Lcube|7Lcube,0,,,None,,Didnt attempt ,false,,0,0,0,0,30,They didnt do much| only pushed cubes| slow
+27,Aran,qm5,red,2,4821,true,2M,0,true,,None,,8Lcone,0,,Dock|Engage,Engage,,,true,,0,0,16,0,39,
+28,Aanshi,qm5,red,,614,true,8M,0,true,,None,preloaded a cube,3M|2Lcube|1M,0,,Dock|Engage,Engage,21.8,the reason it took so long was because they were waiting for another robot,false,,0,0,0,0,40,they dont turn much| when they stop they wobble
+29,Blen Shiferaw,qm6,red,2,1111,true,,1,true,,None,,1H,0,Robot disabled ,,None,,,true,,0,0,0,0,38,
+30,paul,qm6,blue,3,5841,true,,0,false,,,,3Lcube,0,bad lift bad gripper,Engage,Engage,11.5,needed help to engage,false,,0,0,0,0,17,choppy driving
+31,Hannah,qm6,blue,,1908,true,9H,0,true,,None,,7H,0,weak gripper| kept dripping cones small intake need to line up ,Engage,Engage,8.1,,false,,0,0,0,0,50,
+32,Rachel,qm6,blue,2,8514,true,6Lcube,0,false,,None,,,0,,,None,,,false,,0,0,0,0,15,
+33,Sydney,qm6,red,3,2534,false,,0,false,,None,Attempted charge| got caught,1Lcone|1M,0,,Dock,None,11,Tried but kept knocking the charge so it couldnt get on,false,,0,0,0,0,40,They moved slow and struggled with charge station
+34,Aran,qm7,red,2,1389,true,,1,false,,None,Got on node but didnt outtake ,1H,1,Went for a cube for 1:5 min and didnt get it ,Dock|Engage,Engage,,,false,,0,0,0,0,0,
+35,Blen Shiferaw,qm2,red,2,1389,true,,1,true,,None,,8Lcone,1,,Engage,Engage,4.7,,false,,0,0,0,0,63,
+36,Sydney,qm7,red,3,6326,true,1H,0,true,,None,,9H|8H,1,Bad substation intake,,None,,,false,,0,0,0,0,70,Drove fine| struggled with intake from double substation
+37,Ryan,qm7,blue,2,6863,false,,0,false,,None,,6M,1,,Engage,Dock,3.5,,false,,0,0,0,0,78,
+38,paul,qm7,blue,3,888,true,4M,0,true,,Docked,,1M|3M,0,very good gripper and lift,Engage,Dock,6.7,got stuck,false,,0,0,0,0,0,decent driving
+39,Palak ,qm7,blue,,1446,false,,0,false,,None,,,1,Stopped moving in the middle and worked and disabled again,,None,,,true,,0,0,0,0,34,
+40,paul,qm8,blue,3,6239,true,,0,false,,,did not move,1Lcube|7Lcube,0,bad gripper,,,,no dock ,false,,0,0,0,0,9,choppy driving
+41,Sydney,qm8,red,3,611,true,8H,0,true,,,Attempted dock and engage,8M|5M,0,,Engage,Engage,12,,false,,0,0,0,0,75,Struggled with intake from double substation| got a cube stuck in their drivetrain
+42,Rachel,qm8,blue,2,1895,true,,0,true,,None,,6Lcone,0,,Dock|Engage,Engage,4.3,,false,,0,0,0,0,18,
+43,Hannah,qm8,blue,,449,true,3H,0,true,,None,,5Lcone|5H|8H,2,have to line up really well ,Engage,Engage,6.9,,false,,0,0,0,0,74,
+44,Aanshi,qm8,red,,4099,true,,0,false,,None,,5H|2M|2H|1Lcube|1H,0,,Dock|Engage,Engage,,,false,,10,40,0,0,90,some intake problems
+45,Aanshi ,qm7,red,,2199,true,6H,0,false,,Engaged,preloaded a cone,5H|4H|3H|2H,0,,Dock|Engage,Engage,less than 2 seconds ,,false,,0,0,0,0,70,they drove well with swerve| but they were kind of slow
+46,Aanshi ,qm6,red,,2537,true,2H,0,true,,None,preloaded a cube ,3Lcube,0,,,None,,they didnt do anything in endgame ,false,,20,70,0,0,60,their defense strategy was to knock down all of the opponents cones| and it seemed to work 
+47,paul,qm9,blue,3,8326,false,,0,true,,,,4H|5H,0,decent gripper decent lift,,,,did not dock,false,,0,0,0,0,0,decent driving
+48,Blen Shiferaw,qm9,red,2,4456,true,7H,0,true,,None,,6H|5H,0,Intake broke ,Engage,Engage,2.3,,false,,28,43,29,39,0,
+49,Palak,qm9,blue,,620,true,,0,true,,Engaged,,5Lcone,0,Can't pick up non upright conesBad counterdefense,Dock|Engage,Engage,,,false,,0,0,0,19,88,
+50,Sydney,qm9,red,3,5587,true,8H,0,false,,None,,,0,,,None,,,true,,0,0,0,0,15,Very slow| block like movement| struggled to intake and disabled 
+51,Aanshi,qm9,red,,5830,true,,0,true,,None,preloaded a cube|i dont if they scored anything here,7H,0,,Dock|Engage,Engage,12.5,were struggling to engage,false,,0,0,30,20,40,they drive okay| but its slow
+52,Rachel,qm10,blue,2,2900,false,,0,false,,None,,,0,,,Parked,,,true,,0,0,0,0,0,
+53,Blen Shiferaw,qm10,red,2,1908,true,7H,0,true,,None,,8H|7Lcube,0,,,,,,false,,22,36,0,0,0,
+54,Hannah,qm10,blue,,2534,false,,0,true,,None,,8M,0,unreliable intake ,,None,,,false,,21,50,0,0,15,
+55,paul,qm10,blue,3,4638,false,,0,false,,,shook very violently but did not move,1Lcone|3Lcone|4Lcone,0,cant seem to pick items off the floor,Engage,Engage,2.2,,false,,0,0,0,1,79,very impressive driving| scored a few cones without using lift or gripper since they were broken 
+56,Sydney,qm10,red,3,2377,true,6H,0,true,,None,Attempted dock,5H|3H,0,,Engage,Engage,6,,false,,0,0,0,0,70,Good driving| just a little slow to place because they take a while to orient| a little tippy in the beginning| easily crosses charge station to get to the other side
+57,Sophia T,qm10,red,3,2377,true,6H,0,false,,Engaged,,5H|3H,0,,Dock,Dock,1.7,,false,,87,0,30,0,70,
+58,Sarah,qm11,red,2,1731,true,1H,1,true,,None,,4H|6H|7Lcube|7H|8H|9H,1,,,None,,,false,,0,0,0,0,80,
+59,Chris,qm11,blue,2,5041,true,,0,false,,,,5Lcone,0,,Dock,Dock,,,false,,0,0,0,0,0,
+60,Eckart,qm11,red,,8622,true,2Lcone,0,false,,None,Shook cone into node,,0,Seems like drivetrain issues and bumpers were falling off. Intake was broken.,Dock|Engage,Engage,25.3,,false,,100,0,74,0,2,
+61,Shashwat,qm11,blue,3,2914,true,,0,false,,None,,2M|2H|5M,1,,Engage,Dock,8,Pushed another robot off while docking,false,,0,0,40,15,50,
+62,Sophia T,qm11,red,3,1123,true,5H,0,false,,Docked,,8H|7H|5M,0,,Dock,Dock,12.3,,false,,20,30,20,0,80,Very fast driving
+63,Sayan,qm11,blue,,614,true,5H,0,true,,Docked,,5Lcube|9M,0,,Dock|Engage,Dock,,Slid off station| but that could be b/c of other bots on their team,false,,9,0,0,0,70,Fast but trouble loading game pieces into their own intake at single substation
+64,Eckart,qm12,red,,8514,true,,0,false,,None,,,0,Seemed to be browning out as it only moved occasionally ,,,,,false,,0,0,0,0,8,
+65,paul,qm12,red,3,2537,true,8H,0,true,,,,9Lcone|8M,0,,Engage,Engage,4.9,,false,,0,0,0,0,70,
+66,Chris,qm12,blue,2,4821,true,,0,true,,None,,,0,Gripper issues| cube is stuck,Dock,None,,A bit jank,false,,0,50,0,0,0,Not good robot
+67,Shashwat,qm12,blue,3,5549,false,,0,false,,None,,1Lcone|2Lcone,0,The lift arm doesnt work properly ,Engage,None,,,false,,0,0,0,0,61,
+68,Sarah,qm12,red,2,836,true,9H,0,true,,Engaged,,1H|3Lcone|3H|7H|8H,0,,Dock|Engage,Engage,4,,false,,0,0,0,0,80,
+69,Sayan,qm12,blue,,5338,true,,0,true,,None,,5Lcone|7H|9H,0,Coop low was a slipped attempt at top,Dock|Engage,Engage,,,false,,0,0,0,0,78,Very reliable claw 
+70,Chris,qm13,blue,2,611,true,,0,false,,None,,5H|8H,2,,Engage,Dock,10,,false,,0,0,0,0,19,
+71,paul,qm13,red,3,4456,true,2H,0,true,,,,3H,0,trouble picking cones ,Engage,Engage,12.4,needed help engaging,false,,0,0,0,0,70,good driving
+72,Sarah,qm13,red,2,620,true,,0,false,,,,4M,1,,,Parked,,,true,,0,0,0,0,0,they just spun in community the whole match
+73,Shashwat,qm13,blue,3,1895,true,2Lcone,0,false,,None,,1Lcube|2Lcone|3Lcube|6Lcone,0,,Engage,Dock,18,Manipulator doesnt work properly,false,,0,0,24,49,53,
+74,Eckart,qm13,red,,449,true,,1,true,,None,Failed to pickup other game piece,5M|5H|1H,0,Struggled cycling cones from double substation,Dock|Engage,Engage,8.0,4456 already on charge station,false,,0,0,6,64,52,Struggled lining up with cone on double substation
+75,Sayan,qm13,blue,,888,true,9M,0,true,,,,6M|7M,0,,Dock|Engage,Dock,,Tried 3 robot engage; failed but almost got it,false,,17,62,0,0,60,Unreliable claw
+76,Eckart,qm14,red,,6239,true,,0,false,,,Did nothing ,7Lcube|1Lcube,0,Drivetrain used to score as broken intake,,Parked,,,false,,0,0,0,0,18,
+77,paul,qm14,red,3,2377,true,9Lcone,1,true,,Docked,,,0,seems like it had drivetrain problems| was stuck in the ramp for a bit then started twitching during teleop and endgame ,,,,,false,,0,0,0,0,0,
+78,Shashwat,qm14,blue,3,2900,false,,0,false,,Engaged,,1Lcube|6Lcube,0,,Engage,Engage,9,,false,,0,0,0,0,55,
+79,Sarah,qm14,red,2,7886,false,,0,false,,None,,7Lcube,0,,Dock|Engage,Engage,6,,false,,0,0,0,0,0,dt only
+80,Angela,qm14,blue,2,2199,true,3H,0,true,,None,,4H|5H|6H|7H|8H,0,,Dock|Engage,Engage,2,,false,,0,0,0,0,66,
+81,Shashwat,qm15,blue,3,614,true,2M,0,false,,None,,,0,,,None,,,false,,0,0,0,0,0,
+82,Chris,qm15,blue,2,2534,false,,0,true,,None,,2Lcube|3Lcone|3M,0,,Engage,None,15,,false,,0,49,0,0,50,
+83,Sarah,qm15,red,2,6326,true,9H,0,true,,None,,7Lcone|8H,1,,,Parked,,,false,,0,0,0,0,30,
+84,Eckart,qm15,red,,5841,true,,0,false,,None,,5Lcone,0,,,None,,,false,,86,25,0,4,14,
+85,paul,qm15,red,3,5830,true,8H,0,true,,,,5H|2Lcone,1,can only pick up upright cones,Engage,Engage,1.3,,false,,0,0,0,0,40,
+86,paul,qm16,red,3,5338,true,,0,true,,,,9M|9H|7H|6H,0,,,,,,false,,0,0,0,0,80,
+87,Angela,qm16,blue,2,1908,true,7H,0,false,,None,,3Lcone|4H,0,,Dock|Engage,Dock,6.7,,false,,27,82,0,0,77,
+88,Shashwat,qm16,blue,3,2537,false,,0,false,,None,,2M,2,,Engage,Dock,16,,false,,0,0,0,0,66,
+89,Rithvik,qm16,red,2,1123,true,5H,0,true,,Engaged,,4H|3H|2Lcube|2H,1,,Dock|Engage,Engage,1.9,,false,,0,0,15,0,78,
+90,Eckart ,qm16,red,,2914,true,,0,false,,,,5M|2M,0,,Dock|Engage,Engage,7,,false,,0,0,35,64,57,Really slow cycles and only cubes on middle
+91,Sayan,qm16,blue,,1389,true,,1,true,,Engaged,,5Lcone|7H,0,Gripper kind of sketchy/suboptimal| good drivers tho,Dock|Engage,None,,Slid off at last moment,false,,0,0,0,0,70,
+92,Eckart ,qm17,red,,6863,true,,0,false,,None,,2H|1H,0,,Dock,Dock,2,,false,,0,0,33,23,48,
+93,paul ,qm17,red,3,1731,true,4Lcone,1,true,,,,9H|8H|7H|6H|5H|4H|3H,0,very good gripper,Engage,Dock,1.6,,false,,10,91,0,0,89,
+94,Rithvik,qm17,red,2,4821,true,8M,0,true,,,,1Lcone,0,Robot is top heavy and nearly tipped over a couple times,Dock,None,,,false,,0,0,18,7,30,
+95,Shashwat,qm17,blue,3,1111,true,9Lcone,0,false,,None,,1Lcone|3Lcone|4Lcone,3,,Engage,Engage,9,,false,,16,64,0,0,67,
+96,Angela,qm17,blue,2,4638,false,,0,false,,None,doesnt look like it has an auto,1Lcone,0,doesnt seem to do much during teleop| stayed still (and did a couple spins?) most of the time,,None,,didnt attempt to charge at all,false,,0,0,0,0,0,
+97,Sayan,qm17,blue,,8326,true,,1,true,,,,2H|8H|9Lcone,0,Missed 9H into 9L| tried putting a cube into 8M,Dock,None,,Toppled,false,,15,54,0,0,54,
+98,Eckart ,qm18,red,,8514,false,,0,false,,None,,,0,,,None,,Bruh what,false,,82,0,72,0,0,Did nothing essentially
+99,Shashwat,qm18,blue,3,8622,true,,1,false,,None,,,0,,,None,,,true,,0,0,0,0,0,
+100,paul ,qm18,red,3,5587,true,1Lcone,0,false,,,,,0,difficulty picking up cones some penalties ,Engage,Engage,0.5,very fast engage,false,,10,70,0,0,44,
+101,Rithvik,qm18,red,2,5549,false,,0,false,,None,,6Lcone,0,Stopped moving after pushing one cone in teleop,,Parked,,,false,,0,0,0,0,17,Stopped moving
+102,Angela,qm18,blue,2,836,true,7H,0,true,,Engaged,,,0,didnt really try to score| defended the whole time,Dock|Engage,Engage,3,,false,,100,84,22,69,61,
+103,Sayan,qm18,blue,,1446,true,,0,false,,,,5Lcube,0,Not an offense bot| only push into low,Dock|Engage,Engage,,,false,,60,80,0,0,81,Literally just a swerve drive but peak defense and driving
+104,paul,qm19,red,3,6326,true,9H,0,true,,,,8H|7H,2,,,,,,false,,0,0,0,0,20,
+105,Chris,qm19,blue,2,5841,true,,0,false,,None,,1Lcube,0,,Dock,None,26,,false,,19,9,0,0,0,
+106,Shashwat,qm19,blue,3,2199,true,4H,0,false,,Engaged,,5H|6H,1,,Engage,Engage,6,,false,,0,0,0,0,64,
+107,Rithvik,qm19,red,2,449,true,8H,0,false,,None,,8Lcube|7Lcube|6Lcube|5Lcube|2Lcube,0,Mainly did lowest even though they could do higher nodes,Dock|Engage,Dock,5.1,,false,,0,0,14,36,75,
+108,Sayan,qm19,blue,,6239,true,,0,false,,,No auto,,0,Robot not moving,,None,,Didn't move,false,,0,0,0,0,0,No movement at all| but light was on (not disabled?)
+109,Eckart ,qm19,red,1,614,true,2M,0,true,,None,,3Lcone|1Lcone|1M,0,Intaking cones from single substation really inconsistent Good intaking cones off of ground ,Dock|Engage,Dock,20,,false,,84,80,0,0,39,
+110,paul ,qm20,red,3,2534,false,,0,true,,,,9Lcone|9M,2,,,,,,false,,0,0,0,0,18,
+111,Eckart ,qm20,red,1,620,true,,0,false,,Engaged,,5H|2H,0,,Dock|Engage,Engage,3,,false,,0,0,56,31,50,Pretty inconsistent intaking
+112,Palak,qm20,blue,,,false,,0,false,,,,9Lcone,0,,Engage,Engage,,,false,,0,0,0,0,57,
+113,Angela,qm20,blue,2,2537,true,,0,false,,None,no auto,4Lcube|5Lcube|5H,0,struggles to pick up objects| sometimes drops things ,Dock,Dock,10,,false,,0,0,22,35,36,
+114,Blen Shiferaw,qm20,red,2,1123,false,9H,0,true,,None,,7H|6H|4H,0,,Engage,Engage,8.4,,false,,0,0,0,0,58,
+115,Blen Shiferaw,qm21,red,2,6863,true,8H|5H,0,true,,None,,9H|2H,1,,Engage,Engage,4.3,,false,,20,19,0,0,61,
+116,Sydney,qm21,red,3,1908,true,,0,false,,None,,9H|7H,2,,Engage,Engage,5,,false,,0,0,0,0,70,
+117,Saragha,qm21,blue,3,4099,true,,0,false,,None,,,0,Brown out???? We didnt even move???,,None,,,false,,0,0,0,0,0,Something went wrong 
+118,Palak ,qm21,blue,,1389,true,,1,false,,None,Got stuck on the pole ,1Lcube,0,Couldnt do anything because they were stuck on the pole from auto but got unstuck at end ,Dock,Dock,,,false,,0,0,0,0,1,Got stuck for most of the round 
+119,Ryan,qm21,blue,2,4821,true,,0,false,,None,,8M,1,,,None,,,false,,0,0,0,0,31,
+120,Aanshi,qm21,red,,5338,true,,0,true,,,preloaded a cone,4H|3H|1H,0,,Dock|Engage,Engage,,,false,,0,0,0,0,30,
+121,Rachel,qm22,blue,2,5587,true,4Lcone,0,false,,None,,9Lcone,0,,Dock,Parked,,,false,,0,0,0,0,11,
+122,Blen Shiferaw,qm22,red,2,8326,true,,0,true,,None,,9H|3H|2M,1,,,None,,,false,,38,47,45,0,50,
+123,Sydney,qm22,red,3,4456,true,5H,0,false,,Engaged,,6H|4H,1,,Engage,Engage,7,,false,,0,0,0,0,50,Struggled with placing cones and taking from double substation
+124,Palak ,qm22,blue,,836,true,1H,0,false,,Engaged,,2H|3H|6H|7H,0,Got all the cones on top ,,None,,,false,,0,0,0,0,81,Pretty good at driving and good controls 
+125,Saragha,qm22,blue,3,1111,true,9H,0,true,,None,,4Lcone,1,,Dock|Engage,Engage,16.1,Started end game early stood in same place for long time and took long time to balance,false,,0,0,0,0,81,
+126,Aanshi,qm22,red,,2914,true,,0,false,,None,preloaded a cone,8H|4M,0,,Dock|Engage,Engage,7,,false,,0,0,0,0,40,
+127,Palak ,qm23,blue,,7886,false,,0,false,,,No auto,9Lcone,0,Only pushes the cones and cubes ,Engage,Engage,11.9 secs,Can balance well ,false,,0,0,0,0,6,
+128,Ryan,qm23,blue,2,1446,true,,0,false,,None,,1Lcube|2Lcube|3Lcube|8Lcube,0,,Dock,None,,,false,,0,0,0,0,47,
+129,Sophia T,qm23,red,3,8622,true,8Lcube,0,false,,,,7Lcube,0,Very slow,Dock,None,,,false,,0,0,70,10,0,
+130,Saragha,qm23,blue,3,8514,true,,0,false,,None,Preloaded with cube| did not move,,0,Very tippy,,None,,Did not attempt dock,false,,81,62,0,0,25,Did nothing the whole game. Stood there and was tippy. 
+131,Blen Shiferaw ,qm23,red,2,5830,true,9H,0,true,,None,,,0,,,,,,false,,0,0,0,38,0,
+132,Blen Shiferaw ,qm24,red,2,1895,true,7Lcone,0,true,,,,7Lcube,0,,Engage,Engage,3.4,,false,,0,0,0,0,36,
+133,Palak,qm24,blue,,1731,true,7H,0,false,,None,,4H|5Lcube|5H|6H|8Lcube|8H|9H,0,,,,,,false,,0,0,0,0,73,
+134,Rachel,qm24,blue,2,888,true,1M,0,false,,None,,3M,1,,Dock|Engage,Engage,15,,false,,0,0,0,0,69,
+135,Saragha,qm24,blue,3,4638,false,,0,false,,,Did nothing,,0,Spinning but doing nothing,,None,,Did nothing ,false,,0,0,0,0,0,
+136,Sydney,qm24,red,3,2900,true,,0,false,,Engaged,,7Lcube,0,Lost pre-loaded cargo when it left the charge station| rolled over the cube,Engage,Engage,10,,false,,0,0,0,0,40,Fine driving| cant do much though
+137,Aanshi,qm24,red,,5549,true,,0,false,,None,preloaded a cone,,0,,,None,,,true,,0,0,0,0,0,
+138,Blen Shiferaw,qm25,red,2,4099,true,9H,0,true,,None,,8Lcone,0,,Engage,Engage,12.1,,false,,18,16,48,0,76,
+139,Sydney,qm25,red,3,449,true,,1,true,,None,Crashed a lot in the beginning,7Lcube|4Lcube,0,Broken intake| lost cube in drivetrain,,,12,,false,,0,0,0,0,75,Fine driving| struggled with the broken intake
+140,Saragha,qm25,blue,3,611,true,,0,false,,,Did nothing,,0,Very tipsy| scored nothing| held cube whole game,Dock|Engage,Engage,10.5,Triple engaged ,false,,0,0,77,0,20,
+141,Ryan,qm25,blue,2,1123,true,5H,0,false,,None,,1H|2H|8H,0,,Engage,Engage,,,false,,0,1,0,0,69,
+142,Hannah,qm25,blue,,1908,true,9H,0,true,,None,,7H,0,weak grippers,Engage,Engage,15.4,,false,,0,0,0,0,27,
+143,Aanshi,qm25,red,,2199,true,4H,0,false,,Engaged,preloaded a cone,3H|2H,1,,,None,,,false,,0,0,30,60,65,
+144,Sydney,qm26,red,3,620,true,,0,false,,Engaged,,8H|5H,0,Dropped cone coming off charge station| rough intake,Engage,Engage,5,,false,,0,0,0,0,40,Sloppy driver
+145,Sydney,qm26,red,3,620,true,,0,false,,Engaged,,8H|5H,0,Dropped cone coming off charge station| rough intake,Engage,Engage,5,,false,,0,0,0,0,40,Sloppy driver
+146,Hannah ,qm26,blue,,4456,true,5H,0,true,,Docked,,3H|4H|7H,0,,,None,,,false,,0,0,0,0,50,
+147,Hannah ,qm26,blue,,4456,true,5H,0,true,,Docked,,3H|4H|7H,0,,,None,,,false,,0,0,0,0,50,
+148,Rachel,qm26,blue,2,614,true,8M,0,true,,None,,2H|8Lcube|8H,0,,Dock|Engage,Engage,15.1,,false,,0,0,0,0,65,
+149,Rachel,qm26,blue,2,614,true,8M,0,true,,None,,2H|8Lcube|8H,0,,Dock|Engage,Engage,15.1,,false,,0,0,0,0,65,
+150,Saragha,qm26,blue,3,1389,true,1M,0,true,,None,,3H|4H,0,Single substation intake| tiny bit tippy,Dock|Engage,Engage,15.8,,false,,0,0,0,0,78,Okay driving| scored on mid and high a bit tipsy and unsteady 
+151,Blen Shiferaw ,qm26,red,2,5587,true,8Lcone,0,false,,,,,1,,,,,,false,,0,0,0,0,57,
+152,Blen Shiferaw ,qm26,red,2,5587,true,8Lcone,0,false,,,,,1,,,,,,false,,0,0,0,0,57,
+153,Aanshi,qm26,red,,4821,true,7Lcube,1,true,,None,preloaded a cube,,2,,,None,,,false,,0,0,0,0,25,extremely likely to tip
+154,Sydney,qm27,red,3,1446,false,,0,false,,None,,,0,,,None,,,true,,0,0,0,0,50,Disabled the entire time
+155,Ryan,qm27,blue,2,5841,true,,0,false,,None,,4Lcube,0,,Dock,None,,,false,,0,0,15,30,10,
+156,Saragha,qm27,blue,3,7886,false,,0,false,,None,Only had drivetrain no scoring mechanism| not mobile in auto,3Lcone,0,Pushes cubes into bottom nodes,,None,,Did not attempt dock,false,,79,61,0,0,74,Played a bit of defense pushed cubes into bottom nodes
+157,Aanshi,qm27,red,,8326,true,,0,true,,None,preloaded a cube and dropped prelates,3M|2H|1Lcone|1H,1,,Dock,None,21,,false,,0,0,0,0,25,likely to tip
+158,Blen Shiferaw,qm27,red,2,2537,false,9H|8H,0,true,,Docked,,,0,,Engage,Engage,20.8,,false,,72,82,73,81,68,Good at playing defense 
+159,Hannah,qm28,blue,,8622,true,,0,false,,None,,,0,,,None,,,true,,0,0,0,0,0,
+160,Sydney,qm28,red,3,2534,false,,0,true,,None,,8H|5H,0,Struggled to lift arm for intake,Engage,None,22,,false,,0,0,0,0,70,Struggled a lot with intake| got a robot unstuck though
+161,Rachel,qm28,blue,2,6863,true,5M,0,false,,Docked,,6Lcube|8H,1,,Dock|Engage,Engage,6.3,,false,,0,0,0,0,21,
+162,Blen Shiferaw,qm28,red,2,5338,true,,0,true,,None,,9H|7H|6H|4M|2Lcone,0,,,None,,,false,,0,0,0,0,0,
+163,Saragha,qm28,blue,3,1111,false,,0,false,,None,,3Lcone|4H|6H,1,Reorients cones,Dock|Engage,Engage,16.8,Engaged| started dock in teleop,false,,0,0,0,0,79,
+164,Aanshi,qm28,red,,888,true,,0,false,,Engaged,preloaded a cone,4H,1,got stuck on the teleop,Dock,Dock,14,,false,,0,0,0,0,30,
+165,Ryan,qm29,blue,2,2914,true,,0,false,,None,,5M,1,,,None,,,true,,0,0,0,0,20,
+166,Saragha,qm29,blue,3,5549,false,,0,false,,None,,,0,,,None,,,false,,0,0,0,0,0,Had some error; did not move all round
+167,Hannah ,qm29,blue,,4638,false,,0,false,,None,,7Lcube|9Lcone,0,can onlypush ,,,,,true,,0,0,0,0,60,
+168,Sydney,qm29,red,3,6239,false,,0,false,,None,,,0,,,,,,true,,0,0,0,0,15,Very tippy robot| blocky movements| disabled for half of tele and all of endgame
+169,Blen Shiferaw,qm29,red,2,5830,false,,0,true,,None,,5H|3H|2H,0,,,None,,,false,,0,0,0,0,0,
+170,Aanshi,qm29,red,,836,true,9H,0,true,,Engaged,preloaded a cone,4H|3H|1H,2,,Dock|Engage,Engage,5,,false,,0,0,0,0,75,
+171,Blen Shiferaw,qm30,red,2,2900,false,,0,true,,None,,,0,,,,,,true,,0,0,0,0,0,
+172,Rachel,qm30,blue,2,1895,true,,1,true,,None,,1Lcube|3Lcone,0,,Dock|Engage,Engage,19.8,,false,,0,0,0,0,28,
+173,Saragha,qm30,blue,3,1731,true,4H,0,true,,None,,1H|2Lcone|2H|3Lcone|3H|5Lcube|5M|5H|6H|7H,0,,Dock|Engage,Engage,10,-triple engage,false,,0,0,0,0,100,Actually too goated no misses scores on everything 
+174,Sydney,qm30,red,3,8514,true,,0,false,,None,,2Lcube,0,Very tippy| struggled to intake from double substation,,None,,,false,,0,0,0,0,30,Crashed into things| unsure of movement
+175,Hannah,qm30,blue,,6326,true,9H,0,true,,None,,8H,0,,Engage,Engage,,,false,,0,0,0,0,23,
+176,Aanshi,qm30,red,,2377,true,,1,false,,Docked,dropped preloaded cone and was maybe mobile?,5Lcone|1Lcone,0,I can't tell if they are dropping their cones or intend to do that,Dock|Engage,Engage,,,false,,0,0,0,0,40,
+177,Sarah,qm31,red,2,4099,true,6H,0,true,,None,,1Lcube|2Lcube|3Lcube|4Lcube|5Lcube|5H|6Lcube,1,,Dock|Engage,Engage,3,,false,,0,0,0,0,90,
+178,Suzy,qm31,blue,,2537,false,,0,true,,None,,,0,,,None,,,false,,100,70,0,0,70,
+179,Chris,qm31,blue,2,7886,false,,0,true,,,,,0,,,None,,No movement,true,,0,0,0,0,0,Bad
+180,Sophia T,qm31,red,3,1908,true,9H,0,false,,None,,6H,1,,Dock,Dock,12.1,,false,,0,50,0,0,25,
+181,Eckart ,qm31,red,,8326,true,,0,true,,None,Dropped preload when crossing cable,,0,Never moved,,,,,true,,0,0,0,0,0,
+182,Shashwat,qm31,blue,3,2199,true,4H,0,false,,Engaged,,1H|2H|3Lcone|3H,1,,Engage,Engage,3,,false,,0,0,0,0,65,
+183,Sarah,qm32,red,2,888,true,1M,0,true,,None,,2Lcone|3M,0,they got stuck on mid cone node for like 30sec,,None,,,false,,0,0,0,0,70,
+184,Eckart ,qm32,red,,4456,true,5H,0,false,,Engaged,Something fell off during auto,3H|2H|1H,0,Good manual lineup but slow cycle time,Dock|Engage,Dock,13.3,,false,,0,0,0,0,72,
+185,Shashwat,qm32,blue,3,4821,true,,0,true,,None,,8M,0,,Engage,Dock,8,,false,,0,0,0,0,60,
+186,Suzy,qm32,blue,,2534,false,,0,true,,None,,5Lcube|5H,0,Not very good driver,Dock,None,18.9,Unreliable gripper| Lots of pushing of cubes,false,,0,0,0,0,35,Robot is OK but driver wasn't versatile
+187,Sarah,qm33,red,2,611,true,,0,false,,,,2H,0,,Dock|Engage,Engage,5,,false,,0,0,0,0,25,
+188,Chris,qm33,blue,2,1389,false,5M,0,true,,Engaged,,5M,2,,Dock,Engage,14.5,,false,,0,0,0,0,24,Gripper got jammed
+189,Shashwat,qm33,blue,3,5587,true,,0,false,,None,,,0,Teleop not working ,,None,,,false,,0,0,0,0,58,
+190,ryan zhao,qm33,red,,4638,true,,0,false,,None,,2Lcube|1Lcube,0,,Dock|Engage,Engage,,,false,,0,0,0,0,31,just cube and cone pusher| very tippy
+191,Sophia T,qm33,red,3,836,true,9H,0,true,,None,,7H|6Lcube|6H|5H|3Lcone,2,,,None,,,false,,0,0,20,0,90,
+192,Suzy,qm33,blue,,6863,true,8H,0,true,,None,,5H|9H,0,Unreliable grab of cones,Dock|Engage,Dock,19.9,Capable of engage,false,,0,0,15,50,50,
+193,Sarah,qm34,red,2,1895,true,,0,true,,None,,1Lcone,0,,,None,,,true,,0,0,0,0,20,
+194,Shashwat ,qm34,blue,3,1123,true,5H,0,false,,Engaged,,2H|3H|4H|5H,0,,Engage,Engage,6,,false,,0,0,0,0,63,
+195,Sophia T,qm34,red,3,614,true,8M,0,true,,,,9Lcube|8Lcube|7Lcube|6Lcube|5Lcube,1,,Dock,Dock,9.5,,false,,20,85,10,0,75,
+196,Eckart,qm34,red,,620,true,,0,false,,Engaged,,3Lcone|2Lcone,0,Struggle picking up and holding cones,Dock|Engage,Engage,19.4,Waited for 614 to come line up,false,,81,0,0,0,29,
+197,Suzy,qm34,blue,,1446,true,,0,false,,None,,1Lcube|2Lcube,0,,Dock|Engage,Engage,19.2,,false,,30,68,0,0,77,Much better at defense than scoring; would be good with high scoring robots
+198,Angela,qm34,blue,2,2900,false,,0,true,,None,,,0,tried pushing a cone into an area that already had a cube placed. didnt really try to score overall,,None,,,false,,36,65,0,0,0,
+199,Chris,qm35,blue,2,6326,true,2Lcube,0,false,,None,,4Lcube,0,,Dock,None,10,,false,,0,0,0,0,20,
+200,Sarah,qm35,red,2,2377,true,,1,true,,None,,3Lcube|2Lcube|1Lcube,0,intake broke,Dock|Engage,Engage,7,,false,,0,0,0,0,49,
+201,Shashwat,qm35,blue,3,6239,true,5Lcube,0,false,,None,,,0,,,None,,,false,,0,0,0,0,34,
+202,Eckart,qm35,red,,2914,true,,1,true,,,,,0,Intake has difficulty holding cone and easily drops when crossing cable,Dock|Engage,Engage,2.0,1731 sold,false,,0,0,0,0,16,
+203,Sophia T,qm35,,3,1731,true,6H,0,true,,None,,1H|2H|3H|4H|5H|7H|8H,1,very fast,Dock,None,11.9,,false,,83,50,0,50,90,
+204,Eckart ,qm36,red,,5841,true,,0,false,,,Nothing,5Lcube|2Lcone,0,Broken intake and blocked alliance members fromgetting into community,Dock,Parked,10.9,Fell off charge station ,false,,0,0,0,0,17,
+205,Angela,qm36,blue,2,1111,true,,0,false,,None,no auto,1Lcone|9Lcone,0,,Dock|Engage,Engage,5,,false,,74,86,0,0,56,
+206,Sophia T,qm36,red,3,449,true,8H,0,true,,Engaged,,9Lcube|8Lcube|7Lcube|6Lcube|4Lcube,1,,Dock,Dock,7.6,,false,,60,75,70,70,80,
+207,Rithvik,qm36,red,2,5338,true,3H,0,false,,,,6H,0,,Dock|Engage,Engage,2.8,,false,,0,0,62,20,40,Everything but counterdefense was good 
+208,Sayan,qm36,blue,,5549,true,,0,false,,,,1Lcone|8Lcone,0,Only pushing,,,,Disabled,true,,70,51,0,0,51,Worse than last few matches they were in
+209,Amogh,qm36,blue,3,5830,true,2H,1,false,,,,1Lcone,2,,Dock|Engage,Engage,,,false,,0,0,0,0,52,Missed a few and was bumping into the wall to. Double jointed arm almost hit people. 
+210,Amogh,qm37,blue,3,8622,true,,1,false,,None,,,0,,,,,,true,,0,0,0,0,25,Disabled for most of the match
+211,Eckart,qm37,red,,2537,true,,0,false,,None,,2H|1H,0,,Dock|Engage,Engage,30,,false,,0,0,0,0,16,
+212,Chris,qm37,blue,2,2199,true,4H,0,true,,Engaged,,2H|3H|5H|6H,0,,Engage,Engage,10,,false,,0,0,0,0,74,
+213,Sophia T,qm37,red,3,2961,false,,0,false,,None,,,0,,,None,,,false,,30,25,0,20,30,weird intake? interferes with driving
+214,Rithvik,qm37,red,2,4638,false,,0,false,,None,,9Lcone|8Lcube|2Lcube,0,Very top heavy| nearly fell over,Dock|Engage,Engage,3.2,,false,,0,0,15,40,59,
+215,Sayan,qm37,blue,,4821,true,8M,0,true,,,,5H|8H,1,Only cubes| 8H on second try,Dock|Engage,Engage,,,false,,0,0,0,0,50,Tank drive & heavy rotating gripper -> often imbalanced
+216,Eckart,qm38,red,,836,true,9H,0,true,,,Weird auto path,7H|3H|1H,0,,Dock|Engage,Engage,2,,false,,0,0,0,0,77,
+217,Sophia T,qm38,red,3,614,true,2M,0,true,,None,,8M|8H|5M|5H,1,,,None,,,false,,0,0,0,0,70,
+218,Amogh ,qm38,blue,3,888,true,9M,0,false,,None,,1M|2Lcone,0,Struggles with picking up game pieces from sub station,Dock|Engage,Engage,,,false,,26,26,0,21,69,
+219,Rithvik,qm38,red,2,7886,false,,0,false,,None,,,0,Didnt move,,,,,false,,0,0,0,0,0,Didnt move
+220,Angela,qm38,blue,2,620,true,,0,false,,Engaged,,4M,0,,Dock|Engage,Engage,7.3,,false,,71,69,0,0,66,
+221,Sayan ,qm38,blue,,4099,true,1H,0,true,,,,2M|3Lcube|5Lcube|6Lcube|7Lcube|8Lcube|9Lcube,1,Fumbled extra cube into 6L,Dock|Engage,Engage,4.2,Triple engage ,false,,0,0,0,0,65,
+222,Chris,qm39,blue,2,6239,true,1Lcone,0,false,,None,,,0,,,None,,They got beached& did nothing,false,,0,0,0,0,0,GOT BEACHED
+223,Eckart,qm39,red,,1123,true,5H,0,true,,Engaged,,4Lcone|4H|3H|1H,0,,,Engage,1.0,,false,,0,0,0,0,86,
+224,Sayan,qm39,blue,,2900,true,,0,true,,Engaged,,2Lcube|3Lcube|6Lcube,0,,Dock|Engage,Engage,19.6,,false,,0,0,0,0,65,
+225,Rithvik,qm39,red,2,8514,true,,0,false,,,,3Lcube,1,,,,,,false,,62,39,13,15,39,They were very too heavy so they werent able to drive very easily
+226,Amogh ,qm39,blue,3,1908,true,9H,0,false,,None,,7H|8H,0,Dropped a game piece,Dock|Engage,Engage,,,false,,71,63,62,81,68,Were pretty passive but other than that they were 
+227,Sophia T,qm39,red,3,8326,true,,0,true,,None,,8H|6H|2H,0,,,None,,,false,,0,0,0,0,60,
+228,Amogh,qm40,blue,3,2534,true,,0,false,,None,Didnt even move,6M,2,,Dock,None,,Basically was very unstable and couldnt engage,false,,14,15,69,67,32,
+229,Eckart,qm40,red,,1446,true,,0,false,,None,,1Lcube,0,Pushed items towards community ,,Parked,,,false,,6,85,0,0,16,Their defense similar to ryan
+230,Sophia T,qm40,red,3,5549,false,,0,false,,None,,9Lcube|8Lcube|7Lcube|6H,0,,Dock,Dock,,,false,,70,80,75,80,75,
+231,Rithvik,qm40,red,2,1389,true,6M,0,false,,Engaged,,3M,0,,,Engage,,,false,,0,0,30,46,61,
+232,Sayan,qm40,blue,,2914,true,,0,false,,,No auto,,1,Attempted 1L but cube rolled out,Dock|Engage,Engage,,,false,,0,0,80,20,49,
+233,Angela,qm40,blue,2,6326,true,,1,true,,None,,7H|8H,1,,Dock|Engage,Dock,3,,false,,0,0,31,58,63,
+234,paul,qm41,,3,1895,true,,0,true,,,,,0,,Engage,Engage,6.8,,false,,0,0,0,0,75,
+235,Sydney,qm41,,3,1895,true,,0,true,,None,,5Lcone|9Lcone,0,Slightly reckless| struggled with intake from double substation| pushes cones| easily crosses charge station,Engage,Engage,12,,false,,0,0,0,0,75,A bit reckless| but fast and generally accurate
+236,Hannah ,qm41,blue,,5338,true,,0,true,,None,,6H|9M|9H,1,,Engage,Engage,2.7,,false,,0,0,0,0,79,
+237,Rachel,qm41,blue,2,5830,true,,0,true,,None,,,0,,Dock,None,,,false,,0,0,0,0,12,
+238,Blen Shiferaw,qm41,red,2,1111,true,3H,0,true,,None,,9Lcone|6H,1,,Dock,None,,,false,,15,25,19,21,0,
+239,Aanshi,qm41,red,,4456,true,5H,0,false,,Docked,preloaded a cube,8H|2H,0,,Dock|Engage,Engage,7,,false,,20,60,10,35,30,
+240,Ryan,qm42,blue,2,5587,true,,0,false,,None,,3M|5Lcone,1,,Engage,Engage,6.4,,false,,0,0,0,0,40,
+241,paul,qm42,blue,3,449,true,,1,true,,,,2Lcube|2H,0,had trouble picking up cones,Engage,Engage,14.1,triple engage!,false,,0,0,0,0,0,
+242,Hannah,qm42,blue,,611,true,,0,false,,None,,8H,0,,Engage,Engage,17.0,,false,,0,0,0,0,51,
+243,Aanshi,qm42,red,,5841,true,,0,false,,,preload a cone,2Lcube|1Lcube,0,i dont know if they dropped the cube into 8L or not; the robot stopped for about 15 seconds; ,,None,,,false,,0,0,0,0,25,
+244,Blen Shiferaw,qm42,red,2,2377,false,,1,true,,Docked,,5Lcone,1,,Engage,Engage,3.2,,false,,30,0,39,51,52,
+245,Sydney,qm42,red,3,6863,true,8M,0,true,,None,,1H,0,,,,13.5,,false,,0,0,0,0,60,Struggled with intake| always overshot and spent at least 15-20 seconds trying to pick something up
+246,paul,qm43,blue,3,4099,true,4H,0,true,,,,1H|2Lcube|3H|5H|6H,0,,Engage,Engage,1,,false,,0,0,0,0,76,
+247,Hannah ,qm43,blue,,8622,false,,0,false,,None,,1Lcube,0,,Dock|Engage,Engage,,,false,,82,33,0,0,36,
+248,Sydney,qm43,red,3,1123,true,5H,0,true,,Engaged,,9H|8H|7H|6H,0,,,None,,,false,,0,0,0,0,85,
+249,Rachel,qm43,blue,2,8514,true,,0,false,,None,,1Lcube|7Lcube|9Lcube,0,,,Parked,,,false,,0,0,0,0,10,
+250,Blen Shiferaw,qm43,red,2,4638,false,,0,false,,,,9Lcone|7Lcone|3Lcone,0,Started getting shaky ,Engage,Engage,3.7,,false,,38,22,29,34,67,
+251,Aanshi,qm43,red,,2199,true,3H,0,true,,None,preloaded a cone,2H|1H,0,stopped for about 20 seconds,Dock|Engage,Engage,,,false,,0,0,25,20,40,
+252,paul,qm44,blue,3,1908,true,7H,0,true,,,,1M|7H,0,,,Engage,4.2,double engage,false,,0,0,13,20,0,
+253,Rachel,qm44,blue,2,614,false,2M,0,true,,None,,5M,0,,,None,,,false,,0,0,0,0,14,
+254,Aanshi ,qm44,red,,5549,true,,0,false,,None,,7Lcube,0,bumper is falling off,Dock|Engage,None,,,false,,0,0,0,0,25,
+255,Sydney,qm44,red,3,6326,true,,0,true,,None,,8H|2H,0,Struggles with cone intake and wastes time on it| isnt great at cube intake but can actually do it compared to cones ,Engage,Engage,6,,false,,0,0,0,0,60,Tippy
+256,Hannah,qm44,blue,,888,true,,0,true,,Engaged,,6M|7M|9M,0,,Engage,Engage,3.4,,false,,0,0,0,0,67,
+257,Blen Shiferaw,qm44,red,2,8326,false,,0,true,,None,,7H|6H|5H,0,,Engage,Engage,2.3,,false,,23,12,26,31,0,
+258,Rachel,qm45,blue,2,6239,true,,0,false,,None,,2Lcube,0,,Dock|Engage,Engage,7,,false,,0,0,0,0,12,
+259,Blen Shiferaw,qm45,red,2,1111,true,1H,0,true,,None,,7H|6Lcone,1,,,,,,false,,0,57,0,58,58,
+260,Hannah,qm45,blue,1,4456,true,5H,0,true,,Engaged,,7H|8H,1,,Dock|Engage,Engage,,,false,,0,0,0,0,68,
+261,Sydney,qm45,red,3,1389,true,1M,0,true,,None,,8H|7H,0,Struggled a bit with intake ,Engage,Engage,12.4,Tippy when getting on charge station,false,,0,0,0,0,70,Good driving| just a bit tippy
+262,Aanshi,qm45,red,,620,true,,0,false,,None,preloaded a cone,3M,1,,Dock|Engage,Engage,8,,false,,30,60,0,0,40,
+263,paul,qm45,blue,3,2961,false,,0,false,,,,,0,,,,,gripper was broken,false,,0,0,0,0,14,bad driving
+264,paul,qm46,blue,3,2537,true,2H,0,true,,,,2M,0,,Engage,Engage,6.2,double engage,false,,0,0,0,0,23,
+265,Sydney,qm46,red,3,5338,true,,0,true,,None,,9H|6H,0,Struggled with intake from substations,Engage,Engage,6,,false,,0,0,0,0,60,
+266,Ryan,qm46,blue,2,1731,true,4H,0,false,,Engaged,,1H|3H|5Lcone|6H|7H|9H,0,,,None,,,false,,0,0,0,0,97,
+267,Blen Shiferaw,qm46,red,2,2900,true,,0,true,,Engaged,,6Lcone,0,,,None,,,false,,0,0,0,0,16,
+268,Aanshi,qm46,red,,5587,true,,0,false,,None,preloaded a cone,,0,dropped preloaded cone+ another 2 cones,Dock|Engage,Engage,13.4,,false,,0,0,0,0,25,high center of gravity so they move slow
+269,Hannah,qm46,blue,,449,true,8H,1,true,,None,,5Lcube|5H|8Lcube|9Lcube,0,,Engage,Engage,2.0,,false,,0,0,0,0,76,
+270,shayaan,qm47,red,2,1446,true,,0,false,,None,,2Lcube,0,fast but only a drivetrain bot and disabled midway,,,,,true,,75,60,0,0,70,v fast
+271,paul,qm47,blue,3,4821,true,2M,0,true,,,,2H|8M,0,,,,,,false,,0,0,0,0,26,
+272,Sydney,qm47,red,3,5841,true,,0,false,,None,,9Lcube|4Lcube,0,,,None,,,false,,0,0,0,0,40,Very choppy
+273,Hannah,qm47,blue,,7886,false,,0,true,,None,,,0,disable,Dock|Engage,Engage,,,false,,0,0,0,0,32,
+274,Aanshi,qm47,red,,611,true,,0,false,,None,preloaded a cube,9Lcube|6Lcube|3Lcube,0,dropped preloaded cube,Dock|Engage,Engage,12.8,,false,,60,55,0,0,70,
+275,Rachel,qm47,blue,2,2914,true,,0,false,,Engaged,,2Lcube|5M,1,,Engage,Engage,,,false,,0,0,0,0,33,
+276,paul,qm48,blue,3,5830,true,2H,0,true,,,,3H|6M,0,,Engage,Engage,12,double engage ,false,,0,0,0,0,26,
+277,shayaan,qm48,red,2,836,true,9H,0,true,,None,,8H|6H|5H|2H,0,,Dock|Engage,Engage,2.5,,false,,0,0,0,0,91,
+278,Sydney,qm48,red,3,6863,true,5M,0,false,,None,,7H,1,Not a secure intake ,Engage,Engage,12,Managed a triple engage,false,,0,0,0,0,70,Decent driving| just struggling to intake efficiently 
+279,ryan,qm48,blue,2,2534,false,,0,true,,None,,3M,0,,Engage,Engage,,,false,,0,0,0,0,10,
+280,Aanshi,qm48,red,,1895,true,1Lcone,0,true,,Docked,preloaded a cone,9Lcone|2Lcone|1Lcone,1,took a large leap after docking; 2 cones and 1 cube in 9L,Dock|Engage,Engage,7.9,,false,,0,0,0,0,40,
+281,Blen Shiferaw,qm50,red,2,449,true,8H,0,true,,None,,5M,0,,,None,,,true,,0,0,0,0,36,
+282,Hannah,qm50,blue,,4638,false,,0,true,,None,,1Lcube|2Lcone|7Lcube|8Lcube,0,,Dock,Dock,,,false,,0,0,0,0,29,
+283,Sydney,qm50,red,3,2961,false,,0,false,,None,,,0,Running over its own intake| very tippy| bumper fell off,,None,,,true,,50,20,0,0,20,Wasnt quite sure if it was defense or them trying to get cargo| not efficient and very slow 
+284,paul,qm50,blue,3,4456,true,5H,0,true,,Engaged,,2H,0,had trouble picking up cones,,,,,false,,20,30,20,10,20,
+285,Rachel,qm50,blue,2,6326,true,,0,false,,None,,4H|6H|7H|9H,0,,Dock|Engage,Dock,15.6,,false,,0,0,0,0,51,
+286,Aanshi,qm50,red,,1123,false,3H,0,true,,Engaged,quick alignment; can reoriend cone|,9H|8H|7H|1H,0,,Dock|Engage,Engage,4.1,,false,,0,0,0,0,75,
+287,Chris,qm51,blue,2,5338,true,1Lcube,0,true,,,,1Lcone|2Lcone,0,,Engage,Engage,10,,false,,12,28,0,0,50,
+288,Shashwat,qm51,blue,3,7886,false,,0,false,,None,,,0,,,Engage,7.5,,false,,13,26,0,0,46,
+289,Eckart ,qm51,red,,611,true,,0,false,,None,Took a long time to get on field. No movement ,6Lcube|5Lcube|3Lcube|2Lcube|1Lcube,0,Only ground intake ,Dock|Engage,Engage,3.0,Waited for alliance members but they never came,false,,0,0,0,0,73,
+290,Suzy,qm51,blue,,1111,true,9H,0,true,,Docked,,4Lcone|6Lcone|6H|7H,0,,Dock|Engage,Engage,3.4,,false,,0,0,0,0,0,Very shaky intake and outtake but if done right can score a lot
+291,Sophia T,qm51,red,3,8514,true,,0,false,,None,,4Lcube,1,,,None,13.9,,false,,70,40,60,0,40,
+292,Sophia T,qm52,red,3,5841,true,,0,false,,None,,2Lcube,1,broken intake,,None,,,false,,0,0,0,0,0,
+293,Sarah,qm52,red,2,1731,true,9H|8H,0,true,,None,,7H|6H,1,,Dock|Engage,Engage,3,,false,,0,0,0,0,85,
+294,Shashwat,qm52,blue,3,836,true,1H,0,true,,None,,1Lcone|2H|3H|4H|5H,0,,,Parked,,,false,,0,0,0,0,81,
+295,Angela,qm52,blue,2,2199,true,7Lcone,1,false,,Engaged,,6Lcube|6H|7H,1,,Dock|Engage,Engage,3.8,,false,,0,0,0,0,75,
+296,Eckart,qm52,red,,2900,true,,0,false,,Engaged,,,0,,Dock|Engage,Engage,2.0,,false,,0,0,0,0,52,
+297,Suzy,qm52,blue,,1908,true,9H,0,true,,None,,8H,0,,Dock|Engage,,4.5,,false,,72,63,0,0,70,Tried to guard 1731 with ok success
+298,Chris,qm53,blue,2,4099,true,6H,0,false,,Engaged,CRAZY,5H|6H,0,,Engage,Engage,5,,false,,0,0,31,0,0,
+299,Eckart,qm53,red,,4821,true,,1,false,,None,Dropped cube inside drivetrain,5H|2M,0,,Dock|Engage,Dock,2.0,,false,,0,0,0,0,33,
+300,Shashwat,qm53,blue,3,2377,true,9H,0,true,,None,,4H|7H,0,,Engage,Engage,5,,false,,0,0,0,0,61,
+301,Sophia T,qm53,red,3,5830,true,8H,0,true,,None,,7H|6H,0,slow driving,,None,,,false,,0,50,20,0,10,
+302,Sarah,qm53,red,2,1446,false,,0,false,,,,4Lcube,0,,Dock|Engage,None,3,,false,,80,45,0,0,60,
+303,5587,qm53,blue,,5587,true,,1,false,,None,,2Lcone|2H,0,,Engage,Engage,5.3,,false,,0,0,68,30,40,Very penalty and foul prone
+304,Eckart,qm54,red,,6863,true,8M,0,false,,,,9M|7M,0,Got fouls for extending inside opposing team,Dock|Engage,Engage,7.9,,false,,0,0,0,0,20,Drivetrain extremely slow seemed like issues
+305,Suzy,qm54,blue,,1895,true,1Lcone,0,true,,Engaged,,7Lcube|8Lcube|9Lcube,0,,Dock|Engage,Engage,12.2,,false,,60,60,0,0,65,VERY chaotic driving
+306,Sophia T,qm54,red,3,6239,false,,0,false,,,intake mechanism interferes with driving| slow,8Lcube,0,,,None,,,false,,20,20,40,20,5,
+307,Angela,qm54,blue,2,2537,true,8H,0,true,,None,,8M,0,struggles to pick up both cones and cubes (cones especially) ,Dock|Engage,Engage,8.9,2 robot engage,false,,0,0,0,0,47,
+308,Shashwat,qm54,blue,3,2914,true,,0,false,,None,,4M|5M,0,,,Parked,,,false,,0,0,0,0,60,
+309,Eckart,qm55,red,,1111,true,1H,0,true,,None,,,0,,,,,,true,,0,0,0,0,0,Disabled at the start of teleop
+310,Chris,qm55,blue,2,5549,true,,0,true,,,,1Lcone|2Lcone|3Lcone|9Lcone,0,,Engage,Engage,3,,false,,0,0,0,0,28,
+311,Shashwat,qm55,blue,3,1123,false,5H,0,false,,Engaged,,1H|3Lcone|3H|4H|6H,0,,Engage,Engage,4,,false,,9,71,0,0,74,
+312,Suzy,qm55,blue,,614,false,2M,0,true,,None,,7Lcube,0,,,None,,,false,,0,0,0,0,51,
+313,Rithvik,qm55,red,2,611,true,,0,true,,Engaged,Was preloaded but dropped it,7Lcube|5Lcube|4Lcube,0,,Dock|Engage,Engage,3.9,,false,,0,0,0,0,52,
+314,Sophia T,qm55,red,3,2961,true,,0,false,,None,,6Lcube,1,,,None,,,false,,20,10,65,5,10,
+315,Sayan,qm56,blue,,6326,true,,0,false,,,No auto,,0,Immobile,,None,,No endgame possibly due to disable,true,,0,0,0,81,0,This match is an outlier and only tells us that this team has disabled for its duration
+316,Rithvik,qm56,red,2,8622,true,,0,false,,,No auto,7Lcube|6Lcube,0,,Dock|Engage,Dock,12,,false,,0,0,12,22,40,
+317,Shashwat,qm56,blue,3,620,true,,0,false,,Docked,,3Lcone|4Lcone,0,Issues with teleop ,Engage,Engage,8,,false,,0,0,0,0,66,
+318,Sophia T,qm56,red,3,4638,true,,0,true,,,,9Lcube|8Lcube|7Lcube|3Lcube|1Lcube,1,,Engage,Dock,24,,false,,0,0,0,0,55,
+319,Suhani,qm56,red,,5841,true,,0,false,,None,,2Lcone,0,,,None,,,false,,0,0,0,0,3,Mostly immobile throughout the match
+320,Angela,qm56,blue,2,5338,true,,0,true,,,,1Lcone|2Lcone|6Lcube,0,,Dock|Engage,Engage,2.8,,false,,0,0,0,0,44,
+321,Sophia T,qm57,red,3,836,true,,1,true,,None,,8H|3H|2H|1H,0,,Engage,Engage,7,,false,,0,0,0,0,75,
+322,Shashwat,qm57,blue,3,7886,false,,0,true,,None,Crossed center line,,0,Teleop issues,,Engage,3,,false,,0,0,0,0,51,
+323,Rithvik,qm57,red,2,2377,true,9H,0,false,,,,7H|6Lcone|4Lcone,0,Cycles were slow but they were accurate,Dock|Engage,Engage,2.9,,false,,0,0,14,49,56,
+324,Chris,qm57,blue,2,8326,false,,0,true,,,,4H|8Lcone|8H|9Lcube,0,,,None,,,false,,0,0,0,0,14,
+325,Sayan,qm57,blue,,1731,true,4Lcone,0,true,,Engaged,,3H|4H|5H|6Lcone|6H|7H|9H,1,2 low cones may have been misses from high attempts,Engage,Engage,,Last second clutch,false,,0,0,0,0,70,
+326,Suhani,qm57,red,1,1389,true,5Lcone,0,false,,None,,,0,,,None,,,false,,0,0,0,0,3,Didnt pick up anything and mostly drove around slowly
+327,Rithvik,qm58,red,2,2534,false,,0,true,,None,,1M,0,,Dock|Engage,None,,Got charge but was knocked off by teammates,false,,0,0,14,20,44,
+328,Sayan,qm58,blue,,5587,true,9Lcone,0,false,,,,,0,Cubes and cones slipped| engaged early,Dock|Engage,Engage,,Triple engage,false,,0,0,0,0,60,Appears to have bad gripper
+329,Sophia T,qm58,red,3,1895,true,8Lcone,0,true,,,,5M,1,,Engage,Engage,22.6,,false,,0,0,70,80,70,
+330,Angela,qm58,blue,2,2199,true,6H,0,false,,None,,2H|4H|5H|8H,0,,Dock|Engage,Engage,10,triple engage,false,,0,0,0,0,77,
+331,Suhani,qm58,red,,1908,true,4H,0,false,,,,6H|3M,0,,Dock|Engage,Engage,13.6,Double engage,false,,0,0,3,0,20,Slow and unstable driving but were able to reach top nodes
+332,Shashwat,qm58,blue,3,1446,true,,0,false,,None,,1Lcube|2Lcube,1,,Engage,Engage,6,,false,,0,0,12,68,68,
+333,Shashwat,qm59,blue,3,2900,false,,0,false,,Engaged,,,0,,Engage,Engage,4,,false,,0,0,0,0,37,
+334,,qm59,red,3,4821,true,9Lcube,1,true,,None,,5H,1,,Engage,None,,,false,,0,0,0,0,40,
+335,Suhani,qm59,red,,6239,true,,0,false,,None,,4Lcone,0,,,None,,,false,,0,0,0,0,8,Slow and unstable driving
+336,Chris,qm59,blue,2,449,true,2H,0,false,,,,5Lcube|5M|7Lcube|8Lcube|8M|8H,0,,Engage,Engage,9,,false,,0,0,0,0,72,
+337,Rithvik,qm59,red,2,2537,true,2M,0,true,,None,,3M|2H|1M,0,,Dock|Engage,Dock,3.9,,false,,0,0,0,0,59,Cycles were a little slow but they scored a couple times 
+338,Sayan,qm59,blue,,888,true,9M,0,true,,,,6M|7M,0,Appears to exclusively do mid cones,,,,Communication issue/debate at single substation prevented endgame,false,,0,0,0,0,34,
+339,Rachel,qm60,blue,2,2914,false,,0,false,,Docked,,1Lcone|5M,1,,Dock|Engage,Dock,,,false,,0,0,0,0,58,
+340,Sarah,qm60,red,2,4456,true,5H,0,false,,Engaged,,4H|3H,0,,Dock|Engage,Engage,4,,false,,0,0,0,0,40,
+341,Shashwat,qm60,blue,3,8514,true,,0,false,,None,,3Lcube,0,,,None,,,false,,0,0,0,0,19,
+342,Suhani,qm60,red,,6863,true,2H,0,false,,None,,6M|4H|1H,0,,Dock|Engage,Engage,8.4,Double engage,false,,0,0,0,0,40,Slightly unstable and slow driving
+343,Sayan,qm60,blue,,5830,true,9H,0,false,,,,5H|7H|8H,0,Went only for upper,,None,,Rolled over station instead of docking/engaging,false,,0,0,0,82,45,
+344,Palak,qm61,blue,,611,true,8H,0,false,,None,,,0,Didn't move at all during teleop,,None,,,true,,0,0,0,0,0,
+345,Blen Shiferaw,qm61,red,2,5549,true,,0,true,,,,8H|5M|2H,2,Shaky when placing cubes ,Engage,Engage,7.8,,false,,0,0,0,0,0,
+346,Sydney,qm61,red,3,836,true,9H,0,true,,Engaged,,7H|6H,2,Issues with lining upDecent intake system,Engage,Engage,6,,false,,0,0,0,0,85,
+347,Rachel,qm61,blue,2,8326,true,,0,true,,None,,2H|5H|7H|8M,0,,Dock|Engage,Engage,5.4,,false,,0,0,0,0,31,
+348,paul,qm61,blue,3,5338,true,,0,false,,,did not move but was enabled,3Lcube|9Lcube,0,gripper and lift seem disabled| skilled at passing cubes to other alliance members,Engage,Engage,8,came from the middle of the field for a double engage,false,,0,0,0,0,76,decent driving but gripper and lift were disabled| passed cubes to other members from charge station instead
+349,Sydney,qm62,red,3,7886,true,,1,true,,None,,9Lcube,0,,Engage,Engage,10,,false,,0,0,0,0,70,Fine driving| just pushed cubes around though
+350,Rachel,qm62,blue,2,5587,false,,0,false,,None,,5Lcone,0,,,None,,,false,,0,0,0,0,9,
+351,Palak,qm62,blue,,8622,false,,0,false,,None,,,0,Started moving and then stoppe,,None,,,true,,67,0,0,0,11,
+352,Blen Shiferaw,qm62,red,2,1908,true,,0,true,,Engaged,,6H|5H|4H,0,,,None,,,false,,0,0,0,0,59,
+353,Aanshi,qm62,red,,6326,true,,0,false,,,preloaded a cone; almost scored in 9H,2Lcone|2H|1H,0,bumps into walls and changing pad often; 2 cones in 8L; ,Dock|Engage,Engage,5,5 seconds alone| 11 with 7886,false,,0,0,10,20,40,
+354,paul,qm62,blue,3,614,true,2Lcube,1,true,,,,7Lcube,0,disabled and renabled about 2-3 times,,,,,true,,6,65,0,0,67,while they were enabled| driving and defense were effective 
+355,Rachel,qm63,blue,2,2377,false,9H,0,true,,None,,,0,,,None,,,true,,0,0,0,0,7,
+356,Palak,qm63,blue,,1123,true,5H,0,true,,Docked,,,0,,,None,,,false,,0,0,0,0,50,
+357,Blen Shiferaw,qm63,red,2,888,true,6M|5M|4M|3M,0,false,,,,,0,,Engage,Engage,8.1,,false,,0,0,0,0,62,
+358,Sydney,qm63,red,3,1111,true,,1,true,,None,,9Lcone,2,Struggled a lot with intake in the beginning,Engage,Engage,7,,false,,0,0,0,0,40,
+359,Aanshi ,qm63,red,,4821,true,2M,0,false,,None,preloaded a cube; ,2Lcube|1Lcube,0,drops cube near grid; extremely likely to tip; ,,Parked,,I think they tried to score a point but couldn't intake,false,,0,0,0,0,20,
+360,paul,qm63,blue,3,1895,true,5Lcone,1,true,,,,1Lcone|7Lcone|9Lcone,1,trouble grabbing cones at human driver station| dropped a few cones at charge station ,Engage,Engage,1.6,very fast engage,false,,0,0,0,0,75,smooth driving| not very precise at human driver station 
+361,Rachel,qm64,blue,2,5841,true,5H,0,true,,Engaged,,1H|2H,0,,Dock|Engage,Engage,7.5,,false,,0,0,0,0,25,
+362,paul,qm64,blue,3,4456,true,5H,0,true,,Engaged,,1H|2H,0,slow lift| slow gripper| not very precise at nodes| slow at loading station| drops a few cones,Engage,Engage,6.8,needs a bit of speed to get into charge station,false,,0,0,0,0,16,imprecise driving
+363,Blen Shiferaw,qm64,red,2,6863,true,,1,true,,,,9H|7H,0,,Engage,Engage,12.8,,false,,0,0,0,0,0,
+364,Sydney,qm64,red,3,2914,true,,0,true,,None,,8Lcone,0,Mostly pushing cargo towards grid,Engage,Engage,10,Managed a triple engage,false,,0,0,0,0,60,
+365,Aanshi,qm64,red,,2900,true,,1,false,,None,preloaded a cube; dropped preloaded; tried to dock,7Lcube|5Lcube,0,trouble moving cubes; ,Dock|Engage,Engage,20,,false,,0,0,0,0,20,slow and faulty driving during match; but decent driving during endgame to get onto charging pad
+366,Palak,qm64,blue,,2537,true,2M,0,true,,None,,3H,0,Problem with gripper - very hard to pick cones up,Dock|Engage,Dock,,,false,,0,0,0,0,61,
+367,Sydney,qm65,red,3,4638,true,,0,true,,None,,5Lcone,0,Tippy,Engage,Dock,6,,false,,0,0,0,0,50,
+368,Ryan,qm65,blue,2,1731,true,3H,0,false,,None,,2H|4H|6H,0,,Engage,Engage,,,false,,0,0,26,78,83,
+369,Palak,qm65,blue,,2534,true,,0,true,,None,,5H,1,,,None,,,false,,0,0,40,30,71,
+370,Blen Shiferaw,qm65,red,2,6239,true,,0,false,,,,1Lcone,0,Shaky while driving across the field,,None,,,false,,0,0,0,0,32,
+371,paul,qm65,blue,3,1446,true,,0,false,,,did not move but was enabled,1Lcube|2Lcube,0,its just a drivetrain| no lift| no gripper ,Engage,Engage,15,had trouble balancing the charging station,false,,70,80,0,0,70,very good driving and defense
+372,Suhani,qm65,blue,,1446,true,,0,false,,None,,1Lcone|2Lcone,0,,Dock|Engage,Engage,20,Double engage,false,,25,55,0,0,80,Good driving but limited by being only drivetrain
+373,Aanshi,qm65,red,,4099,true,6H,0,false,,None,,3Lcone|2Lcube|2H|1H,1,,Dock|Engage,None,9.4,,false,,0,0,0,0,80,
+374,Sydney,qm66,red,3,2199,true,4H,0,false,,Engaged,,6H|3H|1H,0,,Engage,Engage,4,,false,,0,0,25,50,80,
+375,Ryan,qm66,blue,2,449,true,,0,true,,None,,2H|5Lcube|5H|7Lcube|8Lcube,1,,Engage,Dock,,,false,,0,0,2,0,86,
+376,Saragha,qm66,blue,3,1389,true,5Lcube,0,true,,Engaged,,,0,,Dock|Engage,Dock,13,Attempted triple engage (failed),false,,71,73,78,18,0,Played defense the whole game
+377,Blen Shiferaw,qm66,red,2,620,true,1Lcube,0,true,,None,,8Lcube|8H|5H|1Lcone,1,,,None,18,,false,,62,65,64,73,68,
+378,Suhani,qm66,blue,,5830,true,,0,false,,,,7H|9H,0,,Dock|Engage,None,10,,false,,0,0,0,0,68,
+379,Aanshi,qm66,red,,8514,true,,0,false,,,preloaded a cube; ,3Lcube,0,stopped for 3-4 seconds; likely to tip; defends against 1389 ,,Parked,,,false,,80,51,60,35,35,
+380,Ryan,qm67,blue,2,836,true,9H,0,true,,Docked,,6H|7H|8H,1,,Engage,Engage,,,false,,0,0,0,0,76,
+381,Sydney,qm67,red,3,6326,true,,1,true,,None,,9H|8H|7H|6H,0,Very tippy,Engage,Engage,6,,false,,0,0,0,0,60,Reckless and incredibly tippy
+382,Saragha,qm67,blue,3,4821,false,2M,0,true,,None,,2M,0,Defense,Dock|Engage,Engage,3.5,Double engaged ,false,,89,37,0,0,35,
+383,Blen Shiferaw,qm67,red,2,1123,true,6H,0,false,,,,9H|8H|7H|5H|2M,1,,Engage,Engage,3.5,,false,,0,0,0,0,0,
+384,Suhani,qm67,blue,,8326,true,,0,false,,None,,,0,,,None,,,false,,0,0,0,0,10,Were immobile for most of the match
+385,Aanshi,qm67,red,,1111,true,9Lcone,1,false,,Engaged,preload a cone,,0,almost tips 4821; successfully defends 4821| but can't defend 836,Dock|Engage,Engage,8.5,,false,,85,70,30,40,60,
+386,Ryan,qm68,blue,2,2961,false,,0,false,,None,,,0,,,None,,,false,,0,0,0,0,11,
+387,Suhani,qm68,blue,,2377,true,9Lcone,0,true,,None,,7Lcone,0,,Dock|Engage,Engage,8,,false,,0,0,0,0,41,Shaky driving with some tipping
+388,Saragha,qm68,blue,3,888,false,6M,0,true,,None,A little bit on charge station not too much,1M,0,Driving slowly| tend to score on mid| good intake,Dock|Engage,Engage,3,Double enagge,false,,0,0,74,84,82,
+389,Aanshi ,qm68,red,,5587,true,2Lcone,0,true,,None,preloaded a cone; weird shimmy ,1Lcone,0,chain broke; both cone and cube in 9L,,Parked,,,false,,0,0,0,0,30,
+390,Blen Shiferaw,qm68,red,2,1908,true,,0,true,,Docked,,4Lcone|3Lcube|3H|2Lcone|1H,0,,Engage,Engage,3.4,,false,,0,0,0,0,56,
+391,Sydney,qm68,red,3,2914,true,8H,0,true,,None,,8H,0,,Engage,Engage,10,,false,,0,0,20,50,40,
+392,Sydney,qm69,red,3,5338,true,,0,true,,None,,9H|7H|6H,1,,Engage,Engage,13,,false,,0,0,0,0,70,
+393,Ryan,qm69,blue,2,4456,true,5H,0,false,,Engaged,,3H|4H|6H,1,,,None,,,false,,0,0,0,0,61,
+394,Saragha,qm69,blue,3,611,true,2H,0,false,,None,,5Lcube|9Lcube,0,Missed two cubes and they fell into bottom nodes ,Dock|Engage,Engage,18.2,Double engaged| needed help to climb,false,,0,0,0,0,68,
+395,Suhani,qm69,blue,,2900,false,,0,true,,None,,,0,,Dock|Engage,Engage,7.9,Double engage,false,,0,0,0,0,10,Slow and minimal driving
+396,Aanshi,qm69,red,,6239,false,2Lcube,0,false,,None,preloaded cube,1Lcube,0,likely to tip; problems driving while having in took a cone,,Parked,,,false,,0,0,0,0,17,
+397,Blen Shiferaw,qm69,red,2,8622,true,,0,true,,,,,0,,Engage,Engage,,,false,,0,0,27,11,0,
+398,Ryan,qm70,blue,2,620,true,,0,false,,Engaged,,3Lcube|4Lcube|6Lcube|7Lcube,0,,Engage,Engage,,,false,,0,0,0,0,71,
+399,Blen Shiferaw,qm70,red,2,5549,true,,1,true,,None,,9Lcube|8Lcube|8M|7Lcube,1,,Engage,Engage,7.2,,false,,7,16,11,10,0,
+400,Saragha,qm70,blue,3,6863,true,9Lcube,0,true,,None,,8Lcone|8M,0,,Dock|Engage,Engage,14.3,Triple enagged,false,,0,0,0,0,36,
+401,Suhani,qm70,blue,,7886,true,1Lcube,0,true,,None,,5Lcube,0,,Dock|Engage,Engage,12.4,Triple engage,false,,0,0,0,0,31,
+402,Aanshi,qm70,red,,1731,true,9H,0,true,,,preloaded a cone,7H|6H|4H|3H|2M|2H|1H,1,,Dock|Engage,Engage,4.1,,false,,0,0,0,0,85,
+403,Sydney,qm70,red,3,2199,true,,1,false,,Engaged,,8H|5H|3Lcube,1,Goes over charge station efficiently| sort of slow,Engage,Engage,6,Triple engage,false,,0,0,0,0,70,
+404,Suhani,sf1,blue,,6326,true,1H,0,true,,None,,7H|8H,1,,Dock,Dock,17.7,,false,,0,0,0,0,70,
+405,Saragha,sf1,blue,2,1389,true,6Lcone,1,false,,,,2H|4Lcube,0,,Dock,None,,,false,,0,0,60,72,59,
+406,Suzy,sf1,red,3,4099,true,1H,0,false,,None,,2H,1,,Dock|Engage,Dock,10.2,,false,,70,80,0,0,81,
+407,Rachel,sf1,red,2,1731,true,9H|8H,0,true,,None,,7H|6H|5M|5H|4H|3H,0,,,Parked,,,false,,0,0,0,0,98,
+408,Sarah,sf1,red,,4099,true,1H,0,false,,,,2H,0,,Dock|Engage,Dock,6,,false,,0,100,0,0,80,
+409,Sayan,sf1,blue,3,2377,true,7H,0,false,,,,3Lcone,0,Gripper was kind of weird/spazzed so they countered instead of scoring,Dock,Engage,,,false,,0,73,40,59,49,
+410,shayaan,sf2,red,3,888,true,9M|8Lcone|8M|7H,0,false,,Engaged,,6M,1,,Dock|Engage,Engage,17,,false,,0,0,59,73,66,
+411,shayaan,sf3,red,2,836,false,1H,0,true,,None,,9H|7H|3H|2H,1,,Dock|Engage,Engage,6,triple balance,false,,0,0,28,72,76,
+412,shayaan,sf4,red,1,1123,true,,0,false,,Engaged,,5H|4H|3H,1,robot bumping into them knocked cone out| weak rollers & missed from single sub at times,Dock|Engage,Engage,13.8,,false,,0,0,30,43,63,they drive into things sometimes
+413,shayaan,sf5,blue,3,888,true,,0,false,,None,tried to dock/engage but couldnt| shot too short,1M|4M|6M,0,takes rlly long to get from double sub| can easily be shut down by defense,Dock|Engage,Engage,5.3,,false,,0,0,0,0,35,
+414,shayaan,sf6,blue,,1123,true,5H,0,true,,Engaged,,6H|7H|9Lcube,0,,Dock|Engage,Engage,3,,false,,0,0,80,41,33,can get shut down by defense
+415,shayaan,sf7,red,2,836,true,3H,0,false,,,,4H|2H,0,,Dock|Engage,Engage,5,,false,,0,0,16,43,59,
+416,shayaan,sf7,red,,2199,true,,0,true,,None,,5H|2H|1H,1,,Dock|Engage,Engage,7,,false,,0,0,30,33,63,
+417,Matthew,sf8,,2,4099,true,1M|1H|2Lcone|3Lcone|3M|4Lcone|4M|5M|5H|6Lcube|7Lcube|7M|7H|8Lcone|8M|9Lcone|9M,2,true,Dock,None,,1Lcone|1H|2Lcube|2M|4M|5Lcube|5M|7Lcone|7H|8M,2,,Dock,Dock,3,,false,false,20,3,60,2,4,
+418,shayaan,qm|100,red,,4099,true,9Lcone|9M|9H,0,false,Dock|Engage,Engaged,,8Lcone|8M|8H|7Lcone|7M|7H,1,,Dock|Engage,Engage,,trying| to| break| it'/,true,true,80,4,40,0,0,
+419,shayaan,qm|100,red,,4099,true,9Lcone|9M|9H,0,false,Dock|Engage,Engaged,,8Lcone|8M|8H|7Lcone|7M|7H,1,,Dock|Engage,Engage,,trying| to| break| it'/,true,true,80,4,40,0,0,

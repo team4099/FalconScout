@@ -1,35 +1,50 @@
 # core setup features
-year: 2022
-event_code: "iri"
-run_with_tba: False
-path_to_data: "../data/2022iri_match_data.json"
-path_to_output: "../data/errors.json"
+year: 2023
+event_code: "new"
+run_with_tba: false
+path_to_data: "data/2023new_match_data.json"
+path_to_output: "data/errors.json"
 
 # required translation
-match_key: "match_key"
-team_number: "team_number"
+scout_id: "ScoutId"
+match_key: "MatchKey"
+team_number: "TeamNumber"
 
 # optional parameters - if it is needed for a data check and is
 # not listed, the check will not run
 
 # Charged Up 2023: hyper-specific parameters
-auto_cones: "auto_cones"
-auto_cubes: "auto_cubes"
-auto_misses: "auto_misses"
-auto_docked: "auto_docked"
-preloaded: "preloaded"
-auto_engaged: "auto_engaged"
-teleop_cubes: "teleop_cubes"
-teleop_cones: "teleop_cones"
-teleop_misses: "teleop_misses"
-mobile: "mobile"
-docked: "docked"
-engaged: "engaged"
+auto_cones: "AutoCones"
+auto_cubes: "AutoCubes"
+auto_grid: "AutoGrid"
+auto_missed: "AutoMissed"
+mobile: "Mobile"
+auto_attempted_charge: "AutoAttemptedCharge"
+auto_charging_state: "AutoChargingState"
+
+teleop_cones: "TeleopCones"
+teleop_cubes: "TeleopCubes"
+teleop_grid: "TeleopGrid"
+teleop_missed: "TeleopMissed"
+
+endgame_attempted_charge: "EndgameAttemptedCharge"
+endgame_charging_state: "EndgameFinalCharge"
+
+attempted_triple_balance: "AttemptedTripleBalance"
+successful_triple_balance: "SuccessfulTripleBalance"
 
 # general game parameters
-alliance: "alliance"
-driver_station: "driver_station"
-defense_pct: "defense_pct"
-counter_defense_pct: "counter_defense_pct"
-defense_rating: "defense_rating"
-counter_defense_rating: "counter_defense_rating"
+alliance: "Alliance"
+driver_station: "DriverStation"
+defense_pct: "DefenseTime"
+defense_rating: "DefenseRating"
+driver_rating: "DriverRating"
+disabled: "Disable"
+tippy: "Tippy"
+preloaded: "Preloaded"
+
+# parameters for notes
+auto_notes: "AutoNotes"
+teleop_notes: "TeleopNotes"
+endgame_notes: "EndgameNotes"
+rating_notes: "RatingNotes"
