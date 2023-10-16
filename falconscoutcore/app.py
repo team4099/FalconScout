@@ -61,18 +61,40 @@ def _process_data(*data: list[str], status_message_col) -> None:
         split_data = raw_data.split(CONFIG["data_config"]["delimiter"])
 
         if len(split_data) == len(quantitative_data_labels):
+            raw_data_map = {
+                field: _convert_string_to_proper_type(data)
+                for field, data in zip(quantitative_data_labels, split_data)
+            }
+
+            # Change certain fields to adhere to the Vis schema
+            raw_data_map["MatchKey"] = raw_data_map["MatchKey"].replace(",", "")
+            raw_data_map["TeleopHigh"] = list(raw_data_map["TeleopHigh"]) # Convert tuple to list for checking if QR codes were already scanned.
+            raw_data_map["TeleopMid"] = list(raw_data_map["TeleopMid"])
+            raw_data_map["TeleopLow"] = list(raw_data_map["TeleopHigh"])
+
+            raw_data_map["TeleopCones"] = (
+                ["High"] * int(raw_data_map["TeleopHigh"][0])
+                + ["Mid"] * int(raw_data_map["TeleopMid"][0])
+                + ["Low"] * int(raw_data_map["TeleopLow"][0])
+            )
+            raw_data_map["TeleopCubes"] = (
+                ["High"] * int(raw_data_map["TeleopHigh"][1])
+                + ["Mid"] * int(raw_data_map["TeleopMid"][1])
+                + ["Low"] * int(raw_data_map["TeleopLow"][1])
+            )
+
             quantitative_data_maps.append(
-                {
-                    field: _convert_string_to_proper_type(data)
-                    for field, data in zip(quantitative_data_labels, split_data)
-                }
+                raw_data_map
             )
         elif len(split_data) == len(qualitative_data_labels):
-            qualitative_data_maps.append(
-                {
+            raw_data_map = {
                     field: _convert_string_to_proper_type(data)
                     for field, data in zip(qualitative_data_labels, split_data)
-                }
+            }
+            raw_data_map["MatchKey"] = raw_data_map["MatchKey"].replace(",", "")
+
+            qualitative_data_maps.append(
+                raw_data_map
             )
         else:
             status_message_col.error(
@@ -275,12 +297,12 @@ def display_data() -> None:
     status_message_col.write("### ✅ Status Messages")
 
     # Quantitative scouting data editor
-    resultant_df = data_display_col.data_editor(scouting_df, num_rows="dynamic")
+    resultant_df = data_display_col.data_editor(scouting_df, num_rows="dynamic", key="quantitative_scouting")
 
     # Qualitative scouting data editor
     data_display_col.write("### 📝 Note Scouting Data Editor")
     resultant_quali_df = data_display_col.data_editor(
-        note_scouting_df, num_rows="dynamic"
+        note_scouting_df, num_rows="dynamic", key="note_scouting"
     )
 
     # Check if the data changed

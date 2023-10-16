@@ -91,15 +91,6 @@ class BaseDataValidation(ABC):
         """
         pass
 
-    @abstractmethod
-    def average_out_data(self, scouting_data: list) -> DataFrame:
-        """
-        Averages out data for all submissions that scouted a certain robot during a certain match (allows n-scouting).
-
-        :param scouting_data: Optional parameter containing scouting data mostly for testing purposes.
-        :return: A DataFrame containing the averaged out data.
-        """
-        pass
 
     @abstractmethod
     def validate_submission(self, submission: Series) -> None:
