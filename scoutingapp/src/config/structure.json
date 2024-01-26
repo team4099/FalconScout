@@ -1,11 +1,11 @@
 [
     {
-        "name": "2023 Scouting App",
-        "description": "Team 4099: The Falcon's 2023 scouting data collection page",
+        "name": "2024 Scouting App",
+        "description": "Team 4099: The Falcon's 2024 scouting data collection page",
         "components": [
             {
                 "type": "GenericHeaderOne",
-                "text": "2023 Scouting App"
+                "text": "2024 Scouting App"
             },
             {
                 "type": "GenericHeaderTwo",
@@ -15,7 +15,7 @@
                 "type": "GenericTextInput",
                 "text": "Scout Name",
                 "placeholder": [
-                    "Pranav"
+                    "shayaan"
                 ],
                 "id": "ScoutId",
                 "required": true
@@ -60,7 +60,7 @@
                 "type": "GenericTextInput",
                 "text": "Team Number",
                 "placeholder": [
-                    "9999"
+                    "4099"
                 ],
                 "id": "TeamNumber",
                 "required": true
@@ -70,66 +70,28 @@
             },
             {
                 "type": "GenericHeaderTwo",
-                "text": "Auto Starting Position"
-            },
-            {
-                "type": "ChargedUpStartingPosition",
-                "text": "",
-                "id": "StartingPosition"
-            },
-            {
-                "type": "Spacing"
-            },
-            {
-                "type": "GenericHeaderTwo",
                 "text": "Auto Game Pieces"
             },
-
-
             {
                 "type": "IncrementNumberInput",
-                "text": "Auto High",
-                "placeholder": ["0"],
-                "options": ["green"],
-                "id": "AutoHigh"
+                "text": "Auto Speaker Cycles",
+                "placeholder": [
+                    "0"
+                ],
+                "id": "AutoSpeaker"
             },
-
             {
                 "type": "IncrementNumberInput",
-                "text": "Auto Mid",
-                "placeholder": ["0"],
-                "options": ["yellow"],
-                "id": "AutoMid"
-            },
-
-            {
-                "type": "IncrementNumberInput",
-                "text": "Auto Low",
-                "placeholder": ["0"],
-                "options": ["red"],
-                "id": "AutoLow"
-            },
-            
-            {
-                "type": "IncrementNumberInput",
-                "text": "Auto Missed",
-                "placeholder": ["0"],
-                "options": [],
-                "id": "AutoMissed"
-            },
-            {
-                "type": "GenericHeaderTwo",
-                "text": "Auto Engage"
+                "text": "Auto Amp Cycles",
+                "placeholder": [
+                    "0"
+                ],
+                "id": "AutoAmp"
             },
             {
                 "type": "GenericToggle",
-                "text": "Auto Engage Attempted",
-                "id": "AutoAttemptedCharge"
-            },
-            {
-                "type": "GenericToggle",
-                "text": "Auto Engage Succeeded",
-                "id": "AutoAttemptedCharge"
+                "text": "Did they leave the starting zone (white line)?",
+                "id": "AutoLeave"
             },
             {
                 "type": "GenericTextArea",
@@ -137,82 +99,10 @@
                 "id": "AutoNotes"
             },
             {
-                "type": "Spacing"
-            },
-            {
-                "type": "Spacing"
-            },
-            {
-                "type": "GenericHeaderTwo",
-                "text": "Teleop Game Pieces"
-            },
-            {
-                "type": "ConeCubeIncrementInput",
-                "text": "Teleop High",
-                "options":["green"],
-                "id": "TeleopHigh"
-            },
-            {
-                "type": "ConeCubeIncrementInput",
-                "text": "Teleop Mid",
-                "options":["yellow"],
-                "id": "TeleopMid"
-            },
-            {
-                "type": "ConeCubeIncrementInput",
-                "text": "Teleop Low",
-                "options":["red"],
-                "id": "TeleopLow"
-            },
-            {
-                "type": "GenericTextArea",
-                "text": "Teleop or Endgame Notes",
-                "id": "TeleopNotes"
-            },
-            {
-                "type": "Spacing"
-            },
-            {
-                "type": "Spacing"
-            },
-            {
-                "type": "Spacing"
-            },
-            {
-                "type": "GenericHeaderTwo",
-                "text": "Ratings"
-            },
-            {
-                "type": "GenericToggle",
-                "text": "Did they disable",
-                "id": "Disable"
-            },
-            {
-                "type": "GenericToggle",
-                "text": "Were they tippy",
-                "id": "Tippy"
-            },
-            {
-                "type": "SliderInput",
-                "text": "How well do they drive",
-                "options": [
-                    "1",
-                    "5"
-                ],
-                "placeholder":[3],
-                "id": "DriverRating"
-            },
-            {
-                "type": "GenericTextArea",
-                "text": "Rating Notes",
-                "id": "RatingNotes"
-            },
-            {
                 "type": "DarkButton",
                 "text": "Submit",
                 "id": "result"
             }
-
         ],
         "export": {
             "delimiter": "|",
@@ -222,29 +112,10 @@
                 "Alliance",
                 "DriverStation",
                 "TeamNumber",
-                "StartingPosition",
-                "AutoHigh",
-                "AutoMid",
-                "AutoLow",
-                "AutoMissed",
-                "AutoEngageAttempted",
-                "AutoEngageSuccessful",
-                "AutoNotes",
-                "TeleopHigh",
-                "TeleopMid",
-                "TeleopLow",
-                "TeleopMissed",
-                "TeleopNotes",
-                "EndgameAttemptedCharge",
-                "EndgameFinalCharge",
-                "EndgameChargeTime",
-                "EndgameNotes",
-                "Disable",
-                "Tippy",
-                "DefenseTime",
-                "DefenseRating",
-                "DriverRating",
-                "RatingNotes"
+                "AutoSpeaker",
+                "AutoAmp",
+                "AutoLeave",
+                "AutoNotes"
             ]
         }
     },
@@ -324,7 +195,9 @@
             {
                 "type": "IncrementNumberInput",
                 "text": "Auto Game Pieces Scored",
-                "placeholder": ["0"],
+                "placeholder": [
+                    "0"
+                ],
                 "id": "AutoPieces"
             },
             {
@@ -382,7 +255,9 @@
             {
                 "type": "IncrementNumberInput",
                 "text": "Teleop Game Pieces Scored",
-                "placeholder": ["0"],
+                "placeholder": [
+                    "0"
+                ],
                 "id": "TeleopPieces"
             },
             {
