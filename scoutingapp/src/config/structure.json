@@ -99,6 +99,46 @@
                 "id": "AutoNotes"
             },
             {
+                "type": "GenericHeaderTwo",
+                "text": "Speaker Cycles"
+            },
+            {
+                "type": "GenericTextArea",
+                "text": "Auto Notes",
+                "id": "AutoNotes"
+            },
+            }
+            "type": "Spacing"
+            },
+            {
+                "type": "GenericHeaderTwo",
+                "text": "Teleop Game Pieces"
+            },
+            {
+                "type": "IncrementNumberInput",
+                "text": "Teleop Speaker Cycles",
+                "placeholder": [
+                    "0"
+                ],
+                "id": "TeleopSpeaker"
+            },
+            {
+                "type": "IncrementNumberInput",
+                "text": "Teleop Amp Cycles",
+                "placeholder": [
+                    "0"
+                ],
+                "id": "TeleopAmp"
+            },
+            {
+                "type": "IncrementNumberInput",
+                "text": "Teleop/Endgame Trap Cycles",
+                "placeholder": [
+                    "0"
+                ],
+                "id": "TeleopTrap"
+            },
+            {
                 "type": "DarkButton",
                 "text": "Submit",
                 "id": "result"
