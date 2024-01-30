@@ -1,5 +1,191 @@
 [
     {
+        "name": "2024 Scouting App",
+        "description": "Team 4099: The Falcon's 2024 scouting data collection page",
+        "components": [
+            {
+                "type": "GenericHeaderOne",
+                "text": "2024 Scouting App"
+            },
+            {
+                "type": "GenericHeaderTwo",
+                "text": "Match Info"
+            },
+            {
+                "type": "GenericTextInput",
+                "text": "Scout Name",
+                "placeholder": [
+                    "shayaan"
+                ],
+                "id": "ScoutId",
+                "required": true
+            },
+            {
+                "type": "DropdownTextInput",
+                "text": "Match Key",
+                "options": [
+                    "qm",
+                    "qf",
+                    "sf",
+                    "f"
+                ],
+                "placeholder": [
+                    "number"
+                ],
+                "id": "MatchKey",
+                "required": true
+            },
+            {
+                "type": "GenericRadioSelect",
+                "text": "Alliance",
+                "options": [
+                    "red",
+                    "blue"
+                ],
+                "id": "Alliance",
+                "required": true
+            },
+            {
+                "type": "GenericDropdown",
+                "text": "Driver Station",
+                "options": [
+                    "1",
+                    "2",
+                    "3"
+                ],
+                "id": "DriverStation",
+                "required": true
+            },
+            {
+                "type": "GenericTextInput",
+                "text": "Team Number",
+                "placeholder": [
+                    "4099"
+                ],
+                "id": "TeamNumber",
+                "required": true
+            },
+            {
+                "type": "Spacing"
+            },
+            {
+                "type": "GenericHeaderTwo",
+                "text": "Auto Game Pieces"
+            },
+            {
+                "type": "IncrementNumberInput",
+                "text": "Auto Speaker Cycles",
+                "placeholder": [
+                    "0"
+                ],
+                "id": "AutoSpeaker"
+            },
+            {
+                "type": "IncrementNumberInput",
+                "text": "Auto Amp Cycles",
+                "placeholder": [
+                    "0"
+                ],
+                "id": "AutoAmp"
+            },
+            {
+                "type": "GenericToggle",
+                "text": "Did they leave the starting zone (white line)?",
+                "id": "AutoLeave"
+            },
+            {
+                "type": "GenericTextArea",
+                "text": "Auto Notes",
+                "id": "AutoNotes"
+            },
+            {
+                "type": "GenericHeaderTwo",
+                "text": "Speaker Cycles"
+            },
+            {
+            "type": "Spacing"
+            },
+            {
+                "type": "GenericHeaderTwo",
+                "text": "Teleop Game Pieces"
+            },
+            {
+                "type": "IncrementNumberInput",
+                "text": "Teleop Speaker Cycles",
+                "placeholder": [
+                    "0"
+                ],
+                "id": "TeleopSpeaker"
+            },
+            {
+                "type": "IncrementNumberInput",
+                "text": "Teleop Amp Cycles",
+                "placeholder": [
+                    "0"
+                ],
+                "id": "TeleopAmp"
+            },
+            {
+                "type": "IncrementNumberInput",
+                "text": "Teleop/Endgame Trap Cycles",
+                "placeholder": [
+                    "0"
+                ],
+                "id": "TeleopTrap"
+            },
+            {
+                "type": "Spacing"
+            },
+            {
+                "type": "GenericHeaderTwo",
+                "text": "Endgame"
+            },
+            {
+                "type": "GenericRadioSelect",
+                "text": "Climb Speed",
+                "options": ["Slow", "Fast"],
+                "id": "ClimbSpeed"
+            },
+            {
+                "type": "GenericRadioSelect",
+                "text": "Climb Status",
+                "options": ["Did not climb on chain", "Climbed on chain"],
+                "id": "ClimbStatus"
+            },
+            {
+                "type": "GenericToggle",
+                "text": "Is the robot harmonizing with another one?",
+                "options": ["Yes", "No"],
+                "id": "Harmonized"
+            },
+            {
+                "type": "DarkButton",
+                "text": "Submit",
+                "id": "result"
+            }
+        ],
+        "export": {
+            "delimiter": "|",
+            "order": [
+                "ScoutId",
+                "MatchKey",
+                "Alliance",
+                "DriverStation",
+                "TeamNumber",
+                "AutoSpeaker",
+                "AutoAmp",
+                "AutoLeave",
+                "AutoNotes",
+                "TeleopSpeaker",
+                "TeleopAmp",
+                "TeleopTrap",
+                "ClimbSpeed",
+                "ClimbStatus",
+                "Harmonized"
+            ]
+        }
+    },
+    {
         "name": "2023 Scouting App",
         "description": "Team 4099: The Falcon's 2023 scouting data collection page",
         "components": [
