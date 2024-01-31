@@ -99,6 +99,56 @@
                 "id": "AutoNotes"
             },
             {
+                "type": "GenericHeaderTwo",
+                "text": "Ratings"
+            },
+            {
+                "type": "GenericToggle",
+                "text": "Did they disable?",
+                "id": "Disabled"
+            },
+            {
+                "type": "GenericDropdown",
+                "text": "How fluid was their driving?",
+                "options": [
+                    "Very Fluid: Swerved past obstacles and had no delays when reaching their destination.",
+                    "Fluid: Ran into obstacles at times but generally very fluid & consistent.",
+                    "Average: Vulnerable to defense & would hit obstacles.",
+                    "Poor: Easily impacted by other robots & obstacles and inconsistent when driving.",
+                    "Very Poor: Pinballed into other robots / racked up fouls / hampered their alliance."
+                ],
+                "id": "DriverRating"
+            },
+            {
+                "type": "GenericDropdown",
+                "text": "How often did they defend against other robots?",
+                "options": [
+                    "Very Often: Spent all or almost all of their match defending against other robots.",
+                    "Often: Spent most of their match defending against other robots but also spent time scoring.",
+                    "Sometimes: Spent roughly half their match defending against other robots or defended opportunistically.",
+                    "Rarely: They focused on scoring mostly and barely defended against robots, but they did spend time defending.",
+                    "Never: They never defended against other robots throughout the entire match."
+                ],
+                "id": "DefenseTime"
+            },
+            {
+                "type": "GenericDropdown",
+                "text": "If they did defend, how good were they at defending?",
+                "options": [
+                    "Very Good: Greatly hampered the robots they were defending from scoring and often pinned them.",
+                    "Good: They hampered the robots they were defending from scoring, but they were still able to perform well.",
+                    "Okay: Their defense did have an impact on the score of the other alliance, but it wasn't notable.",
+                    "Poor: Their defense had little impact on the other alliance and hampered their own alliance at times.",
+                    "Very Poor: Their defense hampered their own alliance where they either racked up fouls or blocked their own teammates."
+                ],
+                "id": "DefenseSkill"
+            },
+            {
+                "type": "GenericTextArea",
+                "text": "Rating Notes",
+                "id": "RatingNotes"
+            },
+            {
                 "type": "DarkButton",
                 "text": "Submit",
                 "id": "result"
@@ -115,7 +165,12 @@
                 "AutoSpeaker",
                 "AutoAmp",
                 "AutoLeave",
-                "AutoNotes"
+                "AutoNotes",
+                "Disabled",
+                "DriverRating",
+                "DefenseTime",
+                "DefenseSkill",
+                "RatingNotes"
             ]
         }
     },
