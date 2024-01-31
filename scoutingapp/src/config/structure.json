@@ -99,11 +99,12 @@
                 "id": "AutoNotes"
             },
             {
-                "type": "GenericHeaderTwo",
-                "text": "Speaker Cycles"
+                "type": "GenericTextArea",
+                "text": "Auto Notes",
+                "id": "AutoNotes"
             },
             {
-            "type": "Spacing"
+              "type": "Spacing"
             },
             {
                 "type": "GenericHeaderTwo",
@@ -134,9 +135,6 @@
                 "id": "TeleopTrap"
             },
             {
-                "type": "Spacing"
-            },
-            {
                 "type": "GenericHeaderTwo",
                 "text": "Endgame"
             },
@@ -155,8 +153,57 @@
             {
                 "type": "GenericToggle",
                 "text": "Is the robot harmonizing with another one?",
-                "options": ["Yes", "No"],
                 "id": "Harmonized"
+            }
+            {
+                "type": "GenericHeaderTwo",
+                "text": "Ratings"
+            },
+            {
+                "type": "GenericToggle",
+                "text": "Did they disable?",
+                "id": "Disabled"
+            },
+            {
+                "type": "GenericDropdown",
+                "text": "How fluid was their driving?",
+                "options": [
+                    "Very Fluid: Swerved past obstacles and had no delays when reaching their destination.",
+                    "Fluid: Ran into obstacles at times but generally very fluid & consistent.",
+                    "Average: Vulnerable to defense & would hit obstacles.",
+                    "Poor: Easily impacted by other robots & obstacles and inconsistent when driving.",
+                    "Very Poor: Pinballed into other robots / racked up fouls / hampered their alliance."
+                ],
+                "id": "DriverRating"
+            },
+            {
+                "type": "GenericDropdown",
+                "text": "How often did they defend against other robots?",
+                "options": [
+                    "Very Often: Spent all or almost all of their match defending against other robots.",
+                    "Often: Spent most of their match defending against other robots but also spent time scoring.",
+                    "Sometimes: Spent roughly half their match defending against other robots or defended opportunistically.",
+                    "Rarely: They focused on scoring mostly and barely defended against robots, but they did spend time defending.",
+                    "Never: They never defended against other robots throughout the entire match."
+                ],
+                "id": "DefenseTime"
+            },
+            {
+                "type": "GenericDropdown",
+                "text": "If they did defend, how good were they at defending?",
+                "options": [
+                    "Very Good: Greatly hampered the robots they were defending from scoring and often pinned them.",
+                    "Good: They hampered the robots they were defending from scoring, but they were still able to perform well.",
+                    "Okay: Their defense did have an impact on the score of the other alliance, but it wasn't notable.",
+                    "Poor: Their defense had little impact on the other alliance and hampered their own alliance at times.",
+                    "Very Poor: Their defense hampered their own alliance where they either racked up fouls or blocked their own teammates."
+                ],
+                "id": "DefenseSkill"
+            },
+            {
+                "type": "GenericTextArea",
+                "text": "Rating Notes",
+                "id": "RatingNotes"
             },
             {
                 "type": "DarkButton",
@@ -176,311 +223,13 @@
                 "AutoAmp",
                 "AutoLeave",
                 "AutoNotes",
-                "TeleopSpeaker",
-                "TeleopAmp",
-                "TeleopTrap",
                 "ClimbSpeed",
                 "ClimbStatus",
-                "Harmonized"
-            ]
-        }
-    },
-    {
-        "name": "2023 Scouting App",
-        "description": "Team 4099: The Falcon's 2023 scouting data collection page",
-        "components": [
-            {
-                "type": "GenericHeaderOne",
-                "text": "2023 Scouting App"
-            },
-            {
-                "type": "GenericHeaderTwo",
-                "text": "Match Info"
-            },
-            {
-                "type": "GenericTextInput",
-                "text": "Scout Name",
-                "placeholder": [
-                    "Pranav"
-                ],
-                "id": "ScoutId"
-            },
-            {
-                "type": "DropdownTextInput",
-                "text": "Match Key",
-                "options": [
-                    "qm",
-                    "qf",
-                    "sf",
-                    "f"
-                ],
-                "placeholder": [
-                    "number"
-                ],
-                "id": "MatchKey"
-            },
-            {
-                "type": "GenericRadioSelect",
-                "text": "Alliance",
-                "options": [
-                    "red",
-                    "blue"
-                ],
-                "required": true,
-                "id": "Alliance"
-            },
-            {
-                "type": "GenericDropdown",
-                "text": "Driver Station",
-                "options": [
-                    "1",
-                    "2",
-                    "3"
-                ],
-                "id": "DriverStation"
-            },
-            {
-                "type": "GenericTextInput",
-                "text": "Team Number",
-                "placeholder": [
-                    "9999"
-                ],
-                "id": "TeamNumber"
-            },
-            {
-                "type": "Spacing"
-            },
-            {
-                "type": "GenericHeaderTwo",
-                "text": "Auto"
-            },
-            {
-                "type": "GenericToggle",
-                "text": "Preloaded",
-                "id": "Preloaded"
-            },
-            {
-                "type": "ChargedUpGridSelect",
-                "text": "Auto Grid",
-                "id": "AutoGrid"
-            },
-            {
-                "type": "IncrementNumberInput",
-                "text": "Auto Missed",
-                "placeholder": ["0"],
-                "id": "AutoMissed"
-            },
-            {
-                "type": "GenericToggle",
-                "text": "Mobile",
-                "id": "Mobile"
-            },
-            {
-                "type": "GenericCheckboxSelect",
-                "text": "Auto Attempted Charge",
-                "options": [
-                    "Dock",
-                    "Engage"
-                ],
-                "id": "AutoAttemptedCharge"
-            },
-            {
-                "type": "GenericRadioSelect",
-                "text": "Robot Charging Pad State",
-                "options": [
-                    "None",
-                    "Docked",
-                    "Engaged"
-                ],
-                "id": "AutoChargingState"
-            },
-            {
-                "type": "GenericTextArea",
-                "text": "Auto Notes",
-                "id": "AutoNotes"
-            },
-            {
-                "type": "Spacing"
-            },
-            {
-                "type": "Spacing"
-            },
-            {
-                "type": "GenericHeaderTwo",
-                "text": "Teleop"
-            },
-            {
-                "type": "ChargedUpGridSelect",
-                "text": "Teleop Grid",
-                "id": "TeleopGrid"
-            },
-            {
-                "type": "IncrementNumberInput",
-                "text": "Teleop Missed",
-                "placeholder": ["0"],
-                "id": "TeleopMissed"
-            },
-            {
-                "type": "GenericTextArea",
-                "text": "Teleop Notes",
-                "id": "TeleopNotes"
-            },
-            {
-                "type": "Spacing"
-            },
-            {
-                "type": "Spacing"
-            },
-            {
-                "type": "GenericHeaderTwo",
-                "text": "Endgame"
-            },
-            {
-                "type": "Timer"
-            },
-            {
-                "type": "GenericCheckboxSelect",
-                "text": "Endgame Attempted Charge",
-                "options": [
-                    "Dock",
-                    "Engage"
-                ],
-                "id": "EndgameAttemptedCharge"
-            },
-            {
-                "type": "GenericRadioSelect",
-                "text": "Final Charge",
-                "options": [
-                    "None",
-                    "Dock",
-                    "Engage",
-                    "Parked"
-                ],
-                "id": "EndgameFinalCharge"
-            },
-            {
-                "type": "GenericTextInput",
-                "text": "Final Charge Time",
-                "options": [
-                    ""
-                ],
-                "id": "EndgameChargeTime"
-            },
-            {
-                "type": "GenericTextArea",
-                "text": "Endgame Notes",
-                "id": "EndgameNotes"
-            },
-            {
-                "type": "Spacing"
-            },
-            {
-                "type": "GenericHeaderTwo",
-                "text": "Ratings"
-            },
-            {
-                "type": "GenericToggle",
-                "text": "Did they disable",
-                "id": "Disable"
-            },
-            {
-                "type": "GenericToggle",
-                "text": "Were they tippy",
-                "id": "Tippy"
-            },
-            {
-                "type": "SliderInput",
-                "text": "How much do they play defense (0-100%)",
-                "options": [
-                    "0",
-                    "100",
-                    "20"
-                ],
-                "placeholder":[0],
-                "id": "DefenseTime"
-            },
-            {
-                "type": "SliderInput",
-                "text": "Defense rating (0 is no defense)",
-                "options": [
-                    "0",
-                    "5"
-                ],
-                "placeholder":[0],
-                "id": "DefenseRating"
-            },
-            {
-                "type": "SliderInput",
-                "text": "How much were they defended (0-100%)",
-                "options": [
-                    "0",
-                    "100",
-                    "20"
-                ],
-                "placeholder":[0],
-                "id": "DefendedTime"
-            },
-            {
-                "type": "SliderInput",
-                "text": "Counter defense rating (0 is no counter defense)",
-                "options": [
-                    "0",
-                    "5"
-                ],
-                "placeholder":[0],
-                "id": "CounterDefenseRating"
-            },
-            {
-                "type": "SliderInput",
-                "text": "How well do they drive",
-                "options": [
-                    "0",
-                    "5"
-                ],
-                "placeholder":[0],
-                "id": "DriverRating"
-            },
-            {
-                "type": "GenericTextArea",
-                "text": "Rating Notes",
-                "id": "RatingNotes"
-            },
-            {
-                "type": "DarkButton",
-                "text": "Submit",
-                "id": "result"
-            }
-
-        ],
-        "export": {
-            "delimiter": "|",
-            "order": [
-                "ScoutId",
-                "MatchKey",
-                "Alliance",
-                "DriverStation",
-                "TeamNumber",
-                "Preloaded",
-                "AutoGrid",
-                "AutoMissed",
-                "Mobile",
-                "AutoAttemptedCharge",
-                "AutoChargingState",
-                "AutoNotes",
-                "TeleopGrid",
-                "TeleopMissed",
-                "TeleopNotes",
-                "EndgameAttemptedCharge",
-                "EndgameFinalCharge",
-                "EndgameChargeTime",
-                "EndgameNotes",
-                "Disable",
-                "Tippy",
-                "DefenseTime",
-                "DefenseRating",
-                "DefendedTime",
-                "CounterDefenseRating",
+                "Harmonized",
+                "Disabled",
                 "DriverRating",
+                "DefenseTime",
+                "DefenseSkill",
                 "RatingNotes"
             ]
         }
@@ -561,7 +310,9 @@
             {
                 "type": "IncrementNumberInput",
                 "text": "Auto Game Pieces Scored",
-                "placeholder": ["0"],
+                "placeholder": [
+                    "0"
+                ],
                 "id": "AutoPieces"
             },
             {
@@ -619,7 +370,9 @@
             {
                 "type": "IncrementNumberInput",
                 "text": "Teleop Game Pieces Scored",
-                "placeholder": ["0"],
+                "placeholder": [
+                    "0"
+                ],
                 "id": "TeleopPieces"
             },
             {

@@ -1,11 +1,15 @@
 import './App.css'
 import { Routes, Route } from 'react-router-dom';
-import { Page, ParentPage } from "./components/pages"
+import { Page, ParentPage, StoragePage } from "./components/pages"
 import structure from "./config/structure.json"
 import React from 'react';
 
 
 function App() {
+  if ([null, ""].includes(localStorage.getItem("codes"))){
+    localStorage.setItem("codes", "{}")
+  }
+
   return (
     <Routes>
       <Route path='/' element={<ParentPage pageSetup={structure}/>}></Route>
@@ -16,6 +20,7 @@ function App() {
             )
         })
       }
+      <Route path='/saved' element={<StoragePage/>}></Route>
     </Routes>
     
     

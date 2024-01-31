@@ -9,7 +9,10 @@ export function ParentPage(props: ParentPageSetup){
 
     return (
         <div className="mx-4 pt-8 pb-10 max-w-[40rem] md:mx-auto">
-            <h1 className="text-3xl font-bold mb-8">FalconScout</h1>
+            <div className="h-10 w-full mb-8">
+                <h1 className="text-3xl font-bold mb-8 inline float-left">FalconScout</h1>
+                <Link className="text-xl font-semibold mb-8 inline float-left ml-4 -mt-1 bg-gray-200 rounded-md p-2" to="/saved">Saved Codes</Link>
+            </div>
             {
                 props?.pageSetup?.map((page: any) => {
                     return (

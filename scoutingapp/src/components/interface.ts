@@ -3,10 +3,10 @@ export interface ComponentSetup {
     route?: string;
     options?: Array<string>;
     placeholder?: Array<string>;
-    required?: Boolean;
     getValue?: any;
     setValue?: any;
     id?: any;
+    required?: any
 }
 
 export interface PageSetup {
