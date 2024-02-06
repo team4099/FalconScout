@@ -85,7 +85,7 @@ export function Page(props: PageSetup) {
     }
 
     return (
-        <div className="mx-2 pt-8 pb-10 max-w-[40rem] md:mx-auto">
+        <div className="mx-2 pt-8 pb-10 max-w-[40rem] md:mx-auto overscroll-none">
             <Link to="/">
                 <div className="w-full h-6 mx-4 text-2xl font-bold">
                     <svg xmlns="http://www.w3.org/2000/svg" height="40" width="40" viewBox="0 0 75 75">

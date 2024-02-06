@@ -17,9 +17,16 @@
             "TeleopGrid",
             "TeleopMissed",
             "TeleopNotes",
+<<<<<<< HEAD
             "EndgameAttemptedCharge",
             "EndgameFinalCharge",
             "FinalChargeTime",
+=======
+            "Parked",
+            "ClimbStatus",
+            "Harmonized",
+            "ClimbSpeed",
+>>>>>>> 808c490 (changes to add parked to app)
             "EndgameNotes",
             "Disable",
             "Tippy",

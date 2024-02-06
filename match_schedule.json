@@ -1,0 +1,768 @@
+[
+  {
+    "match_key": "qm1",
+    "red_alliance": [
+      8326,
+      3136,
+      836
+    ],
+    "blue_alliance": [
+      5587,
+      539,
+      4505
+    ]
+  },
+  {
+    "match_key": "qm2",
+    "red_alliance": [
+      9684,
+      836,
+      3373
+    ],
+    "blue_alliance": [
+      4099,
+      617,
+      2421
+    ]
+  },
+  {
+    "match_key": "qm3",
+    "red_alliance": [
+      3136,
+      4286,
+      5954
+    ],
+    "blue_alliance": [
+      540,
+      836,
+      612
+    ]
+  },
+  {
+    "match_key": "qm4",
+    "red_alliance": [
+      2106,
+      422,
+      1731
+    ],
+    "blue_alliance": [
+      1522,
+      4286,
+      3136
+    ]
+  },
+  {
+    "match_key": "qm5",
+    "red_alliance": [
+      612,
+      4099,
+      9709
+    ],
+    "blue_alliance": [
+      9684,
+      2998,
+      1599
+    ]
+  },
+  {
+    "match_key": "qm6",
+    "red_alliance": [
+      4099,
+      539,
+      1599
+    ],
+    "blue_alliance": [
+      5954,
+      620,
+      1895
+    ]
+  },
+  {
+    "match_key": "qm7",
+    "red_alliance": [
+      2106,
+      2421,
+      539
+    ],
+    "blue_alliance": [
+      3136,
+      5587,
+      617
+    ]
+  },
+  {
+    "match_key": "qm8",
+    "red_alliance": [
+      836,
+      3373,
+      617
+    ],
+    "blue_alliance": [
+      2998,
+      8590,
+      620
+    ]
+  },
+  {
+    "match_key": "qm9",
+    "red_alliance": [
+      2534,
+      836,
+      620
+    ],
+    "blue_alliance": [
+      422,
+      9709,
+      5954
+    ]
+  },
+  {
+    "match_key": "qm10",
+    "red_alliance": [
+      3136,
+      8326,
+      617
+    ],
+    "blue_alliance": [
+      9709,
+      2534,
+      5587
+    ]
+  },
+  {
+    "match_key": "qm11",
+    "red_alliance": [
+      8592,
+      3136,
+      6863
+    ],
+    "blue_alliance": [
+      8326,
+      617,
+      2106
+    ]
+  },
+  {
+    "match_key": "qm12",
+    "red_alliance": [
+      4099,
+      8592,
+      9709
+    ],
+    "blue_alliance": [
+      5954,
+      1522,
+      422
+    ]
+  },
+  {
+    "match_key": "qm13",
+    "red_alliance": [
+      620,
+      2106,
+      617
+    ],
+    "blue_alliance": [
+      3136,
+      1895,
+      9709
+    ]
+  },
+  {
+    "match_key": "qm14",
+    "red_alliance": [
+      422,
+      617,
+      612
+    ],
+    "blue_alliance": [
+      539,
+      2421,
+      3373
+    ]
+  },
+  {
+    "match_key": "qm15",
+    "red_alliance": [
+      540,
+      1599,
+      2106
+    ],
+    "blue_alliance": [
+      2421,
+      2998,
+      3136
+    ]
+  },
+  {
+    "match_key": "qm16",
+    "red_alliance": [
+      1895,
+      4286,
+      540
+    ],
+    "blue_alliance": [
+      2998,
+      1522,
+      612
+    ]
+  },
+  {
+    "match_key": "qm17",
+    "red_alliance": [
+      1599,
+      617,
+      2998
+    ],
+    "blue_alliance": [
+      1731,
+      5954,
+      5587
+    ]
+  },
+  {
+    "match_key": "qm18",
+    "red_alliance": [
+      2998,
+      2421,
+      4099
+    ],
+    "blue_alliance": [
+      620,
+      4286,
+      9709
+    ]
+  },
+  {
+    "match_key": "qm19",
+    "red_alliance": [
+      2534,
+      1895,
+      339
+    ],
+    "blue_alliance": [
+      539,
+      3373,
+      9709
+    ]
+  },
+  {
+    "match_key": "qm20",
+    "red_alliance": [
+      620,
+      9684,
+      8326
+    ],
+    "blue_alliance": [
+      5954,
+      339,
+      612
+    ]
+  },
+  {
+    "match_key": "qm21",
+    "red_alliance": [
+      539,
+      422,
+      1895
+    ],
+    "blue_alliance": [
+      8326,
+      836,
+      3136
+    ]
+  },
+  {
+    "match_key": "qm22",
+    "red_alliance": [
+      8590,
+      5954,
+      620
+    ],
+    "blue_alliance": [
+      612,
+      8592,
+      836
+    ]
+  },
+  {
+    "match_key": "qm23",
+    "red_alliance": [
+      836,
+      1731,
+      8590
+    ],
+    "blue_alliance": [
+      2106,
+      2421,
+      612
+    ]
+  },
+  {
+    "match_key": "qm24",
+    "red_alliance": [
+      836,
+      4099,
+      3136
+    ],
+    "blue_alliance": [
+      2998,
+      422,
+      620
+    ]
+  },
+  {
+    "match_key": "qm25",
+    "red_alliance": [
+      2534,
+      3136,
+      9684
+    ],
+    "blue_alliance": [
+      2106,
+      617,
+      1731
+    ]
+  },
+  {
+    "match_key": "qm26",
+    "red_alliance": [
+      2106,
+      5954,
+      539
+    ],
+    "blue_alliance": [
+      8590,
+      1731,
+      8326
+    ]
+  },
+  {
+    "match_key": "qm27",
+    "red_alliance": [
+      8592,
+      9684,
+      3373
+    ],
+    "blue_alliance": [
+      2421,
+      8326,
+      8590
+    ]
+  },
+  {
+    "match_key": "qm28",
+    "red_alliance": [
+      617,
+      620,
+      1895
+    ],
+    "blue_alliance": [
+      2421,
+      2534,
+      612
+    ]
+  },
+  {
+    "match_key": "qm29",
+    "red_alliance": [
+      6863,
+      1522,
+      612
+    ],
+    "blue_alliance": [
+      8326,
+      2421,
+      4286
+    ]
+  },
+  {
+    "match_key": "qm30",
+    "red_alliance": [
+      1599,
+      3136,
+      339
+    ],
+    "blue_alliance": [
+      2998,
+      8590,
+      2534
+    ]
+  },
+  {
+    "match_key": "qm31",
+    "red_alliance": [
+      539,
+      3373,
+      9709
+    ],
+    "blue_alliance": [
+      4505,
+      617,
+      2106
+    ]
+  },
+  {
+    "match_key": "qm32",
+    "red_alliance": [
+      5587,
+      8592,
+      836
+    ],
+    "blue_alliance": [
+      6863,
+      3373,
+      5954
+    ]
+  },
+  {
+    "match_key": "qm33",
+    "red_alliance": [
+      1895,
+      8592,
+      612
+    ],
+    "blue_alliance": [
+      540,
+      620,
+      1522
+    ]
+  },
+  {
+    "match_key": "qm34",
+    "red_alliance": [
+      6863,
+      1599,
+      2421
+    ],
+    "blue_alliance": [
+      9709,
+      2998,
+      620
+    ]
+  },
+  {
+    "match_key": "qm35",
+    "red_alliance": [
+      5587,
+      8592,
+      1522
+    ],
+    "blue_alliance": [
+      339,
+      6863,
+      2998
+    ]
+  },
+  {
+    "match_key": "qm36",
+    "red_alliance": [
+      422,
+      1599,
+      2998
+    ],
+    "blue_alliance": [
+      836,
+      617,
+      539
+    ]
+  },
+  {
+    "match_key": "qm37",
+    "red_alliance": [
+      8592,
+      8590,
+      1895
+    ],
+    "blue_alliance": [
+      540,
+      2534,
+      5954
+    ]
+  },
+  {
+    "match_key": "qm38",
+    "red_alliance": [
+      8326,
+      3373,
+      5954
+    ],
+    "blue_alliance": [
+      8592,
+      4286,
+      1731
+    ]
+  },
+  {
+    "match_key": "qm39",
+    "red_alliance": [
+      1895,
+      5954,
+      1522
+    ],
+    "blue_alliance": [
+      9709,
+      2534,
+      3373
+    ]
+  },
+  {
+    "match_key": "qm40",
+    "red_alliance": [
+      4505,
+      8592,
+      8590
+    ],
+    "blue_alliance": [
+      4099,
+      540,
+      2421
+    ]
+  },
+  {
+    "match_key": "qm41",
+    "red_alliance": [
+      5587,
+      539,
+      2998
+    ],
+    "blue_alliance": [
+      2106,
+      8592,
+      1895
+    ]
+  },
+  {
+    "match_key": "qm42",
+    "red_alliance": [
+      9684,
+      5587,
+      1522
+    ],
+    "blue_alliance": [
+      8326,
+      2421,
+      1895
+    ]
+  },
+  {
+    "match_key": "qm43",
+    "red_alliance": [
+      339,
+      620,
+      1731
+    ],
+    "blue_alliance": [
+      4099,
+      836,
+      1599
+    ]
+  },
+  {
+    "match_key": "qm44",
+    "red_alliance": [
+      1731,
+      8326,
+      1522
+    ],
+    "blue_alliance": [
+      4505,
+      4099,
+      539
+    ]
+  },
+  {
+    "match_key": "qm45",
+    "red_alliance": [
+      8592,
+      540,
+      9709
+    ],
+    "blue_alliance": [
+      3373,
+      8326,
+      2106
+    ]
+  },
+  {
+    "match_key": "qm46",
+    "red_alliance": [
+      2106,
+      4099,
+      539
+    ],
+    "blue_alliance": [
+      612,
+      1599,
+      6863
+    ]
+  },
+  {
+    "match_key": "qm47",
+    "red_alliance": [
+      9709,
+      1522,
+      4099
+    ],
+    "blue_alliance": [
+      422,
+      2534,
+      339
+    ]
+  },
+  {
+    "match_key": "qm48",
+    "red_alliance": [
+      4286,
+      1599,
+      6863
+    ],
+    "blue_alliance": [
+      2534,
+      1895,
+      1731
+    ]
+  },
+  {
+    "match_key": "qm49",
+    "red_alliance": [
+      4505,
+      612,
+      9684
+    ],
+    "blue_alliance": [
+      2534,
+      339,
+      5587
+    ]
+  },
+  {
+    "match_key": "qm50",
+    "red_alliance": [
+      4099,
+      4505,
+      1731
+    ],
+    "blue_alliance": [
+      339,
+      9684,
+      422
+    ]
+  },
+  {
+    "match_key": "qm51",
+    "red_alliance": [
+      540,
+      422,
+      3373
+    ],
+    "blue_alliance": [
+      339,
+      2534,
+      1522
+    ]
+  },
+  {
+    "match_key": "qm52",
+    "red_alliance": [
+      339,
+      422,
+      3373
+    ],
+    "blue_alliance": [
+      8590,
+      1599,
+      5587
+    ]
+  },
+  {
+    "match_key": "qm53",
+    "red_alliance": [
+      5587,
+      4286,
+      540
+    ],
+    "blue_alliance": [
+      1731,
+      4505,
+      1522
+    ]
+  },
+  {
+    "match_key": "qm54",
+    "red_alliance": [
+      8590,
+      540,
+      422
+    ],
+    "blue_alliance": [
+      6863,
+      1599,
+      4505
+    ]
+  },
+  {
+    "match_key": "qm55",
+    "red_alliance": [
+      1731,
+      6863,
+      5587
+    ],
+    "blue_alliance": [
+      339,
+      4505,
+      540
+    ]
+  },
+  {
+    "match_key": "qm56",
+    "red_alliance": [
+      8590,
+      6863,
+      9684
+    ],
+    "blue_alliance": [
+      339,
+      540,
+      4505
+    ]
+  },
+  {
+    "match_key": "qm57",
+    "red_alliance": [
+      4286,
+      8590,
+      9684
+    ],
+    "blue_alliance": [
+      4505,
+      6863
+    ]
+  },
+  {
+    "match_key": "qm58",
+    "red_alliance": [
+      4505,
+      6863,
+      4286
+    ],
+    "blue_alliance": [
+      9684
+    ]
+  },
+  {
+    "match_key": "qm59",
+    "red_alliance": [
+      4286,
+      9684
+    ],
+    "blue_alliance": []
+  },
+  {
+    "match_key": "qm60",
+    "red_alliance": [
+      4286
+    ],
+    "blue_alliance": []
+  }
+]

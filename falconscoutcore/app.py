@@ -41,8 +41,17 @@ def _convert_string_to_proper_type(value: str) -> Any:
     try:
         return literal_eval(value)
     except (ValueError, SyntaxError):
+<<<<<<< HEAD
         return value
 
+=======
+        if value == "false":
+            return False
+        elif value == "true":
+            return True
+        
+        return value.replace(",", "").replace("'", "").split(":")[0]
+>>>>>>> 808c490 (changes to add parked to app)
 
 
 def _process_data(*data: list[str], status_message_col) -> None:
@@ -167,7 +176,6 @@ def scan_qrcode(qr_code_col) -> None:
             *[qr_code.data.decode("utf-8") for qr_code in qr_codes],
             status_message_col=qr_code_col,
         )
-
 
 def write_dataval_errors(data_val_col) -> None:
     """Writes the data validation errors contained in `errors.json` into the column."""
