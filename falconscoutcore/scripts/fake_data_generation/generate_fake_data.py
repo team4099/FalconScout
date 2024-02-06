@@ -1,6 +1,6 @@
 from enum import Enum
 from json import dump, load
-from random import choice, random, randint, shuffle
+from random import choice, randint, random, shuffle
 
 
 class Performance(Enum):
@@ -41,7 +41,7 @@ teams = {
     8590: Performance.POOR,
     8592: Performance.BEST,
     9684: Performance.POOR,
-    9709: Performance.POOR
+    9709: Performance.POOR,
 }
 
 # match_schedule = []
@@ -70,7 +70,7 @@ teams = {
 
 #         for team in red_alliance + blue_alliance:
 #             teams_to_choose.remove(team)
-        
+
 #         current_match_number += 1
 
 
@@ -130,8 +130,12 @@ for match in match_schedule:
 
             scouting_data.update(
                 {
-                    "AutoSpeaker": 0 if runs_amp_auto else choice(parameters["AutoSpeaker"][-4:]),
-                    "AutoAmp": 0 if not runs_amp_auto else choice(parameters["AutoAmp"][-2:]),
+                    "AutoSpeaker": 0
+                    if runs_amp_auto
+                    else choice(parameters["AutoSpeaker"][-4:]),
+                    "AutoAmp": 0
+                    if not runs_amp_auto
+                    else choice(parameters["AutoAmp"][-2:]),
                     "AutoLeave": True,
                     "AutoNotes": "",
                     "TeleopSpeaker": tele_speaker,
@@ -144,56 +148,120 @@ for match in match_schedule:
                     "EndgameNotes": "",
                     "Disabled": dice < 0.02,
                     "DriverRating": choice(parameters["DriverRating"][:3]),
-                    "DefenseTime": (defense_time := choice(parameters["DefenseTime"][-2:])),
-                    "DefenseSkill": choice(parameters["DefenseSkill"][:2]) if defense_time != "Never" else "",
-                    "CounterDefenseSkill": choice(parameters["CounterDefenseSkill"][:2]) if dice < 0.3 else "",
-                    "RatingNotes": ""
+                    "DefenseTime": (
+                        defense_time := choice(parameters["DefenseTime"][-2:])
+                    ),
+                    "DefenseSkill": choice(parameters["DefenseSkill"][:2])
+                    if defense_time != "Never"
+                    else "",
+                    "CounterDefenseSkill": choice(parameters["CounterDefenseSkill"][:2])
+                    if dice < 0.3
+                    else "",
+                    "RatingNotes": "",
                 }
             )
         elif team_strength == Performance.GOOD:
             scouting_data.update(
                 {
-                    "AutoSpeaker": (auto_speaker := 0 if runs_amp_auto else choice(parameters["AutoSpeaker"][1:4])),
-                    "AutoAmp": 0 if not runs_amp_auto else choice(parameters["AutoAmp"][:-1]),
-                    "AutoLeave": False if auto_speaker <= 1 and not runs_amp_auto else True,
+                    "AutoSpeaker": (
+                        auto_speaker := 0
+                        if runs_amp_auto
+                        else choice(parameters["AutoSpeaker"][1:4])
+                    ),
+                    "AutoAmp": 0
+                    if not runs_amp_auto
+                    else choice(parameters["AutoAmp"][:-1]),
+                    "AutoLeave": False
+                    if auto_speaker <= 1 and not runs_amp_auto
+                    else True,
                     "AutoNotes": "",
-                    "TeleopSpeaker": (teleop_speaker := choice(parameters["TeleopSpeaker"][2:8])),
-                    "TeleopAmp": choice([amp_cycle for amp_cycle in parameters["TeleopAmp"] if amp_cycle + teleop_speaker <= 8]),
+                    "TeleopSpeaker": (
+                        teleop_speaker := choice(parameters["TeleopSpeaker"][2:8])
+                    ),
+                    "TeleopAmp": choice(
+                        [
+                            amp_cycle
+                            for amp_cycle in parameters["TeleopAmp"]
+                            if amp_cycle + teleop_speaker <= 8
+                        ]
+                    ),
                     "TeleopTrap": 0,
                     "Parked": dice < 0.9,
                     "ClimbStatus": (climbs := dice < 0.7),
                     "Harmonized": climbs and dice < 0.3,
-                    "ClimbSpeed": (parameters["ClimbSpeed"][0] if dice < 0.4 else parameters["ClimbSpeed"][1]) if climbs else "",
+                    "ClimbSpeed": (
+                        parameters["ClimbSpeed"][0]
+                        if dice < 0.4
+                        else parameters["ClimbSpeed"][1]
+                    )
+                    if climbs
+                    else "",
                     "EndgameNotes": "",
                     "Disabled": dice < 0.1,
                     "DriverRating": choice(parameters["DriverRating"][1:4]),
-                    "DefenseTime": (defense_time := choice(parameters["DefenseTime"][-3:])),
-                    "DefenseSkill": choice(parameters["DefenseSkill"][1:4]) if defense_time != "Never" else "",
-                    "CounterDefenseSkill": choice(parameters["CounterDefenseSkill"][1:4]) if dice < 0.3 else "",
-                    "RatingNotes": ""
+                    "DefenseTime": (
+                        defense_time := choice(parameters["DefenseTime"][-3:])
+                    ),
+                    "DefenseSkill": choice(parameters["DefenseSkill"][1:4])
+                    if defense_time != "Never"
+                    else "",
+                    "CounterDefenseSkill": choice(
+                        parameters["CounterDefenseSkill"][1:4]
+                    )
+                    if dice < 0.3
+                    else "",
+                    "RatingNotes": "",
                 }
             )
         elif team_strength == Performance.OKAY:
             scouting_data.update(
                 {
-                    "AutoSpeaker": (auto_speaker := 0 if runs_amp_auto else choice(parameters["AutoSpeaker"][:3])),
-                    "AutoAmp": 0 if not runs_amp_auto else choice(parameters["AutoAmp"][:-1]),
-                    "AutoLeave": False if auto_speaker <= 1 and not runs_amp_auto else True,
+                    "AutoSpeaker": (
+                        auto_speaker := 0
+                        if runs_amp_auto
+                        else choice(parameters["AutoSpeaker"][:3])
+                    ),
+                    "AutoAmp": 0
+                    if not runs_amp_auto
+                    else choice(parameters["AutoAmp"][:-1]),
+                    "AutoLeave": False
+                    if auto_speaker <= 1 and not runs_amp_auto
+                    else True,
                     "AutoNotes": "",
-                    "TeleopSpeaker": (teleop_speaker := choice(parameters["TeleopSpeaker"][1:5])),
-                    "TeleopAmp": choice([amp_cycle for amp_cycle in parameters["TeleopAmp"] if amp_cycle + teleop_speaker <= 5]),
+                    "TeleopSpeaker": (
+                        teleop_speaker := choice(parameters["TeleopSpeaker"][1:5])
+                    ),
+                    "TeleopAmp": choice(
+                        [
+                            amp_cycle
+                            for amp_cycle in parameters["TeleopAmp"]
+                            if amp_cycle + teleop_speaker <= 5
+                        ]
+                    ),
                     "TeleopTrap": 0,
                     "Parked": dice < 0.9,
                     "ClimbStatus": (climbs := dice < 0.4),
                     "Harmonized": climbs and dice < 0.3,
-                    "ClimbSpeed": (parameters["ClimbSpeed"][0] if dice < 0.7 else parameters["ClimbSpeed"][1]) if climbs else "",
+                    "ClimbSpeed": (
+                        parameters["ClimbSpeed"][0]
+                        if dice < 0.7
+                        else parameters["ClimbSpeed"][1]
+                    )
+                    if climbs
+                    else "",
                     "EndgameNotes": "",
                     "Disabled": dice < 0.2,
                     "DriverRating": choice(parameters["DriverRating"][2:]),
-                    "DefenseTime": (defense_time := choice(parameters["DefenseTime"][-4:])),
-                    "DefenseSkill": choice(parameters["DefenseSkill"][2:]) if defense_time != "Never" else "",
-                    "CounterDefenseSkill": choice(parameters["CounterDefenseSkill"][2:]) if dice < 0.3 else "",
-                    "RatingNotes": ""
+                    "DefenseTime": (
+                        defense_time := choice(parameters["DefenseTime"][-4:])
+                    ),
+                    "DefenseSkill": choice(parameters["DefenseSkill"][2:])
+                    if defense_time != "Never"
+                    else "",
+                    "CounterDefenseSkill": choice(parameters["CounterDefenseSkill"][2:])
+                    if dice < 0.3
+                    else "",
+                    "RatingNotes": "",
                 }
             )
         elif team_strength == Performance.POOR:
@@ -203,20 +271,32 @@ for match in match_schedule:
                     "AutoAmp": 0,
                     "AutoLeave": auto_speaker > 1,
                     "AutoNotes": "",
-                    "TeleopSpeaker": (teleop_speaker := choice(parameters["TeleopSpeaker"][:4])),
+                    "TeleopSpeaker": (
+                        teleop_speaker := choice(parameters["TeleopSpeaker"][:4])
+                    ),
                     "TeleopAmp": 0,
                     "TeleopTrap": 0,
                     "Parked": dice < 0.9,
                     "ClimbStatus": (climbs := dice < 0.2),
                     "Harmonized": climbs and dice < 0.3,
-                    "ClimbSpeed": (parameters["ClimbSpeed"][0] if dice < 0.9 else parameters["ClimbSpeed"][1]) if climbs else "",
+                    "ClimbSpeed": (
+                        parameters["ClimbSpeed"][0]
+                        if dice < 0.9
+                        else parameters["ClimbSpeed"][1]
+                    )
+                    if climbs
+                    else "",
                     "EndgameNotes": "",
                     "Disabled": dice < 0.3,
                     "DriverRating": choice(parameters["DriverRating"][3:]),
                     "DefenseTime": (defense_time := choice(parameters["DefenseTime"])),
-                    "DefenseSkill": choice(parameters["DefenseSkill"][3:]) if defense_time != "Never" else "",
-                    "CounterDefenseSkill": choice(parameters["CounterDefenseSkill"][2:]) if dice < 0.1 else "",
-                    "RatingNotes": ""
+                    "DefenseSkill": choice(parameters["DefenseSkill"][3:])
+                    if defense_time != "Never"
+                    else "",
+                    "CounterDefenseSkill": choice(parameters["CounterDefenseSkill"][2:])
+                    if dice < 0.1
+                    else "",
+                    "RatingNotes": "",
                 }
             )
         elif team_strength == Performance.VERY_POOR:
@@ -226,7 +306,9 @@ for match in match_schedule:
                     "AutoAmp": 0,
                     "AutoLeave": dice < 0.2,
                     "AutoNotes": "",
-                    "TeleopSpeaker": (teleop_speaker := choice(parameters["TeleopSpeaker"][:3])),
+                    "TeleopSpeaker": (
+                        teleop_speaker := choice(parameters["TeleopSpeaker"][:3])
+                    ),
                     "TeleopAmp": 0,
                     "TeleopTrap": 0,
                     "Parked": dice < 0.6,
@@ -237,12 +319,16 @@ for match in match_schedule:
                     "Disabled": dice < 0.6,
                     "DriverRating": choice(parameters["DriverRating"][4:]),
                     "DefenseTime": (defense_time := choice(parameters["DefenseTime"])),
-                    "DefenseSkill": choice(parameters["DefenseSkill"][4:]) if defense_time != "Never" else "",
-                    "CounterDefenseSkill": choice(parameters["CounterDefenseSkill"][4:]) if dice < 0.1 else "",
-                    "RatingNotes": ""
+                    "DefenseSkill": choice(parameters["DefenseSkill"][4:])
+                    if defense_time != "Never"
+                    else "",
+                    "CounterDefenseSkill": choice(parameters["CounterDefenseSkill"][4:])
+                    if dice < 0.1
+                    else "",
+                    "RatingNotes": "",
                 }
             )
-        
+
         all_data.append(scouting_data)
 
 

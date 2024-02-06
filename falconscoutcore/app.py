@@ -49,7 +49,7 @@ def _convert_string_to_proper_type(value: str) -> Any:
             return False
         elif value == "true":
             return True
-        
+
         return value.replace(",", "").replace("'", "").split(":")[0]
 >>>>>>> 808c490 (changes to add parked to app)
 
