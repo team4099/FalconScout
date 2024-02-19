@@ -23,7 +23,7 @@ from data_validation.data_val_2024 import DataValidation2024
 load_dotenv()
 github_instance = Github(os.getenv("GITHUB_KEY"))
 
-# Load files for global use.
+# Load files for global usage.
 with open("config.json") as config_file:
     CONFIG = load(config_file)
 
