@@ -261,6 +261,7 @@
                 "AutoSpeaker",
                 "AutoAmp",
                 "AutoLeave",
+                "AutoCenterline",
                 "AutoNotes",
                 "TeleopSpeaker",
                 "TeleopAmp",
