@@ -18,7 +18,7 @@ from streamlit.components.v1 import html
 loop = asyncio.new_event_loop()
 asyncio.set_event_loop(loop)
 
-from data_validation.data_val_2023 import DataValidation2023
+from data_validation.data_val_2024 import DataValidation2024
 
 load_dotenv()
 github_instance = Github(os.getenv("GITHUB_KEY"))
@@ -41,17 +41,12 @@ def _convert_string_to_proper_type(value: str) -> Any:
     try:
         return literal_eval(value)
     except (ValueError, SyntaxError):
-<<<<<<< HEAD
-        return value
-
-=======
         if value == "false":
             return False
         elif value == "true":
             return True
 
         return value.replace(",", "").replace("'", "").split(":")[0]
->>>>>>> 808c490 (changes to add parked to app)
 
 
 def _process_data(*data: list[str], status_message_col) -> None:
@@ -210,7 +205,7 @@ def run_dataval(success_col) -> None:
 
     :param success_col: The column to write status messages for running the data validator in.
     """
-    data_validator = DataValidation2023("./data_validation/config.yaml")
+    data_validator = DataValidation2024("./data_validation/config.yaml")
 
     with open(CONFIG["data_config"]["json_file"]) as scouting_data_file:
         data_validator.validate_data(load(scouting_data_file))
@@ -239,18 +234,12 @@ def sync_to_github(success_col) -> None:
         file_json_data = load(file)
         qualitative_json_data = load(qualitative_file)
 
-    file_csv_data = pd.read_csv(
-        CONFIG["data_config"].get(
-            "csv_file", CONFIG["data_config"]["json_file"].replace("json", "csv")
-        )
-    )
-
     repo = github_instance.get_repo(CONFIG["repo_config"]["repo"])
     contents = repo.get_contents(CONFIG["repo_config"]["update_json"])
     repo.update_file(
         contents.path,
         f'updated data @ {datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S")}',
-        str(file_json_data).replace("'", '"'),
+        str(file_json_data).replace("'", '"').replace("True", "true").replace("False", "false"),
         contents.sha,
     )
 
@@ -258,7 +247,7 @@ def sync_to_github(success_col) -> None:
     repo.update_file(
         contents.path,
         f'updated data @ {datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S")}',
-        str(qualitative_json_data).replace("'", '"'),
+        str(qualitative_json_data).replace("'", '"').replace("True", "true").replace("False", "false"),
         contents.sha,
     )
 
@@ -283,12 +272,12 @@ def display_data() -> None:
     status_message_col.write("### ✅ Status Messages")
 
     # Quantitative scouting data editor
-    resultant_df = data_display_col.data_editor(scouting_df, num_rows="dynamic")
+    resultant_df = data_display_col.data_editor(scouting_df, num_rows="dynamic", key="quantidf")
 
     # Qualitative scouting data editor
     data_display_col.write("### 📝 Note Scouting Data Editor")
     resultant_quali_df = data_display_col.data_editor(
-        note_scouting_df, num_rows="dynamic"
+        note_scouting_df, num_rows="dynamic", key="qualidf"
     )
 
     # Check if the data changed
