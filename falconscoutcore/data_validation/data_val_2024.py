@@ -74,7 +74,7 @@ class DataValidation2024(BaseDataValidation):
             team_number=submission[self.config["team_number"]],
             auto_speaker=submission[self.config["auto_speaker"]],
             auto_amp=submission[self.config["auto_amp"]],
-            auto_leave=submission[self.config["auto_leave"]]
+            auto_leave=submission[self.config["auto_leave"]],
         )
 
         self.scored_more_than_four_without_centerline_in_auto(
@@ -82,28 +82,28 @@ class DataValidation2024(BaseDataValidation):
             team_number=submission[self.config["team_number"]],
             auto_speaker=submission[self.config["auto_speaker"]],
             auto_amp=submission[self.config["auto_amp"]],
-            auto_used_centerline=submission[self.config["auto_centerline"]]
+            auto_used_centerline=submission[self.config["auto_centerline"]],
         )
 
         self.scored_more_than_seven_pieces_in_auto(
             match_key=submission[self.config["match_key"]],
             team_number=submission[self.config["team_number"]],
             auto_speaker=submission[self.config["auto_speaker"]],
-            auto_amp=submission[self.config["auto_amp"]]
+            auto_amp=submission[self.config["auto_amp"]],
         )
 
         self.check_for_if_they_harmonized_without_climbing(
             match_key=submission[self.config["match_key"]],
             team_number=submission[self.config["team_number"]],
             climbed=submission[self.config["climbed"]],
-            harmonized=submission[self.config["harmonized"]]
+            harmonized=submission[self.config["harmonized"]],
         )
 
         self.check_for_invalid_defense_data(
             match_key=submission[self.config["match_key"]],
             team_number=submission[self.config["team_number"]],
             defense_time=submission[self.config["defense_time"]],
-            defense_skill=submission[self.config["defense_skill"]]
+            defense_skill=submission[self.config["defense_skill"]],
         )
 
     def scored_more_than_one_without_leaving_in_auto(
@@ -120,9 +120,9 @@ class DataValidation2024(BaseDataValidation):
                 f"In {match_key}, {team_number} was said to have scored {auto_speaker + auto_amp} GAME PIECES IN AUTO WITHOUT LEAVING WHICH IS IMPOSSIBLE.",
                 ErrorType.INCORRECT_DATA,
                 match_key,
-                team_number
+                team_number,
             )
-    
+
     def scored_more_than_four_without_centerline_in_auto(
         self,
         match_key: str,
@@ -137,15 +137,11 @@ class DataValidation2024(BaseDataValidation):
                 f"In {match_key}, {team_number} was said to have scored {auto_speaker + auto_amp} GAME PIECES IN AUTO WITHOUT USING THE CENTERLINE NOTES WHICH IS IMPOSSIBLE.",
                 ErrorType.INCORRECT_DATA,
                 match_key,
-                team_number
+                team_number,
             )
 
     def scored_more_than_seven_pieces_in_auto(
-        self,
-        match_key: str,
-        team_number: int,
-        auto_speaker: int,
-        auto_amp: int
+        self, match_key: str, team_number: int, auto_speaker: int, auto_amp: int
     ):
         """Marks an error if more than nine pieces were scored in auto (impossible)."""
         if auto_speaker + auto_amp > 9 and not auto_leave:
@@ -153,43 +149,35 @@ class DataValidation2024(BaseDataValidation):
                 f"In {match_key}, {team_number} was said to have scored {auto_speaker + auto_amp} GAME PIECES IN AUTO WHICH IS IMPOSSIBLE.",
                 ErrorType.INCORRECT_DATA,
                 match_key,
-                team_number
+                team_number,
             )
-    
+
     def check_for_if_they_harmonized_without_climbing(
-        self,
-        match_key: str,
-        team_number: int,
-        climbed: bool,
-        harmonized: bool
+        self, match_key: str, team_number: int, climbed: bool, harmonized: bool
     ):
         if harmonized and not climbed:
             self.add_error(
                 f"In {match_key}, {team_number} was said to have HARMONIZED WITHOUT CLIMBING WHICH IS IMPOSSIBLE.",
                 ErrorType.INCORRECT_DATA,
                 match_key,
-                team_number
+                team_number,
             )
 
     def check_for_invalid_defense_data(
-        self,
-        match_key: str,
-        team_number: int,
-        defense_time: str,
-        defense_skill: str
+        self, match_key: str, team_number: int, defense_time: str, defense_skill: str
     ):
         """Checks for missing data if the scouter forgot to mark down either the defense time or the defense skill."""
         if defense_time and "Never" not in defense_time and not defense_skill:
             self.add_error(
                 f"In {match_key}, {team_number} was said to have spent time DEFENDING but the scouter forgot to mark down their DEFENSE SKILL.",
-                ErrorType.MISSING_DATA, 
+                ErrorType.MISSING_DATA,
                 match_key,
-                team_number
+                team_number,
             )
         elif (not defense_time or "Never" in defense_time) and defense_skill:
             self.add_error(
                 f"In {match_key}, {team_number} had a DEFENSE SKILL marked down but the scouter forgot to mark down how long they DEFENDED FOR.",
                 ErrorType.MISSING_DATA,
                 match_key,
-                team_number
+                team_number,
             )
