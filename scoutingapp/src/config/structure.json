@@ -1,11 +1,11 @@
 [
     {
-        "name": "2023 Scouting App",
-        "description": "Team 4099: The Falcon's 2023 scouting data collection page",
+        "name": "2024 Scouting App",
+        "description": "Team 4099: The Falcon's 2024 scouting data collection page",
         "components": [
             {
                 "type": "GenericHeaderOne",
-                "text": "2023 Scouting App"
+                "text": "2024 Scouting App"
             },
             {
                 "type": "GenericHeaderTwo",
@@ -15,7 +15,7 @@
                 "type": "GenericTextInput",
                 "text": "Scout Name",
                 "placeholder": [
-                    "Pranav"
+                    "shayaan"
                 ],
                 "id": "ScoutId",
                 "required": true
@@ -60,7 +60,7 @@
                 "type": "GenericTextInput",
                 "text": "Team Number",
                 "placeholder": [
-                    "9999"
+                    "4099"
                 ],
                 "id": "TeamNumber",
                 "required": true
@@ -70,66 +70,28 @@
             },
             {
                 "type": "GenericHeaderTwo",
-                "text": "Auto Starting Position"
-            },
-            {
-                "type": "ChargedUpStartingPosition",
-                "text": "",
-                "id": "StartingPosition"
-            },
-            {
-                "type": "Spacing"
-            },
-            {
-                "type": "GenericHeaderTwo",
                 "text": "Auto Game Pieces"
             },
-
-
             {
                 "type": "IncrementNumberInput",
-                "text": "Auto High",
-                "placeholder": ["0"],
-                "options": ["green"],
-                "id": "AutoHigh"
+                "text": "Auto Speaker Cycles",
+                "placeholder": [
+                    "0"
+                ],
+                "id": "AutoSpeaker"
             },
-
             {
                 "type": "IncrementNumberInput",
-                "text": "Auto Mid",
-                "placeholder": ["0"],
-                "options": ["yellow"],
-                "id": "AutoMid"
-            },
-
-            {
-                "type": "IncrementNumberInput",
-                "text": "Auto Low",
-                "placeholder": ["0"],
-                "options": ["red"],
-                "id": "AutoLow"
-            },
-            
-            {
-                "type": "IncrementNumberInput",
-                "text": "Auto Missed",
-                "placeholder": ["0"],
-                "options": [],
-                "id": "AutoMissed"
-            },
-            {
-                "type": "GenericHeaderTwo",
-                "text": "Auto Engage"
+                "text": "Auto Amp Cycles",
+                "placeholder": [
+                    "0"
+                ],
+                "id": "AutoAmp"
             },
             {
                 "type": "GenericToggle",
-                "text": "Auto Engage Attempted",
-                "id": "AutoAttemptedCharge"
-            },
-            {
-                "type": "GenericToggle",
-                "text": "Auto Engage Succeeded",
-                "id": "AutoAttemptedCharge"
+                "text": "Did they leave the starting zone (white line)?",
+                "id": "AutoLeave"
             },
             {
                 "type": "GenericTextArea",
@@ -140,40 +102,82 @@
                 "type": "Spacing"
             },
             {
-                "type": "Spacing"
-            },
-            {
                 "type": "GenericHeaderTwo",
                 "text": "Teleop Game Pieces"
             },
             {
-                "type": "ConeCubeIncrementInput",
-                "text": "Teleop High",
-                "options":["green"],
-                "id": "TeleopHigh"
+                "type": "IncrementNumberInput",
+                "text": "Teleop Speaker Cycles",
+                "placeholder": [
+                    "0"
+                ],
+                "options": [
+                    "red"
+                ],
+                "id": "TeleopSpeaker"
             },
             {
-                "type": "ConeCubeIncrementInput",
-                "text": "Teleop Mid",
-                "options":["yellow"],
-                "id": "TeleopMid"
+                "type": "IncrementNumberInput",
+                "text": "Teleop Amp Cycles",
+                "placeholder": [
+                    "0"
+                ],
+                "options": [
+                    "yellow"
+                ],
+                "id": "TeleopAmp"
             },
             {
-                "type": "ConeCubeIncrementInput",
-                "text": "Teleop Low",
-                "options":["red"],
-                "id": "TeleopLow"
+                "type": "IncrementNumberInput",
+                "text": "Teleop/Endgame Trap Cycles",
+                "placeholder": [
+                    "0"
+                ],
+                "options": [
+                    "green"
+                ],
+                "id": "TeleopTrap"
             },
             {
                 "type": "GenericTextArea",
-                "text": "Teleop or Endgame Notes",
+                "text": "Teleop Qualitative Notes",
                 "id": "TeleopNotes"
             },
             {
                 "type": "Spacing"
             },
             {
-                "type": "Spacing"
+                "type": "GenericHeaderTwo",
+                "text": "Endgame"
+            },
+            {
+                "type": "GenericToggle",
+                "text": "Did the robot park during endgame?",
+                "id": "Parked"
+            },
+            {
+                "type": "GenericToggle",
+                "text": "Did the robot climb onto the chain?",
+                "id": "ClimbStatus"
+            },
+            {
+                "type": "GenericToggle",
+                "text": "If the robot climbed, did it climb onto the chain with another robot (harmonized)?",
+                "id": "Harmonized"
+            },
+            {
+                "type": "GenericDropdown",
+                "text": "How fast were they at climbing onto the chain?",
+                "options": [
+                    "Slow",
+                    "Fast"
+                ],
+                "id": "ClimbSpeed"
+            },
+            {
+                "type": "GenericTextArea",
+                "text": "Endgame Qualitative Notes",
+                "id": "EndgameNotes"
             },
             {
                 "type": "Spacing"
@@ -184,23 +188,56 @@
             },
             {
                 "type": "GenericToggle",
-                "text": "Did they disable",
-                "id": "Disable"
+                "text": "Did they disable?",
+                "id": "Disabled"
             },
             {
-                "type": "GenericToggle",
-                "text": "Were they tippy",
-                "id": "Tippy"
-            },
-            {
-                "type": "SliderInput",
-                "text": "How well do they drive",
+                "type": "GenericDropdown",
+                "text": "How fluid was their driving?",
                 "options": [
-                    "1",
-                    "5"
+                    "Very Fluid: Swerved past obstacles and had no delays when reaching their destination.",
+                    "Fluid: Ran into obstacles at times but generally very fluid & consistent.",
+                    "Average: Vulnerable to defense & would hit obstacles.",
+                    "Poor: Easily impacted by other robots & obstacles and inconsistent when driving.",
+                    "Very Poor: Pinballed into other robots / racked up fouls / hampered their alliance."
                 ],
-                "placeholder":[3],
                 "id": "DriverRating"
+            },
+            {
+                "type": "GenericDropdown",
+                "text": "How often did they defend against other robots?",
+                "options": [
+                    "Very Often: Spent all or almost all of their match defending against other robots.",
+                    "Often: Spent most of their match defending against other robots but also spent time scoring.",
+                    "Sometimes: Spent roughly half their match defending against other robots or defended opportunistically.",
+                    "Rarely: They focused on scoring mostly and barely defended against robots, but they did spend time defending.",
+                    "Never: They never defended against other robots throughout the entire match."
+                ],
+                "id": "DefenseTime"
+            },
+            {
+                "type": "GenericDropdown",
+                "text": "If they did defend, how good were they at defending?",
+                "options": [
+                    "Very Good: Greatly hampered the robots they were defending from scoring and often pinned them.",
+                    "Good: They hampered the robots they were defending from scoring, but they were still able to perform well.",
+                    "Okay: Their defense did have an impact on the score of the other alliance, but it wasn't notable.",
+                    "Poor: Their defense had little impact on the other alliance and hampered their own alliance at times.",
+                    "Very Poor: Their defense hampered their own alliance where they either racked up fouls or blocked their own teammates."
+                ],
+                "id": "DefenseSkill"
+            },
+            {
+                "type": "GenericDropdown",
+                "text": "If they were being defended by another robot, how good were they at avoiding the defense?",
+                "options": [
+                    "Very Good: They swerved around any robots trying to defend them and lost little scoring time to defense.",
+                    "Good: They often swerved around robots trying to defend them, however sometimes they would get caught by the defense.",
+                    "Okay: The defending robots had a notable impact on their scoring ability.",
+                    "Poor: The defending robots hampered their scoring ability and they would take a while to get past the defending robots.",
+                    "Very Poor: The defending robots were able to fully stop the robot from scoring and carrying out game tasks."
+                ],
+                "id": "CounterDefenseSkill"
             },
             {
                 "type": "GenericTextArea",
@@ -212,7 +249,6 @@
                 "text": "Submit",
                 "id": "result"
             }
-
         ],
         "export": {
             "delimiter": "|",
@@ -222,28 +258,25 @@
                 "Alliance",
                 "DriverStation",
                 "TeamNumber",
-                "StartingPosition",
-                "AutoHigh",
-                "AutoMid",
-                "AutoLow",
-                "AutoMissed",
-                "AutoEngageAttempted",
-                "AutoEngageSuccessful",
+                "AutoSpeaker",
+                "AutoAmp",
+                "AutoLeave",
+                "AutoCenterline",
                 "AutoNotes",
-                "TeleopHigh",
-                "TeleopMid",
-                "TeleopLow",
-                "TeleopMissed",
+                "TeleopSpeaker",
+                "TeleopAmp",
+                "TeleopTrap",
                 "TeleopNotes",
-                "EndgameAttemptedCharge",
-                "EndgameFinalCharge",
-                "EndgameChargeTime",
+                "Parked",
+                "ClimbStatus",
+                "Harmonized",
+                "ClimbSpeed",
                 "EndgameNotes",
-                "Disable",
-                "Tippy",
-                "DefenseTime",
-                "DefenseRating",
+                "Disabled",
                 "DriverRating",
+                "DefenseTime",
+                "DefenseSkill",
+                "CounterDefenseSkill",
                 "RatingNotes"
             ]
         }
@@ -324,7 +357,9 @@
             {
                 "type": "IncrementNumberInput",
                 "text": "Auto Game Pieces Scored",
-                "placeholder": ["0"],
+                "placeholder": [
+                    "0"
+                ],
                 "id": "AutoPieces"
             },
             {
@@ -382,7 +417,9 @@
             {
                 "type": "IncrementNumberInput",
                 "text": "Teleop Game Pieces Scored",
-                "placeholder": ["0"],
+                "placeholder": [
+                    "0"
+                ],
                 "id": "TeleopPieces"
             },
             {
