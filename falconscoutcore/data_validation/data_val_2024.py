@@ -106,6 +106,53 @@ class DataValidation2024(BaseDataValidation):
             defense_skill=submission[self.config["defense_skill"]],
         )
 
+        if self._run_with_tba:
+            self.tba_validate_climb_state(
+                match_key=submission[self.config["match_key"]],
+                team_number=submission[self.config["team_number"]],
+                alliance=submission[self.config["alliance"]],
+                driver_station=submission[self.config["driver_station"]],
+                parked=submission[self.config["parked"]],
+                climbed=submission[self.config["climbed"]]
+            )
+
+    def tba_validate_climb_state(
+        self,
+        match_key: str,
+        team_number: int,
+        alliance: str,
+        driver_station: int,
+        parked: bool,
+        climbed: bool,
+    ) -> None:
+        """Validates the final climb state of the robot using TBA data."""
+        try:
+            score_breakdown = self.match_data[
+                f"{self._event_key}_{match_key}"
+            ].score_breakdown[alliance.lower()]
+        except KeyError as e:
+            raise KeyError(
+                "No matches to retrieve data from OR invalid match key, check scouting data."
+            ) from e
+    
+        tba_climb_status = score_breakdown[f"endGameRobot{driver_station}"]
+
+        if tba_climb_status == "Parked" and not parked:
+            self.add_error(
+                f"In {match_key}, {team_number} was said to have NOT PARKED despite TBA marking them as PARKED.",
+                ErrorType.INCORRECT_DATA,
+                match_key,
+                team_number
+            )
+        
+        if "Stage" in tba_climb_status and not climbed:
+            self.add_error(
+                f"In {match_key}, {team_number} was said to have NOT CLIMBED despite TBA marking them as having CLIMBED.",
+                ErrorType.INCORRECT_DATA,
+                match_key,
+                team_number
+            )
+
     def scored_more_than_one_without_leaving_in_auto(
         self,
         match_key: str,

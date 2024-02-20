@@ -8,7 +8,7 @@ import falcon_alliance
 import pandas as pd
 import yaml
 from data_validation.config.utils import ErrorType
-from pandas import DataFrame, Series, isna, notna, read_json
+from pandas import DataFrame, Series, notna, read_json
 
 
 class BaseDataValidation(ABC):
