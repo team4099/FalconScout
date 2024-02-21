@@ -36,6 +36,11 @@ class DataValidation2024(BaseDataValidation):
 
         self.check_team_numbers_for_each_match(scouting_data)
 
+        if self._run_with_tba:
+            self.tba_validate_total_auto_cycles(scouting_data)
+            self.tba_validate_total_teleop_cycles(scouting_data)
+            self.tba_validate_total_trap_cycles(scouting_data)
+
         if not scouting_data.empty:
             # Validates individual submissions
             for _, submission in scouting_data.iterrows():
@@ -113,7 +118,7 @@ class DataValidation2024(BaseDataValidation):
                 alliance=submission[self.config["alliance"]],
                 driver_station=submission[self.config["driver_station"]],
                 parked=submission[self.config["parked"]],
-                climbed=submission[self.config["climbed"]]
+                climbed=submission[self.config["climbed"]],
             )
 
     def tba_validate_climb_state(
@@ -134,7 +139,7 @@ class DataValidation2024(BaseDataValidation):
             raise KeyError(
                 "No matches to retrieve data from OR invalid match key, check scouting data."
             ) from e
-    
+
         tba_climb_status = score_breakdown[f"endGameRobot{driver_station}"]
 
         if tba_climb_status == "Parked" and not parked:
@@ -142,16 +147,117 @@ class DataValidation2024(BaseDataValidation):
                 f"In {match_key}, {team_number} was said to have NOT PARKED despite TBA marking them as PARKED.",
                 ErrorType.INCORRECT_DATA,
                 match_key,
-                team_number
+                team_number,
             )
-        
+
         if "Stage" in tba_climb_status and not climbed:
             self.add_error(
                 f"In {match_key}, {team_number} was said to have NOT CLIMBED despite TBA marking them as having CLIMBED.",
                 ErrorType.INCORRECT_DATA,
                 match_key,
-                team_number
+                team_number,
             )
+
+    def tba_validate_total_auto_cycles(self, scouting_data: DataFrame):
+        """Validates the total auto speaker/amp cycles for an alliance with TBA."""
+        for (match_key, alliance), submissions_by_alliance in scouting_data.groupby(
+            [self.config["match_key"], self.config["alliance"]]
+        ):
+            try:
+                score_breakdown = self.match_data[
+                    f"{self._event_key}_{match_key}"
+                ].score_breakdown[alliance.lower()]
+            except KeyError as e:
+                raise KeyError(
+                    "No matches to retrieve data from OR invalid match key, check scouting data."
+                ) from e
+
+            actual_auto_speaker = score_breakdown["autoSpeakerNoteCount"]
+            scouted_auto_speaker = submissions_by_alliance[self.config["auto_speaker"]].sum()
+
+            actual_auto_amp  = score_breakdown["autoAmpNoteCount"]
+            scouted_auto_amp = submissions_by_alliance[self.config["auto_amp"]].sum()
+
+            scouted_auto_pieces = scouted_auto_speaker + scouted_auto_amp
+            actual_auto_pieces = actual_auto_speaker + actual_auto_amp
+
+            if (
+                scouted_auto_pieces != actual_auto_pieces
+                and abs(scouted_auto_pieces - actual_auto_pieces)
+                >= self.TBA_AUTO_ERROR_THRESHOLD
+            ):
+                self.add_error(
+                    f"In {match_key}, the {alliance.upper()} alliance was said to have scored"
+                    f" {scouted_auto_speaker} NOTES IN THE SPEAKER and {scouted_auto_amp} NOTES IN THE AMP during AUTO "
+                    f"but actually scored {actual_auto_speaker} NOTES IN THE SPEAKER and {actual_auto_amp} NOTES IN THE AMP.",
+                    ErrorType.INCORRECT_DATA,
+                    match_key,
+                    alliance=alliance,
+                )
+    
+    def tba_validate_total_teleop_cycles(self, scouting_data: DataFrame):
+        """Validates the total teleop speaker/amp cycles for an alliance with TBA."""
+        for (match_key, alliance), submissions_by_alliance in scouting_data.groupby(
+            [self.config["match_key"], self.config["alliance"]]
+        ):
+            try:
+                score_breakdown = self.match_data[
+                    f"{self._event_key}_{match_key}"
+                ].score_breakdown[alliance.lower()]
+            except KeyError as e:
+                raise KeyError(
+                    "No matches to retrieve data from OR invalid match key, check scouting data."
+                ) from e
+
+            actual_teleop_speaker = score_breakdown["teleopSpeakerNoteCount"] + score_breakdown["teleopSpeakerNoteAmplifiedCount"]
+            scouted_teleop_speaker = submissions_by_alliance[self.config["teleop_speaker"]].sum()
+
+            actual_teleop_amp  = score_breakdown["teleopAmpNoteCount"]
+            scouted_teleop_amp = submissions_by_alliance[self.config["teleop_amp"]].sum()
+
+            scouted_teleop_pieces = scouted_teleop_speaker + scouted_teleop_amp
+            actual_teleop_pieces = actual_teleop_speaker + actual_teleop_amp
+
+            if (
+                scouted_teleop_pieces != actual_teleop_pieces
+                and abs(scouted_teleop_pieces - actual_teleop_pieces)
+                >= self.TBA_TELEOP_ERROR_THRESHOLD
+            ):
+                self.add_error(
+                    f"In {match_key}, the {alliance.upper()} alliance was said to have scored"
+                    f" {scouted_teleop_speaker} NOTES IN THE SPEAKER and {scouted_teleop_amp} NOTES IN THE AMP during TELEOP "
+                    f"but actually scored {actual_teleop_speaker} NOTES IN THE SPEAKER and {actual_teleop_amp} NOTES IN THE AMP.",
+                    ErrorType.INCORRECT_DATA,
+                    match_key,
+                    alliance=alliance,
+                )
+    
+    def tba_validate_total_trap_cycles(self, scouting_data: DataFrame):
+        """Validates the total trap cycles for an alliance with TBA."""
+        for (match_key, alliance), submissions_by_alliance in scouting_data.groupby(
+            [self.config["match_key"], self.config["alliance"]]
+        ):
+            try:
+                score_breakdown = self.match_data[
+                    f"{self._event_key}_{match_key}"
+                ].score_breakdown[alliance.lower()]
+            except KeyError as e:
+                raise KeyError(
+                    "No matches to retrieve data from OR invalid match key, check scouting data."
+                ) from e
+
+            actual_trap_cycles = score_breakdown["trapCenterStage"] + score_breakdown["trapStageLeft"] + score_breakdown["trapStageRight"]
+            scouted_trap_cycles = submissions_by_alliance[self.config["teleop_trap"]].sum()
+
+            if actual_trap_cycles != scouted_trap_cycles:
+                self.add_error(
+                    f"In {match_key}, the {alliance.upper()} alliance was said to have scored"
+                    f" {scouted_trap_cycles} NOTES IN THE TRAP "
+                    f"but actually scored {actual_trap_cycles} NOTES IN THE TRAP.",
+                    ErrorType.INCORRECT_DATA,
+                    match_key,
+                    alliance=alliance,
+                )
 
     def scored_more_than_one_without_leaving_in_auto(
         self,

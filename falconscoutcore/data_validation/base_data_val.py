@@ -18,8 +18,8 @@ class BaseDataValidation(ABC):
     Implements base checks explained below (e.g. checking if the scout scouted the right driver station.)
     """
 
-    TBA_GRID_AUTO_ERROR_THRESHOLD = 1
-    TBA_GRID_TELEOP_ERROR_THRESHOLD = 3
+    TBA_AUTO_ERROR_THRESHOLD = 1
+    TBA_TELEOP_ERROR_THRESHOLD = 2
 
     RESCOUTING_ERROR_THRESHOLD = 20
 
