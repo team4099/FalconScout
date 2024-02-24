@@ -544,6 +544,35 @@
                 "id": "SubstationSpeed"
             },
             {
+                "type": "GenericDropdown",
+                "text": "How accurate were they with shooting at the speaker?",
+                "options": [
+                    "—",
+                    "Very Accurate: Never/almost never missed their shots.",
+                    "Accurate: Occasionally missed their shots.",
+                    "Inaccurate: Often missed their shots.",
+                    "Very Inaccurate: Always/almost always missed their shots."
+                ],
+                "id": "SpeakerAccuracy"
+            },
+            {
+                "type": "GenericDropdown",
+                "text": "How accurate were they with shooting into the amp?",
+                "options": [
+                    "—",
+                    "Very Accurate: Never/almost never missed their shots.",
+                    "Accurate: Occasionally missed their shots.",
+                    "Inaccurate: Often missed their shots.",
+                    "Very Inaccurate: Always/almost always missed their shots."
+                ],
+                "id": "AmpAccuracy"
+            },
+            {
+                "type": "GenericTextArea",
+                "text": "Defense/Counterdefense Notes",
+                "id": "DefenseCounterdefenseNotes"
+            },
+            {
                 "type": "DarkButton",
                 "text": "Submit",
                 "id": "result"
@@ -574,7 +603,10 @@
                 "DriverRating",
                 "ConeIntakingSkill",
                 "CubeIntakingSkill",
-                "SubstationSpeed"
+                "SubstationSpeed",
+                "SpeakerAccuracy",
+                "AmpAccuracy",
+                "DefenseCounterdefenseNotes"
             ]
         }
     }
