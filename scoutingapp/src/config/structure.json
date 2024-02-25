@@ -282,12 +282,12 @@
         }
     },
     {
-        "name": "2023 Note Scouting App",
-        "description": "Team 4099: The Falcon's 2023 note scouting app for providing qualitative data.",
+        "name": "2024 Note Scouting App",
+        "description": "Team 4099: The Falcon's 2024 note scouting app for providing qualitative data.",
         "components": [
             {
                 "type": "GenericHeaderOne",
-                "text": "2023 Note Scouting App"
+                "text": "2024 Note Scouting App"
             },
             {
                 "type": "GenericHeaderTwo",
@@ -352,34 +352,47 @@
             },
             {
                 "type": "GenericHeaderTwo",
-                "text": "Auto"
+                "text": "General Notes"
+            },
+            {
+                "type": "GenericToggle",
+                "text": "Did they run into obstacles while driving autonomously?",
+                "id": "AutoDrivingSkills"
+            },
+            {
+                "type": "GenericTextArea",
+                "text": "Auto General Notes",
+                "id": "AutoGeneralNotes"
             },
             {
                 "type": "GenericDropdown",
-                "text": "How fast are they at lining up to score?",
+                "text": "Where are they mostly intaking from?",
                 "options": [
-                    "Slow (>5 seconds)",
-                    "Fast (<5 seconds)"
+                    "-",
+                    "Source",
+                    "Ground"
                 ],
-                "id": "ClimbSpeed"
+                "id": "TeleopIntakeLocation"
+            },
+            {
+                "type": "GenericTextArea",
+                "text": "Teleop General Notes",
+                "id": "TeleopGeneralNotes"
             },
             {
                 "type": "GenericDropdown",
-                "text": "How fast is their scoring mechanism (how long does it take to spin up, etc.)",
+                "text": "Climb Alignment Speed",
                 "options": [
-                    "Slow (>5 seconds)",
-                    "Fast (<5 seconds)"
+                    "-",
+                    "Slow: Took at least 5 seconds to climb on chain",
+                    "Fast: Took at most 5 seconds to climb on chain"
                 ],
-                "id": "ScoringSpeed"
+                "id": "ClimbAlignmentSpeed"
             },
             {
-                "type": "GenericDropdown",
-                "text": "How fast are they at intaking notes?",
-                "options": [
-                    "Slow (>5 seconds)",
-                    "Fast (<5 seconds)"
-                ],
-                "id": "IntakingSpeed"
+                "type": "GenericTextArea",
+                "text": "Endgame General Notes",
+                "id": "EndgameGeneralNotes"
             },
             {
                 "type": "DarkButton",
@@ -395,24 +408,12 @@
                 "Alliance",
                 "DriverStation",
                 "TeamNumber",
-                "AutoPieces",
-                "AutoStartingPosition",
-                "AutoEngaged",
-                "AutoIntakeAccuracy",
-                "AutoScoringAccuracy",
                 "AutoDrivingSkills",
-                "AutoNotes",
-                "TeleopPieces",
-                "TeleopPath",
-                "TeleopAligningSpeed",
-                "TeleopCommunitySkill",
-                "TeleopIntakingLocation",
-                "Disabled",
-                "Tippy",
-                "DriverRating",
-                "ConeIntakingSkill",
-                "CubeIntakingSkill",
-                "SubstationSpeed"
+                "AutoGeneralNotes",
+                "TeleopIntakeLocation",
+                "TeleopGeneralNotes",
+                "ClimbAlignmentSpeed",
+                "EndgameGeneralNotes"
             ]
         }
     }
