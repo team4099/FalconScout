@@ -11,7 +11,6 @@ import pandas as pd
 import streamlit as st
 from dotenv import load_dotenv
 from github import Github
-from pyzbar.pyzbar import decode
 from streamlit.components.v1 import html
 
 # Hacky solution to work around Streamlit raising an error about "no event loop" - breaks PEP8
@@ -163,12 +162,14 @@ def scan_qrcode(qr_code_col) -> None:
     bytes_data = image.getvalue()
     cv2_img = cv2.imdecode(np.frombuffer(bytes_data, np.uint8), cv2.IMREAD_COLOR)
     gray_img = cv2.cvtColor(cv2_img, 0)
-    qr_codes = decode(gray_img)
+    
+    decoder = cv2.QRCodeDetector()
+    data, *_ = decoder.detectAndDecode(gray_img)
 
     # Process data and write it to the scouting data file.
-    if qr_codes:
+    if data:
         _process_data(
-            *[qr_code.data.decode("utf-8") for qr_code in qr_codes],
+            data,
             status_message_col=qr_code_col,
         )
 
