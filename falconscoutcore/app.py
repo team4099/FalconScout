@@ -29,6 +29,10 @@ with open("config.json") as config_file:
 # Streamlit page configuration
 st.set_page_config(layout="wide")
 
+USE_CV2 = False
+
+if USE_CV2 is False:
+    from pyzbar.pyzbar import decode
 
 # Helper functions
 def _convert_string_to_proper_type(value: str) -> Any:
@@ -162,14 +166,17 @@ def scan_qrcode(qr_code_col) -> None:
     bytes_data = image.getvalue()
     cv2_img = cv2.imdecode(np.frombuffer(bytes_data, np.uint8), cv2.IMREAD_COLOR)
     gray_img = cv2.cvtColor(cv2_img, 0)
-    
-    decoder = cv2.QRCodeDetector()
-    data, *_ = decoder.detectAndDecode(gray_img)
+
+    if USE_CV2 is True:
+        decoder = cv2.QRCodeDetector()
+        _, data, *__ = decoder.detectAndDecodeMulti(gray_img)
+    else:
+        data = [code.data.decode() for code in decode(gray_img)]
 
     # Process data and write it to the scouting data file.
     if data:
         _process_data(
-            data,
+            *data,
             status_message_col=qr_code_col,
         )
 
