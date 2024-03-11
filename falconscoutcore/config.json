@@ -37,8 +37,11 @@
             "AutoDrivingSkills",
             "AutoGeneralNotes",
             "TeleopIntakeLocation",
-            "TeleopGeneralNotes",
-            "ClimbAlignmentSpeed",
+            "SpeakerAccuracy",
+            "AmpAccuracy",
+            "AligningSpeed",
+            "ScoringSpeed",
+            "IntakingSpeed",
             "EndgameGeneralNotes"
         ],
         "json_file": "./data/2024vaash_match_data.json",
