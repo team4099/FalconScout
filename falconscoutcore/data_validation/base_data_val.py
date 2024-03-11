@@ -8,7 +8,7 @@ import falcon_alliance
 import pandas as pd
 import yaml
 from data_validation.config.utils import ErrorType
-from pandas import DataFrame, Series, isna, notna, read_json
+from pandas import DataFrame, Series, notna, read_json
 
 
 class BaseDataValidation(ABC):
@@ -18,8 +18,8 @@ class BaseDataValidation(ABC):
     Implements base checks explained below (e.g. checking if the scout scouted the right driver station.)
     """
 
-    TBA_GRID_AUTO_ERROR_THRESHOLD = 1
-    TBA_GRID_TELEOP_ERROR_THRESHOLD = 3
+    TBA_AUTO_ERROR_THRESHOLD = 1
+    TBA_TELEOP_ERROR_THRESHOLD = 2
 
     RESCOUTING_ERROR_THRESHOLD = 20
 
@@ -88,16 +88,6 @@ class BaseDataValidation(ABC):
 
         :param scouting_data: Optional parameter containing scouting data mostly for testing purposes.
         :return:
-        """
-        pass
-
-    @abstractmethod
-    def average_out_data(self, scouting_data: list) -> DataFrame:
-        """
-        Averages out data for all submissions that scouted a certain robot during a certain match (allows n-scouting).
-
-        :param scouting_data: Optional parameter containing scouting data mostly for testing purposes.
-        :return: A DataFrame containing the averaged out data.
         """
         pass
 

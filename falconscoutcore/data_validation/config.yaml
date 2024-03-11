@@ -1,47 +1,37 @@
 # core setup features
-year: 2023
-event_code: "new"
+year: 2024
+event_code: "vaash"
 run_with_tba: false
-path_to_data: "data/2023new_match_data.json"
+path_to_data: "data/2024vaash_match_data.json"
 path_to_output: "data/errors.json"
 
 # required translation
 scout_id: "ScoutId"
 match_key: "MatchKey"
 team_number: "TeamNumber"
+alliance: "Alliance"
+driver_station": "DriverStation"
 
 # optional parameters - if it is needed for a data check and is
 # not listed, the check will not run
 
-# Charged Up 2023: hyper-specific parameters
-auto_cones: "AutoCones"
-auto_cubes: "AutoCubes"
-auto_grid: "AutoGrid"
-auto_missed: "AutoMissed"
-mobile: "Mobile"
-auto_attempted_charge: "AutoAttemptedCharge"
-auto_charging_state: "AutoChargingState"
-
-teleop_cones: "TeleopCones"
-teleop_cubes: "TeleopCubes"
-teleop_grid: "TeleopGrid"
-teleop_missed: "TeleopMissed"
-
-endgame_attempted_charge: "EndgameAttemptedCharge"
-endgame_charging_state: "EndgameFinalCharge"
-
-attempted_triple_balance: "AttemptedTripleBalance"
-successful_triple_balance: "SuccessfulTripleBalance"
-
-# general game parameters
-alliance: "Alliance"
-driver_station: "DriverStation"
-defense_pct: "DefenseTime"
-defense_rating: "DefenseRating"
+# Crescendo 2024: hyper-specific parameters
+auto_speaker: "AutoSpeaker"
+auto_amp: "AutoAmp"
+auto_leave: "AutoLeave"
+auto_centerline: "AutoCenterline"
+teleop_speaker: "TeleopSpeaker"
+teleop_amp: "TeleopAmp"
+teleop_trap: "TeleopTrap"
+parked: "Parked"
+climbed: "ClimbStatus"
+harmonized: "Harmonized"
+climb_speed: "ClimbSpeed"
+disabled: "Disabled"
 driver_rating: "DriverRating"
-disabled: "Disable"
-tippy: "Tippy"
-preloaded: "Preloaded"
+defense_time: "DefenseTime"
+defense_skill: "DefenseSkill"
+counter_defense_skill: "CounterDefenseSkill"
 
 # parameters for notes
 auto_notes: "AutoNotes"

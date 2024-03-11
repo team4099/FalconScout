@@ -10,7 +10,7 @@ with (
 ):
     match_schedule_formatted = {}
     event_matches: list[falcon_alliance.Match] = falcon_alliance.Event(
-        "2023new"
+        "2024vaash"
     ).matches()
 
     for match in event_matches:
