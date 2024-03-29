@@ -89,6 +89,14 @@
                 "id": "AutoAmp"
             },
             {
+                "type": "IncrementNumberInput",
+                "text": "Auto Centerline Pieces Retrieved",
+                "placeholder": [
+                    "0"
+                ],
+                "id": "AutoCenterline"
+            },
+            {
                 "type": "GenericToggle",
                 "text": "Did they leave the starting zone (white line)?",
                 "id": "AutoLeave"
@@ -260,8 +268,8 @@
                 "TeamNumber",
                 "AutoSpeaker",
                 "AutoAmp",
-                "AutoLeave",
                 "AutoCenterline",
+                "AutoLeave",
                 "AutoNotes",
                 "TeleopSpeaker",
                 "TeleopAmp",
