@@ -89,11 +89,8 @@
                 "id": "AutoAmp"
             },
             {
-                "type": "IncrementNumberInput",
-                "text": "Auto Centerline Pieces Retrieved",
-                "placeholder": [
-                    "0"
-                ],
+                "type": "GenericToggle",
+                "text": "Did they intake from the centerline during auto?",
                 "id": "AutoCenterline"
             },
             {
