@@ -90,6 +90,11 @@
             },
             {
                 "type": "GenericToggle",
+                "text": "Did they intake from the centerline during auto?",
+                "id": "AutoCenterline"
+            },
+            {
+                "type": "GenericToggle",
                 "text": "Did they leave the starting zone (white line)?",
                 "id": "AutoLeave"
             },
@@ -260,8 +265,8 @@
                 "TeamNumber",
                 "AutoSpeaker",
                 "AutoAmp",
-                "AutoLeave",
                 "AutoCenterline",
+                "AutoLeave",
                 "AutoNotes",
                 "TeleopSpeaker",
                 "TeleopAmp",
