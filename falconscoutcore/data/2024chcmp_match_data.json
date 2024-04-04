@@ -1,0 +1,30 @@
+[
+  {
+    "ScoutId": "shayaan",
+    "MatchKey": "qm1",
+    "Alliance": "red",
+    "DriverStation": 1,
+    "TeamNumber": 4099,
+    "AutoSpeaker": 1,
+    "AutoAmp": 0,
+    "AutoLeave": false,
+    "AutoCenterline": false,
+    "AutoNotes": "",
+    "TeleopSpeaker": 1,
+    "TeleopAmp": 1,
+    "TeleopTrap": 1,
+    "TeleopPassing": 1,
+    "TeleopNotes": "",
+    "Parked": true,
+    "ClimbStatus": false,
+    "Harmonized": true,
+    "ClimbSpeed": "",
+    "EndgameNotes": "",
+    "Disabled": false,
+    "DriverRating": "Very Poor",
+    "DefenseTime": "",
+    "DefenseSkill": "",
+    "CounterDefenseSkill": "",
+    "RatingNotes": ""
+  }
+]
