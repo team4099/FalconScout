@@ -15,6 +15,7 @@
             "TeleopSpeaker",
             "TeleopAmp",
             "TeleopTrap",
+            "TeleopPassing",
             "TeleopNotes",
             "Parked",
             "ClimbStatus",

@@ -28,7 +28,7 @@ function IncrementNumberInput(props: ComponentSetup) {
                 >
                     -
                 </button>
-                <div className={`flex w-1/3 h-full text-2xl float-left items-center ${color == "red" ? "bg-red-400" : color == "yellow" ? "bg-amber-300" : color == "green" ? "bg-green-400" : "bg-white"}`}>
+                <div className={`flex w-1/3 h-full text-2xl float-left items-center ${color == "red" ? "bg-red-400" : color == "yellow" ? "bg-amber-300" : color == "blue" ? "bg-blue-500" : color == "green" ? "bg-green-400" : "bg-white"}`}>
                     <p className={"text-center w-full"}>{counter}</p>
                 </div>
                 <button

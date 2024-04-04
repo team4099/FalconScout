@@ -144,6 +144,17 @@
                 "id": "TeleopTrap"
             },
             {
+                "type": "IncrementNumberInput",
+                "text": "Teleop/Endgame Passing Cycles",
+                "placeholder": [
+                    "0"
+                ],
+                "options": [
+                    "blue"
+                ],
+                "id": "TeleopPassing"
+            },
+            {
                 "type": "GenericTextArea",
                 "text": "Teleop Qualitative Notes",
                 "id": "TeleopNotes"
@@ -271,6 +282,7 @@
                 "TeleopSpeaker",
                 "TeleopAmp",
                 "TeleopTrap",
+                "TeleopPassing",
                 "TeleopNotes",
                 "Parked",
                 "ClimbStatus",
