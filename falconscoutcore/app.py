@@ -183,7 +183,7 @@ def write_dataval_errors(data_val_col) -> None:
 
         errors_by_match = sorted(
             scouting_data_errors,
-            key=lambda error: int(error["match"][2:]),
+            key=lambda error: int(error["match"][2:]) if error["match"][0] != "f" else int(error["match"][1:]),
             reverse=True,
         )
 
