@@ -76,11 +76,9 @@
                 "type": "GenericDropdown",
                 "text": "Where did the robot start in auto?",
                 "options": [
-                    "Centerline",
-                    "Amp",
-                    "Source",
-                    "Speaker",
-                    "Stage"
+                    "Subwoofer Front",
+                    "Amp Side",
+                    "Source Side"
                 ],
                 "id": "AutoStart"
             },
