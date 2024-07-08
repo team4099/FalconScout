@@ -73,6 +73,16 @@
                 "text": "Auto Game Pieces"
             },
             {
+                "type": "GenericDropdown",
+                "text": "Where did the robot start in auto?",
+                "options": [
+                    "Subwoofer Front",
+                    "Amp Side",
+                    "Source Side"
+                ],
+                "id": "AutoStart"
+            },
+            {
                 "type": "IncrementNumberInput",
                 "text": "Auto Speaker Cycles",
                 "placeholder": [
@@ -256,6 +266,18 @@
                 "id": "CounterDefenseSkill"
             },
             {
+                "type": "GenericDropdown",
+                "text": "Which archetype did the robot follow?",
+                "options": [
+                    "Cleaning up Notes: Mainly scored notes that were missed, passed, or left on the field.",
+                    "Passing Notes: Mainly moved notes from the source to their alliance area.",
+                    "Full-field Cycles: Mainly received notes from the source and scored them.",
+                    "Source Defense: Mainly prevented the other alliance from receiving notes.",
+                    "Subwoofer Defense: Mainly prevented the other alliance from scoring in the speaker."
+                ],
+                "id": "RobotArchetype"
+            },
+            {
                 "type": "GenericTextArea",
                 "text": "Rating Notes",
                 "id": "RatingNotes"
@@ -274,6 +296,7 @@
                 "Alliance",
                 "DriverStation",
                 "TeamNumber",
+                "AutoStart",
                 "AutoSpeaker",
                 "AutoAmp",
                 "AutoCenterline",
@@ -294,6 +317,7 @@
                 "DefenseTime",
                 "DefenseSkill",
                 "CounterDefenseSkill",
+                "RobotArchetype",
                 "RatingNotes"
             ]
         }
