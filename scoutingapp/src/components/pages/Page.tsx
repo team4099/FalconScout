@@ -7,6 +7,7 @@ import { ComponentSetup, PageSetup } from "../interface"
 import { GenericCheckboxSelect, GenericDropdown, GenericRadioSelect, GenericToggle, ChargedUpGridSelect } from "../selects"
 import { GenericHeaderOne, GenericHeaderTwo, QRCodeModal, Timer } from "../texts"
 import { CycleCounter } from "../monitor"
+import { RobotImage } from "../img/RobotImage"
 import ChargedUpStartingPosition from "../selects/ChargedUpStartingPosition"
 
 interface ImportedComponentSetup extends ComponentSetup {
@@ -31,7 +32,15 @@ export function Page(props: PageSetup) {
         "Timer": [Timer, ""],
         "ChargedUpGridSelect": [ChargedUpGridSelect, []],
         "ChargedUpStartingPosition": [ChargedUpStartingPosition, ""],
-        "ConeCubeIncrementInput": [ConeCubeIncrementInput, []]
+        "ConeCubeIncrementInput": [ConeCubeIncrementInput, []],
+        "RobotImage": [
+          RobotImage,
+          <img
+            style={{width: "80%", height: "80%", alignItems: 'center', justifyContent: 'center'}}
+            src='../img/gray.png'
+            alt={`Picture of robot`}
+          />
+        ]
     }
 
     let componentSetup: any = {}

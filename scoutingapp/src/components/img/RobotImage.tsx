@@ -1,12 +1,16 @@
 import React from "react"
 import { ComponentSetup } from "../interface"
 
-function RobotImage(props: ComponentSetup, robot_number: number) {
+interface RobotImageProps extends ComponentSetup {
+  robotNumber?: string;
+}
+
+export function RobotImage({ robotNumber = "4099", ...props }: RobotImageProps) {
   return (
     <img
-      style={{ width: "80%", height: "80%", alignItems: 'center', justifyContent: 'center'}}
-      src={`./${robot_number}.png}`}
-      alt={`Picture of robot ${robot_number}`}
+      style={{ width: "60%", height: "60%", alignItems: 'center', justifyContent: 'center', margin: "auto"}}
+      src={`./src/components/img/${robotNumber}.png`}
+      alt={`Picture of robot ${robotNumber}`}
     />
   )
 }
