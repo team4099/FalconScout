@@ -1,5 +1,7 @@
 import os
 
+import requests
+
 API_KEY = 'api_key'
 
 EVENT_KEY = 'event_key'
@@ -11,11 +13,13 @@ HEADERS = {
     'Auth-Key': API_KEY
 }
 
+
 def fetch_teams(event_key):
     url = f'https://www.thebluealliance.com/api/v3/event/{event_key}/teams'
     response = requests.get(url, headers=HEADERS)
     response.raise_for_status()
     return response.json()
+
 
 def fetch_robot_image(team_key):
     url = f'https://www.thebluealliance.com/api/v3/team/{team_key}/media/2023'
@@ -27,11 +31,13 @@ def fetch_robot_image(team_key):
             return f'https://i.imgur.com/{item["foreign_key"]}.jpg'
     return None
 
+
 def download_image(url, file_path):
     response = requests.get(url)
     response.raise_for_status()
     with open(file_path, 'wb') as file:
         file.write(response.content)
+
 
 def main():
     if not os.path.exists(FOLDER_PATH):
@@ -48,6 +54,7 @@ def main():
             print(f"Downloaded image for {team_key} to {file_path}")
         else:
             print(f"No image found for {team_key}")
+
 
 if __name__ == '__main__':
     main()
