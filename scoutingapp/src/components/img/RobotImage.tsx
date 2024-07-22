@@ -10,11 +10,19 @@ export const emptyImage = <img
 export function RobotImage(props: ComponentSetup) {
   const robotNumber = props.getValue["TeamNumber"]
 
+  const makeAltText = (robotNumber: string) => {
+    if (robotNumber) {
+      return `Picture of robot ${robotNumber}`
+    } else {
+      return 'Insert robot number above'
+    }
+  }
+
   return (
     <img
       style={{ width: "60%", height: "60%", alignItems: 'center', justifyContent: 'center', margin: "auto" }}
       src={`./src/components/img/${robotNumber}.png`}
-      alt={`Picture of robot ${robotNumber}`}
+      alt={makeAltText(robotNumber)}
     />
   )
 }
