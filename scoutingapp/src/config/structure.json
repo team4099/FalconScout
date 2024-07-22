@@ -66,6 +66,11 @@
                 "required": true
             },
             {
+                "type": "DarkButton",
+                "text": "Submit",
+                "id": "result"
+            },
+            {
                 "type": "RobotImage",
                 "placeholder": 0
             },

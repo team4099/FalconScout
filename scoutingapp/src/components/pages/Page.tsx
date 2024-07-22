@@ -64,6 +64,16 @@ export function Page(props: PageSetup) {
         isRequiredCompleted: false
     }
 
+      const setRobotImage = (newState: any) => {
+        setState(newState);
+        if (newState.buttonClicked) {
+          setState((prevState) => ({
+            ...prevState,
+            robotNumber: prevState.textInputValue,
+          }));
+        }
+      };
+
     const requiredComponents: String[] = []
 
     const [pageComponents, setPageComponents] = useState(componentSetup)
