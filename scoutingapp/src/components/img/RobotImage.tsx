@@ -24,7 +24,7 @@ export function RobotImage(props: ComponentSetup) {
     const interval = setInterval(() => {
       setComponentInside(
         <img
-          style={{height: "60%", alignItems: 'center', justifyContent: 'center', margin: "auto"}}
+          style={{ width: "50%", height: "50%", alignItems: 'center', justifyContent: 'center', margin: "auto"}}
           src={`./src/components/img/${robotNumber}.png`}
           alt={makeAltText(robotNumber)}
         />

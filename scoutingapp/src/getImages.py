@@ -1,34 +1,41 @@
 import os
 import requests
 import json
-import urllib.request
+from urllib.request import Request, urlopen
+import time
 from bs4 import BeautifulSoup
 
-API_KEY = 'INSERT_API_KEY_HERE'
+TBA_API_KEY = 'INSERT_HERE'
+IMGUR_CLIENT_ID = 'INSERT_HERE'
+IMGUR_ETAG = 'INSERT_HERE'
 
 EVENT_KEY = '2024cur'
 
-FOLDER_PATH = './img'
+FOLDER_PATH = './components/img'
 
 # Headers for the API request
-HEADERS = {
-    'X-TBA-Auth-Key': API_KEY
+TBA_HEADERS = {
+    'X-TBA-Auth-Key': TBA_API_KEY
+}
+
+IMGUR_HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:128.0) Gecko/20100101 Firefox/128.0',
+    'Referer': 'https://imgur.com/',
+    'Authorization': f"Client-ID {IMGUR_CLIENT_ID}",
+    "ETag": IMGUR_ETAG,
 }
 
 
 def fetch_teams(event_key):
     url = f'https://www.thebluealliance.com/api/v3/event/{event_key}/teams'
-    response = requests.get(url, headers=HEADERS)
+    response = requests.get(url, headers=TBA_HEADERS)
     response.raise_for_status()
     return [team['team_number'] for team in response.json()]
 
 
-print(fetch_teams(EVENT_KEY))
-
-
 def fetch_robot_image(team_key):
     url = f'https://www.thebluealliance.com/api/v3/team/{team_key}/media/2023'
-    response = requests.get(url, headers=HEADERS)
+    response = requests.get(url, headers=TBA_HEADERS)
     response.raise_for_status()
     media = response.json()
     for item in media:
@@ -37,38 +44,23 @@ def fetch_robot_image(team_key):
     return None
 
 
-def download_image(url, file_path):
-    response = requests.get(url)
-    response.raise_for_status()
-    with open(file_path, 'wb') as file:
-        file.write(response.content)
-
-
 def main():
     if not os.path.exists(FOLDER_PATH):
         os.makedirs(FOLDER_PATH)
 
     teams = fetch_teams(EVENT_KEY)
 
-    exit(1)
     for team in teams:
-        team_key = team['key']
-        image_url = fetch_robot_image(team_key)
-        if image_url:
-            file_name = f"{team_key}.jpg"
-            file_path = os.path.join(FOLDER_PATH, file_name)
-            download_image(image_url, file_path)
-            print(f"Downloaded image for {team_key} to {file_path}")
-        else:
-            print(f"No image found for {team_key}")
+        time.sleep(1)
+        scrape_robot_image(team)
 
 
-def scrape_robot_image(team_number):
+def scrape_robot_image(team_number: int) -> None:
     url = f"https://www.thebluealliance.com/team/{team_number}"
-    response = requests.get(url, headers=HEADERS)
+    response = requests.get(url, headers=TBA_HEADERS)
 
     if response.status_code != 200:
-        print(f"Failed to retrieve page for team {team_number}")
+        print(f"{response.status_code}: Failed to retrieve page for team {team_number}")
         return
 
     soup = BeautifulSoup(response.text, 'html.parser')
@@ -76,21 +68,31 @@ def scrape_robot_image(team_number):
     image_tag = soup.find('a', {'class': 'gallery'})
     image_url = image_tag['href']
 
+    if not image_url:
+        print(f"No image found for team {team_number}")
+        return
+
     print(image_tag, image_url, sep="\n")
+    image_ending = image_url[-3:]
+    image_hash = image_url.split("/")[3].removesuffix(".jpg").removesuffix(".png")
+    image_url = f"https://api.imgur.com/3/image/{image_hash}"
+    print(image_url)
 
     # Download the image
-    image_response = requests.get(image_url)
-    print(image_response.status_code)
+    image_response = requests.get(image_url, headers=IMGUR_HEADERS, stream=True)
+    print("*", image_response)
+    print("***", image_response.headers)
+    image_response.raise_for_status()
 
-    if image_response.status_code == 200:
-        image_name = f"team_{team_number}_robot_image.jpg"
-        with open(image_name, 'wb') as file:
-            file.write(image_response.content)
-        print(f"Image successfully saved as {image_name}")
-    else:
-        print(f"Failed to download image for team {team_number}")
+    file_path = os.path.join(FOLDER_PATH, f"{team_number}.{image_ending}")
+    with open(file_path, 'wb') as file:
+        for chunk in response.iter_content(1024):
+            file.write(chunk)
+
+    print(f"Downloaded image for {team_number} to {file_path}")
 
 
 if __name__ == '__main__':
+    print(fetch_teams(EVENT_KEY))
     scrape_robot_image(6328)
-    main()
+    #main()
