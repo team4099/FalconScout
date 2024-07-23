@@ -20,7 +20,7 @@ export function RobotImage(props: ComponentSetup) {
 
   return (
     <img
-      style={{ width: "60%", height: "60%", alignItems: 'center', justifyContent: 'center', margin: "auto" }}
+      style={{ height: "60%", alignItems: 'center', justifyContent: 'center', margin: "auto" }}
       src={`./src/components/img/${robotNumber}.png`}
       alt={makeAltText(robotNumber)}
     />
