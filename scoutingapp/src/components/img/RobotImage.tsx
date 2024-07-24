@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react"
 import { ComponentSetup } from "../interface"
-import QRCode from "react-qr-code";
 
 export const emptyImage = <img
   style={{width: "80%", height: "80%", alignItems: 'center', justifyContent: 'center'}}
@@ -17,8 +16,8 @@ export function RobotImage(props: ComponentSetup) {
       if (robotNumber) {
         setComponentInside(
           <img
-            style={{ width: "50%", height: "50%", alignItems: 'center', justifyContent: 'center', margin: "auto"}}
-            src={`./src/components/img/${robotNumber}.png`}
+            style={{ height: "300px", alignItems: 'center', justifyContent: 'center', margin: "auto"}}
+            src={`./src/components/img/${robotNumber}.jpeg`}
             alt={`Image of robot ${robotNumber} not found.`}
           />
         )

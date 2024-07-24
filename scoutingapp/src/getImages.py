@@ -1,15 +1,15 @@
 import os
-import requests
-import json
-from urllib.request import Request, urlopen
 import time
-from bs4 import BeautifulSoup
+import requests
+import bs4
 
-TBA_API_KEY = 'INSERT_HERE'
-IMGUR_CLIENT_ID = 'INSERT_HERE'
-IMGUR_ETAG = 'INSERT_HERE'
+TBA_API_KEY = r''
+IMGUR_CLIENT_ID = r''
+IMGUR_ETAG = r''
+EVENT_KEY = ''
 
-EVENT_KEY = '2024cur'
+if not (TBA_API_KEY and IMGUR_CLIENT_ID and IMGUR_ETAG and EVENT_KEY):
+    raise PermissionError("Some keys are missing! Go into code and insert your keys.")
 
 FOLDER_PATH = './components/img'
 
@@ -26,36 +26,14 @@ IMGUR_HEADERS = {
 }
 
 
-def fetch_teams(event_key):
+def fetch_teams(event_key) -> list[int]:
     url = f'https://www.thebluealliance.com/api/v3/event/{event_key}/teams'
     response = requests.get(url, headers=TBA_HEADERS)
     response.raise_for_status()
-    return [team['team_number'] for team in response.json()]
+    return sorted([team['team_number'] for team in response.json()])
 
 
-def fetch_robot_image(team_key):
-    url = f'https://www.thebluealliance.com/api/v3/team/{team_key}/media/2023'
-    response = requests.get(url, headers=TBA_HEADERS)
-    response.raise_for_status()
-    media = response.json()
-    for item in media:
-        if item['type'] == 'imgur':
-            return f'https://i.imgur.com/{item["foreign_key"]}.jpg'
-    return None
-
-
-def main():
-    if not os.path.exists(FOLDER_PATH):
-        os.makedirs(FOLDER_PATH)
-
-    teams = fetch_teams(EVENT_KEY)
-
-    for team in teams:
-        time.sleep(1)
-        scrape_robot_image(team)
-
-
-def scrape_robot_image(team_number: int) -> None:
+def scrape_robot_image(team_number: int) -> None | str | list[str]:
     url = f"https://www.thebluealliance.com/team/{team_number}"
     response = requests.get(url, headers=TBA_HEADERS)
 
@@ -63,36 +41,70 @@ def scrape_robot_image(team_number: int) -> None:
         print(f"{response.status_code}: Failed to retrieve page for team {team_number}")
         return
 
-    soup = BeautifulSoup(response.text, 'html.parser')
+    soup = bs4.BeautifulSoup(response.text, 'html.parser')
     # Find the image by its class name or id. This may change, so inspect the page to find the correct identifier.
     image_tag = soup.find('a', {'class': 'gallery'})
     image_url = image_tag['href']
 
-    if not image_url:
-        print(f"No image found for team {team_number}")
-        return
+    return image_url
 
-    print(image_tag, image_url, sep="\n")
-    image_ending = image_url[-3:]
+
+def download_image(team_number: int, image_url: str) -> None:
     image_hash = image_url.split("/")[3].removesuffix(".jpg").removesuffix(".png")
-    image_url = f"https://api.imgur.com/3/image/{image_hash}"
-    print(image_url)
+    image_ending = image_url.split(".")[-1]
+    image_ending = "jpeg" if image_ending == "jpg" else image_ending
 
-    # Download the image
-    image_response = requests.get(image_url, headers=IMGUR_HEADERS, stream=True)
-    print("*", image_response)
-    print("***", image_response.headers)
+    image_url = f'https://i.imgur.com/{image_hash}.{image_ending}'
+
+    image_response = requests.get(image_url, headers=IMGUR_HEADERS)
     image_response.raise_for_status()
 
     file_path = os.path.join(FOLDER_PATH, f"{team_number}.{image_ending}")
-    with open(file_path, 'wb') as file:
-        for chunk in response.iter_content(1024):
-            file.write(chunk)
 
-    print(f"Downloaded image for {team_number} to {file_path}")
+    with open(file_path, 'wb') as f:
+        f.write(image_response.content)
+
+    return
+
+
+def main(teams: tuple[int] = ()) -> None:
+    if not os.path.exists(FOLDER_PATH):
+        os.makedirs(FOLDER_PATH)
+
+    if not teams:
+        teams = fetch_teams(EVENT_KEY)
+
+    failed_teams = {}
+    for team in teams:
+        print(f'{team}: Starting...')
+        time.sleep(1)
+
+        try:
+            url = scrape_robot_image(team)
+            print(f"{team}: scrape_robot_image ran successfully.")
+
+            if not url:
+                print(f"{team}: Failed to retrieve image link.")
+                failed_teams[team] = "Failed to retrieve image link."
+                continue
+            if "imgur" not in url:
+                print(f"{team}: Image not found.")
+                failed_teams[team] = "Image not found."
+                continue
+
+            download_image(team, url)
+            print(f'{team}: Success.')
+        except TypeError:
+            print(f"{team}: Image not found.")
+            failed_teams[team] = "Image not found."
+        except Exception as e:
+            print(f"{team}: {e}")
+            failed_teams[team] = e
+
+    if failed_teams:
+        print("NOTE: Some teams did not run properly.")
+        print(*failed_teams.items(), sep="\n")
 
 
 if __name__ == '__main__':
-    print(fetch_teams(EVENT_KEY))
-    scrape_robot_image(6328)
-    #main()
+    main()
