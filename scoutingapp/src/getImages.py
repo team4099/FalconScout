@@ -108,7 +108,7 @@ def main(teams: tuple[int] = ()) -> None:
     failed_teams = {}
     for team in teams:
         print(f'{team}: Starting...')
-        time.sleep(1)
+        time.sleep(0.5)
 
         try:
             url = scrape_robot_image(team)
@@ -119,8 +119,8 @@ def main(teams: tuple[int] = ()) -> None:
                 failed_teams[team] = "Failed to retrieve image link."
                 continue
             if "imgur" not in url:
-                print(f"{team}: Image not found.")
-                failed_teams[team] = "Image not found."
+                print(f"{team}: Image is not imgur.")
+                failed_teams[team] = "Image is not imgur."
                 continue
 
             download_image(team, url)
@@ -132,9 +132,15 @@ def main(teams: tuple[int] = ()) -> None:
             print(f"{team}: {e}")
             failed_teams[team] = e
 
-    if failed_teams:
-        print("NOTE: Some teams did not run properly.")
-        print(*failed_teams.items(), sep="\n")
+    if not failed_teams:
+        return
+
+    print("NOTE: Some teams did not run properly.")
+    print(*failed_teams.items(), sep="\n")
+
+    with open("image_errors.txt", 'w') as err_file:
+        for fail in failed_teams.items():
+            err_file.write(str(fail) + "\n")
 
 
 if __name__ == '__main__':
