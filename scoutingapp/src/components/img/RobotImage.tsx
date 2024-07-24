@@ -12,24 +12,26 @@ export function RobotImage(props: ComponentSetup) {
   const [componentInside, setComponentInside] = useState(<></>)
   const robotNumber = props.getValue["TeamNumber"]
 
-  const makeAltText = (robotNumber: string) => {
-    if (robotNumber) {
-      return `Picture of robot ${robotNumber}`
-    } else {
-      return 'Insert robot number above'
-    }
-  }
-
   useEffect(() => {
     const interval = setInterval(() => {
-      setComponentInside(
-        <img
-          style={{ width: "50%", height: "50%", alignItems: 'center', justifyContent: 'center', margin: "auto"}}
-          src={`./src/components/img/${robotNumber}.png`}
-          alt={makeAltText(robotNumber)}
-        />
-      )
-    }, 500);
+      if (robotNumber) {
+        setComponentInside(
+          <img
+            style={{ width: "50%", height: "50%", alignItems: 'center', justifyContent: 'center', margin: "auto"}}
+            src={`./src/components/img/${robotNumber}.png`}
+            alt={`Image of robot ${robotNumber} not found.`}
+          />
+        )
+      } else {
+        setComponentInside(
+          <img
+            style={{ width: "50%", height: "50%", alignItems: 'center', justifyContent: 'center', margin: "auto"}}
+            src={`./src/components/img/gray.png`}
+            alt={'Insert robot number above'}
+          />
+        )
+      }
+    }, 500)
     return () => clearInterval(interval);
   })
 
