@@ -27,13 +27,28 @@ IMGUR_HEADERS = {
 
 
 def fetch_teams(event_key) -> list[int]:
+    """
+    Fetch the list of teams using an event key.
+
+    :param event_key: The key for the event
+    :returns: List of teams
+    """
+
     url = f'https://www.thebluealliance.com/api/v3/event/{event_key}/teams'
     response = requests.get(url, headers=TBA_HEADERS)
     response.raise_for_status()
     return sorted([team['team_number'] for team in response.json()])
 
 
-def scrape_robot_image(team_number: int) -> None | str | list[str]:
+def scrape_robot_image(team_number: int) -> None | str:
+    """
+    Returns the url of the location of the robot image used on TBA.
+    This function fails (raises TypeError or returns None) when there is no robot image found on TBA.
+
+    :param team_number: The team number for the robot you're looking for
+    :returns: The url of the image
+    """
+
     url = f"https://www.thebluealliance.com/team/{team_number}"
     response = requests.get(url, headers=TBA_HEADERS)
 
@@ -50,7 +65,16 @@ def scrape_robot_image(team_number: int) -> None | str | list[str]:
 
 
 def download_image(team_number: int, image_url: str) -> None:
-    image_hash = image_url.split("/")[3].removesuffix(".jpg").removesuffix(".png")
+    """
+    Downloads the image from the given url to the appropirate place in code.
+    Will download to scoutingapp/src/components/img and will download as team_number.jpeg.
+
+    :param team_number: The team number for the robot
+    :param image_url: The url location of the image that needs to be downloaded
+    :returns: None
+    """
+
+    image_hash = image_url.split("/")[3].removesuffix(".jpg").removesuffix(".jpeg").removesuffix(".png")
     image_ending = image_url.split(".")[-1]
     image_ending = "jpeg" if image_ending == "jpg" else image_ending
 
@@ -68,6 +92,13 @@ def download_image(team_number: int, image_url: str) -> None:
 
 
 def main(teams: tuple[int] = ()) -> None:
+    """
+    Main function.
+
+    :param teams: List of teams, optional, should only be inputted as argument when debugging code
+    :returns: None
+    """
+
     if not os.path.exists(FOLDER_PATH):
         os.makedirs(FOLDER_PATH)
 
