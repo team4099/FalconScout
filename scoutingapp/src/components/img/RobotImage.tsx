@@ -24,7 +24,7 @@ export function RobotImage(props: ComponentSetup) {
       } else {
         setComponentInside(
           <img
-            style={{ width: "50%", height: "50%", alignItems: 'center', justifyContent: 'center', margin: "auto"}}
+            style={{ height: "300px", alignItems: 'center', justifyContent: 'center', margin: "auto"}}
             src={`./src/components/img/gray.png`}
             alt={'Insert robot number above'}
           />
