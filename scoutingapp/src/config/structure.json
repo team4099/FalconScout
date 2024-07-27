@@ -66,8 +66,7 @@
                 "required": true
             },
             {
-                "type": "RobotImage",
-                "placeholder": 0
+                "type": "RobotImage"
             },
             {
                 "type": "Spacing"

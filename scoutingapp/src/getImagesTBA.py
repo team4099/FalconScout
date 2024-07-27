@@ -115,7 +115,6 @@ def main(teams: tuple[int] = ()) -> None:
 
         try:
             url = scrape_robot_url(team)
-            print(f"{team}: URL grabbed successfully.")
 
             if not url:
                 print(f"{team}: Failed to retrieve image link.")
