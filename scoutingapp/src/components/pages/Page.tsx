@@ -58,9 +58,9 @@ export function Page(props: PageSetup) {
     }
 
       const setRobotImage = (newState: any) => {
-        setState(newState);
+        useState(newState);
         if (newState.buttonClicked) {
-          setState((prevState) => ({
+          useState((prevState: any) => ({
             ...prevState,
             robotNumber: prevState.textInputValue,
           }));
