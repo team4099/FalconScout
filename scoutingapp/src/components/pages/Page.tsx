@@ -7,6 +7,7 @@ import { ComponentSetup, PageSetup } from "../interface"
 import { GenericCheckboxSelect, GenericDropdown, GenericRadioSelect, GenericToggle, ChargedUpGridSelect } from "../selects"
 import { GenericHeaderOne, GenericHeaderTwo, QRCodeModal, Timer } from "../texts"
 import { CycleCounter } from "../monitor"
+import { RobotImage, emptyImage } from "../img/RobotImage"
 import ChargedUpStartingPosition from "../selects/ChargedUpStartingPosition"
 
 interface ImportedComponentSetup extends ComponentSetup {
@@ -31,7 +32,8 @@ export function Page(props: PageSetup) {
         "Timer": [Timer, ""],
         "ChargedUpGridSelect": [ChargedUpGridSelect, []],
         "ChargedUpStartingPosition": [ChargedUpStartingPosition, ""],
-        "ConeCubeIncrementInput": [ConeCubeIncrementInput, []]
+        "ConeCubeIncrementInput": [ConeCubeIncrementInput, []],
+        "RobotImage": [RobotImage, emptyImage]
     }
 
     let componentSetup: any = {}
@@ -54,6 +56,16 @@ export function Page(props: PageSetup) {
         delimiter: props?.config?.export.delimiter,
         isRequiredCompleted: false
     }
+
+      const setRobotImage = (newState: any) => {
+        useState(newState);
+        if (newState.buttonClicked) {
+          useState((prevState: any) => ({
+            ...prevState,
+            robotNumber: prevState.textInputValue,
+          }));
+        }
+      };
 
     const requiredComponents: String[] = []
 

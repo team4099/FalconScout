@@ -1,0 +1,5 @@
+# Only for getImages.py, you don't need to install these
+# packages if you are not working with the robot images.
+
+requests==2.32.3
+beautifulsoup4==4.12.3
