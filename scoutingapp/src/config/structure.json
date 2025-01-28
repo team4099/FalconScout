@@ -299,12 +299,12 @@
         }
     },
     {
-        "name": "2024 Note Scouting App",
-        "description": "Team 4099: The Falcon's 2024 note scouting app for providing qualitative data.",
+        "name": "2025 Note Scouting App",
+        "description": "Team 4099: The Falcon's 2025 note scouting app for providing qualitative data.",
         "components": [
             {
                 "type": "GenericHeaderOne",
-                "text": "2024 Note Scouting App"
+                "text": "2025 Note Scouting App"
             },
             {
                 "type": "GenericHeaderTwo",
@@ -386,7 +386,7 @@
                 "text": "Where are they mostly intaking from?",
                 "options": [
                     "-",
-                    "Source",
+                    "Coral Station",
                     "Ground"
                 ],
                 "id": "TeleopIntakeLocation"
@@ -401,8 +401,8 @@
                 "text": "Climb Alignment Speed",
                 "options": [
                     "-",
-                    "Slow: Took at least 5 seconds to climb on chain",
-                    "Fast: Took at most 5 seconds to climb on chain"
+                    "Slow: Took at least 5 seconds to climb on the cage",
+                    "Fast: Took at most 5 seconds to climb on the cage"
                 ],
                 "id": "ClimbAlignmentSpeed"
             },
