@@ -74,24 +74,51 @@
             },
             {
                 "type": "IncrementNumberInput",
-                "text": "Auto Speaker Cycles",
+                "text": "Auto Coral L1 Cycles",
                 "placeholder": [
                     "0"
                 ],
-                "id": "AutoSpeaker"
+                "id": "AutoCoralL1"
             },
             {
                 "type": "IncrementNumberInput",
-                "text": "Auto Amp Cycles",
+                "text": "Auto Coral L2 Cycles",
                 "placeholder": [
                     "0"
                 ],
-                "id": "AutoAmp"
+                "id": "AutoCoralL2"
             },
             {
-                "type": "GenericToggle",
-                "text": "Did they intake from the centerline during auto?",
-                "id": "AutoCenterline"
+                "type": "IncrementNumberInput",
+                "text": "Auto Coral L3 Cycles",
+                "placehoder": [
+                    "0"
+                ],
+                "id": "AutoCoralL3"
+            },
+            {
+                "type": "IncrementNumberInput",
+                "text": "Auto Coral L4 Cycles",
+                "placehoder": [
+                    "0"
+                ],
+                "id": "AutoCoralL4"
+            },
+            {
+                "type": "IncrementNumberInput",
+                "text": "Auto Barge Cycles",
+                "placehoder": [
+                    "0"
+                ],
+                "id": "AutoBarge"
+            },
+            {
+                "type": "IncrementNumberInput",
+                "text": "Auto Processor Cycles",
+                "placehoder": [
+                    "0"
+                ],
+                "id": "AutoProcessor"
             },
             {
                 "type": "GenericToggle",
@@ -274,8 +301,12 @@
                 "Alliance",
                 "DriverStation",
                 "TeamNumber",
-                "AutoSpeaker",
-                "AutoAmp",
+                "AutoCoralL1",
+                "AutoCoralL2",
+                "AutoCoralL3",
+                "AutoCoralL4",
+                "AutoBarge",
+                "AutoProcessor",
                 "AutoCenterline",
                 "AutoLeave",
                 "AutoNotes",
