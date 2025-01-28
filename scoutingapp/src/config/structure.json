@@ -145,14 +145,14 @@
             },
             {
                 "type": "IncrementNumberInput",
-                "text": "Teleop/Endgame Passing Cycles",
+                "text": "Coral L4 Cycles",
                 "placeholder": [
                     "0"
                 ],
                 "options": [
                     "blue"
                 ],
-                "id": "TeleopPassing"
+                "id": "TeleopCoralL4"
             },
             {
                 "type": "GenericTextArea",
@@ -282,7 +282,7 @@
                 "TeleopSpeaker",
                 "TeleopAmp",
                 "TeleopTrap",
-                "TeleopPassing",
+                "TeleopCoralL4",
                 "TeleopNotes",
                 "Parked",
                 "ClimbStatus",
