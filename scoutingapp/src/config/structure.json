@@ -1,11 +1,11 @@
 [
     {
-        "name": "2024 Scouting App",
-        "description": "Team 4099: The Falcon's 2024 scouting data collection page",
+        "name": "2025 Scouting App",
+        "description": "Team 4099: The Falcon's 2025 scouting data collection page",
         "components": [
             {
                 "type": "GenericHeaderOne",
-                "text": "2024 Scouting App"
+                "text": "2025 Scouting App"
             },
             {
                 "type": "GenericHeaderTwo",
@@ -112,14 +112,14 @@
             },
             {
                 "type": "IncrementNumberInput",
-                "text": "Teleop Speaker Cycles",
+                "text": "Teleop Coral Level 1 Cycles",
                 "placeholder": [
                     "0"
                 ],
                 "options": [
                     "red"
                 ],
-                "id": "TeleopSpeaker"
+                "id": "TeleopCoralL1"
             },
             {
                 "type": "IncrementNumberInput",
@@ -279,7 +279,7 @@
                 "AutoCenterline",
                 "AutoLeave",
                 "AutoNotes",
-                "TeleopSpeaker",
+                "TeleopCoralL1",
                 "TeleopAmp",
                 "TeleopTrap",
                 "TeleopPassing",
