@@ -175,9 +175,9 @@
                 "type": "GenericDropdown",
                 "text": "Did the robot climb onto the cage?",
                 "options": [
-                    "no climb",
-                    "deep climb",
-                    "shallow climb"
+                    "No Climb",
+                    "Deep Climb",
+                    "Shallow Climb"
                 ],
                 "id": "ClimbStatus"
             },    
@@ -186,9 +186,9 @@
                 "type": "GenericDropdown",
                 "text": "How fast were they at climbing onto the cage?",
                 "options": [
-                    "Slow",
-                    "average",
-                    "Fast"
+                    "Slow (>10 seconds)",
+                    "Average (5-10 seconds)",
+                    "Fast (<5 seconds)"
                 ],
                 "id": "ClimbSpeed"
             },
@@ -298,7 +298,6 @@
                 "TeleopNotes",
                 "Parked",
                 "ClimbStatus",
-               
                 "ClimbSpeed",
                 "EndgameNotes",
                 "Disabled",
