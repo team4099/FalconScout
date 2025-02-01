@@ -1,11 +1,11 @@
 [
     {
-        "name": "2024 Scouting App",
-        "description": "Team 4099: The Falcon's 2024 scouting data collection page",
+        "name": "2025 Scouting App",
+        "description": "Team 4099: The Falcon's 2025 scouting data collection page",
         "components": [
             {
                 "type": "GenericHeaderOne",
-                "text": "2024 Scouting App"
+                "text": "2025 Scouting App"
             },
             {
                 "type": "GenericHeaderTwo",
@@ -172,20 +172,22 @@
                 "id": "Parked"
             },
             {
-                "type": "GenericToggle",
-                "text": "Did the robot climb onto the chain?",
+                "type": "GenericDropdown",
+                "text": "Did the robot climb onto the cage?",
+                "options": [
+                    "no climb",
+                    "deep climb",
+                    "shallow climb"
+                ],
                 "id": "ClimbStatus"
-            },
-            {
-                "type": "GenericToggle",
-                "text": "If the robot climbed, did it climb onto the chain with another robot (harmonized)?",
-                "id": "Harmonized"
-            },
+            },    
+
             {
                 "type": "GenericDropdown",
-                "text": "How fast were they at climbing onto the chain?",
+                "text": "How fast were they at climbing onto the cage?",
                 "options": [
                     "Slow",
+                    "average",
                     "Fast"
                 ],
                 "id": "ClimbSpeed"
@@ -218,6 +220,16 @@
                     "Very Poor: Pinballed into other robots / racked up fouls / hampered their alliance."
                 ],
                 "id": "DriverRating"
+            },
+            {
+            "type": "GenericDropdown",
+                "text": "How tippy was their robot?",
+                "options": [
+                    "Very tippy",
+                    "moderately tippy",
+                    "stable"
+                ],
+                "id": "StabilityRating"
             },
             {
                 "type": "GenericDropdown",
@@ -286,11 +298,12 @@
                 "TeleopNotes",
                 "Parked",
                 "ClimbStatus",
-                "Harmonized",
+               
                 "ClimbSpeed",
                 "EndgameNotes",
                 "Disabled",
                 "DriverRating",
+                "StabilityRating",
                 "DefenseTime",
                 "DefenseSkill",
                 "CounterDefenseSkill",
