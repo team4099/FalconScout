@@ -377,6 +377,40 @@
                 "id": "AutoDrivingSkills"
             },
             {
+                "type": "GenericDropdown",
+                "text": "Can the robot easily tip over?",
+                "options": [
+                    "Yes",
+                    "No"
+                ],
+                "required": true,
+                "id": "tip"
+            },
+            {
+                "type": "GenericDropdown",
+                "text": "Robot Style",
+                "options": [
+                    "Defensive",
+                    "Offensive"
+                ],
+                "required": true,
+                "id": "typeOfRobot"
+            },
+            {
+                "type": "GenericDropdown",
+                "text": "How good are they at intaking while being defended(0-5)",
+                "options": [
+                    "0",
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5"
+                ],
+                "required": true,
+                "id": "intakeWhileDefended"
+            },
+            {
                 "type": "GenericTextArea",
                 "text": "Auto General Notes",
                 "id": "AutoGeneralNotes"
