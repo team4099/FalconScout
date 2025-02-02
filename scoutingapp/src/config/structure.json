@@ -1,11 +1,11 @@
 [
     {
-        "name": "2024 Scouting App",
-        "description": "Team 4099: The Falcon's 2024 scouting data collection page",
+        "name": "2025 Scouting App",
+        "description": "Team 4099: The Falcon's 2025 scouting data collection page",
         "components": [
             {
                 "type": "GenericHeaderOne",
-                "text": "2024 Scouting App"
+                "text": "2025 Scouting App"
             },
             {
                 "type": "GenericHeaderTwo",
@@ -145,14 +145,14 @@
             },
             {
                 "type": "IncrementNumberInput",
-                "text": "Teleop/Endgame Passing Cycles",
+                "text": "Coral L4 Cycles",
                 "placeholder": [
                     "0"
                 ],
                 "options": [
                     "blue"
                 ],
-                "id": "TeleopPassing"
+                "id": "TeleopCoralL4"
             },
             {
                 "type": "GenericTextArea",
@@ -172,21 +172,23 @@
                 "id": "Parked"
             },
             {
-                "type": "GenericToggle",
-                "text": "Did the robot climb onto the chain?",
+                "type": "GenericDropdown",
+                "text": "Did the robot climb onto the cage?",
+                "options": [
+                    "No Climb",
+                    "Deep Climb",
+                    "Shallow Climb"
+                ],
                 "id": "ClimbStatus"
-            },
-            {
-                "type": "GenericToggle",
-                "text": "If the robot climbed, did it climb onto the chain with another robot (harmonized)?",
-                "id": "Harmonized"
-            },
+            },    
+
             {
                 "type": "GenericDropdown",
-                "text": "How fast were they at climbing onto the chain?",
+                "text": "How fast were they at climbing onto the cage?",
                 "options": [
-                    "Slow",
-                    "Fast"
+                    "Slow (>10 seconds)",
+                    "Average (5-10 seconds)",
+                    "Fast (<5 seconds)"
                 ],
                 "id": "ClimbSpeed"
             },
@@ -218,6 +220,16 @@
                     "Very Poor: Pinballed into other robots / racked up fouls / hampered their alliance."
                 ],
                 "id": "DriverRating"
+            },
+            {
+            "type": "GenericDropdown",
+                "text": "How tippy was their robot?",
+                "options": [
+                    "Very tippy",
+                    "moderately tippy",
+                    "stable"
+                ],
+                "id": "StabilityRating"
             },
             {
                 "type": "GenericDropdown",
@@ -282,15 +294,15 @@
                 "TeleopSpeaker",
                 "TeleopAmp",
                 "TeleopTrap",
-                "TeleopPassing",
+                "TeleopCoralL4",
                 "TeleopNotes",
                 "Parked",
                 "ClimbStatus",
-                "Harmonized",
                 "ClimbSpeed",
                 "EndgameNotes",
                 "Disabled",
                 "DriverRating",
+                "StabilityRating",
                 "DefenseTime",
                 "DefenseSkill",
                 "CounterDefenseSkill",
