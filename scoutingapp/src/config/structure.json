@@ -210,17 +210,12 @@
                 "id": "Disabled"
             },
             {
-                "type": "GenericToggle",
-                "text": "Can the robot easily tip over?",
-                "id": "Tippiness"
-            },
-            {
             "type": "GenericDropdown",
                 "text": "How tippy was their robot?",
                 "options": [
-                    "Very tippy",
-                    "moderately tippy",
-                    "stable"
+                    "Very Tippy",
+                    "Moderatly Tippy",
+                    "Stable"
                 ],
                 "id": "StabilityRating"
             },
