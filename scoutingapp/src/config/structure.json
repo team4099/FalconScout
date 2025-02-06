@@ -291,7 +291,6 @@
                 "RobotStyleType",
                 "DriverRating",
                 "IntakeDefenseRating",
-                "CounterDefenseSkill",
                 "RatingNotes"
             ]
         }
