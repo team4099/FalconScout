@@ -214,7 +214,7 @@
                 "text": "How tippy was their robot?",
                 "options": [
                     "Very Tippy",
-                    "Moderatly Tippy",
+                    "Moderately Tippy",
                     "Stable"
                 ],
                 "id": "StabilityRating"
@@ -287,13 +287,10 @@
                 "ClimbSpeed",
                 "EndgameNotes",
                 "Disabled",
-                "Tippiness",
+                "StabilityRating",
+                "RobotStyleType",
                 "DriverRating",
                 "IntakeDefenseRating",
-                "StabilityRating",
-                "DefenseTime",
-                "DefenseSkill",
-                "CounterDefenseSkill",
                 "RatingNotes"
             ]
         }
