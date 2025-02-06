@@ -210,16 +210,9 @@
                 "id": "Disabled"
             },
             {
-                "type": "GenericDropdown",
-                "text": "How fluid was their driving?",
-                "options": [
-                    "Very Fluid: Swerved past obstacles and had no delays when reaching their destination.",
-                    "Fluid: Ran into obstacles at times but generally very fluid & consistent.",
-                    "Average: Vulnerable to defense & would hit obstacles.",
-                    "Poor: Easily impacted by other robots & obstacles and inconsistent when driving.",
-                    "Very Poor: Pinballed into other robots / racked up fouls / hampered their alliance."
-                ],
-                "id": "DriverRating"
+                "type": "GenericToggle",
+                "text": "Can the robot easily tip over?",
+                "id": "Tippiness"
             },
             {
             "type": "GenericDropdown",
@@ -233,39 +226,37 @@
             },
             {
                 "type": "GenericDropdown",
-                "text": "How often did they defend against other robots?",
+                "text": "Robot Style",
                 "options": [
-                    "Very Often: Spent all or almost all of their match defending against other robots.",
-                    "Often: Spent most of their match defending against other robots but also spent time scoring.",
-                    "Sometimes: Spent roughly half their match defending against other robots or defended opportunistically.",
-                    "Rarely: They focused on scoring mostly and barely defended against robots, but they did spend time defending.",
-                    "Never: They never defended against other robots throughout the entire match."
+                    "Defensive",
+                    "Offensive"
                 ],
-                "id": "DefenseTime"
+                "id": "RobotStyleType"
             },
             {
                 "type": "GenericDropdown",
-                "text": "If they did defend, how good were they at defending?",
+                "text": "How fluid was their driving?",
                 "options": [
-                    "Very Good: Greatly hampered the robots they were defending from scoring and often pinned them.",
-                    "Good: They hampered the robots they were defending from scoring, but they were still able to perform well.",
-                    "Okay: Their defense did have an impact on the score of the other alliance, but it wasn't notable.",
-                    "Poor: Their defense had little impact on the other alliance and hampered their own alliance at times.",
-                    "Very Poor: Their defense hampered their own alliance where they either racked up fouls or blocked their own teammates."
+                    "Very Fluid: Swerved past obstacles and had no delays when reaching their destination.",
+                    "Fluid: Ran into obstacles at times but generally very fluid & consistent.",
+                    "Average: Vulnerable to defense & would hit obstacles.",
+                    "Poor: Easily impacted by other robots & obstacles and inconsistent when driving.",
+                    "Very Poor: Pinballed into other robots / racked up fouls / hampered their alliance."
                 ],
-                "id": "DefenseSkill"
+                "id": "DriverRating"
             },
             {
                 "type": "GenericDropdown",
-                "text": "If they were being defended by another robot, how good were they at avoiding the defense?",
+                "text": "How good are they at intaking while being defended (0-5)?",
                 "options": [
-                    "Very Good: They swerved around any robots trying to defend them and lost little scoring time to defense.",
-                    "Good: They often swerved around robots trying to defend them, however sometimes they would get caught by the defense.",
-                    "Okay: The defending robots had a notable impact on their scoring ability.",
-                    "Poor: The defending robots hampered their scoring ability and they would take a while to get past the defending robots.",
-                    "Very Poor: The defending robots were able to fully stop the robot from scoring and carrying out game tasks."
+                    "5 - The defending bot had very little to no impact on the robot's intaking ability.",
+                    "4 - The defending bot had some impact on the robot's intaking ability, but the robot was still able to intake easily.",
+                    "3 - The defending bot had a notable impact on the robot's intaking ability, making it difficult to intake for a short period of time.",
+                    "2 - The defending bot heavily impacted the robot's intaking ability, making it difficult to intake for a long period of time.",
+                    "1 - The defending bot severely hampered the robot's intaking ability and barely held onto the game pieces.",
+                    "0 - Never defended"
                 ],
-                "id": "CounterDefenseSkill"
+                "id": "IntakeDefenseRating"
             },
             {
                 "type": "GenericTextArea",
@@ -301,7 +292,9 @@
                 "ClimbSpeed",
                 "EndgameNotes",
                 "Disabled",
+                "Tippiness",
                 "DriverRating",
+                "IntakeDefenseRating",
                 "StabilityRating",
                 "DefenseTime",
                 "DefenseSkill",
@@ -311,12 +304,12 @@
         }
     },
     {
-        "name": "2024 Note Scouting App",
-        "description": "Team 4099: The Falcon's 2024 note scouting app for providing qualitative data.",
+        "name": "2025 Note Scouting App",
+        "description": "Team 4099: The Falcon's 2025 note scouting app for providing qualitative data.",
         "components": [
             {
                 "type": "GenericHeaderOne",
-                "text": "2024 Note Scouting App"
+                "text": "2025 Note Scouting App"
             },
             {
                 "type": "GenericHeaderTwo",
@@ -398,7 +391,7 @@
                 "text": "Where are they mostly intaking from?",
                 "options": [
                     "-",
-                    "Source",
+                    "Coral Station",
                     "Ground"
                 ],
                 "id": "TeleopIntakeLocation"
@@ -413,8 +406,8 @@
                 "text": "Climb Alignment Speed",
                 "options": [
                     "-",
-                    "Slow: Took at least 5 seconds to climb on chain",
-                    "Fast: Took at most 5 seconds to climb on chain"
+                    "Slow: Took at least 5 seconds to climb on the cage",
+                    "Fast: Took at most 5 seconds to climb on the cage"
                 ],
                 "id": "ClimbAlignmentSpeed"
             },
