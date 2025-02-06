@@ -210,17 +210,12 @@
                 "id": "Disabled"
             },
             {
-                "type": "GenericToggle",
-                "text": "Can the robot easily tip over?",
-                "id": "Tippiness"
-            },
-            {
             "type": "GenericDropdown",
                 "text": "How tippy was their robot?",
                 "options": [
-                    "Very tippy",
-                    "moderately tippy",
-                    "stable"
+                    "Very Tippy",
+                    "Moderately Tippy",
+                    "Stable"
                 ],
                 "id": "StabilityRating"
             },
@@ -292,12 +287,10 @@
                 "ClimbSpeed",
                 "EndgameNotes",
                 "Disabled",
-                "Tippiness",
+                "StabilityRating",
+                "RobotStyleType",
                 "DriverRating",
                 "IntakeDefenseRating",
-                "StabilityRating",
-                "DefenseTime",
-                "DefenseSkill",
                 "CounterDefenseSkill",
                 "RatingNotes"
             ]
