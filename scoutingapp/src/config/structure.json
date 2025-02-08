@@ -79,7 +79,7 @@
                     "0"
                 ],
                 "options": [
-                    "red"
+                    "purple"
                 ],
                 "id": "AutoCoralL1"
             },
@@ -90,7 +90,7 @@
                     "0"
                 ],
                 "options": [
-                    "orange"
+                    "purple"
                 ],
                 "id": "AutoCoralL2"
             },
@@ -101,7 +101,7 @@
                     "0"
                 ],
                 "options": [
-                    "yellow"
+                    "purple"
                 ],
                 "id": "AutoCoralL3"
             },
@@ -112,7 +112,7 @@
                     "0"
                 ],
                 "options": [
-                    "green"
+                    "purple"
                 ],
                 "id": "AutoCoralL4"
             },
@@ -123,7 +123,7 @@
                     "0"
                 ],
                 "options": [
-                    "blue"
+                    "green"
                 ],
                 "id": "AutoBarge"
             },
@@ -134,7 +134,7 @@
                     "0"
                 ],
                 "options": [
-                    "purple"
+                    "green"
                 ],
                 "id": "AutoProcessor"
             },
@@ -162,7 +162,7 @@
                     "0"
                 ],
                 "options": [
-                    "red"
+                    "purple"
                 ],
                 "id": "TeleopCoralL1"
             },
@@ -173,7 +173,7 @@
                     "0"
                 ],
                 "options": [
-                    "orange"
+                    "purple"
                 ],
                 "id": "TeleopCoralL2"
             },
@@ -184,7 +184,7 @@
                     "0"
                 ],
                 "options": [
-                    "yellow"
+                    "purple"
                 ],
                 "id": "TeleopCoralL3"
             },
@@ -195,7 +195,7 @@
                     "0"
                 ],
                 "options": [
-                    "green"
+                    "purple"
                 ],
                 "id": "TeleopCoralL4"
             },
@@ -206,7 +206,7 @@
                     "0"
                 ],
                 "options": [
-                    "blue"
+                    "green"
                 ],
                 "id": "TeleopAlgaeBarge"
             },
@@ -217,7 +217,7 @@
                     "0"
                 ],
                 "options": [
-                    "purple"
+                    "green"
                 ],
                 "id": "TeleopAlgaeProcessor"
             },
