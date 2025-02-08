@@ -70,7 +70,26 @@
             },
             {
                 "type": "GenericHeaderTwo",
-                "text": "Auto Game Pieces"
+                "text": "Auto"
+            },
+            {
+                "type": "GenericDropdown",
+                "text": "Robot Starting Position",
+                "options": [
+                    "Far Coral Station",
+                    "Middle",
+                    "Close Coral Station"
+                ],
+                "id": "StartingPosition"
+            },
+            {
+                "type": "GenericCheckboxSelect",
+                "text": "Auto Scoring Position",
+                "options": [
+                    "Far Coral Station",
+                    "Close Coral Station"
+                ],
+                "id": "ScoringPosition"
             },
             {
                 "type": "IncrementNumberInput",
@@ -153,7 +172,7 @@
             },
             {
                 "type": "GenericHeaderTwo",
-                "text": "Teleop Game Pieces"
+                "text": "Teleop"
             },
             {
                 "type": "IncrementNumberInput",
@@ -339,6 +358,8 @@
                 "Alliance",
                 "DriverStation",
                 "TeamNumber",
+                "StartingPosition",
+                "ScoringPosition",
                 "AutoCoralL1",
                 "AutoCoralL2",
                 "AutoCoralL3",
