@@ -157,47 +157,69 @@
             },
             {
                 "type": "IncrementNumberInput",
-                "text": "Teleop Speaker Cycles",
+                "text": "Teleop Coral L1 Cycles",
                 "placeholder": [
                     "0"
                 ],
                 "options": [
                     "red"
                 ],
-                "id": "TeleopSpeaker"
+                "id": "TeleopCoralL1"
             },
             {
                 "type": "IncrementNumberInput",
-                "text": "Teleop Amp Cycles",
+                "text": "Teleop Coral L2 Cycles",
+                "placeholder": [
+                    "0"
+                ],
+                "options": [
+                    "orange"
+                ],
+                "id": "TeleopCoralL2"
+            },
+            {
+                "type": "IncrementNumberInput",
+                "text": "Teleop Coral L3 Cycles",
                 "placeholder": [
                     "0"
                 ],
                 "options": [
                     "yellow"
                 ],
-                "id": "TeleopAmp"
+                "id": "TeleopCoralL3"
             },
             {
                 "type": "IncrementNumberInput",
-                "text": "Teleop/Endgame Trap Cycles",
+                "text": "Teleop Coral L4 Cycles",
                 "placeholder": [
                     "0"
                 ],
                 "options": [
                     "green"
                 ],
-                "id": "TeleopTrap"
+                "id": "TeleopCoralL4"
             },
             {
                 "type": "IncrementNumberInput",
-                "text": "Coral L4 Cycles",
+                "text": "Teleop Barge Cycles",
                 "placeholder": [
                     "0"
                 ],
                 "options": [
                     "blue"
                 ],
-                "id": "TeleopCoralL4"
+                "id": "TeleopAlgaeBarge"
+            },
+            {
+                "type": "IncrementNumberInput",
+                "text": "Teleop Processor Cycles",
+                "placeholder": [
+                    "0"
+                ],
+                "options": [
+                    "purple"
+                ],
+                "id": "TeleopAlgaeProcessor"
             },
             {
                 "type": "GenericTextArea",
@@ -326,10 +348,12 @@
                 "AutoCenterline",
                 "AutoLeave",
                 "AutoNotes",
-                "TeleopSpeaker",
-                "TeleopAmp",
-                "TeleopTrap",
+                "TeleopCoralL1",
+                "TeleopCoralL2",
+                "TeleopCoralL3",
                 "TeleopCoralL4",
+                "TeleopAlgaeBarge",
+                "TeleopAlgaeProcessor",
                 "TeleopNotes",
                 "Parked",
                 "ClimbStatus",
