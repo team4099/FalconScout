@@ -83,13 +83,18 @@
                 "id": "StartingPosition"
             },
             {
+                "type": "GenericToggle",
+                "text": "Did they leave the starting zone (black line)?",
+                "id": "AutoLeave"
+            },
+            {
                 "type": "GenericCheckboxSelect",
-                "text": "Auto Scoring Position",
+                "text": "Auto Scoring Side",
                 "options": [
                     "Far Coral Station",
                     "Close Coral Station"
                 ],
-                "id": "ScoringPosition"
+                "id": "ScoringSide"
             },
             {
                 "type": "IncrementNumberInput",
@@ -156,11 +161,6 @@
                     "green"
                 ],
                 "id": "AutoProcessor"
-            },
-            {
-                "type": "GenericToggle",
-                "text": "Did they leave the starting zone (black line)?",
-                "id": "AutoLeave"
             },
             {
                 "type": "GenericTextArea",
@@ -359,7 +359,8 @@
                 "DriverStation",
                 "TeamNumber",
                 "StartingPosition",
-                "ScoringPosition",
+                "AutoLeave",
+                "ScoringSide",
                 "AutoCoralL1",
                 "AutoCoralL2",
                 "AutoCoralL3",
@@ -367,7 +368,6 @@
                 "AutoBarge",
                 "AutoProcessor",
                 "AutoCenterline",
-                "AutoLeave",
                 "AutoNotes",
                 "TeleopCoralL1",
                 "TeleopCoralL2",
