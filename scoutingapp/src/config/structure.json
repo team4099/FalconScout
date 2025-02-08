@@ -74,28 +74,73 @@
             },
             {
                 "type": "IncrementNumberInput",
-                "text": "Auto Speaker Cycles",
+                "text": "Auto Coral L1 Cycles",
                 "placeholder": [
                     "0"
                 ],
-                "id": "AutoSpeaker"
+                "options": [
+                    "red"
+                ],
+                "id": "AutoCoralL1"
             },
             {
                 "type": "IncrementNumberInput",
-                "text": "Auto Amp Cycles",
+                "text": "Auto Coral L2 Cycles",
                 "placeholder": [
                     "0"
                 ],
-                "id": "AutoAmp"
+                "options": [
+                    "orange"
+                ],
+                "id": "AutoCoralL2"
+            },
+            {
+                "type": "IncrementNumberInput",
+                "text": "Auto Coral L3 Cycles",
+                "placeholder": [
+                    "0"
+                ],
+                "options": [
+                    "yellow"
+                ],
+                "id": "AutoCoralL3"
+            },
+            {
+                "type": "IncrementNumberInput",
+                "text": "Auto Coral L4 Cycles",
+                "placeholder": [
+                    "0"
+                ],
+                "options": [
+                    "green"
+                ],
+                "id": "AutoCoralL4"
+            },
+            {
+                "type": "IncrementNumberInput",
+                "text": "Auto Barge Cycles",
+                "placeholder": [
+                    "0"
+                ],
+                "options": [
+                    "blue"
+                ],
+                "id": "AutoBarge"
+            },
+            {
+                "type": "IncrementNumberInput",
+                "text": "Auto Processor Cycles",
+                "placeholder": [
+                    "0"
+                ],
+                "options": [
+                    "purple"
+                ],
+                "id": "AutoProcessor"
             },
             {
                 "type": "GenericToggle",
-                "text": "Did they intake from the centerline during auto?",
-                "id": "AutoCenterline"
-            },
-            {
-                "type": "GenericToggle",
-                "text": "Did they leave the starting zone (white line)?",
+                "text": "Did they leave the starting zone (black line)?",
                 "id": "AutoLeave"
             },
             {
@@ -272,8 +317,12 @@
                 "Alliance",
                 "DriverStation",
                 "TeamNumber",
-                "AutoSpeaker",
-                "AutoAmp",
+                "AutoCoralL1",
+                "AutoCoralL2",
+                "AutoCoralL3",
+                "AutoCoralL4",
+                "AutoBarge",
+                "AutoProcessor",
                 "AutoCenterline",
                 "AutoLeave",
                 "AutoNotes",
