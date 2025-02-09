@@ -18,7 +18,7 @@ from streamlit.components.v1 import html
 loop = asyncio.new_event_loop()
 asyncio.set_event_loop(loop)
 
-from data_validation.data_val_2024 import DataValidation2024
+from data_validation.data_val_2025 import DataValidation2025
 
 load_dotenv()
 github_instance = Github(os.getenv("GITHUB_KEY"))
@@ -205,7 +205,7 @@ def run_dataval(success_col) -> None:
 
     :param success_col: The column to write status messages for running the data validator in.
     """
-    data_validator = DataValidation2024("./data_validation/config.yaml")
+    data_validator = DataValidation2025("./data_validation/config.yaml")
 
     with open(CONFIG["data_config"]["json_file"]) as scouting_data_file:
         data_validator.validate_data(load(scouting_data_file))
