@@ -241,8 +241,13 @@
                 "id": "TeleopAlgaeProcessor"
             },
             {
+                "type": "GenericToggle",
+                "text": "Did the robot remove algae from the reef?",
+                "id": "TeleopAlgaeRemoval"
+            },
+            {
                 "type": "GenericTextArea",
-                "text": "Teleop Qualitative Notes",
+                "text": "Teleop Notes",
                 "id": "TeleopNotes"
             },
             {
@@ -328,14 +333,14 @@
             },
             {
                 "type": "GenericDropdown",
-                "text": "How good are they at intaking while being defended (0-5)?",
+                "text": "How good are they at intaking while being defended?",
                 "options": [
-                    "5 - The defending bot had very little to no impact on the robot's intaking ability.",
-                    "4 - The defending bot had some impact on the robot's intaking ability, but the robot was still able to intake easily.",
-                    "3 - The defending bot had a notable impact on the robot's intaking ability, making it difficult to intake for a short period of time.",
-                    "2 - The defending bot heavily impacted the robot's intaking ability, making it difficult to intake for a long period of time.",
-                    "1 - The defending bot severely hampered the robot's intaking ability and barely held onto the game pieces.",
-                    "0 - Never defended"
+                    "Very Good - The defending bot had very little to no impact on the robot's intaking ability.",
+                    "Good - The defending bot had some impact on the robot's intaking ability, but the robot was still able to intake easily.",
+                    "Okay - The defending bot had a notable impact on the robot's intaking ability, making it difficult to intake for a short period of time.",
+                    "Poor - The defending bot heavily impacted the robot's intaking ability, making it difficult to intake for a long period of time.",
+                    "Very Poor - The defending bot severely hampered the robot's intaking ability and barely held onto the game pieces.",
+                    "Never defended"
                 ],
                 "id": "IntakeDefenseRating"
             },
@@ -367,7 +372,6 @@
                 "AutoCoralL4",
                 "AutoBarge",
                 "AutoProcessor",
-                "AutoCenterline",
                 "AutoNotes",
                 "TeleopCoralL1",
                 "TeleopCoralL2",
@@ -375,6 +379,7 @@
                 "TeleopCoralL4",
                 "TeleopAlgaeBarge",
                 "TeleopAlgaeProcessor",
+                "TeleopAlgaeRemoval",
                 "TeleopNotes",
                 "Parked",
                 "ClimbStatus",
