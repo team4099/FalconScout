@@ -297,7 +297,7 @@ class DataValidation2024(BaseDataValidation):
         self, match_key: str, team_number: int, auto_speaker: int, auto_amp: int
     ):
         """Marks an error if more than nine pieces were scored in auto (impossible)."""
-        if auto_speaker + auto_amp > 9 and not auto_leave:
+        if auto_speaker + auto_amp > 9:
             self.add_error(
                 f"In {match_key}, {team_number} was said to have scored {auto_speaker + auto_amp} GAME PIECES IN AUTO WHICH IS IMPOSSIBLE.",
                 ErrorType.INCORRECT_DATA,
