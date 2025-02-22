@@ -1,9 +1,8 @@
 import json
 from itertools import chain
 
-from falconscoutcore.data_validation.base_data_val import BaseDataValidation
-from falconscoutcore.data_validation.config.constants import ChargedUp
-from falconscoutcore.data_validation.config.utils import (ErrorType, get_intersection_of_n_series)
+from data_validation.base_data_val import BaseDataValidation
+from data_validation.config.utils import (ErrorType, get_intersection_of_n_series)
 from numpy import logical_or
 from pandas import DataFrame, Series, concat, isna, notna
 
@@ -144,15 +143,15 @@ class DataValidation2025(BaseDataValidation):
                     "No matches to retrieve data from OR invalid match key, check scouting data."
                 ) from e
 
-            # TODO: Find the TBA keys for these stats
-            actual_auto_coral = score_breakdown[""]
+            actual_auto_coral = score_breakdown["autoCoralCount"]
             scouted_auto_coral_l1 = submissions_by_alliance[self.config["auto_coral_l1"]].sum()
             scouted_auto_coral_l2 = submissions_by_alliance[self.config["auto_coral_l2"]].sum()
             scouted_auto_coral_l3 = submissions_by_alliance[self.config["auto_coral_l3"]].sum()
             scouted_auto_coral_l4 = submissions_by_alliance[self.config["auto_coral_l4"]].sum()
             scouted_auto_coral = scouted_auto_coral_l1 + scouted_auto_coral_l2 + scouted_auto_coral_l3 + scouted_auto_coral_l4
 
-            actual_auto_algae = score_breakdown[""]
+            # 0 for now since the field in tba is net algae count (most likely because robots won't score algae during auto)
+            actual_auto_algae = 0
             scouted_auto_algae_processor = submissions_by_alliance[self.config["auto_processor"]].sum()
             scouted_auto_algae_barge = submissions_by_alliance[self.config["auto_barge"]].sum()
             scouted_auto_algae = scouted_auto_algae_barge + scouted_auto_algae_processor
@@ -225,15 +224,14 @@ class DataValidation2025(BaseDataValidation):
                     "No matches to retrieve data from OR invalid match key, check scouting data."
                 ) from e
 
-            # TODO: Find the TBA keys for these stats
-            actual_teleop_coral = score_breakdown[""]
+            actual_teleop_coral = score_breakdown["teleopCoralCount"]
             scouted_teleop_coral_l1 = submissions_by_alliance[self.config["teleop_coral_l1"]].sum()
             scouted_teleop_coral_l2 = submissions_by_alliance[self.config["teleop_coral_l2"]].sum()
             scouted_teleop_coral_l3 = submissions_by_alliance[self.config["teleop_coral_l3"]].sum()
             scouted_teleop_coral_l4 = submissions_by_alliance[self.config["teleop_coral_l4"]].sum()
             scouted_teleop_coral = scouted_teleop_coral_l1 + scouted_teleop_coral_l2 + scouted_teleop_coral_l3 + scouted_teleop_coral_l4
 
-            actual_teleop_algae = score_breakdown[""]
+            actual_teleop_algae = score_breakdown["netAlgaeCount"]
             scouted_teleop_algae_barge = submissions_by_alliance[self.config["teleop_algae_barge"]].sum()
             scouted_teleop_algae_processor = submissions_by_alliance[self.config["teleop_algae_processor"]].sum()
             scouted_teleop_algae = scouted_teleop_algae_processor + scouted_teleop_algae_barge
@@ -274,8 +272,7 @@ class DataValidation2025(BaseDataValidation):
                 "No matches to retrieve data from OR invalid match key, check scouting data."
             ) from e
 
-        # TODO: Find the TBA Key for this stat
-        tba_climb_status = score_breakdown[""]
+        tba_climb_status = score_breakdown[f"endGameRobot{driver_station}"]
 
         if tba_climb_status == "Parked" and not parked:
             self.add_error(
@@ -285,7 +282,7 @@ class DataValidation2025(BaseDataValidation):
                 team_number,
             )
 
-        if tba_climb_status != climb_level and not parked:
+        if tba_climb_status != climb_level.replace(" ", "") and not parked:
             self.add_error(
                 f"In {match_key}, {team_number} was said to have a climbing status of {climb_level.upper()} despite TBA marking them as {tba_climb_status.upper()}.",
                 ErrorType.INCORRECT_DATA,

@@ -1,8 +1,8 @@
 # core setup features
 year: 2025
-event_code: "mdowi"
+event_code: "vapor"
 run_with_tba: false
-path_to_data: "data/2024cur_match_data.json"
+path_to_data: "data/2025vapor_match_data.json"
 path_to_output: "data/errors.json"
 
 # required translation
@@ -16,30 +16,30 @@ driver_station": "DriverStation"
 # not listed, the check will not run
 
 # Reefscape 2025: hyper-specific parameters
-auto_starting_position: "StartingPosition",
-auto_leave: "AutoLeave",
-auto_scoring_side: "ScoringSide",
-auto_coral_l1: "AutoCoralL1",
-auto_coral_l2: "AutoCoralL2",
-auto_coral_l3: "AutoCoralL3",
-auto_coral_l4: "AutoCoralL4",
-auto_barge: "AutoBarge",
-auto_processor: "AutoProcessor",
-auto_centerline: "AutoCenterline",
-teleop_coral_l1: "TeleopCoralL1",
-teleop_coral_l2: "TeleopCoralL2",
-teleop_coral_l3: "TeleopCoralL3",
-teleop_coral_l4: "TeleopCoralL4",
-teleop_algae_barge: "TeleopAlgaeBarge",
-teleop_algae_processor: "TeleopAlgaeProcessor",
-endgame_parked: "Parked",
-endgame_climb_status: "ClimbStatus",
-endgame_climb_speed: "ClimbSpeed",
-disabled: "Disabled",
-stability_rating: "StabilityRating",
-robot_style_type: "RobotStyleType",
-driver_rating: "DriverRating",
-intake_defense_rating: "IntakeDefenseRating",
+auto_starting_position: "StartingPosition"
+auto_leave: "AutoLeave"
+auto_scoring_side: "ScoringSide"
+auto_coral_l1: "AutoCoralL1"
+auto_coral_l2: "AutoCoralL2"
+auto_coral_l3: "AutoCoralL3"
+auto_coral_l4: "AutoCoralL4"
+auto_barge: "AutoBarge"
+auto_processor: "AutoProcessor"
+auto_centerline: "AutoCenterline"
+teleop_coral_l1: "TeleopCoralL1"
+teleop_coral_l2: "TeleopCoralL2"
+teleop_coral_l3: "TeleopCoralL3"
+teleop_coral_l4: "TeleopCoralL4"
+teleop_algae_barge: "TeleopAlgaeBarge"
+teleop_algae_processor: "TeleopAlgaeProcessor"
+endgame_parked: "Parked"
+endgame_climb_status: "ClimbStatus"
+endgame_climb_speed: "ClimbSpeed"
+disabled: "Disabled"
+stability_rating: "StabilityRating"
+robot_style_type: "RobotStyleType"
+driver_rating: "DriverRating"
+intake_defense_rating: "IntakeDefenseRating"
 
 # parameters for notes
 auto_notes: "AutoNotes"
