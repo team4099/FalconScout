@@ -2,10 +2,10 @@ import os
 import time
 import requests
 
-TBA_API_KEY = r''
-IMGUR_CLIENT_ID = r''
-IMGUR_ETAG = r''
-EVENT_KEY = r''
+TBA_API_KEY = r'zFwttaDMMWBKxjXaPSsMJK14pMvwYfgulFeeMermxHqnjuBMQll6hkV7mBl39jDa'
+IMGUR_CLIENT_ID = r'e6b25fcb319d82d'
+IMGUR_ETAG = r'W/"12715af20eb36231834f51357e0d0690f2e54a7e"'
+EVENT_KEY = r'2025vapor'
 
 if not (TBA_API_KEY and IMGUR_CLIENT_ID and IMGUR_ETAG and EVENT_KEY):
     raise PermissionError("Some keys are missing! Go into code and insert your keys.")
@@ -50,7 +50,7 @@ def scrape_robot_url(team_number: int) -> str:
     :returns: The url of the image
     """
 
-    url = f'https://www.thebluealliance.com/api/v3/team/frc{team_number}/media/2024'
+    url = f'https://www.thebluealliance.com/api/v3/team/frc{team_number}/media/{EVENT_KEY[:4]}'
     response = requests.get(url, headers=TBA_HEADERS)
     response.raise_for_status()
     data = [x for x in response.json() if x['type'] not in ['avatar', 'youtube']]
@@ -111,7 +111,7 @@ def main(teams: tuple[int] = ()) -> None:
     failed_teams = {}
     for team in teams:
         print(f'{team}: Starting...')
-        time.sleep(2)
+        time.sleep(2)  # anti 429
 
         try:
             url = scrape_robot_url(team)
