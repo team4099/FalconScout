@@ -1,11 +1,11 @@
 [
     {
-        "name": "2024 Scouting App",
-        "description": "Team 4099: The Falcon's 2024 scouting data collection page",
+        "name": "2025 Scouting App",
+        "description": "Team 4099: The Falcon's 2025 scouting data collection page",
         "components": [
             {
                 "type": "GenericHeaderOne",
-                "text": "2024 Scouting App"
+                "text": "2025 Scouting App"
             },
             {
                 "type": "GenericHeaderTwo",
@@ -66,40 +66,101 @@
                 "required": true
             },
             {
-                "type": "RobotImage"
-            },
-            {
                 "type": "Spacing"
             },
             {
                 "type": "GenericHeaderTwo",
-                "text": "Auto Game Pieces"
+                "text": "Auto"
             },
             {
-                "type": "IncrementNumberInput",
-                "text": "Auto Speaker Cycles",
-                "placeholder": [
-                    "0"
+                "type": "GenericDropdown",
+                "text": "Robot Starting Position",
+                "options": [
+                    "Far Coral Station",
+                    "Middle",
+                    "Close Coral Station"
                 ],
-                "id": "AutoSpeaker"
-            },
-            {
-                "type": "IncrementNumberInput",
-                "text": "Auto Amp Cycles",
-                "placeholder": [
-                    "0"
-                ],
-                "id": "AutoAmp"
+                "id": "StartingPosition"
             },
             {
                 "type": "GenericToggle",
-                "text": "Did they intake from the centerline during auto?",
-                "id": "AutoCenterline"
-            },
-            {
-                "type": "GenericToggle",
-                "text": "Did they leave the starting zone (white line)?",
+                "text": "Did they leave the starting zone (black line)?",
                 "id": "AutoLeave"
+            },
+            {
+                "type": "GenericCheckboxSelect",
+                "text": "Auto Scoring Side",
+                "options": [
+                    "Far Coral Station",
+                    "Close Coral Station"
+                ],
+                "id": "ScoringSide"
+            },
+            {
+                "type": "IncrementNumberInput",
+                "text": "Auto Coral L1 Cycles",
+                "placeholder": [
+                    "0"
+                ],
+                "options": [
+                    "purple"
+                ],
+                "id": "AutoCoralL1"
+            },
+            {
+                "type": "IncrementNumberInput",
+                "text": "Auto Coral L2 Cycles",
+                "placeholder": [
+                    "0"
+                ],
+                "options": [
+                    "purple"
+                ],
+                "id": "AutoCoralL2"
+            },
+            {
+                "type": "IncrementNumberInput",
+                "text": "Auto Coral L3 Cycles",
+                "placeholder": [
+                    "0"
+                ],
+                "options": [
+                    "purple"
+                ],
+                "id": "AutoCoralL3"
+            },
+            {
+                "type": "IncrementNumberInput",
+                "text": "Auto Coral L4 Cycles",
+                "placeholder": [
+                    "0"
+                ],
+                "options": [
+                    "purple"
+                ],
+                "id": "AutoCoralL4"
+            },
+            {
+                "type": "IncrementNumberInput",
+                "text": "Auto Barge Cycles",
+                "placeholder": [
+                    "0"
+                ],
+                "options": [
+                    "green"
+                ],
+                "id": "AutoBarge"
+            },
+            {
+                "type": "IncrementNumberInput",
+                "text": "Auto Processor Cycles",
+                "placeholder": [
+                    "0"
+                ],
+                "options": [
+                    "green"
+                ],
+                "id": "AutoProcessor"
             },
             {
                 "type": "GenericTextArea",
@@ -111,51 +172,73 @@
             },
             {
                 "type": "GenericHeaderTwo",
-                "text": "Teleop Game Pieces"
+                "text": "Teleop"
             },
             {
                 "type": "IncrementNumberInput",
-                "text": "Teleop Speaker Cycles",
+                "text": "Teleop Coral L1 Cycles",
                 "placeholder": [
                     "0"
                 ],
                 "options": [
-                    "red"
+                    "purple"
                 ],
-                "id": "TeleopSpeaker"
+                "id": "TeleopCoralL1"
             },
             {
                 "type": "IncrementNumberInput",
-                "text": "Teleop Amp Cycles",
+                "text": "Teleop Coral L2 Cycles",
                 "placeholder": [
                     "0"
                 ],
                 "options": [
-                    "yellow"
+                    "purple"
                 ],
-                "id": "TeleopAmp"
+                "id": "TeleopCoralL2"
             },
             {
                 "type": "IncrementNumberInput",
-                "text": "Teleop/Endgame Trap Cycles",
+                "text": "Teleop Coral L3 Cycles",
+                "placeholder": [
+                    "0"
+                ],
+                "options": [
+                    "purple"
+                ],
+                "id": "TeleopCoralL3"
+            },
+            {
+                "type": "IncrementNumberInput",
+                "text": "Teleop Coral L4 Cycles",
+                "placeholder": [
+                    "0"
+                ],
+                "options": [
+                    "purple"
+                ],
+                "id": "TeleopCoralL4"
+            },
+            {
+                "type": "IncrementNumberInput",
+                "text": "Teleop Barge Cycles",
                 "placeholder": [
                     "0"
                 ],
                 "options": [
                     "green"
                 ],
-                "id": "TeleopTrap"
+                "id": "TeleopAlgaeBarge"
             },
             {
                 "type": "IncrementNumberInput",
-                "text": "Teleop/Endgame Passing Cycles",
+                "text": "Teleop Processor Cycles",
                 "placeholder": [
                     "0"
                 ],
                 "options": [
-                    "blue"
+                    "green"
                 ],
-                "id": "TeleopPassing"
+                "id": "TeleopAlgaeProcessor"
             },
             {
                 "type": "GenericTextArea",
@@ -175,21 +258,23 @@
                 "id": "Parked"
             },
             {
-                "type": "GenericToggle",
-                "text": "Did the robot climb onto the chain?",
+                "type": "GenericDropdown",
+                "text": "Did the robot climb onto the cage?",
+                "options": [
+                    "No Climb",
+                    "Deep Climb",
+                    "Shallow Climb"
+                ],
                 "id": "ClimbStatus"
-            },
-            {
-                "type": "GenericToggle",
-                "text": "If the robot climbed, did it climb onto the chain with another robot (harmonized)?",
-                "id": "Harmonized"
-            },
+            },    
+
             {
                 "type": "GenericDropdown",
-                "text": "How fast were they at climbing onto the chain?",
+                "text": "How fast were they at climbing onto the cage?",
                 "options": [
-                    "Slow",
-                    "Fast"
+                    "Slow (>10 seconds)",
+                    "Average (5-10 seconds)",
+                    "Fast (<5 seconds)"
                 ],
                 "id": "ClimbSpeed"
             },
@@ -211,6 +296,25 @@
                 "id": "Disabled"
             },
             {
+            "type": "GenericDropdown",
+                "text": "How tippy was their robot?",
+                "options": [
+                    "Very Tippy",
+                    "Moderately Tippy",
+                    "Stable"
+                ],
+                "id": "StabilityRating"
+            },
+            {
+                "type": "GenericDropdown",
+                "text": "Robot Style",
+                "options": [
+                    "Defensive",
+                    "Offensive"
+                ],
+                "id": "RobotStyleType"
+            },
+            {
                 "type": "GenericDropdown",
                 "text": "How fluid was their driving?",
                 "options": [
@@ -224,39 +328,16 @@
             },
             {
                 "type": "GenericDropdown",
-                "text": "How often did they defend against other robots?",
+                "text": "How good are they at intaking while being defended (0-5)?",
                 "options": [
-                    "Very Often: Spent all or almost all of their match defending against other robots.",
-                    "Often: Spent most of their match defending against other robots but also spent time scoring.",
-                    "Sometimes: Spent roughly half their match defending against other robots or defended opportunistically.",
-                    "Rarely: They focused on scoring mostly and barely defended against robots, but they did spend time defending.",
-                    "Never: They never defended against other robots throughout the entire match."
+                    "5 - The defending bot had very little to no impact on the robot's intaking ability.",
+                    "4 - The defending bot had some impact on the robot's intaking ability, but the robot was still able to intake easily.",
+                    "3 - The defending bot had a notable impact on the robot's intaking ability, making it difficult to intake for a short period of time.",
+                    "2 - The defending bot heavily impacted the robot's intaking ability, making it difficult to intake for a long period of time.",
+                    "1 - The defending bot severely hampered the robot's intaking ability and barely held onto the game pieces.",
+                    "0 - Never defended"
                 ],
-                "id": "DefenseTime"
-            },
-            {
-                "type": "GenericDropdown",
-                "text": "If they did defend, how good were they at defending?",
-                "options": [
-                    "Very Good: Greatly hampered the robots they were defending from scoring and often pinned them.",
-                    "Good: They hampered the robots they were defending from scoring, but they were still able to perform well.",
-                    "Okay: Their defense did have an impact on the score of the other alliance, but it wasn't notable.",
-                    "Poor: Their defense had little impact on the other alliance and hampered their own alliance at times.",
-                    "Very Poor: Their defense hampered their own alliance where they either racked up fouls or blocked their own teammates."
-                ],
-                "id": "DefenseSkill"
-            },
-            {
-                "type": "GenericDropdown",
-                "text": "If they were being defended by another robot, how good were they at avoiding the defense?",
-                "options": [
-                    "Very Good: They swerved around any robots trying to defend them and lost little scoring time to defense.",
-                    "Good: They often swerved around robots trying to defend them, however sometimes they would get caught by the defense.",
-                    "Okay: The defending robots had a notable impact on their scoring ability.",
-                    "Poor: The defending robots hampered their scoring ability and they would take a while to get past the defending robots.",
-                    "Very Poor: The defending robots were able to fully stop the robot from scoring and carrying out game tasks."
-                ],
-                "id": "CounterDefenseSkill"
+                "id": "IntakeDefenseRating"
             },
             {
                 "type": "GenericTextArea",
@@ -277,37 +358,44 @@
                 "Alliance",
                 "DriverStation",
                 "TeamNumber",
-                "AutoSpeaker",
-                "AutoAmp",
-                "AutoCenterline",
+                "StartingPosition",
                 "AutoLeave",
+                "ScoringSide",
+                "AutoCoralL1",
+                "AutoCoralL2",
+                "AutoCoralL3",
+                "AutoCoralL4",
+                "AutoBarge",
+                "AutoProcessor",
+                "AutoCenterline",
                 "AutoNotes",
-                "TeleopSpeaker",
-                "TeleopAmp",
-                "TeleopTrap",
-                "TeleopPassing",
+                "TeleopCoralL1",
+                "TeleopCoralL2",
+                "TeleopCoralL3",
+                "TeleopCoralL4",
+                "TeleopAlgaeBarge",
+                "TeleopAlgaeProcessor",
                 "TeleopNotes",
                 "Parked",
                 "ClimbStatus",
-                "Harmonized",
                 "ClimbSpeed",
                 "EndgameNotes",
                 "Disabled",
+                "StabilityRating",
+                "RobotStyleType",
                 "DriverRating",
-                "DefenseTime",
-                "DefenseSkill",
-                "CounterDefenseSkill",
+                "IntakeDefenseRating",
                 "RatingNotes"
             ]
         }
     },
     {
-        "name": "2024 Note Scouting App",
-        "description": "Team 4099: The Falcon's 2024 note scouting app for providing qualitative data.",
+        "name": "2025 Note Scouting App",
+        "description": "Team 4099: The Falcon's 2025 note scouting app for providing qualitative data.",
         "components": [
             {
                 "type": "GenericHeaderOne",
-                "text": "2024 Note Scouting App"
+                "text": "2025 Note Scouting App"
             },
             {
                 "type": "GenericHeaderTwo",
@@ -389,7 +477,7 @@
                 "text": "Where are they mostly intaking from?",
                 "options": [
                     "-",
-                    "Source",
+                    "Coral Station",
                     "Ground"
                 ],
                 "id": "TeleopIntakeLocation"
@@ -404,8 +492,8 @@
                 "text": "Climb Alignment Speed",
                 "options": [
                     "-",
-                    "Slow: Took at least 5 seconds to climb on chain",
-                    "Fast: Took at most 5 seconds to climb on chain"
+                    "Slow: Took at least 5 seconds to climb on the cage",
+                    "Fast: Took at most 5 seconds to climb on the cage"
                 ],
                 "id": "ClimbAlignmentSpeed"
             },
