@@ -66,6 +66,9 @@
                 "required": true
             },
             {
+                "type": "RobotImage"
+            },
+            {
                 "type": "Spacing"
             },
             {
