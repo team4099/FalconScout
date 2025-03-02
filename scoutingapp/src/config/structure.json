@@ -145,7 +145,7 @@
             },
             {
                 "type": "IncrementNumberInput",
-                "text": "Auto Barge Cycles",
+                "text": "Auto Net Cycles",
                 "placeholder": [
                     "0"
                 ],
@@ -223,7 +223,7 @@
             },
             {
                 "type": "IncrementNumberInput",
-                "text": "Teleop Barge Cycles",
+                "text": "Teleop Net Cycles",
                 "placeholder": [
                     "0"
                 ],
