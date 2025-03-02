@@ -10,7 +10,7 @@ EVENT_KEY = r'2025vapor'
 if not (TBA_API_KEY and IMGUR_CLIENT_ID and IMGUR_ETAG and EVENT_KEY):
     raise PermissionError("Some keys are missing! Go into code and insert your keys.")
 
-FOLDER_PATH = './components/img'
+FOLDER_PATH = 'public'
 
 # Headers for the API request
 TBA_HEADERS = {
