@@ -3,7 +3,7 @@ import { ComponentSetup } from "../interface"
 
 export const emptyImage = <img
   style={{width: "80%", height: "80%", alignItems: 'center', justifyContent: 'center'}}
-  src='../public/gray.png'
+  src='../gray.png'
   alt={`Picture of robot`}
 />
 
@@ -17,7 +17,7 @@ export function RobotImage(props: ComponentSetup) {
         setComponentInside(
           <img
             style={{ height: "300px", alignItems: 'center', justifyContent: 'center', margin: "auto"}}
-            src={`../public/${robotNumber}.jpeg`}
+            src={`../${robotNumber}.jpeg`}
             alt={`Image of robot ${robotNumber} not found.`}
           />
         )
@@ -25,7 +25,7 @@ export function RobotImage(props: ComponentSetup) {
         setComponentInside(
           <img
             style={{ height: "300px", alignItems: 'center', justifyContent: 'center', margin: "auto"}}
-            src={`../public/gray.png`}
+            src={`../gray.png`}
             alt={'Insert robot number above'}
           />
         )
