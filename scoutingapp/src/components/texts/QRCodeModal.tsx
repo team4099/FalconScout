@@ -9,7 +9,6 @@ export function QRCodeModal(props: ComponentSetup){
     */
 
     const addToLocalStorage = function () {
-        console.log(localStorage.getItem("codes") as string)
         var currentData = JSON.parse(localStorage.getItem("codes") as string)
         currentData[props.getValue["MatchKey"].join("")] = props.getValue["export"].text
         localStorage.setItem("codes", JSON.stringify(currentData))
@@ -19,10 +18,8 @@ export function QRCodeModal(props: ComponentSetup){
         const interval = setInterval(() => {
             var requiredFinished = true
 
-            console.log(props.required)
             for (const id of props.required){
-                console.log(props.getValue[id])
-                if (["", [], ","].includes(props.getValue[id]) || 
+                if (["", [], ","].includes(props.getValue[id]) ||
                     (props.getValue[id][0].length == 2 && 
                         (props.getValue[id][0] == "" || props.getValue[id][1] == "")
                     )
