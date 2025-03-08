@@ -2,8 +2,9 @@ import React, {useEffect, useState} from "react"
 import { ComponentSetup } from "../interface"
 
 export const emptyImage = <img
-    style={{height: "0px", alignItems: 'center', justifyContent: 'center', margin: "auto"}}
-    src={`./src/components/img/gray.png`}
+  style={{width: "80%", height: "80%", alignItems: 'center', justifyContent: 'center'}}
+  src='../gray.png'
+  alt={`Picture of robot`}
 />
 
 export function RobotImage(props: ComponentSetup) {
@@ -13,29 +14,19 @@ export function RobotImage(props: ComponentSetup) {
   useEffect(() => {
     const interval = setInterval(() => {
       if (robotNumber) {
-        fileExists(`./src/components/img/${robotNumber}.jpeg`).then((exists) => {
-          console.log("Exists => ", exists)
-          if (exists) {
-            setComponentInside(
-                <img
-                    style={{ height: "300px", alignItems: 'center', justifyContent: 'center', margin: "auto"}}
-                    src={`./src/components/img/${robotNumber}.jpeg`}
-                />
-            )
-          } else {
-            setComponentInside(
-                <img
-                    style={{ height: "0px", alignItems: 'center', justifyContent: 'center', margin: "auto"}}
-                    src={`./src/components/img/gray.png`}
-                />
-            )
-          }
-        });
+        setComponentInside(
+          <img
+            style={{ height: "300px", alignItems: 'center', justifyContent: 'center', margin: "auto"}}
+            src={`../${robotNumber}.jpeg`}
+            alt={`Image of robot ${robotNumber} not found.`}
+          />
+        )
       } else {
         setComponentInside(
           <img
-            style={{ height: "0px", alignItems: 'center', justifyContent: 'center', margin: "auto"}}
-            src={`./src/components/img/gray.png`}
+            style={{ height: "300px", alignItems: 'center', justifyContent: 'center', margin: "auto"}}
+            src={`../gray.png`}
+            alt={'Insert robot number above'}
           />
         )
       }
