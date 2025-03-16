@@ -83,7 +83,8 @@
                     "Middle",
                     "Non-Processor Side"
                 ],
-                "id": "StartingPosition"
+                "id": "StartingPosition",
+                "required": true
             },
             {
                 "type": "GenericToggle",
@@ -97,7 +98,8 @@
                     "Processor Side",
                     "Non-Processor Side"
                 ],
-                "id": "ScoringSide"
+                "id": "ScoringSide",
+                "required": true
             },
             {
                 "type": "IncrementNumberInput",
@@ -295,7 +297,8 @@
                     "Deep Climb",
                     "Shallow Climb"
                 ],
-                "id": "ClimbStatus"
+                "id": "ClimbStatus",
+                "required": true
             },    
 
             {
@@ -333,7 +336,8 @@
                     "Moderately Tippy",
                     "Stable"
                 ],
-                "id": "StabilityRating"
+                "id": "StabilityRating",
+                "required": true
             },
             {
                 "type": "GenericDropdown",
@@ -342,7 +346,8 @@
                     "Defensive",
                     "Offensive"
                 ],
-                "id": "RobotStyleType"
+                "id": "RobotStyleType",
+                "required": true
             },
             {
                 "type": "GenericDropdown",
@@ -354,7 +359,8 @@
                     "Poor: Easily impacted by other robots & obstacles and inconsistent when driving.",
                     "Very Poor: Pinballed into other robots / racked up fouls / hampered their alliance."
                 ],
-                "id": "DriverRating"
+                "id": "DriverRating",
+                "required": true
             },
             {
                 "type": "GenericDropdown",
