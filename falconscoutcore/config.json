@@ -14,6 +14,7 @@
             "AutoCoralL2",
             "AutoCoralL3",
             "AutoCoralL4",
+            "AutoCoralMisses",
             "AutoBarge",
             "AutoProcessor",
             "AutoNotes",
@@ -21,6 +22,7 @@
             "TeleopCoralL2",
             "TeleopCoralL3",
             "TeleopCoralL4",
+            "TeleopCoralMisses",
             "TeleopAlgaeBarge",
             "TeleopAlgaeProcessor",
             "TeleopAlgaeRemoval",
@@ -33,6 +35,8 @@
             "StabilityRating",
             "RobotStyleType",
             "DriverRating",
+            "IntakeSpeed",
+            "DefenseRating",
             "IntakeDefenseRating",
             "RatingNotes"
         ],
@@ -49,13 +53,13 @@
             "ClimbAlignmentSpeed",
             "EndgameGeneralNotes"
         ],
-        "json_file": "./data/2025vapor_match_data.json",
-        "qualitative_json_file": "./data/2025vapor_qualitative_data.json",
+        "json_file": "./data/2025vabla_match_data.json",
+        "qualitative_json_file": "./data/2025vabla_qualitative_data.json",
         "error_json": "./data/errors.json"
     },
     "repo_config": {
         "repo": "team4099/ScoutingAppData",
-        "update_json": "2025vapor_match_data.json",
-        "update_qualitative_json": "2025vapor_qualitative_data.json"
+        "update_json": "2025vabla_match_data.json",
+        "update_qualitative_json": "2025vabla_qualitative_data.json"
     }
 }
