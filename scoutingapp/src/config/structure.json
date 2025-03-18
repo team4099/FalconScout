@@ -96,6 +96,7 @@
                 "text": "Auto Scoring Side",
                 "options": [
                     "Processor Side",
+                    "Middle",
                     "Non-Processor Side"
                 ],
                 "id": "ScoringSide",
