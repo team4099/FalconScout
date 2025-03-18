@@ -92,7 +92,7 @@
                 "id": "AutoLeave"
             },
             {
-                "type": "GenericCheckboxSelect",
+                "type": "GenericDropdown",
                 "text": "Auto Scoring Side",
                 "options": [
                     "Processor Side",
