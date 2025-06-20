@@ -1,8 +1,8 @@
 # core setup features
 year: 2025
-event_code: "vapor"
+event_code: "njdd"
 run_with_tba: false
-path_to_data: "data/2025vapor_match_data.json"
+path_to_data: "data/2025njdd_match_data.json"
 path_to_output: "data/errors.json"
 
 # required translation
