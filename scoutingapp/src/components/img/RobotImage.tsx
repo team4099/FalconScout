@@ -15,7 +15,6 @@ export function RobotImage(props: ComponentSetup) {
     const interval = setInterval(() => {
       if (robotNumber) {
         fileExists(`../${robotNumber}.jpeg`).then((exists) => {
-          console.log("Exists => ", exists)
           if (exists) {
             setComponentInside(
                 <img
@@ -36,7 +35,7 @@ export function RobotImage(props: ComponentSetup) {
         setComponentInside(
           <img
             style={{ height: "0px", alignItems: 'center', justifyContent: 'center', margin: "auto"}}
-            src={`../public/gray.png`}
+            src={`../gray.png`}
           />
         )
       }

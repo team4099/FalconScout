@@ -10,7 +10,7 @@ EVENT_KEY = r'2025njdd'
 if not (TBA_API_KEY and IMGUR_CLIENT_ID and IMGUR_ETAG and EVENT_KEY):
     raise PermissionError("Some keys are missing! Go into code and insert your keys.")
 
-FOLDER_PATH = 'public'
+FOLDER_PATH = '../public'
 
 # Headers for the API request
 TBA_HEADERS = {
@@ -94,7 +94,7 @@ def download_image(team_number: int, image_url: str, image_host: str) -> None:
     return
 
 
-def main(teams: tuple[int] = ()) -> None:
+def main(teams: tuple[int, ...] = ()) -> None:
     """
     Main function.
 
@@ -148,4 +148,6 @@ def main(teams: tuple[int] = ()) -> None:
 
 
 if __name__ == '__main__':
-    main()
+    main((41, 316, 341, 365, 484, 694, 1218, 1599, 1640, 1908,
+          1923, 2016, 2377, 2495, 2539, 2607, 3136, 4099, 4575,
+          5113, 5338, 7414, 7770, 9015, 10584))
