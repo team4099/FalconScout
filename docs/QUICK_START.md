@@ -38,6 +38,8 @@ Now, install the dependencies.
 pip install -r requirements.txt
 ```
 
+> Warning: FalconScoutCore has only been confirmed to work for python versions <3.11. If your python version is too high, it may cause issues when installing packages.
+
 Now, setup your `.env` file. So in the falconscoutcore folder, rename the file called `.env.example` to `.env`.
 
 Inside the file add the token from [here](https://github.com/settings/tokens) to the spot where it says `<YOUR_KEY_HERE>`

@@ -20,7 +20,7 @@ export function QRCodeModal(props: ComponentSetup){
 
             for (const id of props.required){
                 if (["", [], ","].includes(props.getValue[id]) ||
-                    (props.getValue[id][0].length == 2 && 
+                    (props.getValue[id][0]?.length == 2 &&
                         (props.getValue[id][0] == "" || props.getValue[id][1] == "")
                     )
                 ){
