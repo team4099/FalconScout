@@ -28,10 +28,10 @@ function DropdownTextInput(props: ComponentSetup) {
 				)}
             </label>
             <div className="flex appearance-none h-[40px] border border-color-[#D0D5DD] border-[1.5px] rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                <select name="option" id="options" className="inline" onChange={updateStateDropdown}>
-                    <option disabled selected value=""> -- </option>
-                    { props.options?.map (option => (
-                        <option value={option}>{option}</option>
+                <select name="option" id="options" className="inline" onChange={updateStateDropdown} defaultValue="">
+                    <option disabled value=""> -- </option>
+                    { props.options?.map ((option: string, key: number) => (
+                        <option key={key} value={option}>{option}</option>
                     ))}
                 </select>
 

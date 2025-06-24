@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { Page, ParentPage, StoragePage } from "./components/pages"
 import structure from "./config/structure.json"
 import React from 'react';
+import {PageSetup} from "./components/interface";
 
 
 function App() {
@@ -14,9 +15,9 @@ function App() {
     <Routes>
       <Route path='/' element={<ParentPage pageSetup={structure}/>}></Route>
       {
-        structure.map((page) => {
+        structure.map((page: PageSetup, key: number) => {
             return (
-              <Route path={'/'+page.name.replaceAll(/\s/g,'')} element={<Page config={page}/>}></Route>
+              <Route key={key} path={'/'+page.name.replaceAll(/\s/g,'')} element={<Page {...page}/>}></Route>
             )
         })
       }

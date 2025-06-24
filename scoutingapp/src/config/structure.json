@@ -409,7 +409,7 @@
                 "id": "result"
             }
         ],
-        "export": {
+        "exports": {
             "delimiter": "|",
             "order": [
                 "ScoutId",
@@ -571,7 +571,7 @@
                 "id": "result"
             }
         ],
-        "export": {
+        "exports": {
             "delimiter": "|",
             "order": [
                 "ScoutId",

@@ -9,6 +9,16 @@ export interface ComponentSetup {
     required?: any
 }
 
+export interface ImportedComponentSetup extends ComponentSetup {
+    type: string;
+}
+
 export interface PageSetup {
-    config?: any // TODO: find the proper type
+    name: string,
+    description: string,
+    components: ImportedComponentSetup[],
+    exports: {
+        delimiter: string,
+        order: string[]
+    }
 }
