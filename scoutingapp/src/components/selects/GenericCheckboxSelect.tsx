@@ -28,16 +28,16 @@ function GenericCheckboxSelect(props: ComponentSetup) {
 			<form onChange={updateStateSelections}>
                 <div className="flex flex-wrap">
                     <div className="w-1/2 px-1">
-                        { props.options?.slice(0, Math.ceil(props.options?.length / 2)).map (option => (
-                            <div className="mb-1">
+                        { props.options?.slice(0, Math.ceil(props.options?.length / 2)).map ((option: string, key: number) => (
+                            <div className="mb-1" key={key}>
                                 <input type="checkbox" name={option} value={option} className={`radio ${props.id}`}/>
                                 <p className="ml-3 inline">{option}</p>
                             </div>
                         ))}
                     </div>
                     <div className="w-1/2 px-1">
-                        { props.options?.slice(Math.ceil(props.options?.length / 2)).map (option => (
-                            <div className="mb-1">
+                        { props.options?.slice(Math.ceil(props.options?.length / 2)).map ((option: string, key: number) => (
+                            <div className="mb-1" key={key}>
                                 <input type="checkbox" name={option} value={option} className={`radio ${props.id}`}/>
                                 <p className="inline ml-3">{option}</p>
                             </div>

@@ -26,10 +26,10 @@ function GenericDropdown(props: ComponentSetup) {
 					</span>
 				)}
 			</label>
-			<select name="option" onChange={updateStateSelections} id="options" className="appearance-none border border-color-[#D0D5DD] rounded w-full py-2 px-3 text-gray-700 focus:outline-none">
-				<option disabled selected value=""> -- </option>
-				{ props.options?.map (option => (
-                    <option value={option}>{option}</option>
+			<select name="option" defaultValue="" onChange={updateStateSelections} id="options" className="appearance-none border border-color-[#D0D5DD] rounded w-full py-2 px-3 text-gray-700 focus:outline-none">
+				<option disabled value=""> -- </option>
+				{ props.options?.map ((option: string, key: number) => (
+                    <option key={key} value={option}>{option}</option>
                 ))}
             </select>
 		</div>
