@@ -49,13 +49,13 @@
             "ClimbAlignmentSpeed",
             "EndgameGeneralNotes"
         ],
-        "json_file": "./data/2025vapor_match_data.json",
-        "qualitative_json_file": "./data/2025vapor_qualitative_data.json",
+        "json_file": "./data/2025vacri_match_data.json",
+        "qualitative_json_file": "./data/2025vacriqualitative_data.json",
         "error_json": "./data/errors.json"
     },
     "repo_config": {
         "repo": "team4099/ScoutingAppData",
-        "update_json": "2025vapor_match_data.json",
-        "update_qualitative_json": "2025vapor_qualitative_data.json"
+        "update_json": "2025vacri_match_data.json",
+        "update_qualitative_json": "2025vacri_qualitative_data.json"
     }
 }
