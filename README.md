@@ -14,3 +14,4 @@ FalconScout is a powerful all in one low-code tool for scouting in FRC. The syst
 - [Quick Start](/docs/QUICK_START.md)
 - [Configuring Datavalidation](/docs/CONFIGURING_DATAVALIDATION.md)
 - [Example Forms](/docs/EXAMPLE_FORMS.md)
+- [How to deploy Scouting App](/docs/DEPLOYMENT.md)
