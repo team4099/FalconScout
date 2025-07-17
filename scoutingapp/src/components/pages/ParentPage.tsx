@@ -14,9 +14,9 @@ export function ParentPage(props: ParentPageSetup){
                 <Link className="text-xl font-semibold mb-8 inline float-left ml-4 -mt-1 bg-gray-200 rounded-md p-2" to="/saved">Saved Codes</Link>
             </div>
             {
-                props?.pageSetup?.map((page: any) => {
+                props?.pageSetup?.map((page: any, key: number) => {
                     return (
-                        <Link to={'/'+page.name.replaceAll(/\s/g,'')} className="text-2xl">
+                        <Link to={'/'+page.name.replaceAll(/\s/g,'')} className="text-2xl" key={key}>
                             <div className="mb-4 w-full block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
                                 <h1 className="text-2xl font-bold mb-4">{page.name}</h1>
                                 <h1 className="text-lg font-regular mb-2">{page.description}</h1>
