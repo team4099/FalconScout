@@ -2,7 +2,9 @@
 
 ## FalconScout
 
-Every competition, we send out a link that our members can use to scout with. We need to deploy our FalconScout app before the competition starts to send out new updates to the scouting app. Scouters need to also add this new deployment as a PWA to enable scouting without a stable internet connection.
+Every competition, we send out a link that our members can use to scout with. We need to deploy our FalconScout app 
+before the competition starts to send out new updates to the scouting app. Scouters need to also add this new deployment
+as a PWA to enable scouting without a stable internet connection.
 
 1. Clone the repository and navigate to the app directory:
   ```bash
@@ -24,7 +26,8 @@ Every competition, we send out a link that our members can use to scout with. We
 ![](./netlify.png)
 
 
-- Change scouting app link to make it match our naming scheme. 
+- Change scouting app link to make it match our naming scheme. The naming scheme is the following:
+**[comp key][year of comp].netlify.app** (for example, our Portsmouth 2025 event used vapor2025.netlify.app)
 
 
 ## FalconScoutCore
