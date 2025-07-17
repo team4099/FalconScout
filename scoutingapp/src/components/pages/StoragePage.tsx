@@ -15,7 +15,12 @@ export function StoragePage() {
             <div className="px-4">
                 <div className="h-10 w-full mb-8 mt-4">
                     <h1 className="text-3xl font-bold mb-8 inline float-left">Saved Codes</h1>
-                    <button class="text-xl font-semibold mb-8 inline float-right mt-4 -mt-1 bg-gray-200 rounded-md p-2" onclick={localStorage.setItem("codes", "{}")}>Clear Saved Codes</button>
+                    <button
+                        className="text-xl font-semibold mb-8 inline float-right bg-gray-200 rounded-md p-2"
+                        onClick={() => {localStorage.setItem("codes", "{}"); window.location.reload();}}
+                    >
+                        Clear Saved Codes
+                    </button>
                 </div>
             </div>
             <div className="mt-4 px-4">
