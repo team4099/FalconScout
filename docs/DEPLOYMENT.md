@@ -21,7 +21,7 @@ Every competition, we send out a link that our members can use to scout with. We
 - Press **Deploy manually** and paste in your `dist` folder.
 
 
-![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXdgPi5lVeUqFj4PASBbE2F4lotlNc4HL93lzrn2twJLXGXo5MZrNyRI0bojiEmn8HJ1xtVfnaw5vhAZqxO8YqWHcI-lCMVBkze-55Decl1tuz3FyJRWCJAUo8-BYOWuC4cmJLc?key=J0V1m3z5KovbrEM4V1CYsA)
+![](./netlify.png)
 
 
 - Change scouting app link to make it match our naming scheme. 
