@@ -34,7 +34,7 @@ export function Page({ components, exports }: PageSetup) {
     const componentSetup: { [key: string]: any } = {}
     const requiredComponents: string[] = [];
 
-    components.map((component: ImportedComponentSetup) => {
+    components?.map((component: ImportedComponentSetup) => {
         if (component.type != "Spacing") {
             try {
                 componentSetup[component.id] = ComponentLibrary[component.type][1]
@@ -85,7 +85,7 @@ export function Page({ components, exports }: PageSetup) {
                 </div>
             </Link>
             {
-                components.map((component: ImportedComponentSetup, key: number) => {
+                components?.map((component: ImportedComponentSetup, key: number) => {
                     if (component.type == "Spacing") {
                         return (
                             <div key={key} className="h-[2px]" />
