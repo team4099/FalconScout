@@ -65,21 +65,67 @@ You have two parts to the JSON (`data_config`, `repo_config`)
 ```
 {
     "data_config": {
-        "delimiter": ",",
-        "data_labels": [
-            "scout_id",
-            "match_key",
-            ...
-            "teleop_notes",
-            "misc_notes"
+        "delimiter": "|",
+        "quantitative_data_labels": [
+            "ScoutId",
+            "MatchKey",
+            "Alliance",
+            "DriverStation",
+            "TeamNumber",
+            "StartingPosition",
+            "AutoLeave",
+            "ScoringSide",
+            "AutoCoralL1",
+            "AutoCoralL2",
+            "AutoCoralL3",
+            "AutoCoralL4",
+            "AutoCoralMisses",
+            "AutoBarge",
+            "AutoProcessor",
+            "AutoNotes",
+            "TeleopCoralL1",
+            "TeleopCoralL2",
+            "TeleopCoralL3",
+            "TeleopCoralL4",
+            "TeleopCoralMisses",
+            "TeleopAlgaeBarge",
+            "TeleopAlgaeProcessor",
+            "TeleopAlgaeRemoval",
+            "TeleopNotes",
+            "Parked",
+            "ClimbStatus",
+            "ClimbSpeed",
+            "EndgameNotes",
+            "Disabled",
+            "StabilityRating",
+            "RobotStyleType",
+            "DriverRating",
+            "IntakeSpeed",
+            "DefenseRating",
+            "IntakeDefenseRating",
+            "RatingNotes"
         ],
-        "json_file": "./data/2022iri_match_data.json",
-        "csv_file": "./data/2022iri_match_data.csv"
+        "qualitative_data_labels": [
+            "ScoutId",
+            "MatchKey",
+            "Alliance",
+            "DriverStation",
+            "TeamNumber",
+            "AutoDrivingSkills",
+            "AutoGeneralNotes",
+            "TeleopIntakeLocation",
+            "TeleopGeneralNotes",
+            "ClimbAlignmentSpeed",
+            "EndgameGeneralNotes"
+        ],
+        "json_file": "./data/2025njdd_match_data.json",
+        "qualitative_json_file": "./data/2025njdd_qualitative_data.json",
+        "error_json": "./data/errors.json"
     },
     "repo_config": {
-        "repo": "team4099/falcontrack",
-        "update_csv": "data.csv",
-        "update_json": "data.json"
+        "repo": "team4099/ScoutingAppData",
+        "update_json": "2025njdd_match_data.json",
+        "update_qualitative_json": "2025njdd_qualitative_data.json"
     }
 }
 ```
@@ -96,7 +142,7 @@ In `repo config`, you have 3 parameters.
  - `update_json` is the file path of the json file on the repository that will be updated when github is synced
 
 **YAML Setup**
-The Yaml is used to setup our data validation system we provide to check your data using code we've written to identify possible errors like scouting the same robot twice, not scouting, high error data, missing data values, and more. We write a base validation class and a year specific one and plan to release a validation class for 2023.
+The Yaml is used to setup our data validation system we provide to check your data using code we've written to identify possible errors like scouting the same robot twice, not scouting, high error data, missing data values, and more. We write a base validation class and a year specific one and plan to release a validation class for 2026.
 
 ```
 # core setup features
