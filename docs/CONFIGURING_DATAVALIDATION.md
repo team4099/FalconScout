@@ -9,14 +9,14 @@ To configure datavalidation you only need to edit a couple fields in the `config
 
 Example:
 ```
-year: 2022
-event_code: "iri"
+year: 2025
+event_code: "bob"
 ```
 
 ### Required Configuration Fields
 
  - `year`
-    - specifies the year the competition is taking place(i.e. 2023)
+    - specifies the year the competition is taking place(i.e. 2026)
  -  `event_code`
     - a string, written in all lowercase letters, which corresponds to the given event and can be found on TBA (i.e. 'iri', 'cmptx')
 
@@ -24,15 +24,15 @@ Additionally, a json file must exist in the `backend/data` directory in the form
 
 ### Optional Configuration Fields
  - `run_with_tba`
-    - determines whether match schedule will be retrieved from tba or from file, also determines if checks based on TBA data will run
+    - determines whether match schedule will be retrieved from tba or from file, also determines if checks based on TBA (The Blue Alliance) data will run
     - default: `true`
 
 ### Match Schedule Configuration
-A couple of the checks in the datavalidation software rely having access to an accurate match schedule. These checks are important since they ensure that the data collected corresponds to the correct team number. 
+A couple of the checks in the datavalidation software rely on having access to an accurate match schedule. These checks are important since they ensure that the data collected corresponds to the correct team number. 
 
-By default the software will attempt to retrieve the match schedule using TBA's api. However, at smaller competitions its possible that TBA may not have a copy of match schedule ready in time for the competition. In that case the scouting admin is able to edit a copy of the match schedule by hand.
+By default, the software will attempt to retrieve the match schedule using TBA's api. However, at smaller competitions its possible that TBA may not have a copy of match schedule ready in time for the competition. In that case the scouting admin is able to edit a copy of the match schedule by hand.
 
-To do this the `run_with_tba` configuration field must be specified as `false` in the `config.yaml` file. The `../data/match_schedule.json` file, which currently contains the match schedule from `2022iri`, can then be edited.
+To do this the `run_with_tba` configuration field must be specified as `false` in the `config.yaml` file. The `../data/match_schedule.json` file, which currently contains the match schedule from `2024ash`, can then be edited.
 
 ### Making DataValidation Optional
  
@@ -41,10 +41,10 @@ Datavalidation uses inheritance to provide teams with some level of base functio
 - `BaseDataValidation` Class
     - At the heart of the DataValidation software is a class called `BaseDataValidation`. This class contains basic checks which are essential to validating data from any scouting app(i.e. match schedule checks, defense checks).
     - It also includes two important abstract methods `validate_data` and `validate_submission`, these two methods must be implimented in any child class and are where other checks are called from.
-- `DataValidation2022` Child Class
+- `DataValidation2025` Child Class
     - Inherits `BaseDataValidation`
         ```
-        class DataValidation2022(BaseDataValidation):
+        class DataValidation2025(BaseDataValidation):
             def __init__(self, path_to_config: str = "config yaml"):
                 super().__init__(path_to_config)
         ```
@@ -58,20 +58,19 @@ Datavalidation uses inheritance to provide teams with some level of base functio
         - calls all methods which check data from one submisison
 
 ### Writing Custom Checks
- - Each check is a method of the `DatValidation2022` class and should take in the data fields it uses as parameters
+ - Each check is a method of the `DatValidation2025` class and should take in the data fields it uses as parameters
    - it is recommended to include the `match_key` and `team_number` as parameters of any check since they can be used as identifiers in the error message
  - Example data check function signature:
     ```
-    def check_for_auto_great_than_6(
-        self,
-        match_key: str,
-        team_number: int,
-        auto_lower_hub: int,
-        auto_upper_hub: int,
-        auto_misses: int,
-    ) -> None:
+    def scored_more_than_eight_in_auto(
+            self,
+            match_key: str,
+            team_number: int,
+            auto_coral: int,
+            auto_algae: int,
+    ):
     ```
- - Teams may then impliment whatever logic they like in the function body
+ - Teams may then implement whatever logic they like in the function body
  - To flag an error you must call the `add_error` method which takes two arguments the `error_message` and the `error_type`
     - The `error_message` is simply a string which describes the error
     - The `error_type` takes in a value from a predefined enum which is used to categorize the error
@@ -89,21 +88,22 @@ Datavalidation uses inheritance to provide teams with some level of base functio
             ```
     - Example call to `add_error`
         ```
-        if balls_shot_in_auto > 6:
-        self.add_error(
-                f"In {match_key}, {team_number} UNLIKELY AUTO SHOT COUNT",
-                error_type=ErrorType.WARNING,
+         if auto_coral + auto_algae > 8:
+            self.add_error(
+                f"In {match_key}, {team_number} was said to have scored {auto_coral} CORAL GAME PIECES AND {auto_algae} ALGAE GAME PIECES IN AUTO WHICH IS IMPOSSIBLE.",
+                ErrorType.INCORRECT_DATA,
+                match_key,
+                team_number,
             )
         ```
  - Lastly to run the check the function must be called in either `validate_submission` or `validate_data` and pass in the required data arguments
  - Example data check function call
     ```
-    def validate_submission(self, submission: Series) -> None:
-        self.check_for_auto_great_than_6(
-                match_key=submission["match_key"],
-                team_number=submission["team_number"],
-                auto_lower_hub=submission["auto_lower_hub"],
-                auto_upper_hub=submission["auto_upper_hub"],
-                auto_misses=submission["auto_misses"],
-            )
+     def validate_submission(self, submission: Series) -> None:
+        self.scored_more_than_eight_in_auto(
+            match_key=submission[self.config["match_key"]],
+            team_number=submission[self.config["team_number"]],
+            auto_coral=submission[self.config["auto_coral_l1"]] + submission[self.config["auto_coral_l2"]]+submission[self.config["auto_coral_l3"]]+submission[self.config["auto_coral_l4"]],
+            auto_algae=submission[self.config["auto_processor"]]+submission[self.config["auto_barge"]],
+        )
     ```

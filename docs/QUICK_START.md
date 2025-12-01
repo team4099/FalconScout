@@ -100,37 +100,60 @@ The Yaml is used to setup our data validation system we provide to check your da
 
 ```
 # core setup features
-year: 2022
-event_code: "iri"
-run_with_tba: True
+year: 2025
+event_code: "njdd"
+run_with_tba: false
+path_to_data: "data/2025njdd_match_data.json"
+path_to_output: "data/errors.json"
 
 # required translation
-match_key: "match_key"
-team_number: "team_number"
+scout_id: "ScoutId"
+match_key: "MatchKey"
+team_number: "TeamNumber"
+alliance: "Alliance"
+driver_station": "DriverStation"
 
 # optional parameters - if it is needed for a data check and is
 # not listed, the check will not run
 
-# Rapid React 2022: hyper-specific parameters
-auto_lower_hub: "auto_lower_hub"
-auto_upper_hub: "auto_upper_hub"
-...
-taxied: "taxied"
-final_climb_type: "final_climb_type"
+# Reefscape 2025: hyper-specific parameters
+auto_starting_position: "StartingPosition"
+auto_leave: "AutoLeave"
+auto_scoring_side: "ScoringSide"
+auto_coral_l1: "AutoCoralL1"
+auto_coral_l2: "AutoCoralL2"
+auto_coral_l3: "AutoCoralL3"
+auto_coral_l4: "AutoCoralL4"
+auto_barge: "AutoBarge"
+auto_processor: "AutoProcessor"
+auto_centerline: "AutoCenterline"
+teleop_coral_l1: "TeleopCoralL1"
+teleop_coral_l2: "TeleopCoralL2"
+teleop_coral_l3: "TeleopCoralL3"
+teleop_coral_l4: "TeleopCoralL4"
+teleop_algae_barge: "TeleopAlgaeBarge"
+teleop_algae_processor: "TeleopAlgaeProcessor"
+endgame_parked: "Parked"
+endgame_climb_status: "ClimbStatus"
+endgame_climb_speed: "ClimbSpeed"
+disabled: "Disabled"
+stability_rating: "StabilityRating"
+robot_style_type: "RobotStyleType"
+driver_rating: "DriverRating"
+intake_defense_rating: "IntakeDefenseRating"
 
-# general game parameters
-alliance: "alliance"
-driver_station: "driver_station"
-...
-defense_rating: "defense_rating"
-counter_defense_rating: "counter_defense_rating"
+# parameters for notes
+auto_notes: "AutoNotes"
+teleop_notes: "TeleopNotes"
+endgame_notes: "EndgameNotes"
+rating_notes: "RatingNotes"
 ```
 
-The first 3 parameters in the example `year`, `event_code`, `run_with_tba` are used to setup the year specific and general checks to be run. Setting `year` to 2023 will run the 2023 checks if they exist. Setting `event` to iri will cause TBA to grab the iri 2022 schedule and use it for data validation. This will only happen if you choose to use the `run_with_tba` parameter (use only if you have internet connection).
+The first 3 parameters in the example `year`, `event_code`, `run_with_tba` are used to setup the year specific and general checks to be run. Setting `year` to 2026 will run the 2026 checks if they exist. Setting `event` to njdd will cause TBA to grab the njdd 2025 schedule and use it for data validation. This will only happen if you choose to use the `run_with_tba` parameter (use only if you have internet connection).
 
-The rest of the parameters may change yearly but are used to translate the data you collect to the `4099 data val syntax` for that and past year checks. Internally, we use wording like `auto_lower_hub` but if you don't use that same wording, then you can just change your name for it in the yaml file by changing the key. Example ...
+The rest of the parameters may change yearly but are used to translate the data you collect to the `4099 data val syntax` for that and past year checks. Internally, we use wording like `AutoCoralL1` but if you don't use that same wording, then you can just change your name for it in the yaml file by changing the key. Example ...
 ```
-taxied: "taxi"
+endgame_parked: "Parked"
 ```
 
 The values used in the value pair should be the same values in your `data_labels` in your `config.json`. 
@@ -188,7 +211,7 @@ src/config/structure.json
                 "type": "GenericTextInput",
                 "text": "Scout Name",
                 "placeholder": [
-                    "Pranav"
+                    "Nathan"
                 ],
                 "id": "scoutid"
             },
@@ -235,9 +258,9 @@ For each page you have 4 parts. `name`, `description`, `components`, `export`.
         - `DropdownTextInput` is used for selection an option and providing a text input inline. This could be used for selecting your match type by setting your options as qm, qf, sf, f and your placeholder as match number. Can take placeholders (1) and options (many)
         - `GenericTextArea` is used for getting inputs in a paragraph form. Similar to text area in google forms. Can take a placeholder (only 1) but no options
         - `GenericTextInput` is used for getting inputs in a single line form. Similar to text input in google forms. Can take a placeholder (only 1) but no options
-        - `IncrementNumberInput` is used to get a number and add or subtract to it. It can be used in Rapid React for getting the ball count. It can take a placeholder for the initial value but no options.
+        - `IncrementNumberInput` is used to get a number and add or subtract to it. It can be used in Reefscape for getting the Algae count. It can take a placeholder for the initial value but no options.
         - `SliderInput` is used to get a value on a regular html slider from values a to b. The values are set via two options. Options are used and not placeholders
-        - `GenericCheckboxSelect` is used for getting multiple values selected. Checkbox like google forms. Can be used for zones in 2022. Takes options in a list and no placeholders
+        - `GenericCheckboxSelect` is used for getting multiple values selected. Checkbox like google forms. Can be used for climb status. Takes options in a list and no placeholders
         - `GenericDropdownSelect` is a dropdown which can be used to select one of many options in a list. Options can be given in a list and no placeholders taken.
         - `GenericRadioSelect` are for selecting an option in a list like the dropdown select but in the ui format of a radio which takes a single value. Takes a list of options and no placeholders
         - `GenericToggle` is a phone setting-like toggle used for getting a `True` or `False` value from the user. Takes no placeholders or options.
