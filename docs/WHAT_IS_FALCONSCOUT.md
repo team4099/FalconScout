@@ -26,13 +26,13 @@ The JSON file format is
 ```
 [
     {
-        "scout_id": "Pranav",
+        "scout_id": "Ryan",
         ...
         "team_num": 4099
     },
     ...
     {
-        "scout_id": "Zac",
+        "scout_id": "Nathan",
         ...
         "team_num": 4099
     },
