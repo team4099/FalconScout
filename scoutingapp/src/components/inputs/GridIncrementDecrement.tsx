@@ -17,7 +17,7 @@ function GridIncrementDecrement(props: ComponentSetup) {
         {props.text}
       </label>
 
-      <div className={`grid grid-cols-${props.options?.length} gap-3`}>
+      <div className={`grid grid-cols-${props.options?.length} grid-rows-2 gap-3`}>
         {props.options?.map((option: string, idx) => {
           const [raw, label] = option.split("|")
           const n = Number(raw)
