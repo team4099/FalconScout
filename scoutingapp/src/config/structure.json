@@ -72,6 +72,26 @@
                 "type": "Spacing"
             },
             {
+              "type": "GridIncrementDecrement",
+              "text": "Singular Counts",
+              "options": [
+                "1|1",
+                "2|2",
+                "5|5"
+              ],
+              "id": "SingularCount"
+            },
+            {
+              "type": "GridIncrementDecrement",
+              "text": "Hopper Counts",
+              "options": [
+                "0.25|1/4 Hopp.",
+                "0.5|1/2 Hopp.",
+                "1|Hopper"
+              ],
+              "id": "BatchCount"
+            },
+            {
                 "type": "GenericHeaderTwo",
                 "text": "Auto"
             },

@@ -8,6 +8,7 @@ import { GenericHeaderOne, GenericHeaderTwo, QRCodeModal, Timer } from "../texts
 import { CycleCounter } from "../monitor"
 import { RobotImage } from "../img"
 import ChargedUpStartingPosition from "../selects/ChargedUpStartingPosition"
+import GridIncrementDecrement from "../inputs/GridIncrementDecrement";
 
 export function Page({ components, exports }: PageSetup) {
     const ComponentLibrary: { [key: string]: [React.ComponentType<any>, any] } = {
@@ -28,7 +29,8 @@ export function Page({ components, exports }: PageSetup) {
         "ChargedUpGridSelect": [ChargedUpGridSelect, []],
         "ChargedUpStartingPosition": [ChargedUpStartingPosition, ""],
         "ConeCubeIncrementInput": [ConeCubeIncrementInput, []],
-        "RobotImage": [RobotImage, <></>]
+        "RobotImage": [RobotImage, <></>],
+        "GridIncrementDecrement": [GridIncrementDecrement, 0]
     }
 
     const componentSetup: { [key: string]: any } = {}
