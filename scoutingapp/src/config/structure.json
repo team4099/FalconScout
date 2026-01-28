@@ -424,7 +424,7 @@
                 "id": "RatingNotes"
             },
             {
-                "type": "DarkButton",
+                "type": "SubmitButton",
                 "text": "Submit",
                 "id": "result"
             }
@@ -586,7 +586,7 @@
                 "id": "EndgameGeneralNotes"
             },
             {
-                "type": "DarkButton",
+                "type": "SubmitButton",
                 "text": "Submit",
                 "id": "result"
             }

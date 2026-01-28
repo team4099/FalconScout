@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import { DarkButton } from "../buttons"
+import { DarkButton, SubmitButton } from "../buttons"
 import { DropdownTextInput, GenericTextArea, GenericTextInput, IncrementNumberInput, SliderInput, ConeCubeIncrementInput } from "../inputs"
 import {ImportedComponentSetup, PageSetup} from "../interface"
 import { GenericCheckboxSelect, GenericDropdown, GenericRadioSelect, GenericToggle, ChargedUpGridSelect } from "../selects"
@@ -13,6 +13,7 @@ import GridIncrementDecrement from "../inputs/GridIncrementDecrement";
 export function Page({ components, exports }: PageSetup) {
     const ComponentLibrary: { [key: string]: [React.ComponentType<any>, any] } = {
         "DarkButton": [DarkButton, false],
+        "SubmitButton": [SubmitButton, false],
         "DropdownTextInput": [DropdownTextInput, ["", ""]],
         "GenericTextArea": [GenericTextArea, ""],
         "GenericTextInput": [GenericTextInput, ""],
@@ -78,14 +79,17 @@ export function Page({ components, exports }: PageSetup) {
     }
 
     return (
-        <div className="mx-2 pt-8 pb-10 max-w-[40rem] md:mx-auto overscroll-none">
-            <Link to="/">
-                <div className="w-full h-6 mx-4 text-2xl font-bold">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="40" width="40" viewBox="0 0 75 75">
-                        <path d="M20 44 0 24 20 4l2.8 2.85L5.65 24 22.8 41.15Z" />
-                    </svg>
-                </div>
-            </Link>
+        <div className="mx-2 pb-10 max-w-[40rem] md:mx-auto overscroll-none">
+            <div className="flex justify-between items-center pt-2 mx-4 mb-8">
+                <Link to="/">
+                    <div className="text-2xl font-bold">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="40" width="40" viewBox="0 0 75 75">
+                            <path d="M20 44 0 24 20 4l2.8 2.85L5.65 24 22.8 41.15Z" />
+                        </svg>
+                    </div>
+                </Link>
+                <DarkButton />
+            </div>
             {
                 components?.map((component: ImportedComponentSetup, key: number) => {
                     if (component.type == "Spacing") {

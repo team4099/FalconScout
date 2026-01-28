@@ -2,3 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --background-color: #FFFFFF;
+    --header-color: #262626;
+    --text-color: #262626; /* Changed to dark for light background */
+    --input-bg-color: #FFFFFF;
+    --input-text-color: #262626;
+    --input-border-color: #262626;
+    --placeholder-color: rgba(0, 0, 0, 0.4);
+  }
+
+  .dark {
+    --background-color: #262626;
+    --header-color: #EFAE04;
+    --text-color: #FFFFFF;
+    --input-bg-color: #333;
+    --input-text-color: #EFAE04;
+    --input-border-color: #EFAE04;
+    --placeholder-color: rgba(255, 255, 255, 0.5);
+  }
+
+  body {
+    background-color: var(--background-color);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--header-color);
+  }
+  label {
+    color: var(--text-color);
+  }
+  input, textarea, select {
+    background-color: var(--input-bg-color);
+    color: var(--input-text-color);
+    border: 1px solid var(--input-border-color);
+    border-radius: 0.5rem;
+  }
+  input::placeholder, textarea::placeholder {
+    color: var(--placeholder-color);
+  }
+  button {
+    border-radius: 0.5rem;
+  }
+}
+

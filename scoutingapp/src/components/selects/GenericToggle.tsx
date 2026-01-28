@@ -1,8 +1,10 @@
 import React from "react"
 import { ComponentSetup } from "../interface"
+import { useTheme } from "../ThemeContext"
 import "./index.css"
 
 function GenericToggle(props: ComponentSetup) {
+	const { theme } = useTheme();
 
 	const updateState = (event: any) => {
 		//console.log(props.getValue)
@@ -13,7 +15,7 @@ function GenericToggle(props: ComponentSetup) {
 
     return (
 		<div className="mx-3 my-3">
-			<label className="block text-[#344054] text-sm mb-2">
+			<label className="block text-sm mb-2" style={{color: theme === 'light' ? '#000000' : '#FFFFFF'}}>
 				{props.text}
 			</label>
 			

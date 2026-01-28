@@ -47,11 +47,11 @@ export function CycleCounter(props: ComponentSetup) {
 
     return (
         <div className="mx-3 my-3">
-            <label className="block text-[#344054] text-sm mb-2">
+            <label className="block text text-sm mb-2">
                 { props.text }
             </label>
 
-            <label className="block text-[#344054] text-sm mb-2">
+            <label className="block text-white text-sm mb-2">
                 Avr time: { (totalTime) } { cycles }
             </label>
         </div>

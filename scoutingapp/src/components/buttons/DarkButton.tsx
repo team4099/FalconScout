@@ -1,24 +1,24 @@
-import React from "react"
-import {ComponentSetup} from "../interface"
+import React from 'react';
+import { useTheme } from '../ThemeContext';
 
-function DarkButton(props: ComponentSetup) {
+function DarkButton() {
+  const { theme, toggleTheme } = useTheme();
 
-	const updateState = () => {
-		//console.log(props.getValue)
-		var state = props.getValue
-		state[props.id] = true
-		props.setValue(state)
-	}
+  const buttonStyle = {
+    padding: '8px 16px',
+    borderRadius: '0.5rem',
+    border: '1px solid var(--input-border-color)',
+    backgroundColor: 'var(--input-bg-color)',
+    color: 'var(--input-text-color)',
+    cursor: 'pointer',
+    fontSize: '0.875rem',
+  };
 
-    return (
-    
-		<div className="mx-3 my-3">
-			<button className="bg-black text-sm font-semibold outline w-full hover:outline-3 hover:outline-gray-300 text-white py-2 px-2 rounded-lg" onClick={updateState}>
-                { props.text }
-            </button>
-		</div>
-
-  	)
+  return (
+    <button style={buttonStyle} onClick={toggleTheme}>
+      {theme === 'light' ? '🌙' : '☀️'}
+    </button>
+  );
 }
 
-export default DarkButton
+export default DarkButton;

@@ -17,10 +17,10 @@ function IncrementNumberInput(props: ComponentSetup) {
 
     return (
         <div className="mx-3 my-3">
-            <label className="block text-[#344054] text-sm mb-2">
+            <label className="block text-sm mb-2">
                 { props.text }
             </label>
-            <div className="h-14 border border-color-[#D0D5DD] border-[1.5px] rounded-xl">
+            <div className="h-14 rounded-xl">
                 <button
                     type="button"
                     className="w-1/3 text-[#cc2936] h-full text-5xl rounded-l-xl float-left bg-[#FDE7E7]"
