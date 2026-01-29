@@ -20,10 +20,10 @@ function IncrementNumberInput(props: ComponentSetup) {
             <label className="block text-sm mb-2">
                 { props.text }
             </label>
-            <div className="h-14 rounded-xl">
+            <div className="h-14">
                 <button
                     type="button"
-                    className="w-1/3 text-[#cc2936] h-full text-5xl rounded-l-xl float-left bg-[#FDE7E7]"
+                    className="w-1/3 text-[#cc2936] h-full text-5xl float-left bg-[#FDE7E7]"
                     onClick={function () {if (counter > 0) {setCounter(counter-1); updateStateText(counter-1)}}}
                 >
                     -

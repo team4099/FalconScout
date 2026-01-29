@@ -3,46 +3,69 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --background-color: #FFFFFF;
-    --header-color: #262626;
-    --text-color: #262626; /* Changed to dark for light background */
-    --input-bg-color: #FFFFFF;
-    --input-text-color: #262626;
-    --input-border-color: #262626;
-    --placeholder-color: rgba(0, 0, 0, 0.4);
-  }
+    /* TODO @nathan implement the red green and blues */
+    :root {
+        --team-gold: #EFAE04;
+        --blueblack: #0e1117;
+        --pure-black: #000000;
+        --team-white: #FFFFFF;
+        --light-gray: rgb(229, 231, 235);
+        --dark-gray: rgb(62, 69, 84);
 
-  .dark {
-    --background-color: #262626;
-    --header-color: #EFAE04;
-    --text-color: #FFFFFF;
-    --input-bg-color: #333;
-    --input-text-color: #EFAE04;
-    --input-border-color: #EFAE04;
-    --placeholder-color: rgba(255, 255, 255, 0.5);
-  }
+        --background-color: var(--team-white);
+        --header-color: var(--blueblack);
+        --text-color: var(--blueblack);
+        --input-bg-color: var(--team-white);
+        --input-text-color: var(--blueblack);
+        --input-border-color: var(--light-gray);
+        --placeholder-color: var(--dark-gray);
+        --default-deep-red: #e5534b;
+        --default-pale-red: #fde9e9;
+        --default-deep-green: #4ade80;
+        --default-pale-green: #e2f8e3;
+        --default-deep-blue: #529bf5;
+    }
 
-  body {
-    background-color: var(--background-color);
-  }
-  h1, h2, h3, h4, h5, h6 {
-    color: var(--header-color);
-  }
-  label {
-    color: var(--text-color);
-  }
-  input, textarea, select {
-    background-color: var(--input-bg-color);
-    color: var(--input-text-color);
-    border: 1px solid var(--input-border-color);
-    border-radius: 0.5rem;
-  }
-  input::placeholder, textarea::placeholder {
-    color: var(--placeholder-color);
-  }
-  button {
-    border-radius: 0.5rem;
-  }
+    .dark {
+        --background-color: var(--blueblack);
+        --header-color: var(--team-white);
+        --text-color: var(--team-white);
+        --input-bg-color: var(--blueblack);
+        --input-text-color: var(--team-white);
+        --input-border-color: var(--dark-gray);
+        --placeholder-color: var(--light-gray);
+        --default-deep-red: #361115;
+        --default-pale-red: #673e42;
+        --default-deep-green: #3f6e3d;
+        --default-pale-green: #687769;
+        --default-deep-blue: #3a4a62;
+    }
+
+    body {
+        background-color: var(--background-color);
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        color: var(--header-color);
+    }
+
+    label {
+        color: var(--text-color);
+    }
+
+    input, textarea, select {
+        background-color: var(--input-bg-color);
+        color: var(--input-text-color);
+        border: 1px solid var(--input-border-color);
+        border-radius: 0.5rem;
+    }
+
+    input::placeholder, textarea::placeholder {
+        color: var(--placeholder-color);
+    }
+
+    button {
+        border-radius: 0.5rem;
+    }
 }
 
