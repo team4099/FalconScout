@@ -90,8 +90,8 @@
                 "type": "GenericCheckboxSelect",
                 "text": "Auto Scoring Side",
                 "options": [
-                    "Depot Side",
-                    "Human-Player Side"
+                    "Near/flush with HUB",
+                    "Anywhere in Alliance Zone"
                 ],
                 "id": "ScoringSide",
                 "required": true
@@ -132,8 +132,7 @@
              {
                 "type": "GenericToggle",
                 "text": "Did they climb in Auto?",
-                "id": "AutoClimb",
-                "required": true
+                "id": "AutoClimb"
             },
             {
                 "type": "GenericHeaderTwo",
@@ -163,7 +162,7 @@
                 "type": "GenericTextArea",
                 "text": "Teleop Notes",
                 "placeholder": [
-                    "Text Goes Here..."
+                    "Text goes here..."
                 ],
                 "id": "TeleopNotes"
             },
@@ -313,7 +312,7 @@
                 "type": "GenericTextArea",
                 "text": "Rating Notes",
                 "placeholder": [
-                    "wow what a big dumper"
+                    ""
                 ],
                 "id": "RatingNotes"
             },
