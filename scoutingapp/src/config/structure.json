@@ -15,7 +15,7 @@
                 "type": "GenericTextInput",
                 "text": "Scout Name",
                 "placeholder": [
-                    "gerald"
+                    "shayaan"
                 ],
                 "id": "ScoutId",
                 "required": true
@@ -122,7 +122,7 @@
                 "type": "GenericTextArea",
                 "text": "Auto Notes",
                 "placeholder": [
-                    "defense heavy..."
+                    "Defense heavy..."
                 ],
                 "id": "AutoNotes"
             },
@@ -163,7 +163,7 @@
                 "type": "GenericTextArea",
                 "text": "Teleop Notes",
                 "placeholder": [
-                    "holy airball/s"
+                    "Text Goes Here..."
                 ],
                 "id": "TeleopNotes"
             },
@@ -176,7 +176,7 @@
             },
             {
                 "type": "GenericDropdown",
-                "text": "Did it climb in Teleop?",
+                "text": "Did the robot climb in Teleop?",
                 "options": [
                     "None",
                     "L1",
@@ -332,7 +332,6 @@
                 "DriverStation",
                 "TeamNumber",
                 "StartingPosition",
-                "AutoLeave",
                 "ScoringSide",
                 "AutoNotes",
                 "TeleopNotes",
@@ -349,7 +348,11 @@
                 "RatingNotes",
                 "ThroughputSpeed",
                 "TeleopClimb",
-                "AutoClimb"
+                "AutoClimb",
+                "TeleopSingularCount",
+                "AutoSingularCount",
+                "AutoBatchCount",
+                "TeleopBatchCount"
             ]
         }
     },
