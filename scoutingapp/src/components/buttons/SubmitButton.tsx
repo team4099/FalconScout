@@ -3,8 +3,6 @@ import { useTheme } from '../ThemeContext';
 import { ComponentSetup } from '../interface';
 
 function SubmitButton(props: ComponentSetup) {
-  const { theme } = useTheme();
-
   const buttonStyle = {
     padding: '10px 20px',
     borderRadius: '0.5rem',

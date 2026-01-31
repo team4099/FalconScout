@@ -23,17 +23,17 @@ function IncrementNumberInput(props: ComponentSetup) {
             <div className="h-14">
                 <button
                     type="button"
-                    className="w-1/3 text-[#cc2936] h-full text-5xl float-left bg-[#FDE7E7]"
+                    className="w-1/3 text-[var(--default-deep-red)] h-full text-5xl float-left bg-[var(--default-pale-red)] rounded-r-none"
                     onClick={function () {if (counter > 0) {setCounter(counter-1); updateStateText(counter-1)}}}
                 >
                     -
                 </button>
-                <div className={`flex w-1/3 h-full text-2xl float-left items-center ${color == "red" ? "bg-red-400" : color == "yellow" ? "bg-amber-300" : color == "blue" ? "bg-blue-500" : color == "green" ? "bg-green-400" : color == "purple" ? "bg-purple-400" : color == "orange" ? "bg-orange-400" : "bg-white"}`}>
+                <div className={`flex w-1/3 h-full text-2xl float-left items-center`} style={{ backgroundColor: color == "white" ? "white" : `var(--default-deep-${color})` }}>
                     <p className={"text-center w-full"}>{counter}</p>
                 </div>
                 <button
                     type="button"
-                    className="text-5xl text-[#18611B] w-1/3 h-full rounded-r-xl float-right bg-[#E2F8E3]"
+                    className="text-5xl text-[var(--default-deep-green)] w-1/3 h-full rounded-r-xl float-right bg-[var(--default-pale-green)] rounded-l-none"
                     onClick={function () {setCounter(counter+1); updateStateText(counter+1)}}
                 >
                     +

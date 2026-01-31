@@ -4,8 +4,6 @@ import { useTheme } from "../ThemeContext"
 import "./index.css"
 
 function GenericCheckboxSelect(props: ComponentSetup) {
-    const { theme } = useTheme();
-
     const updateStateSelections = (event: any) => {
 		//console.log(props.getValue)
 		var state = props.getValue
@@ -22,8 +20,6 @@ function GenericCheckboxSelect(props: ComponentSetup) {
 		props.setValue(state)
 	}
 
-    const textColor = theme === 'light' ? '#000000' : '#FFFFFF';
-
     return (
 		<div className="mx-3 my-3">
 			<label className="block text-sm mb-2">
@@ -35,7 +31,7 @@ function GenericCheckboxSelect(props: ComponentSetup) {
                         { props.options?.slice(0, Math.ceil(props.options?.length / 2)).map ((option: string, key: number) => (
                             <div className="mb-1" key={key}>
                                 <input type="checkbox" name={option} value={option} className={`radio ${props.id}`}/>
-                                <p className="ml-3 inline" style={{color: textColor}}>{option}</p>
+                                <p className="ml-3 inline  text-[var(--text-color)]">{option}</p>
                             </div>
                         ))}
                     </div>
@@ -43,7 +39,7 @@ function GenericCheckboxSelect(props: ComponentSetup) {
                         { props.options?.slice(Math.ceil(props.options?.length / 2)).map ((option: string, key: number) => (
                             <div className="mb-1" key={key}>
                                 <input type="checkbox" name={option} value={option} className={`radio ${props.id}`}/>
-                                <p className="inline ml-3" style={{color: textColor}}>{option}</p>
+                                <p className="inline ml-3  text-[var(--text-color)]">{option}</p>
                             </div>
                         ))}
                     </div>

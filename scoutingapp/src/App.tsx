@@ -1,14 +1,15 @@
 import './App.css'
-import { Routes, Route } from 'react-router-dom';
-import { Page, ParentPage, StoragePage } from "./components/pages"
+import {Routes, Route} from 'react-router-dom';
+import {Page, ParentPage, StoragePage} from "./components/pages"
 import structure from "./config/structure.json"
 import React from 'react';
 import {PageSetup} from "./components/interface";
 import Layout from './components/pages/Layout';
+import {DarkButton} from "./components/buttons";
 
 
 function App() {
-  if ([null, ""].includes(localStorage.getItem("codes"))){
+  if ([null, ""].includes(localStorage.getItem("codes"))) {
     localStorage.setItem("codes", "{}")
   }
 

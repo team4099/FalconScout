@@ -21,7 +21,7 @@ function GenericDropdown(props: ComponentSetup) {
 			<label className="block text-sm mb-2">
 				{props.text}
 				{ props.required == true && (
-					<span className="ml-1 text-red-400 font-bold">
+					<span className="ml-1  text-[var(--default-deep-red)] font-bold">
 						*	
 					</span>
 				)}
