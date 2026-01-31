@@ -2,3 +2,102 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    :root {
+        --team-gold: #EFAE04;
+        --blueblack: #0e1015;
+        --pure-black: #000000;
+        --team-white: #FFFFFF;
+        --light-gray: rgb(192, 199, 208);
+        --dark-gray: rgb(62, 69, 84);
+
+        --background-color: var(--team-white);
+        --header-color: var(--blueblack);
+        --text-color: var(--blueblack);
+        --input-bg-color: var(--team-white);
+        --input-text-color: var(--blueblack);
+        --input-border-color: var(--light-gray);
+        --placeholder-color: var(--dark-gray);
+        --hover: rgb(215, 216, 218);
+
+        --default-deep-red: #e5534b;
+        --default-pale-red: #fde9e9;
+        --default-deep-green: #4ade80;
+        --default-pale-green: #e2f8e3;
+        --default-deep-blue: #529bf5;
+        --default-deep-yellow: #ffc35f;
+        --default-deep-purple: #9241c5;
+    }
+
+    .dark {
+        --background-color: var(--blueblack);
+        --header-color: var(--team-white);
+        --text-color: var(--team-white);
+        --input-bg-color: var(--blueblack);
+        --input-text-color: var(--team-white);
+        --input-border-color: var(--dark-gray);
+        --placeholder-color: var(--light-gray);
+        --hover: rgb(42, 48, 61);
+
+        --default-deep-red: #c24040;
+        --default-pale-red: #673e42;
+        --default-deep-green: #86bd82;
+        --default-pale-green: #59695a;
+        --default-deep-blue: #44689d;
+        --default-deep-yellow: #b28414;
+        --default-deep-purple: #b481d5;
+    }
+
+    body {
+        background-color: var(--background-color);
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        color: var(--header-color);
+    }
+
+    label {
+        color: var(--text-color);
+    }
+
+    input, textarea, select {
+        background-color: var(--input-bg-color);
+        color: var(--input-text-color);
+        border: 1px solid var(--input-border-color);
+        border-radius: 0.5rem;
+    }
+
+    input::placeholder, textarea::placeholder {
+        color: var(--placeholder-color);
+    }
+
+    button {
+        border-radius: 0.5rem;
+    }
+
+    .slider {
+        background-color: var(--input-border-color);
+    }
+
+    input:checked + .slider {
+        background-color: var(--placeholder-color);
+    }
+
+    .slider::before {
+        background-color: var(--input-bg-color);
+    }
+
+    input[type="checkbox"] {
+        appearance: none;
+        width: 1rem;
+        height: 1rem;
+        background-color: var(--background-color);
+        border: 1px solid var(--input-border-color);
+        border-radius: 0.25rem;
+    }
+
+    input[type="checkbox"]:checked {
+        background-color: var(--placeholder-color);
+    }
+}
+

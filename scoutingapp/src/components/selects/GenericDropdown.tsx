@@ -18,15 +18,15 @@ function GenericDropdown(props: ComponentSetup) {
     return (
     
 		<div className="mx-3 my-3">
-			<label className="block text-[#344054] text-sm mb-2">
+			<label className="block text-sm mb-2">
 				{props.text}
 				{ props.required == true && (
-					<span className="ml-1 text-red-400 font-bold">
+					<span className="ml-1  text-[var(--default-deep-red)] font-bold">
 						*	
 					</span>
 				)}
 			</label>
-			<select name="option" defaultValue="" onChange={updateStateSelections} id="options" className="appearance-none border border-color-[#D0D5DD] rounded w-full py-2 px-3 text-gray-700 focus:outline-none">
+			<select name="option" defaultValue="" onChange={updateStateSelections} id="options" className="appearance-none border border-color-[#D0D5DD] rounded w-full py-2 px-3 focus:outline-none">
 				<option disabled value=""> -- </option>
 				{ props.options?.map ((option: string, key: number) => (
                     <option key={key} value={option}>{option}</option>
