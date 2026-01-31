@@ -60,24 +60,10 @@
                 "type": "GenericTextInput",
                 "text": "Team Number",
                 "placeholder": [
-                    "6741"
+                    "4099"
                 ],
                 "id": "TeamNumber",
                 "required": true
-            },
-            {
-                "type": "GenericDropdown",
-                "text": "How big is their hopper",
-                "options": [
-                    "0-20",
-                    "20-30",
-                    "30-40",
-                    "40-50",
-                    "50-60",
-                    "60-70",
-                    "70+"
-                ],
-                "id": "HopperSize"
             },
             {
                 "type": "RobotImage"
@@ -101,11 +87,6 @@
                 "required": true
             },
             {
-                "type": "GenericToggle",
-                "text": "Did they leave their alliance zone?",
-                "id": "AutoLeave"
-            },
-            {
                 "type": "GenericCheckboxSelect",
                 "text": "Auto Scoring Side",
                 "options": [
@@ -123,7 +104,8 @@
                     "2|2",
                     "5|5"
                 ],
-                "id": "AutoSingularCount"
+                "id": "AutoSingularCount",
+                "required": true
             },
             {
                 "type": "GridIncrementDecrement",
@@ -133,18 +115,25 @@
                     "0.5|1/2 Hopp.",
                     "1|Hopper"
                 ],
-                "id": "AutoBatchCount"
+                "id": "AutoBatchCount",
+                "required": true
              },
             {
                 "type": "GenericTextArea",
                 "text": "Auto Notes",
                 "placeholder": [
-                    "its just warmup, right?"
+                    "defense heavy..."
                 ],
                 "id": "AutoNotes"
             },
             {
                 "type": "Spacing"
+            },
+             {
+                "type": "GenericToggle",
+                "text": "Did they climb in Auto?",
+                "id": "AutoClimb",
+                "required": true
             },
             {
                 "type": "GenericHeaderTwo",
@@ -186,24 +175,20 @@
                 "text": "Climb"
             },
             {
-                "type": "GenericToggle",
-                "text": "Auto climb?",
-                "id": "TeleopClimb"
-            },
-            {
                 "type": "GenericDropdown",
-                "text": "Teleop climb?",
+                "text": "Did it climb in Teleop?",
                 "options": [
                     "None",
                     "L1",
                     "L2",
                     "L3"
                 ],
-                "id": "TeleopClimb"
+                "id": "TeleopClimb",
+                "required": true
             },
             {
                 "type": "GenericDropdown",
-                "text": "How long did it take to reach max level",
+                "text": "How long did it take to climb to said level?",
                 "options": [
                     ">20 seconds",
                     "10-20 seconds",
@@ -216,7 +201,7 @@
                 "type": "GenericTextArea",
                 "text": "Climb Notes",
                 "placeholder": [
-                    "its doing muscle ups??"
+                    "climbed using..."
                 ],
                 "id": "EndgameNotes"
             },
@@ -322,7 +307,7 @@
                     "Poor: Heavy impact on the robot's shooting ability",
                     "Very Poor: Robot's shooting ability severely hampered, little to no accuracy"
                 ],
-                "id": "IntakeDefenseRating"
+                "id": "ShooterDefenseRating"
             },
             {
                 "type": "GenericTextArea",
@@ -349,25 +334,8 @@
                 "StartingPosition",
                 "AutoLeave",
                 "ScoringSide",
-                "AutoCoralL1",
-                "AutoCoralL2",
-                "AutoCoralL3",
-                "AutoCoralL4",
-                "AutoCoralMisses",
-                "AutoBarge",
-                "AutoProcessor",
                 "AutoNotes",
-                "TeleopCoralL1",
-                "TeleopCoralL2",
-                "TeleopCoralL3",
-                "TeleopCoralL4",
-                "TeleopCoralMisses",
-                "TeleopAlgaeBarge",
-                "TeleopAlgaeProcessor",
-                "TeleopAlgaeRemoval",
                 "TeleopNotes",
-                "Parked",
-                "ClimbStatus",
                 "ClimbSpeed",
                 "EndgameNotes",
                 "Disabled",
@@ -376,11 +344,12 @@
                 "DriverRating",
                 "IntakeSpeed",
                 "DefenseRating",
+                "ShooterDefenseRating",
                 "IntakeDefenseRating",
                 "RatingNotes",
                 "ThroughputSpeed",
                 "TeleopClimb",
-                "HopperSize"
+                "AutoClimb"
             ]
         }
     },
