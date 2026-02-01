@@ -15,7 +15,7 @@
                 "type": "GenericTextInput",
                 "text": "Scout Name",
                 "placeholder": [
-                    "shayaan"
+                    "shaunak"
                 ],
                 "id": "ScoutId",
                 "required": true
@@ -101,8 +101,8 @@
                 "text": "Singular Counts",
                 "options": [
                     "1|1",
-                    "2|2",
-                    "5|5"
+                    "5|5",
+                    "10|10"
                 ],
                 "id": "AutoSingularCount",
                 "required": true
@@ -144,8 +144,8 @@
                 "text": "Singular Counts",
                 "options": [
                     "1|1",
-                    "2|2",
-                    "5|5"
+                    "5|5",
+                    "10|10"
                 ],
                 "id": "TeleopSingularCount"
             },
