@@ -15,7 +15,7 @@
                 "type": "GenericTextInput",
                 "text": "Scout Name",
                 "placeholder": [
-                    "shaunak"
+                    "shayaan"
                 ],
                 "id": "ScoutId",
                 "required": true
