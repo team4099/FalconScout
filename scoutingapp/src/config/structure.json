@@ -1,6 +1,6 @@
 [
     {
-        "name": "2025 Scouting App",
+        "name": "2026 Scouting App",
         "description": "Team 4099: The Falcon's 2025 scouting data collection page",
         "components": [
             {
@@ -91,7 +91,8 @@
                 "text": "Auto Scoring Side",
                 "options": [
                     "Near/flush with HUB",
-                    "Anywhere in Alliance Zone"
+                    "Depot Side",
+                    "Human Player Side"
                 ],
                 "id": "ScoringSide",
                 "required": true
@@ -265,10 +266,10 @@
             {"type": "GenericDropdown",
                 "text": "How fast was their throughput?",
                 "options": [
-                    "Very Good: Finished Outtaking in <15 seconds",
-                    "Good: Finished Outtaking in <20 seconds",
-                    "Okay: Finished Outtaking in <25 Seconds",
-                    "Poor: Spent the entire shift Outtaking"
+                    "Very Good: Finished Outtaking in 0-10 Seconds",
+                    "Good: Finished Outtaking in 10-15 Seconds",
+                    "Okay: Finished Outtaking in 15-20 Seconds",
+                    "Poor: Finished Outtaking in 20-30 Seconds"
                 ],
                 "id": "ThroughputSpeed"
             },
@@ -356,12 +357,12 @@
         }
     },
     {
-        "name": "2025 Note Scouting App",
+        "name": "2026 Note Scouting App",
         "description": "Team 4099: The Falcon's 2025 note scouting app for providing qualitative data.",
         "components": [
             {
                 "type": "GenericHeaderOne",
-                "text": "2025 Note Scouting App"
+                "text": "2026 Note Scouting App"
             },
             {
                 "type": "GenericHeaderTwo",
