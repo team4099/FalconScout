@@ -1,7 +1,7 @@
 [
     {
         "name": "2026 Scouting App",
-        "description": "Team 4099: The Falcon's 2025 scouting data collection page",
+        "description": "Team 4099: The Falcon's 2026 scouting data collection page",
         "components": [
             {
                 "type": "GenericHeaderOne",
@@ -269,7 +269,8 @@
                     "Very Good: Finished Outtaking in 0-10 Seconds",
                     "Good: Finished Outtaking in 10-15 Seconds",
                     "Okay: Finished Outtaking in 15-20 Seconds",
-                    "Poor: Finished Outtaking in 20-30 Seconds"
+                    "Poor: Finished Outtaking in 20-25 Seconds",
+                    "Very Poor: Spent the entire shift Outtaking"
                 ],
                 "id": "ThroughputSpeed"
             },
@@ -358,7 +359,7 @@
     },
     {
         "name": "2026 Note Scouting App",
-        "description": "Team 4099: The Falcon's 2025 note scouting app for providing qualitative data.",
+        "description": "Team 4099: The Falcon's 2026 note scouting app for providing qualitative data.",
         "components": [
             {
                 "type": "GenericHeaderOne",
