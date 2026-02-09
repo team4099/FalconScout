@@ -1,11 +1,11 @@
 [
     {
-        "name": "2025 Scouting App",
-        "description": "Team 4099: The Falcon's 2025 scouting data collection page",
+        "name": "2026 Scouting App",
+        "description": "Team 4099: The Falcon's 2026 scouting data collection page",
         "components": [
             {
                 "type": "GenericHeaderOne",
-                "text": "2025 Scouting App"
+                "text": "2026 Scouting App"
             },
             {
                 "type": "GenericHeaderTwo",
@@ -72,26 +72,6 @@
                 "type": "Spacing"
             },
             {
-              "type": "GridIncrementDecrement",
-              "text": "Singular Counts",
-              "options": [
-                "1|1",
-                "2|2",
-                "5|5"
-              ],
-              "id": "SingularCount"
-            },
-            {
-              "type": "GridIncrementDecrement",
-              "text": "Hopper Counts",
-              "options": [
-                "0.25|1/4 Hopp.",
-                "0.5|1/2 Hopp.",
-                "1|Hopper"
-              ],
-              "id": "BatchCount"
-            },
-            {
                 "type": "GenericHeaderTwo",
                 "text": "Auto"
             },
@@ -99,202 +79,92 @@
                 "type": "GenericDropdown",
                 "text": "Robot Starting Position",
                 "options": [
-                    "Processor Side",
-                    "Middle",
-                    "Non-Processor Side"
+                    "Depot Side",
+                    "Center",
+                    "Human-Player Side"
                 ],
                 "id": "StartingPosition",
                 "required": true
             },
             {
-                "type": "GenericToggle",
-                "text": "Did they leave the starting zone (black line)?",
-                "id": "AutoLeave"
-            },
-            {
                 "type": "GenericCheckboxSelect",
                 "text": "Auto Scoring Side",
                 "options": [
-                    "Processor Side",
-                    "Non-Processor Side"
+                    "Near/flush with HUB",
+                    "Depot Side",
+                    "Human Player Side"
                 ],
                 "id": "ScoringSide",
                 "required": true
             },
             {
-                "type": "IncrementNumberInput",
-                "text": "Auto Coral L1 Cycles",
-                "placeholder": [
-                    "0"
-                ],
+                "type": "GridIncrementDecrement",
+                "text": "Singular Counts",
                 "options": [
-                    "purple"
+                    "1|1",
+                    "5|5",
+                    "10|10"
                 ],
-                "id": "AutoCoralL1"
+                "id": "AutoSingularCount",
+                "required": true
             },
             {
-                "type": "IncrementNumberInput",
-                "text": "Auto Coral L2 Cycles",
-                "placeholder": [
-                    "0"
-                ],
+                "type": "GridIncrementDecrement",
+                "text": "Hopper Counts",
                 "options": [
-                    "purple"
+                    "0.25|1/4 Hopp.",
+                    "0.5|1/2 Hopp.",
+                    "1|Hopper"
                 ],
-                "id": "AutoCoralL2"
-            },
-            {
-                "type": "IncrementNumberInput",
-                "text": "Auto Coral L3 Cycles",
-                "placeholder": [
-                    "0"
-                ],
-                "options": [
-                    "purple"
-                ],
-                "id": "AutoCoralL3"
-            },
-            {
-                "type": "IncrementNumberInput",
-                "text": "Auto Coral L4 Cycles",
-                "placeholder": [
-                    "0"
-                ],
-                "options": [
-                    "purple"
-                ],
-                "id": "AutoCoralL4"
-            },
-            {
-                "type": "IncrementNumberInput",
-                "text": "Auto Coral Misses",
-                "placeholder": [
-                    "0"
-                ],
-                "options": [
-                    "red"
-                ],
-                "id": "AutoCoralMisses"
-            },
-            {
-                "type": "IncrementNumberInput",
-                "text": "Auto Net Cycles",
-                "placeholder": [
-                    "0"
-                ],
-                "options": [
-                    "green"
-                ],
-                "id": "AutoBarge"
-            },
-            {
-                "type": "IncrementNumberInput",
-                "text": "Auto Processor Cycles",
-                "placeholder": [
-                    "0"
-                ],
-                "options": [
-                    "green"
-                ],
-                "id": "AutoProcessor"
-            },
+                "id": "AutoBatchCount",
+                "required": true
+             },
             {
                 "type": "GenericTextArea",
                 "text": "Auto Notes",
+                "placeholder": [
+                    "Defense heavy..."
+                ],
                 "id": "AutoNotes"
             },
             {
                 "type": "Spacing"
+            },
+             {
+                "type": "GenericToggle",
+                "text": "Did they climb in Auto?",
+                "id": "AutoClimb"
             },
             {
                 "type": "GenericHeaderTwo",
                 "text": "Teleop"
             },
             {
-                "type": "IncrementNumberInput",
-                "text": "Teleop Coral L1 Cycles",
-                "placeholder": [
-                    "0"
-                ],
+                "type": "GridIncrementDecrement",
+                "text": "Singular Counts",
                 "options": [
-                    "purple"
+                    "1|1",
+                    "5|5",
+                    "10|10"
                 ],
-                "id": "TeleopCoralL1"
+                "id": "TeleopSingularCount"
             },
             {
-                "type": "IncrementNumberInput",
-                "text": "Teleop Coral L2 Cycles",
-                "placeholder": [
-                    "0"
-                ],
+                "type": "GridIncrementDecrement",
+                "text": "Hopper Counts",
                 "options": [
-                    "purple"
+                    "0.25|1/4 Hopp.",
+                    "0.5|1/2 Hopp.",
+                    "1|Hopper"
                 ],
-                "id": "TeleopCoralL2"
-            },
-            {
-                "type": "IncrementNumberInput",
-                "text": "Teleop Coral L3 Cycles",
-                "placeholder": [
-                    "0"
-                ],
-                "options": [
-                    "purple"
-                ],
-                "id": "TeleopCoralL3"
-            },
-            {
-                "type": "IncrementNumberInput",
-                "text": "Teleop Coral L4 Cycles",
-                "placeholder": [
-                    "0"
-                ],
-                "options": [
-                    "purple"
-                ],
-                "id": "TeleopCoralL4"
-            },
-            {
-                "type": "IncrementNumberInput",
-                "text": "Teleop Coral Misses",
-                "placeholder": [
-                    "0"
-                ],
-                "options": [
-                    "red"
-                ],
-                "id": "TeleopCoralMisses"
-            },
-            {
-                "type": "IncrementNumberInput",
-                "text": "Teleop Net Cycles",
-                "placeholder": [
-                    "0"
-                ],
-                "options": [
-                    "green"
-                ],
-                "id": "TeleopAlgaeBarge"
-            },
-            {
-                "type": "IncrementNumberInput",
-                "text": "Teleop Processor Cycles",
-                "placeholder": [
-                    "0"
-                ],
-                "options": [
-                    "green"
-                ],
-                "id": "TeleopAlgaeProcessor"
-            },
-            {
-                "type": "GenericToggle",
-                "text": "Did the robot remove algae from the reef?",
-                "id": "TeleopAlgaeRemoval"
+                "id": "TeleopBatchCount"
             },
             {
                 "type": "GenericTextArea",
                 "text": "Teleop Notes",
+                "placeholder": [
+                    "Text goes here..."
+                ],
                 "id": "TeleopNotes"
             },
             {
@@ -302,38 +172,37 @@
             },
             {
                 "type": "GenericHeaderTwo",
-                "text": "Endgame"
-            },
-            {
-                "type": "GenericToggle",
-                "text": "Did the robot park during endgame?",
-                "id": "Parked"
+                "text": "Climb"
             },
             {
                 "type": "GenericDropdown",
-                "text": "Did the robot climb onto the cage?",
+                "text": "Did the robot climb in Teleop?",
                 "options": [
-                    "No Climb",
-                    "Deep Climb",
-                    "Shallow Climb"
+                    "None",
+                    "L1",
+                    "L2",
+                    "L3"
                 ],
-                "id": "ClimbStatus",
+                "id": "TeleopClimb",
                 "required": true
-            },    
-
+            },
             {
                 "type": "GenericDropdown",
-                "text": "How fast were they at climbing onto the cage?",
+                "text": "How long did it take to climb to said level?",
                 "options": [
-                    "Slow (>10 seconds)",
-                    "Average (5-10 seconds)",
-                    "Fast (<5 seconds)"
+                    ">20 seconds",
+                    "10-20 seconds",
+                    "5-10 seconds",
+                    "<5 seconds"
                 ],
                 "id": "ClimbSpeed"
             },
             {
                 "type": "GenericTextArea",
-                "text": "Endgame Qualitative Notes",
+                "text": "Climb Notes",
+                "placeholder": [
+                    "climbed using..."
+                ],
                 "id": "EndgameNotes"
             },
             {
@@ -394,6 +263,17 @@
                 ],
                 "id": "IntakeSpeed"
             },
+            {"type": "GenericDropdown",
+                "text": "How fast was their throughput?",
+                "options": [
+                    "Very Good: Finished Outtaking in 0-10 Seconds",
+                    "Good: Finished Outtaking in 10-15 Seconds",
+                    "Okay: Finished Outtaking in 15-20 Seconds",
+                    "Poor: Finished Outtaking in 20-25 Seconds",
+                    "Very Poor: Spent the entire shift Outtaking"
+                ],
+                "id": "ThroughputSpeed"
+            },
             {
                 "type": "GenericDropdown",
                 "text": "How good are they at defending?",
@@ -419,8 +299,23 @@
                 "id": "IntakeDefenseRating"
             },
             {
+                "type": "GenericDropdown",
+                "text": "How good are they at shooting while being defended?",
+                "options": [
+                    "Very Good:  Little to no impact on the robot's shooting ability",
+                    "Good: Some impact on robot's shooting ability",
+                    "Okay: Notable impact on robot's shooting ability",
+                    "Poor: Heavy impact on the robot's shooting ability",
+                    "Very Poor: Robot's shooting ability severely hampered, little to no accuracy"
+                ],
+                "id": "ShooterDefenseRating"
+            },
+            {
                 "type": "GenericTextArea",
                 "text": "Rating Notes",
+                "placeholder": [
+                    ""
+                ],
                 "id": "RatingNotes"
             },
             {
@@ -438,27 +333,9 @@
                 "DriverStation",
                 "TeamNumber",
                 "StartingPosition",
-                "AutoLeave",
                 "ScoringSide",
-                "AutoCoralL1",
-                "AutoCoralL2",
-                "AutoCoralL3",
-                "AutoCoralL4",
-                "AutoCoralMisses",
-                "AutoBarge",
-                "AutoProcessor",
                 "AutoNotes",
-                "TeleopCoralL1",
-                "TeleopCoralL2",
-                "TeleopCoralL3",
-                "TeleopCoralL4",
-                "TeleopCoralMisses",
-                "TeleopAlgaeBarge",
-                "TeleopAlgaeProcessor",
-                "TeleopAlgaeRemoval",
                 "TeleopNotes",
-                "Parked",
-                "ClimbStatus",
                 "ClimbSpeed",
                 "EndgameNotes",
                 "Disabled",
@@ -467,18 +344,26 @@
                 "DriverRating",
                 "IntakeSpeed",
                 "DefenseRating",
+                "ShooterDefenseRating",
                 "IntakeDefenseRating",
-                "RatingNotes"
+                "RatingNotes",
+                "ThroughputSpeed",
+                "TeleopClimb",
+                "AutoClimb",
+                "TeleopSingularCount",
+                "AutoSingularCount",
+                "AutoBatchCount",
+                "TeleopBatchCount"
             ]
         }
     },
     {
-        "name": "2025 Note Scouting App",
-        "description": "Team 4099: The Falcon's 2025 note scouting app for providing qualitative data.",
+        "name": "2026 Note Scouting App",
+        "description": "Team 4099: The Falcon's 2026 note scouting app for providing qualitative data.",
         "components": [
             {
                 "type": "GenericHeaderOne",
-                "text": "2025 Note Scouting App"
+                "text": "2026 Note Scouting App"
             },
             {
                 "type": "GenericHeaderTwo",

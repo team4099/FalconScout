@@ -17,7 +17,7 @@ function GridIncrementDecrement(props: ComponentSetup) {
         {props.text}
       </label>
 
-      <div className={`grid grid-cols-${props.options?.length} gap-3`}>
+      <div className={`grid grid-rows-2 gap-3`} style={{ gridTemplateColumns: `repeat(${props.options?.length}, minmax(0, 1fr))` }}>
         {props.options?.map((option: string, idx) => {
           const [raw, label] = option.split("|")
           const n = Number(raw)
@@ -26,7 +26,7 @@ function GridIncrementDecrement(props: ComponentSetup) {
             <button
               key={idx}
               onClick={() => setCount(s => Math.max(0, s - n))}
-              className={`h-14 rounded-lg text-lg text-black font-semibold
+              className={`h-14 rounded-lg text-lg text-black
               bg-[#FDE7E7] hover:opacity-90 transition`}
             >
               - {label}
@@ -42,7 +42,7 @@ function GridIncrementDecrement(props: ComponentSetup) {
             <button
               key={idx}
               onClick={() => setCount(s => Math.max(0, s + n))}
-              className={`h-14 rounded-lg text-lg text-black font-semibold
+              className={`h-14 rounded-lg text-lg text-black
               bg-[#E2F8E3] hover:opacity-90 transition`}
             >
               + {label}
