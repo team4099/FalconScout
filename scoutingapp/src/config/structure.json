@@ -233,8 +233,7 @@
                 "text": "Robot Style",
                 "options": [
                     "Defensive",
-                    "Offensive",
-                    "passing"
+                    "Offensive"
                 ],
                 "id": "RobotStyleType",
                 "required": true
