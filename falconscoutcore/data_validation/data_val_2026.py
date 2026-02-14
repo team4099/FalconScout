@@ -84,7 +84,7 @@ class DataValidation2026(BaseDataValidation):
             team_number: int,
             auto_points: int,
     ):
-        """Marks an error if more than one piece was scored in auto without leaving."""
+        """Marks an error if more than 80 points were scored in auto."""
         if auto_points > 80:
             self.add_error(
                 f"In {match_key}, {team_number} was said to have scored {auto_points} AUTO POINTS WHICH IS IMPOSSIBLE.",
@@ -92,97 +92,6 @@ class DataValidation2026(BaseDataValidation):
                 match_key,
                 team_number,
             )
-
-    def tba_validate_total_auto_cycles(self, scouting_data: DataFrame):
-        """Validates the total auto speaker/amp cycles for an alliance with TBA."""
-        for (match_key, alliance), submissions_by_alliance in scouting_data.groupby(
-                [self.config["match_key"], self.config["alliance"]]
-        ):
-            try:
-                score_breakdown = self.match_data[
-                    f"{self._event_key}_{match_key}"
-                ].score_breakdown[alliance.lower()]
-            except KeyError as e:
-                raise KeyError(
-                    "No matches to retrieve data from OR invalid match key, check scouting data."
-                ) from e
-
-            actual_auto_coral = score_breakdown["autoCoralCount"]
-            scouted_auto_coral_l1 = submissions_by_alliance[self.config["auto_coral_l1"]].sum()
-            scouted_auto_coral_l2 = submissions_by_alliance[self.config["auto_coral_l2"]].sum()
-            scouted_auto_coral_l3 = submissions_by_alliance[self.config["auto_coral_l3"]].sum()
-            scouted_auto_coral_l4 = submissions_by_alliance[self.config["auto_coral_l4"]].sum()
-            scouted_auto_coral = scouted_auto_coral_l1 + scouted_auto_coral_l2 + scouted_auto_coral_l3 + scouted_auto_coral_l4
-
-            # 0 for now since the field in tba is net algae count (most likely because robots won't score algae during auto)
-            actual_auto_algae = 0
-            scouted_auto_algae_processor = submissions_by_alliance[self.config["auto_processor"]].sum()
-            scouted_auto_algae_barge = submissions_by_alliance[self.config["auto_barge"]].sum()
-            scouted_auto_algae = scouted_auto_algae_barge + scouted_auto_algae_processor
-
-            scouted_auto_pieces = scouted_auto_coral + scouted_auto_algae
-            actual_auto_pieces = actual_auto_coral + actual_auto_algae
-
-            if (
-                    scouted_auto_pieces != actual_auto_pieces
-                    and abs(scouted_auto_pieces - actual_auto_pieces)
-                    >= self.TBA_AUTO_ERROR_THRESHOLD
-            ):
-                self.add_error(
-                    f"In {match_key}, the {alliance.upper()} alliance was said to have scored"
-                    f" {scouted_auto_coral} CORAL IN THE REEF and {scouted_auto_algae} ALGAE IN THE NET & PROCESSOR during AUTO "
-                    f"but actually scored {actual_auto_coral} CORAL IN THE REEF and {actual_auto_algae} ALGAE IN THE NET & PROCESSOR.",
-                    ErrorType.INCORRECT_DATA,
-                    match_key,
-                    alliance=alliance,
-                )
-
-    
-
-    
-
-    def tba_validate_total_teleop_cycles(self, scouting_data: DataFrame):
-        """Validates the total teleop coral/algae cycles for an alliance with TBA."""
-        for (match_key, alliance), submissions_by_alliance in scouting_data.groupby(
-                [self.config["match_key"], self.config["alliance"]]
-        ):
-            try:
-                score_breakdown = self.match_data[
-                    f"{self._event_key}_{match_key}"
-                ].score_breakdown[alliance.lower()]
-            except KeyError as e:
-                raise KeyError(
-                    "No matches to retrieve data from OR invalid match key, check scouting data."
-                ) from e
-
-            actual_teleop_coral = score_breakdown["teleopCoralCount"]
-            scouted_teleop_coral_l1 = submissions_by_alliance[self.config["teleop_coral_l1"]].sum()
-            scouted_teleop_coral_l2 = submissions_by_alliance[self.config["teleop_coral_l2"]].sum()
-            scouted_teleop_coral_l3 = submissions_by_alliance[self.config["teleop_coral_l3"]].sum()
-            scouted_teleop_coral_l4 = submissions_by_alliance[self.config["teleop_coral_l4"]].sum()
-            scouted_teleop_coral = scouted_teleop_coral_l1 + scouted_teleop_coral_l2 + scouted_teleop_coral_l3 + scouted_teleop_coral_l4
-
-            actual_teleop_algae = score_breakdown["netAlgaeCount"]
-            scouted_teleop_algae_barge = submissions_by_alliance[self.config["teleop_algae_barge"]].sum()
-            scouted_teleop_algae_processor = submissions_by_alliance[self.config["teleop_algae_processor"]].sum()
-            scouted_teleop_algae = scouted_teleop_algae_processor + scouted_teleop_algae_barge
-
-            scouted_teleop_pieces = scouted_teleop_coral + scouted_teleop_algae
-            actual_teleop_pieces = actual_teleop_coral + actual_teleop_algae
-
-            if (
-                    scouted_teleop_pieces != actual_teleop_pieces
-                    and abs(scouted_teleop_pieces - actual_teleop_pieces)
-                    >= self.TBA_TELEOP_ERROR_THRESHOLD
-            ):
-                self.add_error(
-                    f"In {match_key}, the {alliance.upper()} alliance was said to have scored"
-                    f" {scouted_teleop_coral} CORAL and {scouted_teleop_algae} ALGAE during TELEOP "
-                    f"but actually scored {scouted_teleop_coral} CORAL and {actual_teleop_algae} ALGAE.",
-                    ErrorType.INCORRECT_DATA,
-                    match_key,
-                    alliance=alliance,
-                )
 
     def tba_validate_climb_state(
             self,
