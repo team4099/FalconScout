@@ -358,12 +358,12 @@
         }
     },
     {
-        "name": "2026 Note Scouting App",
-        "description": "Team 4099: The Falcon's 2026 note scouting app for providing qualitative data.",
+        "name": "2026 Pitt Scouting App",
+        "description": "Team 4099: The Falcon's 2026 pitt scouting app for providing qualitative data.",
         "components": [
             {
                 "type": "GenericHeaderOne",
-                "text": "2026 Note Scouting App"
+                "text": "2026 Pitt Scouting App"
             },
             {
                 "type": "GenericHeaderTwo",
@@ -431,9 +431,9 @@
                 "text": "General Notes"
             },
             {
-                "type": "GenericToggle",
+                "type": "HopperCapacity",
                 "text": "Did they run into obstacles while driving autonomously?",
-                "id": "AutoDrivingSkills"
+                "id": "AutoHopperCapacity"
             },
             {
                 "type": "GenericTextArea",
@@ -441,14 +441,12 @@
                 "id": "AutoGeneralNotes"
             },
             {
-                "type": "GenericDropdown",
-                "text": "Where are they mostly intaking from?",
-                "options": [
-                    "-",
-                    "Coral Station",
-                    "Ground"
+                "type": "SizeOfDrivetrainFrameWithoutBumpers",
+                "text": "Size of drivetrain frame WITHOUT BUMPERS (inches)",
+                "placeholder": [
+                    "width"
                 ],
-                "id": "TeleopIntakeLocation"
+                "id": "AutoSizeOfDrivetrainFrameWithoutBumpers"
             },
             {
                 "type": "GenericTextArea",
