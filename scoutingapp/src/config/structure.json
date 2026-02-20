@@ -407,22 +407,32 @@
                 "text": "General Notes"
             },
             {
-                "type": "HopperCapacity",
-                "text": "what is their hopper capacity?",
-                "placeholder":[
-                    "67 for full hopper"
+                "type": "GenericDropdown",
+                "text": "What is their hopper capacity?",
+                "options":[
+                    "Small (0-30)",
+                    "Medium (30-60)",
+                    "Large (60-90)",
+                    "Extra-Large (90+)"
                 ],
                 "id": "HopperCapacity"
             },
             {
-                "type": "SizeOfDrivetrainFrameWithoutBumpers",
-                "text": "Size of drivetrain frame WITHOUT BUMPERS (inches)",
+                "type": "GenericTextInput",
+                "text": "Size of drivetrain LENGTH",
                 
-                "fields": [
-                   {"name": "Width", "placeholder": "Width in inches"},
-                    {"name": "Length", "placeholder": "Length in inches"}
+                "placeholder":  [
+                    "24 in"
                 ],
-                "id": "SizeOfDrivetrainFrameWithoutBumpers"
+                "id": "DrivetrainLength"
+            },
+            {
+                "type": "GenericTextInput",
+                "text": "Size of drivetrain WIDTH",
+                "placeholder": [
+                "24 in"
+            ],
+                "id": "DrivetrainWidth"
             },
             {
                 "type": "WeightOfRobot",
@@ -445,7 +455,8 @@
                 "Alliance" ,
                 "TeamNumber" ,
                 "HopperCapacity" ,
-                "SizeOfDrivetrainFrameWithoutBumpers" ,
+                "DrivetrainLength" ,
+                "DrivetrainWidth",
                 "WeightOfRobot"
             ]
         }
