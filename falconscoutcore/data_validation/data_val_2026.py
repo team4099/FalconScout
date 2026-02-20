@@ -34,10 +34,6 @@ class DataValidation2026(BaseDataValidation):
 
         self.check_team_numbers_for_each_match(scouting_data)
 
-        if self._run_with_tba:
-            self.tba_validate_total_auto_cycles(scouting_data)
-            self.tba_validate_total_teleop_cycles(scouting_data)
-
         if not scouting_data.empty:
             # Validates individual submissions
             for _, submission in scouting_data.iterrows():
@@ -62,7 +58,7 @@ class DataValidation2026(BaseDataValidation):
         self.scored_more_than_eighty_in_auto(
             match_key=submission[self.config["match_key"]],
             team_number=submission[self.config["team_number"]],
-            auto_points=submission[self.config["auto_singular_count"]]+submission[self.config["auto_batch_count"]]*["MAGANZINE PLACEHOLDER"]
+            auto_points=submission[self.config["auto_singular_count"]]+submission[self.config["auto_batch_count"]]*["MAGANZINE PLACEHOLDER"] #TODO
         )
 
        
@@ -114,13 +110,7 @@ class DataValidation2026(BaseDataValidation):
 
         tba_climb_status = score_breakdown[f"endGameRobot{driver_station}"]
 
-        if tba_climb_status == "Parked" and not parked:
-            self.add_error(
-                f"In {match_key}, {team_number} was said to have NOT PARKED despite TBA marking them as PARKED.",
-                ErrorType.INCORRECT_DATA,
-                match_key,
-                team_number,
-            )
+        
 
         if tba_climb_status != climb_level.replace(" ", "") and not parked:
             self.add_error(
