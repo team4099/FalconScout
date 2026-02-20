@@ -366,30 +366,14 @@
                 "text": "2026 Pit Scouting App"
             },
             {
-                "type": "GenericHeaderTwo",
-                "text": "Pit Info"
-            },
-            {
                 "type": "GenericTextInput",
                 "text": "Scout Name",
                 "placeholder": [
-                    "Pranav"
+                    "Yusuf"
                 ],
                 "required": true,
                 "id": "ScoutId"
             },
-            
-            {
-                "type": "GenericRadioSelect",
-                "text": "Alliance",
-                "options": [
-                    "red",
-                    "blue"
-                ],
-                "required": true,
-                "id": "Alliance"
-            },
-            
             {
                 "type": "GenericTextInput",
                 "text": "Team Number",
@@ -407,39 +391,39 @@
                 "text": "General Notes"
             },
             {
-                "type": "GenericDropdown",
+                "type": "GenericTextInput",
                 "text": "What is their hopper capacity?",
-                "options":[
-                    "Small (0-30)",
-                    "Medium (30-60)",
-                    "Large (60-90)",
-                    "Extra-Large (90+)"
+                "placeholder": [
+                  "32"
                 ],
-                "id": "HopperCapacity"
+              "required": true,
+              "id": "HopperCapacity"
             },
             {
                 "type": "GenericTextInput",
-                "text": "Size of drivetrain LENGTH",
-                
+                "text": "What is the size of their drivetrain length, without bumpers, in inches",
                 "placeholder":  [
-                    "24 in"
+                    "24"
                 ],
+                "required": true,
                 "id": "DrivetrainLength"
             },
             {
                 "type": "GenericTextInput",
-                "text": "Size of drivetrain WIDTH",
+                "text": "What is the size of their drivetrain width, without bumpers, in inches",
                 "placeholder": [
-                "24 in"
-            ],
+                    "24"
+                ],
+                "required": true,
                 "id": "DrivetrainWidth"
             },
             {
-                "type": "WeightOfRobot",
-                "text": "Weight of Robot (lbs)",
+                "type": "GenericTextInput",
+                "text": "What is the weight of their robot, in pounds",
                 "placeholder": [
                     "120"
                 ],
+                "required": true,
                 "id": "WeightOfRobot"
             },
             {
@@ -452,7 +436,6 @@
             "delimiter": "|" ,
             "order": [
                 "ScoutId" ,
-                "Alliance" ,
                 "TeamNumber" ,
                 "HopperCapacity" ,
                 "DrivetrainLength" ,
