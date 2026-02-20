@@ -358,61 +358,21 @@
         }
     },
     {
-        "name": "2026 Note Scouting App",
-        "description": "Team 4099: The Falcon's 2026 note scouting app for providing qualitative data.",
+        "name": "2026 Pit Scouting App",
+        "description": "Team 4099: The Falcon's 2026 pit scouting app for providing qualitative data.",
         "components": [
             {
                 "type": "GenericHeaderOne",
-                "text": "2026 Note Scouting App"
-            },
-            {
-                "type": "GenericHeaderTwo",
-                "text": "Match Info"
+                "text": "2026 Pit Scouting App"
             },
             {
                 "type": "GenericTextInput",
                 "text": "Scout Name",
                 "placeholder": [
-                    "Pranav"
+                    "Yusuf"
                 ],
                 "required": true,
                 "id": "ScoutId"
-            },
-            {
-                "type": "DropdownTextInput",
-                "text": "Match Key",
-                "options": [
-                    "qm",
-                    "qf",
-                    "sf",
-                    "f"
-                ],
-                "placeholder": [
-                    "number"
-                ],
-                "required": true,
-                "id": "MatchKey"
-            },
-            {
-                "type": "GenericRadioSelect",
-                "text": "Alliance",
-                "options": [
-                    "red",
-                    "blue"
-                ],
-                "required": true,
-                "id": "Alliance"
-            },
-            {
-                "type": "GenericDropdown",
-                "text": "Driver Station",
-                "options": [
-                    "1",
-                    "2",
-                    "3"
-                ],
-                "required": true,
-                "id": "DriverStation"
             },
             {
                 "type": "GenericTextInput",
@@ -431,44 +391,40 @@
                 "text": "General Notes"
             },
             {
-                "type": "GenericToggle",
-                "text": "Did they run into obstacles while driving autonomously?",
-                "id": "AutoDrivingSkills"
-            },
-            {
-                "type": "GenericTextArea",
-                "text": "Auto General Notes",
-                "id": "AutoGeneralNotes"
-            },
-            {
-                "type": "GenericDropdown",
-                "text": "Where are they mostly intaking from?",
-                "options": [
-                    "-",
-                    "Coral Station",
-                    "Ground"
+                "type": "GenericTextInput",
+                "text": "What is their hopper capacity?",
+                "placeholder": [
+                  "32"
                 ],
-                "id": "TeleopIntakeLocation"
+              "required": true,
+              "id": "HopperCapacity"
             },
             {
-                "type": "GenericTextArea",
-                "text": "Teleop General Notes",
-                "id": "TeleopGeneralNotes"
-            },
-            {
-                "type": "GenericDropdown",
-                "text": "Climb Alignment Speed",
-                "options": [
-                    "-",
-                    "Slow: Took at least 5 seconds to climb on the cage",
-                    "Fast: Took at most 5 seconds to climb on the cage"
+                "type": "GenericTextInput",
+                "text": "What is the size of their drivetrain length, without bumpers, in inches",
+                "placeholder":  [
+                    "24"
                 ],
-                "id": "ClimbAlignmentSpeed"
+                "required": true,
+                "id": "DrivetrainLength"
             },
             {
-                "type": "GenericTextArea",
-                "text": "Endgame General Notes",
-                "id": "EndgameGeneralNotes"
+                "type": "GenericTextInput",
+                "text": "What is the size of their drivetrain width, without bumpers, in inches",
+                "placeholder": [
+                    "24"
+                ],
+                "required": true,
+                "id": "DrivetrainWidth"
+            },
+            {
+                "type": "GenericTextInput",
+                "text": "What is the weight of their robot, in pounds",
+                "placeholder": [
+                    "120"
+                ],
+                "required": true,
+                "id": "WeightOfRobot"
             },
             {
                 "type": "DarkButton",
@@ -477,19 +433,14 @@
             }
         ],
         "exports": {
-            "delimiter": "|",
+            "delimiter": "|" ,
             "order": [
-                "ScoutId",
-                "MatchKey",
-                "Alliance",
-                "DriverStation",
-                "TeamNumber",
-                "AutoDrivingSkills",
-                "AutoGeneralNotes",
-                "TeleopIntakeLocation",
-                "TeleopGeneralNotes",
-                "ClimbAlignmentSpeed",
-                "EndgameGeneralNotes"
+                "ScoutId" ,
+                "TeamNumber" ,
+                "HopperCapacity" ,
+                "DrivetrainLength" ,
+                "DrivetrainWidth",
+                "WeightOfRobot"
             ]
         }
     }
