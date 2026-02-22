@@ -13,7 +13,7 @@ class DataValidation2026(BaseDataValidation):
 
     def validate_data(self, scouting_data: list = None) -> None:
         """
-        Runs all checks for validating data from 2025's game (Reefscape).
+        Runs all checks for validating data from 2026's game (Rebuilt).
 
         :param scouting_data: Optional parameter containing scouting data mostly for testing purposes.
         :return:
