@@ -15,7 +15,7 @@ driver_station": "DriverStation"
 # optional parameters - if it is needed for a data check and is
 # not listed, the check will not run
 
-# Reefscape 2025: hyper-specific parameters
+# Rebuilt 2026: hyper-specific parameters
 auto_starting_position: "StartingPosition"
 auto_scoring_side: "ScoringSide"
 auto_singular_count: "AutoSingularCount"
