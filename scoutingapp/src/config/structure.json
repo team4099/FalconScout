@@ -359,7 +359,7 @@
     },
     {
         "name": "2026 Pit Scouting App",
-        "description": "Team 4099: The Falcon's 2026 pit scouting app for providing qualitative data.",
+        "description": "Team 4099: The Falcon's 2026 pit scouting app for pit data collection.",
         "components": [
             {
                 "type": "GenericHeaderOne",
