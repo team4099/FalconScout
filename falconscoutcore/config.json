@@ -40,26 +40,21 @@
             "IntakeDefenseRating",
             "RatingNotes"
         ],
-        "qualitative_data_labels": [
+        "pit_data_labels": [
             "ScoutId",
-            "MatchKey",
-            "Alliance",
-            "DriverStation",
             "TeamNumber",
-            "AutoDrivingSkills",
-            "AutoGeneralNotes",
-            "TeleopIntakeLocation",
-            "TeleopGeneralNotes",
-            "ClimbAlignmentSpeed",
-            "EndgameGeneralNotes"
+            "HopperCapacity",
+            "DrivetrainLength",
+            "DrivetrainWidth",
+            "WeightOfRobot"
         ],
         "json_file": "./data/2025njdd_match_data.json",
-        "qualitative_json_file": "./data/2025njdd_qualitative_data.json",
+        "pit_json_file": "./data/2025njdd_pit_scouting_data.json",
         "error_json": "./data/errors.json"
     },
     "repo_config": {
         "repo": "team4099/ScoutingAppData",
         "update_json": "2025njdd_match_data.json",
-        "update_qualitative_json": "2025njdd_qualitative_data.json"
+        "update_pit_json": "2025njdd_pit_scouting_data.json"
     }
 }

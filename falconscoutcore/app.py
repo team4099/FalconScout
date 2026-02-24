@@ -57,11 +57,11 @@ def _process_data(*data: list[str], status_message_col) -> None:
     :return:
     """
     quantitative_data_maps = []
-    qualitative_data_maps = []
+    pit_data_maps = []
 
     for raw_data in data:
         quantitative_data_labels = CONFIG["data_config"]["quantitative_data_labels"]
-        qualitative_data_labels = CONFIG["data_config"]["qualitative_data_labels"]
+        pit_data_labels = CONFIG["data_config"]["pit_data_labels"]
         split_data = raw_data.split(CONFIG["data_config"]["delimiter"])
 
         if len(split_data) == len(quantitative_data_labels):
@@ -71,17 +71,17 @@ def _process_data(*data: list[str], status_message_col) -> None:
                     for field, data in zip(quantitative_data_labels, split_data)
                 }
             )
-        elif len(split_data) == len(qualitative_data_labels):
-            qualitative_data_maps.append(
+        elif len(split_data) == len(pit_data_labels):
+            pit_data_maps.append(
                 {
                     field: _convert_string_to_proper_type(data)
-                    for field, data in zip(qualitative_data_labels, split_data)
+                    for field, data in zip(pit_data_labels, split_data)
                 }
             )
         else:
             status_message_col.error(
                 f"Scanned QR code from {split_data[0]} has {len(split_data)} fields "
-                f"while Core expected {len(quantitative_data_labels)} fields."
+                f"while Core expected {len(quantitative_data_labels)} or {len(pit_data_labels)} fields."
                 f" The scouter is likely using an older version of FalconScout."
             )
             return
@@ -116,19 +116,15 @@ def _process_data(*data: list[str], status_message_col) -> None:
                 f"{len(data_maps)} QR code(s) successfully scanned!", icon="✅"
             )
 
-    if qualitative_data_maps:
-        with open(CONFIG["data_config"]["qualitative_json_file"], "r+") as data_file:
+    if pit_data_maps:
+        with open(CONFIG["data_config"]["pit_json_file"], "r+") as data_file:
             scouting_data = load(data_file)
-            data_maps = [
-                data_map
-                for data_map in qualitative_data_maps
-                if data_map not in scouting_data
-            ]
+            data_maps = [data_map for data_map in pit_data_maps if data_map not in scouting_data]
 
             # If some QR codes were already scanned
             if len(data_maps) != len(data):
                 status_message_col.warning(
-                    f"{len(data) - len(data_maps)} note scouting app QR code(s) were already scanned.",
+                    f"{len(data) - len(data_maps)} pit scouting QR code(s) were already scanned.",
                     icon="🚨",
                 )
 
@@ -143,7 +139,7 @@ def _process_data(*data: list[str], status_message_col) -> None:
             data_file.truncate()
 
             status_message_col.success(
-                f"{len(data_maps)} note scouting app QR code(s) successfully scanned!",
+                f"{len(data_maps)} pit scouting QR code(s) successfully scanned!",
                 icon="✅",
             )
 
@@ -229,10 +225,10 @@ def sync_to_github(success_col) -> None:
     """
     with (
         open(CONFIG["data_config"]["json_file"]) as file,
-        open(CONFIG["data_config"]["qualitative_json_file"]) as qualitative_file,
+        open(CONFIG["data_config"]["pit_json_file"]) as pit_file,
     ):
         file_json_data = load(file)
-        qualitative_json_data = load(qualitative_file)
+        pit_json_data = load(pit_file)
 
     repo = github_instance.get_repo(CONFIG["repo_config"]["repo"])
     contents = repo.get_contents(CONFIG["repo_config"]["update_json"])
@@ -243,11 +239,11 @@ def sync_to_github(success_col) -> None:
         contents.sha,
     )
 
-    contents = repo.get_contents(CONFIG["repo_config"]["update_qualitative_json"])
+    contents = repo.get_contents(CONFIG["repo_config"]["update_pit_json"])
     repo.update_file(
         contents.path,
         f'updated data @ {datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S")}',
-        str(qualitative_json_data).replace("'", '"').replace("True", "true").replace("False", "false"),
+        str(pit_json_data).replace("'", '"').replace("True", "true").replace("False", "false"),
         contents.sha,
     )
 
@@ -258,13 +254,13 @@ def display_data() -> None:
     """Displays the scouting data in a table format that can be edited and is paginated."""
     with (
         open(CONFIG["data_config"]["json_file"]) as data_file,
-        open(CONFIG["data_config"]["qualitative_json_file"]) as qualitative_data_file,
+        open(CONFIG["data_config"]["pit_json_file"]) as pit_data_file,
     ):
         scouting_data = load(data_file)
-        note_scouting_data = load(qualitative_data_file)
+        pit_scouting_data = load(pit_data_file)
 
         scouting_df = pd.DataFrame.from_dict(scouting_data)
-        note_scouting_df = pd.DataFrame.from_dict(note_scouting_data)
+        pit_scouting_df = pd.DataFrame.from_dict(pit_scouting_data)
 
     data_display_col, status_message_col = st.columns([1.5, 1], gap="medium")
 
@@ -274,10 +270,10 @@ def display_data() -> None:
     # Quantitative scouting data editor
     resultant_df = data_display_col.data_editor(scouting_df, num_rows="dynamic", key="quantidf")
 
-    # Qualitative scouting data editor
-    data_display_col.write("### 📝 Note Scouting Data Editor")
-    resultant_quali_df = data_display_col.data_editor(
-        note_scouting_df, num_rows="dynamic", key="qualidf"
+    # Pit scouting data editor
+    data_display_col.write("### 🛠️ Pit Scouting Data Editor")
+    resultant_pit_df = data_display_col.data_editor(
+        pit_scouting_df, num_rows="dynamic", key="pitdf"
     )
 
     # Check if the data changed
@@ -289,12 +285,12 @@ def display_data() -> None:
             CONFIG["data_config"]["json_file"], orient="records", indent=2
         )
 
-    if not note_scouting_df[
-        ~note_scouting_df.apply(tuple, 1).isin(resultant_quali_df.apply(tuple, 1))
+    if not pit_scouting_df[
+        ~pit_scouting_df.apply(tuple, 1).isin(resultant_pit_df.apply(tuple, 1))
     ].empty:
-        status_message_col.success("Note scouting data changed successfully!", icon="✅")
-        resultant_quali_df.to_json(
-            CONFIG["data_config"]["qualitative_json_file"], orient="records", indent=2
+        status_message_col.success("Pit scouting data changed successfully!", icon="✅")
+        resultant_pit_df.to_json(
+            CONFIG["data_config"]["pit_json_file"], orient="records", indent=2
         )
 
 
