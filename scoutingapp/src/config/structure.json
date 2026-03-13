@@ -79,106 +79,91 @@
                 "type": "GenericDropdown",
                 "text": "Robot Starting Position",
                 "options": [
-                    "Depot Side",
+                    "Depot Side, under TRENCH",
+                    "Depot Side, on BUMP",
                     "Center",
-                    "Human-Player Side"
+                    "Human-Player Side on TRENCH",
+                    "Human-Player Side, on BUMP"
                 ],
                 "id": "StartingPosition",
                 "required": true
             },
             {
                 "type": "GenericCheckboxSelect",
-                "text": "Auto Scoring Side",
+                "text": "Where do they score in AUTO?",
                 "options": [
-                    "Near/flush with HUB",
-                    "Depot Side",
-                    "Human Player Side"
+                    "Centered, near Driver Station",
+                    "Centered, flush with HUB",
+                    "Depot Side, near Driver Station",
+                    "Depot Side, near TRENCH",
+                    "Human Player Side, near Driver Station",
+                    "Human Player Side, near TRENCH"
                 ],
-                "id": "ScoringSide",
+                "id": "AutoScoringSide",
                 "required": true
             },
             {
-                "type": "GridIncrementDecrement",
-                "text": "Singular Counts",
-                "options": [
-                    "1|1",
-                    "5|5",
-                    "10|10"
-                ],
-                "id": "AutoSingularCount",
-                "required": true
+              "type": "GenericCheckboxSelect",
+              "text": "How do they traverse to the NEUTRAL ZONE in AUTO?",
+              "options": [
+                "Over the BUMP",
+                "Through the TRENCH"
+              ],
+              "id": "AutoTrenchBump",
+              "required": true
             },
             {
-                "type": "GridIncrementDecrement",
-                "text": "Hopper Counts",
-                "options": [
-                    "0.25|1/4 Hopp.",
-                    "0.5|1/2 Hopp.",
-                    "1|Hopper"
-                ],
-                "id": "AutoBatchCount",
-                "required": true
-             },
+              "type": "GenericToggle",
+              "text": "Did they climb in Auto?",
+              "id": "AutoClimb"
+            },
             {
                 "type": "GenericTextArea",
-                "text": "Auto Notes",
-                "placeholder": [
-                    "Defense heavy..."
-                ],
+                "text": "General Auto Notes",
                 "id": "AutoNotes"
             },
             {
                 "type": "Spacing"
-            },
-             {
-                "type": "GenericToggle",
-                "text": "Did they climb in Auto?",
-                "id": "AutoClimb"
             },
             {
                 "type": "GenericHeaderTwo",
                 "text": "Teleop"
             },
             {
-                "type": "GridIncrementDecrement",
-                "text": "Singular Counts",
-                "options": [
-                    "1|1",
-                    "5|5",
-                    "10|10"
-                ],
-                "id": "TeleopSingularCount"
+              "type": "GenericCheckboxSelect",
+              "text": "Where do they score in TELEOP?",
+              "options": [
+                "Centered, near Driver Station",
+                "Centered, flush with HUB",
+                "Depot Side, near Driver Station",
+                "Depot Side, near TRENCH",
+                "Human Player Side, near Driver Station",
+                "Human Player Side, near TRENCH"
+              ],
+              "id": "TeleopScoringSide",
+              "required": true
             },
             {
-                "type": "GridIncrementDecrement",
-                "text": "Hopper Counts",
-                "options": [
-                    "0.25|1/4 Hopp.",
-                    "0.5|1/2 Hopp.",
-                    "1|Hopper"
-                ],
-                "id": "TeleopBatchCount"
+              "type": "GenericToggle",
+              "text": "Do they shoot while moving?",
+              "id": "ShootOnTheMove",
+              "required": true
             },
             {
-                "type": "GenericTextArea",
-                "text": "Teleop Notes",
-                "placeholder": [
-                    "Text goes here..."
-                ],
-                "id": "TeleopNotes"
-            },
-            {
-                "type": "Spacing"
-            },
-            {
-                "type": "GenericHeaderTwo",
-                "text": "Climb"
+              "type": "GenericCheckboxSelect",
+              "text": "How do they traverse to the NEUTRAL ZONE in TELEOP?",
+              "options": [
+                "Over the BUMP",
+                "Through the TRENCH"
+              ],
+              "id": "TeleopTrenchBump",
+              "required": true
             },
             {
                 "type": "GenericDropdown",
-                "text": "Did the robot climb in Teleop?",
+                "text": "Did the robot climb in teleop?",
                 "options": [
-                    "None",
+                    "No",
                     "L1",
                     "L2",
                     "L3"
@@ -188,7 +173,7 @@
             },
             {
                 "type": "GenericDropdown",
-                "text": "How long did it take to climb to said level?",
+                "text": "How long did it take to climb to said level, including alignment?",
                 "options": [
                     ">20 seconds",
                     "10-20 seconds",
@@ -198,12 +183,9 @@
                 "id": "ClimbSpeed"
             },
             {
-                "type": "GenericTextArea",
-                "text": "Climb Notes",
-                "placeholder": [
-                    "climbed using..."
-                ],
-                "id": "EndgameNotes"
+              "type": "GenericTextArea",
+              "text": "Teleop Notes",
+              "id": "TeleopNotes"
             },
             {
                 "type": "Spacing"
@@ -221,22 +203,25 @@
             "type": "GenericDropdown",
                 "text": "How tippy was their robot?",
                 "options": [
-                    "Very Tippy",
-                    "Moderately Tippy",
+                    "Very tippy",
+                    "Moderately tippy",
                     "Stable"
                 ],
                 "id": "StabilityRating",
                 "required": true
             },
             {
-                "type": "GenericDropdown",
-                "text": "Robot Style",
-                "options": [
-                    "Defensive",
-                    "Offensive"
-                ],
-                "id": "RobotStyleType",
-                "required": true
+              "type": "GenericCheckboxSelect",
+              "text": "What roles do they play?",
+              "options": [
+                "Shooter, dumper",
+                "Shooter, sprinter",
+                "Passer",
+                "Shover",
+                "Defense"
+              ],
+              "id": "RobotStyleType",
+              "required": true
             },
             {
                 "type": "GenericDropdown",
@@ -263,14 +248,15 @@
                 ],
                 "id": "IntakeSpeed"
             },
-            {"type": "GenericDropdown",
+            {
+                "type": "GenericDropdown",
                 "text": "How fast was their throughput?",
                 "options": [
-                    "Very Good: Finished Outtaking in 0-10 Seconds",
-                    "Good: Finished Outtaking in 10-15 Seconds",
-                    "Okay: Finished Outtaking in 15-20 Seconds",
-                    "Poor: Finished Outtaking in 20-25 Seconds",
-                    "Very Poor: Spent the entire shift Outtaking"
+                    "Very Good: Finished outtaking in 0-5 seconds",
+                    "Good: Finished outtaking in 5-10 seconds",
+                    "Okay: Finished outtaking in 10-15 seconds",
+                    "Poor: Finished outtaking in 15-20 seconds",
+                    "Very Poor: Spent the entire shift outtaking"
                 ],
                 "id": "ThroughputSpeed"
             },
@@ -313,9 +299,6 @@
             {
                 "type": "GenericTextArea",
                 "text": "Rating Notes",
-                "placeholder": [
-                    ""
-                ],
                 "id": "RatingNotes"
             },
             {
@@ -333,23 +316,22 @@
                 "DriverStation",
                 "TeamNumber",
                 "StartingPosition",
-                "ScoringSide",
-                "AutoSingularCount",
-                "AutoBatchCount",
-                "AutoNotes",
+                "AutoScoringSide",
+                "AutoTrenchBump",
                 "AutoClimb",
-                "TeleopSingularCount",
-                "TeleopBatchCount",
-                "TeleopNotes",
+                "AutoNotes",
+                "TeleopScoringSide",
+                "ShootOnTheMove",
+                "TeleopTrenchBump",
                 "TeleopClimb",
                 "ClimbSpeed",
-                "EndgameNotes",
+                "TeleopNotes",
                 "Disabled",
                 "StabilityRating",
                 "RobotStyleType",
                 "DriverRating",
-                "ThroughputSpeed",
                 "IntakeSpeed",
+                "ThroughputSpeed",
                 "DefenseRating",
                 "IntakeDefenseRating",
                 "ShooterDefenseRating",
@@ -401,30 +383,17 @@
             },
             {
                 "type": "GenericTextInput",
-                "text": "What is the size of their drivetrain length, without bumpers, in inches",
-                "placeholder":  [
-                    "24"
-                ],
-                "required": true,
-                "id": "DrivetrainLength"
-            },
-            {
-                "type": "GenericTextInput",
-                "text": "What is the size of their drivetrain width, without bumpers, in inches",
+                "text": "What is the weight of their robot without batteries & bumpers, in pounds",
                 "placeholder": [
-                    "24"
-                ],
-                "required": true,
-                "id": "DrivetrainWidth"
-            },
-            {
-                "type": "GenericTextInput",
-                "text": "What is the weight of their robot, in pounds",
-                "placeholder": [
-                    "120"
+                    "115"
                 ],
                 "required": true,
                 "id": "WeightOfRobot"
+            },
+            {
+              "type": "GenericToggle",
+              "text": "Take a picture of the team's robot and put it in #upl_scouting_qrcodes",
+              "required": true
             },
             {
                 "type": "DarkButton",
@@ -435,11 +404,9 @@
         "exports": {
             "delimiter": "|" ,
             "order": [
-                "ScoutId" ,
-                "TeamNumber" ,
-                "HopperCapacity" ,
-                "DrivetrainLength" ,
-                "DrivetrainWidth",
+                "ScoutId",
+                "TeamNumber",
+                "HopperCapacity",
                 "WeightOfRobot"
             ]
         }
