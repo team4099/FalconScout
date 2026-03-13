@@ -4,6 +4,13 @@ import React, { useEffect, useState } from "react"
 function GridIncrementDecrement(props: ComponentSetup) {
   const [count, setCount] = useState(0)
 
+  const updateStateText = (value: any) => {
+        // console.log(props.getValue)
+        var state = props.getValue
+        state[props.id] = value
+        props.setValue(state)
+    }
+
   useEffect(() => {
     props.setValue({
       ...props.getValue,
@@ -25,7 +32,10 @@ function GridIncrementDecrement(props: ComponentSetup) {
           return (
             <button
               key={idx}
-              onClick={() => setCount(s => Math.max(0, s - n))}
+              onClick={() => {
+              setCount(s => Math.max(0, s - n))
+                updateStateText(Math.max(0, count - n))
+              }}
               className={`h-14 rounded-lg text-lg text-black
               bg-[#FDE7E7] hover:opacity-90 transition`}
             >
@@ -41,7 +51,12 @@ function GridIncrementDecrement(props: ComponentSetup) {
           return (
             <button
               key={idx}
-              onClick={() => setCount(s => Math.max(0, s + n))}
+              onClick={
+              () => {
+                setCount(s => Math.max(0, s + n))
+                updateStateText(Math.max(0, count + n))
+              }
+              }
               className={`h-14 rounded-lg text-lg text-black
               bg-[#E2F8E3] hover:opacity-90 transition`}
             >
