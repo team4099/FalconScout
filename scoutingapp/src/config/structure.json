@@ -163,7 +163,7 @@
                 "type": "GenericDropdown",
                 "text": "Did the robot climb in teleop?",
                 "options": [
-                    "None",
+                    "No climb",
                     "L1",
                     "L2",
                     "L3"
