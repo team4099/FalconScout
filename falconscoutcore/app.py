@@ -18,7 +18,7 @@ from streamlit.components.v1 import html
 loop = asyncio.new_event_loop()
 asyncio.set_event_loop(loop)
 
-from data_validation.data_val_2025 import DataValidation2025
+from data_validation.data_val_2026 import DataValidation2026
 
 load_dotenv()
 github_instance = Github(os.getenv("GITHUB_KEY"))
