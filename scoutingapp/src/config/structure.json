@@ -391,9 +391,13 @@
                 "id": "WeightOfRobot"
             },
             {
-              "type": "GenericToggle",
-              "text": "Take a picture of the team's robot and put it in #upl_scouting_qrcodes",
-              "required": true
+                "type": "GenericDropdown",
+                "text": "Take a picture of the team's robot and put it in #upl_scouting_qrcodes?",
+                "options": [
+                    "Done",
+                ],
+                "id": "ConfirmPictureTaken",
+                "required": true
             },
             {
                 "type": "DarkButton",
