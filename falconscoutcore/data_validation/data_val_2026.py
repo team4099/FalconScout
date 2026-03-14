@@ -72,30 +72,12 @@ class DataValidation2026(BaseDataValidation):
                 climb_level=submission[self.config["teleop_climb"]],
             )
 
-   
-
-    def scored_more_than_eighty_in_auto(
-            self,
-            match_key: str,
-            team_number: int,
-            auto_points: int,
-    ):
-        """Marks an error if more than 80 points were scored in auto."""
-        if auto_points > 80:
-            self.add_error(
-                f"In {match_key}, {team_number} was said to have scored {auto_points} AUTO POINTS WHICH IS IMPOSSIBLE.",
-                ErrorType.INCORRECT_DATA,
-                match_key,
-                team_number,
-            )
-
     def tba_validate_climb_state(
             self,
             match_key: str,
             team_number: int,
             alliance: int,
             driver_station: int,
-            parked: bool,
             climb_level: str
         ) -> None:
         """Validates the final climb state of the robot using TBA data."""
@@ -112,7 +94,7 @@ class DataValidation2026(BaseDataValidation):
 
         
 
-        if tba_climb_status != climb_level.replace(" ", "") and not parked:
+        if tba_climb_status != climb_level.replace(" ", ""):
             self.add_error(
                 f"In {match_key}, {team_number} was said to have a climbing status of {climb_level.upper()} despite TBA marking them as {tba_climb_status.upper()}.",
                 ErrorType.INCORRECT_DATA,
