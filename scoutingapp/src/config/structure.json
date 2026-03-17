@@ -394,7 +394,7 @@
                 "type": "GenericDropdown",
                 "text": "Take a picture of the team's robot and put it in #upl_scouting_qrcodes?",
                 "options": [
-                    "Done",
+                    "Done"
                 ],
                 "id": "ConfirmPictureTaken",
                 "required": true
