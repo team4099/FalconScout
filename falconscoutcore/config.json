@@ -36,13 +36,13 @@
             "HopperCapacity",
             "WeightOfRobot"
         ],
-        "json_file": "./data/2026vaale_match_data.json",
-        "pit_json_file": "./data/2026vaale_pit_scouting_data.json",
+        "json_file": "./data/2026vache_match_data.json",
+        "pit_json_file": "./data/2026vache_pit_scouting_data.json",
         "error_json": "./data/errors.json"
     },
     "repo_config": {
         "repo": "team4099/ScoutingAppData",
-        "update_json": "2026vaale_match_data.json",
-        "update_pit_json": "2026vaale_pit_scouting_data.json"
+        "update_json": "2026vache_match_data.json",
+        "update_pit_json": "2026vache_pit_scouting_data.json"
     }
 }
