@@ -18,7 +18,6 @@
             "TeleopClimb",
             "ClimbSpeed",
             "TeleopNotes",
-            "EndgameNotes",
             "Disabled",
             "StabilityRating",
             "RobotStyleType",
