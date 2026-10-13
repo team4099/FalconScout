@@ -10,7 +10,11 @@ export function QRCodeModal(props: ComponentSetup){
 
     const addToLocalStorage = function () {
         var currentData = JSON.parse(localStorage.getItem("codes") as string)
-        currentData[props.getValue["MatchKey"].join("")] = props.getValue["export"].text
+        if (props.getValue["MatchKey"] !== undefined) {
+            currentData["MATCH - Match " + props.getValue["MatchKey"].join("")] = props.getValue["export"].text
+        } else {
+            currentData["PITS - Team " + props.getValue["TeamNumber"]] = props.getValue["export"].text
+        }
         localStorage.setItem("codes", JSON.stringify(currentData))
     }
 

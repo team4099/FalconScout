@@ -1,11 +1,11 @@
 [
     {
-        "name": "2025 Scouting App",
-        "description": "Team 4099: The Falcon's 2025 scouting data collection page",
+        "name": "2026 Scouting App",
+        "description": "Team 4099: The Falcon's 2026 scouting data collection page",
         "components": [
             {
                 "type": "GenericHeaderOne",
-                "text": "2025 Scouting App"
+                "text": "2026 Scouting App"
             },
             {
                 "type": "GenericHeaderTwo",
@@ -72,26 +72,6 @@
                 "type": "Spacing"
             },
             {
-              "type": "GridIncrementDecrement",
-              "text": "Singular Counts",
-              "options": [
-                "1|1",
-                "2|2",
-                "5|5"
-              ],
-              "id": "SingularCount"
-            },
-            {
-              "type": "GridIncrementDecrement",
-              "text": "Hopper Counts",
-              "options": [
-                "0.25|1/4 Hopp.",
-                "0.5|1/2 Hopp.",
-                "1|Hopper"
-              ],
-              "id": "BatchCount"
-            },
-            {
                 "type": "GenericHeaderTwo",
                 "text": "Auto"
             },
@@ -99,108 +79,47 @@
                 "type": "GenericDropdown",
                 "text": "Robot Starting Position",
                 "options": [
-                    "Processor Side",
-                    "Middle",
-                    "Non-Processor Side"
+                    "Depot Side, under TRENCH",
+                    "Depot Side, on BUMP",
+                    "Center",
+                    "Human-Player Side on TRENCH",
+                    "Human-Player Side, on BUMP"
                 ],
                 "id": "StartingPosition",
                 "required": true
             },
             {
-                "type": "GenericToggle",
-                "text": "Did they leave the starting zone (black line)?",
-                "id": "AutoLeave"
-            },
-            {
                 "type": "GenericCheckboxSelect",
-                "text": "Auto Scoring Side",
+                "text": "Where do they score in AUTO?",
                 "options": [
-                    "Processor Side",
-                    "Non-Processor Side"
+                    "Centered, near Driver Station",
+                    "Centered, flush with HUB",
+                    "Depot Side, near Driver Station",
+                    "Depot Side, near TRENCH",
+                    "Human Player Side, near Driver Station",
+                    "Human Player Side, near TRENCH"
                 ],
-                "id": "ScoringSide",
+                "id": "AutoScoringSide",
                 "required": true
             },
             {
-                "type": "IncrementNumberInput",
-                "text": "Auto Coral L1 Cycles",
-                "placeholder": [
-                    "0"
-                ],
-                "options": [
-                    "purple"
-                ],
-                "id": "AutoCoralL1"
+              "type": "GenericCheckboxSelect",
+              "text": "How do they traverse to the NEUTRAL ZONE in AUTO?",
+              "options": [
+                "Over the BUMP",
+                "Through the TRENCH"
+              ],
+              "id": "AutoTrenchBump",
+              "required": true
             },
             {
-                "type": "IncrementNumberInput",
-                "text": "Auto Coral L2 Cycles",
-                "placeholder": [
-                    "0"
-                ],
-                "options": [
-                    "purple"
-                ],
-                "id": "AutoCoralL2"
-            },
-            {
-                "type": "IncrementNumberInput",
-                "text": "Auto Coral L3 Cycles",
-                "placeholder": [
-                    "0"
-                ],
-                "options": [
-                    "purple"
-                ],
-                "id": "AutoCoralL3"
-            },
-            {
-                "type": "IncrementNumberInput",
-                "text": "Auto Coral L4 Cycles",
-                "placeholder": [
-                    "0"
-                ],
-                "options": [
-                    "purple"
-                ],
-                "id": "AutoCoralL4"
-            },
-            {
-                "type": "IncrementNumberInput",
-                "text": "Auto Coral Misses",
-                "placeholder": [
-                    "0"
-                ],
-                "options": [
-                    "red"
-                ],
-                "id": "AutoCoralMisses"
-            },
-            {
-                "type": "IncrementNumberInput",
-                "text": "Auto Net Cycles",
-                "placeholder": [
-                    "0"
-                ],
-                "options": [
-                    "green"
-                ],
-                "id": "AutoBarge"
-            },
-            {
-                "type": "IncrementNumberInput",
-                "text": "Auto Processor Cycles",
-                "placeholder": [
-                    "0"
-                ],
-                "options": [
-                    "green"
-                ],
-                "id": "AutoProcessor"
+              "type": "GenericToggle",
+              "text": "Did they climb in Auto?",
+              "id": "AutoClimb"
             },
             {
                 "type": "GenericTextArea",
-                "text": "Auto Notes",
+                "text": "General Auto Notes",
                 "id": "AutoNotes"
             },
             {
@@ -211,130 +130,62 @@
                 "text": "Teleop"
             },
             {
-                "type": "IncrementNumberInput",
-                "text": "Teleop Coral L1 Cycles",
-                "placeholder": [
-                    "0"
-                ],
-                "options": [
-                    "purple"
-                ],
-                "id": "TeleopCoralL1"
+              "type": "GenericCheckboxSelect",
+              "text": "Where do they score in TELEOP?",
+              "options": [
+                "Centered, near Driver Station",
+                "Centered, flush with HUB",
+                "Depot Side, near Driver Station",
+                "Depot Side, near TRENCH",
+                "Human Player Side, near Driver Station",
+                "Human Player Side, near TRENCH"
+              ],
+              "id": "TeleopScoringSide",
+              "required": true
             },
             {
-                "type": "IncrementNumberInput",
-                "text": "Teleop Coral L2 Cycles",
-                "placeholder": [
-                    "0"
-                ],
-                "options": [
-                    "purple"
-                ],
-                "id": "TeleopCoralL2"
+              "type": "GenericToggle",
+              "text": "Do they shoot while moving?",
+              "id": "ShootOnTheMove",
+              "required": true
             },
             {
-                "type": "IncrementNumberInput",
-                "text": "Teleop Coral L3 Cycles",
-                "placeholder": [
-                    "0"
-                ],
-                "options": [
-                    "purple"
-                ],
-                "id": "TeleopCoralL3"
-            },
-            {
-                "type": "IncrementNumberInput",
-                "text": "Teleop Coral L4 Cycles",
-                "placeholder": [
-                    "0"
-                ],
-                "options": [
-                    "purple"
-                ],
-                "id": "TeleopCoralL4"
-            },
-            {
-                "type": "IncrementNumberInput",
-                "text": "Teleop Coral Misses",
-                "placeholder": [
-                    "0"
-                ],
-                "options": [
-                    "red"
-                ],
-                "id": "TeleopCoralMisses"
-            },
-            {
-                "type": "IncrementNumberInput",
-                "text": "Teleop Net Cycles",
-                "placeholder": [
-                    "0"
-                ],
-                "options": [
-                    "green"
-                ],
-                "id": "TeleopAlgaeBarge"
-            },
-            {
-                "type": "IncrementNumberInput",
-                "text": "Teleop Processor Cycles",
-                "placeholder": [
-                    "0"
-                ],
-                "options": [
-                    "green"
-                ],
-                "id": "TeleopAlgaeProcessor"
-            },
-            {
-                "type": "GenericToggle",
-                "text": "Did the robot remove algae from the reef?",
-                "id": "TeleopAlgaeRemoval"
-            },
-            {
-                "type": "GenericTextArea",
-                "text": "Teleop Notes",
-                "id": "TeleopNotes"
-            },
-            {
-                "type": "Spacing"
-            },
-            {
-                "type": "GenericHeaderTwo",
-                "text": "Endgame"
-            },
-            {
-                "type": "GenericToggle",
-                "text": "Did the robot park during endgame?",
-                "id": "Parked"
+              "type": "GenericCheckboxSelect",
+              "text": "How do they traverse to the NEUTRAL ZONE in TELEOP?",
+              "options": [
+                "Over the BUMP",
+                "Through the TRENCH"
+              ],
+              "id": "TeleopTrenchBump",
+              "required": true
             },
             {
                 "type": "GenericDropdown",
-                "text": "Did the robot climb onto the cage?",
+                "text": "Did the robot climb in teleop?",
                 "options": [
-                    "No Climb",
-                    "Deep Climb",
-                    "Shallow Climb"
+                    "No climb",
+                    "L1",
+                    "L2",
+                    "L3"
                 ],
-                "id": "ClimbStatus",
+                "id": "TeleopClimb",
                 "required": true
-            },    
-
+            },
             {
                 "type": "GenericDropdown",
-                "text": "How fast were they at climbing onto the cage?",
+                "text": "How long did it take to climb to said level, including alignment?",
                 "options": [
-                    "Slow (>10 seconds)",
-                    "Average (5-10 seconds)",
-                    "Fast (<5 seconds)"
+                    ">20 seconds",
+                    "10-20 seconds",
+                    "5-10 seconds",
+                    "<5 seconds"
                 ],
                 "id": "ClimbSpeed"
             },
             {
-                "type": "GenericTextArea",
-                "text": "Endgame Qualitative Notes",
-                "id": "EndgameNotes"
+              "type": "GenericTextArea",
+              "text": "Teleop Notes",
+              "id": "TeleopNotes"
             },
             {
                 "type": "Spacing"
@@ -352,22 +203,25 @@
             "type": "GenericDropdown",
                 "text": "How tippy was their robot?",
                 "options": [
-                    "Very Tippy",
-                    "Moderately Tippy",
+                    "Very tippy",
+                    "Moderately tippy",
                     "Stable"
                 ],
                 "id": "StabilityRating",
                 "required": true
             },
             {
-                "type": "GenericDropdown",
-                "text": "Robot Style",
-                "options": [
-                    "Defensive",
-                    "Offensive"
-                ],
-                "id": "RobotStyleType",
-                "required": true
+              "type": "GenericCheckboxSelect",
+              "text": "What roles do they play?",
+              "options": [
+                "Shooter, dumper",
+                "Shooter, sprinter",
+                "Passer",
+                "Shover",
+                "Defense"
+              ],
+              "id": "RobotStyleType",
+              "required": true
             },
             {
                 "type": "GenericDropdown",
@@ -396,6 +250,18 @@
             },
             {
                 "type": "GenericDropdown",
+                "text": "How fast was their throughput?",
+                "options": [
+                    "Very Good: Finished outtaking in 0-5 seconds",
+                    "Good: Finished outtaking in 5-10 seconds",
+                    "Okay: Finished outtaking in 10-15 seconds",
+                    "Poor: Finished outtaking in 15-20 seconds",
+                    "Very Poor: Spent the entire shift outtaking"
+                ],
+                "id": "ThroughputSpeed"
+            },
+            {
+                "type": "GenericDropdown",
                 "text": "How good are they at defending?",
                 "options": [
                     "Very Good: Severely impacted robot's intaking/scoring ability",
@@ -419,6 +285,18 @@
                 "id": "IntakeDefenseRating"
             },
             {
+                "type": "GenericDropdown",
+                "text": "How good are they at shooting while being defended?",
+                "options": [
+                    "Very Good:  Little to no impact on the robot's shooting ability",
+                    "Good: Some impact on robot's shooting ability",
+                    "Okay: Notable impact on robot's shooting ability",
+                    "Poor: Heavy impact on the robot's shooting ability",
+                    "Very Poor: Robot's shooting ability severely hampered, little to no accuracy"
+                ],
+                "id": "ShooterDefenseRating"
+            },
+            {
                 "type": "GenericTextArea",
                 "text": "Rating Notes",
                 "id": "RatingNotes"
@@ -438,96 +316,45 @@
                 "DriverStation",
                 "TeamNumber",
                 "StartingPosition",
-                "AutoLeave",
-                "ScoringSide",
-                "AutoCoralL1",
-                "AutoCoralL2",
-                "AutoCoralL3",
-                "AutoCoralL4",
-                "AutoCoralMisses",
-                "AutoBarge",
-                "AutoProcessor",
+                "AutoScoringSide",
+                "AutoTrenchBump",
+                "AutoClimb",
                 "AutoNotes",
-                "TeleopCoralL1",
-                "TeleopCoralL2",
-                "TeleopCoralL3",
-                "TeleopCoralL4",
-                "TeleopCoralMisses",
-                "TeleopAlgaeBarge",
-                "TeleopAlgaeProcessor",
-                "TeleopAlgaeRemoval",
-                "TeleopNotes",
-                "Parked",
-                "ClimbStatus",
+                "TeleopScoringSide",
+                "ShootOnTheMove",
+                "TeleopTrenchBump",
+                "TeleopClimb",
                 "ClimbSpeed",
-                "EndgameNotes",
+                "TeleopNotes",
                 "Disabled",
                 "StabilityRating",
                 "RobotStyleType",
                 "DriverRating",
                 "IntakeSpeed",
+                "ThroughputSpeed",
                 "DefenseRating",
                 "IntakeDefenseRating",
+                "ShooterDefenseRating",
                 "RatingNotes"
             ]
         }
     },
     {
-        "name": "2025 Note Scouting App",
-        "description": "Team 4099: The Falcon's 2025 note scouting app for providing qualitative data.",
+        "name": "2026 Pit Scouting App",
+        "description": "Team 4099: The Falcon's 2026 pit scouting app for pit data collection.",
         "components": [
             {
                 "type": "GenericHeaderOne",
-                "text": "2025 Note Scouting App"
-            },
-            {
-                "type": "GenericHeaderTwo",
-                "text": "Match Info"
+                "text": "2026 Pit Scouting App"
             },
             {
                 "type": "GenericTextInput",
                 "text": "Scout Name",
                 "placeholder": [
-                    "Pranav"
+                    "Yusuf"
                 ],
                 "required": true,
                 "id": "ScoutId"
-            },
-            {
-                "type": "DropdownTextInput",
-                "text": "Match Key",
-                "options": [
-                    "qm",
-                    "qf",
-                    "sf",
-                    "f"
-                ],
-                "placeholder": [
-                    "number"
-                ],
-                "required": true,
-                "id": "MatchKey"
-            },
-            {
-                "type": "GenericRadioSelect",
-                "text": "Alliance",
-                "options": [
-                    "red",
-                    "blue"
-                ],
-                "required": true,
-                "id": "Alliance"
-            },
-            {
-                "type": "GenericDropdown",
-                "text": "Driver Station",
-                "options": [
-                    "1",
-                    "2",
-                    "3"
-                ],
-                "required": true,
-                "id": "DriverStation"
             },
             {
                 "type": "GenericTextInput",
@@ -546,44 +373,31 @@
                 "text": "General Notes"
             },
             {
-                "type": "GenericToggle",
-                "text": "Did they run into obstacles while driving autonomously?",
-                "id": "AutoDrivingSkills"
+                "type": "GenericTextInput",
+                "text": "What is their hopper capacity?",
+                "placeholder": [
+                  "32"
+                ],
+              "required": true,
+              "id": "HopperCapacity"
             },
             {
-                "type": "GenericTextArea",
-                "text": "Auto General Notes",
-                "id": "AutoGeneralNotes"
+                "type": "GenericTextInput",
+                "text": "What is the weight of their robot without batteries & bumpers, in pounds",
+                "placeholder": [
+                    "115"
+                ],
+                "required": true,
+                "id": "WeightOfRobot"
             },
             {
                 "type": "GenericDropdown",
-                "text": "Where are they mostly intaking from?",
+                "text": "Take a picture of the team's robot and put it in #upl_scouting_qrcodes?",
                 "options": [
-                    "-",
-                    "Coral Station",
-                    "Ground"
+                    "Done"
                 ],
-                "id": "TeleopIntakeLocation"
-            },
-            {
-                "type": "GenericTextArea",
-                "text": "Teleop General Notes",
-                "id": "TeleopGeneralNotes"
-            },
-            {
-                "type": "GenericDropdown",
-                "text": "Climb Alignment Speed",
-                "options": [
-                    "-",
-                    "Slow: Took at least 5 seconds to climb on the cage",
-                    "Fast: Took at most 5 seconds to climb on the cage"
-                ],
-                "id": "ClimbAlignmentSpeed"
-            },
-            {
-                "type": "GenericTextArea",
-                "text": "Endgame General Notes",
-                "id": "EndgameGeneralNotes"
+                "id": "ConfirmPictureTaken",
+                "required": true
             },
             {
                 "type": "SubmitButton",
@@ -592,19 +406,12 @@
             }
         ],
         "exports": {
-            "delimiter": "|",
+            "delimiter": "|" ,
             "order": [
                 "ScoutId",
-                "MatchKey",
-                "Alliance",
-                "DriverStation",
                 "TeamNumber",
-                "AutoDrivingSkills",
-                "AutoGeneralNotes",
-                "TeleopIntakeLocation",
-                "TeleopGeneralNotes",
-                "ClimbAlignmentSpeed",
-                "EndgameGeneralNotes"
+                "HopperCapacity",
+                "WeightOfRobot"
             ]
         }
     }

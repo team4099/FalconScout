@@ -4,6 +4,13 @@ import React, { useEffect, useState } from "react"
 function GridIncrementDecrement(props: ComponentSetup) {
   const [count, setCount] = useState(0)
 
+  const updateStateText = (value: any) => {
+        // console.log(props.getValue)
+        var state = props.getValue
+        state[props.id] = value
+        props.setValue(state)
+    }
+
   useEffect(() => {
     props.setValue({
       ...props.getValue,
