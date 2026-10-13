@@ -1,9 +1,9 @@
 import React from "react"
 import { ComponentSetup } from "../interface"
+import { useTheme } from "../ThemeContext"
 import "./index.css"
 
 function GenericRadioSelect(props: ComponentSetup) {
-
     const updateStateSelections = (event: any) => {
 		//console.log(props.getValue)
 		var state = props.getValue
@@ -22,10 +22,10 @@ function GenericRadioSelect(props: ComponentSetup) {
 
     return (
 		<div className="mx-3 my-3">
-			<label className="block text-[#344054] text-sm mb-2">
+			<label className="block text-sm mb-2">
 				{props.text}
                 { props.required == true && (
-					<span className="ml-1 text-red-400 font-bold">
+					<span className="ml-1  text-[var(--default-deep-red)] font-bold">
 						*	
 					</span>
 				)}
@@ -33,16 +33,16 @@ function GenericRadioSelect(props: ComponentSetup) {
 			<form onChange={updateStateSelections}>
                 {props.options?.length == 2 && props.options?.[0] == "red" && props.options?.[1] == "blue" &&
                     <div className="flex flex-row gap-2">
-                        <div className="basis-1/2 p-1 pt-[8px] h-[3em] border-4 rounded-xl border-[#e5534b]">
+                        <div className="basis-1/2 p-1 pt-[8px] h-[3em] border-4 rounded-xl border-[var(--default-deep-red)]">
                             <div className="mb-1 ml-2">
                                 <input type="radio" id="red" name="Selection" value="red" className={`radio ${props.id}`}/>
-                                <p className="ml-3 inline text-black font-semibold">red</p>
+                                <p className="ml-3 inline font-semibold text-[var(--text-color)]">red</p>
                             </div>
                         </div>
-                        <div className="basis-1/2 p-1 pt-[8px] h-[3em] border-4 rounded-xl border-[#529bf5]">
+                        <div className="basis-1/2 p-1 pt-[8px] h-[3em] border-4 rounded-xl border-[var(--default-deep-blue)]">
                             <div className="mb-1 ml-2">
                                 <input type="radio" id="blue" name="Selection" value="blue" className={`radio ${props.id}`}/>
-                                <p className="ml-3 inline text-black font-semibold">blue</p>
+                                <p className="ml-3 inline font-semibold text-[var(--text-color)]">blue</p>
                             </div>
                         </div>
                     </div>

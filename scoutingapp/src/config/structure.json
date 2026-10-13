@@ -302,7 +302,7 @@
                 "id": "RatingNotes"
             },
             {
-                "type": "DarkButton",
+                "type": "SubmitButton",
                 "text": "Submit",
                 "id": "result"
             }
@@ -400,7 +400,7 @@
                 "required": true
             },
             {
-                "type": "DarkButton",
+                "type": "SubmitButton",
                 "text": "Submit",
                 "id": "result"
             }

@@ -4,10 +4,13 @@ import App from './App'
 import './index.css'
 import { BrowserRouter, HashRouter } from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
+import { ThemeProvider } from './components/ThemeContext';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 <HashRouter>
-    <App />
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
   </HashRouter>
 )
 

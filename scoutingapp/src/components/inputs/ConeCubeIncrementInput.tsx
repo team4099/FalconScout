@@ -19,7 +19,7 @@ function ConeCubeIncrementInput(props: ComponentSetup) {
 
     return (
         <div className="mx-3 my-3">
-            <label className="block text-[#344054] text-sm mb-2">
+            <label className="block text-sm mb-2">
                 { props.text }
             </label>
             <div className="flex justify-between"> 
